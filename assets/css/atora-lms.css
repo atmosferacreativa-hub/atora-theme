@@ -1,17 +1,17 @@
-body.atora-them .cc-wrap,
-body.atora-them .cov-wrap {
+body.atora-theme .cc-wrap,
+body.atora-theme .cov-wrap {
 	width: min(var(--as-container), calc(100% - 40px)) !important;
 	max-width: none !important;
 	margin-inline: auto !important;
 	font-family: var(--as-font-sans) !important;
 }
 
-body.atora-them .cc-hero,
-body.atora-them .cov-hero {
+body.atora-theme .cc-hero,
+body.atora-theme .cov-hero {
 	padding-top: 46px !important;
 }
 
-body.atora-them .atora-them-course-hero {
+body.atora-theme .atora-theme-course-hero {
 	display: grid !important;
 	grid-template-columns: minmax(0, .96fr) minmax(320px, .78fr) !important;
 	gap: 34px !important;
@@ -19,21 +19,21 @@ body.atora-them .atora-them-course-hero {
 	padding: 54px 0 30px !important;
 }
 
-body.atora-them .atora-them-course-hero__panel {
+body.atora-theme .atora-theme-course-hero__panel {
 	display: grid;
 	gap: 14px;
 }
 
-body.atora-them .atora-them-course-hero__image {
+body.atora-theme .atora-theme-course-hero__image {
 	margin: 0 !important;
 }
 
-body.atora-them .atora-them-course-hero__cta {
+body.atora-theme .atora-theme-course-hero__cta {
 	position: relative;
 	overflow: hidden;
 }
 
-body.atora-them .atora-them-course-hero__cta::before {
+body.atora-theme .atora-theme-course-hero__cta::before {
 	content: "";
 	position: absolute;
 	inset: -50% auto auto -20%;
@@ -44,7 +44,7 @@ body.atora-them .atora-them-course-hero__cta::before {
 	pointer-events: none;
 }
 
-body.atora-them .atora-them-student-hero {
+body.atora-theme .atora-theme-student-hero {
 	display: grid !important;
 	grid-template-columns: minmax(0, 1fr) minmax(280px, .66fr) !important;
 	gap: 24px !important;
@@ -52,133 +52,133 @@ body.atora-them .atora-them-student-hero {
 	padding: 28px !important;
 }
 
-body.atora-them .cc-hero-title,
-body.atora-them .cov-title {
+body.atora-theme .cc-hero-title,
+body.atora-theme .cov-title {
 	font-family: var(--as-font-serif) !important;
 	letter-spacing: 0 !important;
 	color: var(--as-ink) !important;
 	line-height: 1 !important;
 }
 
-body.atora-them .cc-hero-kicker,
-body.atora-them .cov-kicker,
-body.atora-them .cc-section-title,
-body.atora-them .cov-section-title,
-body.atora-them .atora-lesson-kicker,
-body.atora-them .atora-lesson-eyebrow {
+body.atora-theme .cc-hero-kicker,
+body.atora-theme .cov-kicker,
+body.atora-theme .cc-section-title,
+body.atora-theme .cov-section-title,
+body.atora-theme .atora-lesson-kicker,
+body.atora-theme .atora-lesson-eyebrow {
 	font-family: var(--as-font-mono) !important;
 	letter-spacing: .08em !important;
 	text-transform: uppercase !important;
 	color: var(--as-amber) !important;
 }
 
-body.atora-them .cc-hero-tagline,
-body.atora-them .cov-desc,
-body.atora-them .cc-testimonial-quote,
-body.atora-them .cc-profile-text,
-body.atora-them .cc-faq-a {
+body.atora-theme .cc-hero-tagline,
+body.atora-theme .cov-desc,
+body.atora-theme .cc-testimonial-quote,
+body.atora-theme .cc-profile-text,
+body.atora-theme .cc-faq-a {
 	color: var(--as-muted) !important;
 }
 
-body.atora-them .cc-section,
-body.atora-them .cc-section--split,
-body.atora-them .cov-section {
+body.atora-theme .cc-section,
+body.atora-theme .cc-section--split,
+body.atora-theme .cov-section {
 	border-top-color: var(--as-rule) !important;
 }
 
-body.atora-them .cc-hero-media-card,
-body.atora-them .cc-hero-cta-box,
-body.atora-them .cc-profile-box,
-body.atora-them .cc-testimonial,
-body.atora-them .cc-faq-item,
-body.atora-them .cc-related-card,
-body.atora-them .cov-hero,
-body.atora-them .cov-card,
-body.atora-them .cov-module,
-body.atora-them .cov-lesson-row {
+body.atora-theme .cc-hero-media-card,
+body.atora-theme .cc-hero-cta-box,
+body.atora-theme .cc-profile-box,
+body.atora-theme .cc-testimonial,
+body.atora-theme .cc-faq-item,
+body.atora-theme .cc-related-card,
+body.atora-theme .cov-hero,
+body.atora-theme .cov-card,
+body.atora-theme .cov-module,
+body.atora-theme .cov-lesson-row {
 	background: var(--as-surface) !important;
 	border-color: var(--as-rule) !important;
 	border-radius: 18px !important;
 	box-shadow: 0 14px 38px rgba(13, 13, 11, .06) !important;
 }
 
-body.atora-them .cc-hero-media-top img,
-body.atora-them .cov-hero-thumb,
-body.atora-them .cov-thumb-img {
+body.atora-theme .cc-hero-media-top img,
+body.atora-theme .cov-hero-thumb,
+body.atora-theme .cov-thumb-img {
 	border-radius: 22px !important;
 	box-shadow: var(--as-shadow) !important;
 }
 
-body.atora-them .cc-btn-primary,
-body.atora-them .cov-btn-primary,
-body.atora-them .atora-btn-primary,
-body.atora-them .clms-button-primary {
+body.atora-theme .cc-btn-primary,
+body.atora-theme .cov-btn-primary,
+body.atora-theme .atora-btn-primary,
+body.atora-theme .clms-button-primary {
 	background: var(--as-blue) !important;
 	color: #fff !important;
 	border-radius: 999px !important;
 	box-shadow: none !important;
 }
 
-body.atora-them .cc-btn-primary:hover,
-body.atora-them .cov-btn-primary:hover,
-body.atora-them .atora-btn-primary:hover,
-body.atora-them .clms-button-primary:hover {
+body.atora-theme .cc-btn-primary:hover,
+body.atora-theme .cov-btn-primary:hover,
+body.atora-theme .atora-btn-primary:hover,
+body.atora-theme .clms-button-primary:hover {
 	background: color-mix(in srgb, var(--as-blue) 75%, var(--as-ink)) !important;
 	color: #fff !important;
 }
 
-body.atora-them .cc-cta-bottom,
-body.atora-them .cov-cta-footer {
+body.atora-theme .cc-cta-bottom,
+body.atora-theme .cov-cta-footer {
 	background:
 		linear-gradient(135deg, color-mix(in srgb, var(--as-blue) 76%, #111) 0%, var(--as-ink) 58%, color-mix(in srgb, var(--as-amber) 54%, #111) 100%) !important;
 	border-radius: 22px !important;
 	box-shadow: var(--as-shadow) !important;
 }
 
-body.atora-them .cc-cta-bottom .cc-btn-white,
-body.atora-them .cov-cta-footer .cov-btn {
+body.atora-theme .cc-cta-bottom .cc-btn-white,
+body.atora-theme .cov-cta-footer .cov-btn {
 	border-radius: 999px !important;
 	color: var(--as-ink) !important;
 }
 
-body.atora-them .cc-benefits-list li,
-body.atora-them .cc-req-list li {
+body.atora-theme .cc-benefits-list li,
+body.atora-theme .cc-req-list li {
 	border: 1px solid color-mix(in srgb, var(--as-success, #0f8a51) 22%, transparent) !important;
 	border-radius: 12px !important;
 }
 
-body.atora-them .cc-lessons-list li {
+body.atora-theme .cc-lessons-list li {
 	background: var(--as-surface) !important;
 	border: 1px solid var(--as-rule) !important;
 	border-radius: 12px !important;
 }
 
-body.atora-them .cc-lesson-num,
-body.atora-them .cov-progress-bar,
-body.atora-them .cov-progress-bar-wrap .cov-progress-bar {
+body.atora-theme .cc-lesson-num,
+body.atora-theme .cov-progress-bar,
+body.atora-theme .cov-progress-bar-wrap .cov-progress-bar {
 	background: var(--as-blue) !important;
 	color: #fff !important;
 }
 
-body.atora-them .cc-program-chip {
+body.atora-theme .cc-program-chip {
 	background: color-mix(in srgb, var(--as-blue) 10%, var(--as-surface)) !important;
 	border-color: color-mix(in srgb, var(--as-blue) 24%, transparent) !important;
 	color: var(--as-blue) !important;
 }
 
-body.atora-them .cc-mobile-cta {
+body.atora-theme .cc-mobile-cta {
 	background: color-mix(in srgb, var(--as-surface) 94%, transparent) !important;
 	border-top-color: var(--as-rule) !important;
 }
 
-body.atora-them .cc-mobile-cta__price,
-body.atora-them .cc-mobile-cta__label {
+body.atora-theme .cc-mobile-cta__price,
+body.atora-theme .cc-mobile-cta__label {
 	color: var(--as-ink) !important;
 }
 
-body.atora-them .atora-lesson-wrap,
-body.atora-them .atora-lesson-shell,
-body.atora-them .single-lesson-wrap {
+body.atora-theme .atora-lesson-wrap,
+body.atora-theme .atora-lesson-shell,
+body.atora-theme .single-lesson-wrap {
 	--al-bg: var(--as-cream);
 	--al-bg-card: var(--as-surface);
 	--al-title: var(--as-ink);
@@ -192,38 +192,38 @@ body.atora-them .single-lesson-wrap {
 	--al-next-bdr: color-mix(in srgb, var(--as-blue) 22%, transparent);
 }
 
-body.atora-them .atora-lesson-card,
-body.atora-them .atora-lesson-video,
-body.atora-them .atora-lesson-content,
-body.atora-them .atora-lesson-resources,
-body.atora-them .atora-lesson-next,
-body.atora-them .atora-lesson-progress,
-body.atora-them .atora-lesson-live-class {
+body.atora-theme .atora-lesson-card,
+body.atora-theme .atora-lesson-video,
+body.atora-theme .atora-lesson-content,
+body.atora-theme .atora-lesson-resources,
+body.atora-theme .atora-lesson-next,
+body.atora-theme .atora-lesson-progress,
+body.atora-theme .atora-lesson-live-class {
 	background: var(--as-surface) !important;
 	border-color: var(--as-rule) !important;
 	border-radius: 18px !important;
 	box-shadow: 0 14px 38px rgba(13, 13, 11, .06) !important;
 }
 
-body.atora-them .atora-lesson-title,
-body.atora-them .atora-lesson-content h1,
-body.atora-them .atora-lesson-content h2,
-body.atora-them .atora-lesson-content h3 {
+body.atora-theme .atora-lesson-title,
+body.atora-theme .atora-lesson-content h1,
+body.atora-theme .atora-lesson-content h2,
+body.atora-theme .atora-lesson-content h3 {
 	font-family: var(--as-font-serif) !important;
 	letter-spacing: 0 !important;
 	color: var(--as-ink) !important;
 }
 
-body.atora-them .archive-course-wrap,
-body.atora-them .clms-course-archive,
-body.atora-them .clms-program-archive {
+body.atora-theme .archive-course-wrap,
+body.atora-theme .clms-course-archive,
+body.atora-theme .clms-program-archive {
 	background: var(--as-cream) !important;
 	color: var(--as-ink) !important;
 }
 
-body.atora-them .clms-course-card,
-body.atora-them .clms-program-card,
-body.atora-them .atora-course-card {
+body.atora-theme .clms-course-card,
+body.atora-theme .clms-program-card,
+body.atora-theme .atora-course-card {
 	background: var(--as-surface) !important;
 	border: 1px solid var(--as-rule) !important;
 	border-radius: 18px !important;
@@ -231,8 +231,8 @@ body.atora-them .atora-course-card {
 	overflow: hidden !important;
 }
 
-body.atora-them .clms-course-list-wrap,
-body.atora-them .clms-catalog-wrap {
+body.atora-theme .clms-course-list-wrap,
+body.atora-theme .clms-catalog-wrap {
 	--ac-white: var(--as-surface);
 	--ac-gray-50: var(--as-surface-2);
 	--ac-gray-100: var(--as-bone);
@@ -248,36 +248,36 @@ body.atora-them .clms-catalog-wrap {
 	font-family: var(--as-font-sans) !important;
 }
 
-body.atora-them .clms-ui .clms-course-grid {
+body.atora-theme .clms-ui .clms-course-grid {
 	align-items: stretch !important;
 	gap: 22px !important;
 }
 
-body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-1 {
+body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-1 {
 	grid-template-columns: minmax(0, 1fr) !important;
 }
 
-body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-2 {
+body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-2 {
 	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 
-body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-3 {
+body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
-body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-4 {
+body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-4 {
 	grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
 }
 
-body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-5 {
+body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-5 {
 	grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
 }
 
-body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-6 {
+body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-6 {
 	grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card {
+body.atora-theme .clms-ui .clms-course-card {
 	position: relative !important;
 	display: flex !important;
 	flex-direction: column !important;
@@ -290,13 +290,13 @@ body.atora-them .clms-ui .clms-course-card {
 		box-shadow .18s ease !important;
 }
 
-body.atora-them .clms-ui .clms-course-card:hover {
+body.atora-theme .clms-ui .clms-course-card:hover {
 	transform: translateY(-3px) !important;
 	border-color: color-mix(in srgb, var(--as-blue) 32%, var(--as-rule)) !important;
 	box-shadow: 0 22px 54px rgba(13, 13, 11, .10) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-thumb {
+body.atora-theme .clms-ui .clms-course-card-thumb {
 	display: block !important;
 	aspect-ratio: 16 / 10 !important;
 	background: var(--as-surface-2) !important;
@@ -304,8 +304,8 @@ body.atora-them .clms-ui .clms-course-card-thumb {
 	overflow: hidden !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-thumb img,
-body.atora-them .clms-ui .clms-course-card-thumb-img {
+body.atora-theme .clms-ui .clms-course-card-thumb img,
+body.atora-theme .clms-ui .clms-course-card-thumb-img {
 	width: 100% !important;
 	height: 100% !important;
 	display: block !important;
@@ -313,12 +313,12 @@ body.atora-them .clms-ui .clms-course-card-thumb-img {
 	transition: transform .42s ease !important;
 }
 
-body.atora-them .clms-ui .clms-course-card:hover .clms-course-card-thumb img,
-body.atora-them .clms-ui .clms-course-card:hover .clms-course-card-thumb-img {
+body.atora-theme .clms-ui .clms-course-card:hover .clms-course-card-thumb img,
+body.atora-theme .clms-ui .clms-course-card:hover .clms-course-card-thumb-img {
 	transform: scale(1.035) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-thumb-placeholder {
+body.atora-theme .clms-ui .clms-course-card-thumb-placeholder {
 	min-height: 0 !important;
 	width: 100% !important;
 	height: 100% !important;
@@ -331,7 +331,7 @@ body.atora-them .clms-ui .clms-course-card-thumb-placeholder {
 	text-transform: uppercase !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-body {
+body.atora-theme .clms-ui .clms-course-card-body {
 	display: flex !important;
 	flex: 1 1 auto !important;
 	flex-direction: column !important;
@@ -339,14 +339,14 @@ body.atora-them .clms-ui .clms-course-card-body {
 	padding: 20px !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-top {
+body.atora-theme .clms-ui .clms-course-card-top {
 	display: grid !important;
 	gap: 8px !important;
 	margin: 0 !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-level,
-body.atora-them .clms-ui .clms-course-card-status {
+body.atora-theme .clms-ui .clms-course-card-level,
+body.atora-theme .clms-ui .clms-course-card-status {
 	width: fit-content !important;
 	border: 1px solid color-mix(in srgb, var(--as-blue) 18%, transparent) !important;
 	border-radius: 999px !important;
@@ -360,21 +360,21 @@ body.atora-them .clms-ui .clms-course-card-status {
 	text-transform: uppercase !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-status {
+body.atora-theme .clms-ui .clms-course-card-status {
 	position: absolute !important;
 	top: 12px !important;
 	left: 12px !important;
 	box-shadow: 0 10px 24px rgba(13, 13, 11, .12) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-status.is-complete,
-body.atora-them .clms-ui .clms-course-card-status.is-enrolled {
+body.atora-theme .clms-ui .clms-course-card-status.is-complete,
+body.atora-theme .clms-ui .clms-course-card-status.is-enrolled {
 	background: var(--as-success) !important;
 	border-color: color-mix(in srgb, var(--as-success) 28%, transparent) !important;
 	color: #fff !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-title {
+body.atora-theme .clms-ui .clms-course-card-title {
 	margin: 0 !important;
 	color: var(--as-ink) !important;
 	font-family: var(--as-font-serif) !important;
@@ -384,16 +384,16 @@ body.atora-them .clms-ui .clms-course-card-title {
 	line-height: 1.05 !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-title a {
+body.atora-theme .clms-ui .clms-course-card-title a {
 	color: inherit !important;
 	text-decoration: none !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-title a:hover {
+body.atora-theme .clms-ui .clms-course-card-title a:hover {
 	color: var(--as-blue) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-subtitle {
+body.atora-theme .clms-ui .clms-course-card-subtitle {
 	margin: 2px 0 0 !important;
 	color: var(--as-ink-2) !important;
 	font-size: .98rem !important;
@@ -402,7 +402,7 @@ body.atora-them .clms-ui .clms-course-card-subtitle {
 	line-height: 1.35 !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-excerpt {
+body.atora-theme .clms-ui .clms-course-card-excerpt {
 	margin: 0 !important;
 	color: var(--as-muted) !important;
 	font-size: .95rem !important;
@@ -413,7 +413,7 @@ body.atora-them .clms-ui .clms-course-card-excerpt {
 	overflow: hidden !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-meta {
+body.atora-theme .clms-ui .clms-course-card-meta {
 	display: grid !important;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
 	gap: 10px !important;
@@ -424,7 +424,7 @@ body.atora-them .clms-ui .clms-course-card-meta {
 	background: color-mix(in srgb, var(--as-surface-2) 78%, var(--as-surface)) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-meta-label {
+body.atora-theme .clms-ui .clms-course-card-meta-label {
 	display: block !important;
 	margin: 0 0 2px !important;
 	color: var(--as-muted) !important;
@@ -435,41 +435,41 @@ body.atora-them .clms-ui .clms-course-card-meta-label {
 	text-transform: uppercase !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-meta-item strong {
+body.atora-theme .clms-ui .clms-course-card-meta-item strong {
 	color: var(--as-ink) !important;
 	font-size: .94rem !important;
 	line-height: 1.25 !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-progress {
+body.atora-theme .clms-ui .clms-course-card-progress {
 	margin: 0 !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-progress-head {
+body.atora-theme .clms-ui .clms-course-card-progress-head {
 	color: var(--as-muted) !important;
 	font-size: .86rem !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-progress-head strong {
+body.atora-theme .clms-ui .clms-course-card-progress-head strong {
 	background: transparent !important;
 	color: var(--as-ink) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-progress-bar span {
+body.atora-theme .clms-ui .clms-course-card-progress-bar span {
 	background: var(--as-blue) !important;
 }
 
-body.atora-them .clms-ui .clms-course-card-actions,
-body.atora-them .clms-ui .clms-course-actions {
+body.atora-theme .clms-ui .clms-course-card-actions,
+body.atora-theme .clms-ui .clms-course-actions {
 	margin-top: auto !important;
 	gap: 10px !important;
 }
 
-body.atora-them .clms-ui .clms-course-link,
-body.atora-them .clms-ui .clms-course-enroll-btn,
-body.atora-them .clms-ui .clms-course-continue-btn,
-body.atora-them .clms-ui .clms-course-login-btn,
-body.atora-them .clms-ui .clms-course-card-btn {
+body.atora-theme .clms-ui .clms-course-link,
+body.atora-theme .clms-ui .clms-course-enroll-btn,
+body.atora-theme .clms-ui .clms-course-continue-btn,
+body.atora-theme .clms-ui .clms-course-login-btn,
+body.atora-theme .clms-ui .clms-course-card-btn {
 	min-height: 42px !important;
 	padding: 11px 16px !important;
 	border-radius: 999px !important;
@@ -481,33 +481,33 @@ body.atora-them .clms-ui .clms-course-card-btn {
 	text-decoration: none !important;
 }
 
-body.atora-them .clms-ui .clms-course-link,
-body.atora-them .clms-ui .clms-course-card-btn-ghost {
+body.atora-theme .clms-ui .clms-course-link,
+body.atora-theme .clms-ui .clms-course-card-btn-ghost {
 	background: transparent !important;
 	color: var(--as-blue) !important;
 }
 
-body.atora-them .clms-ui .clms-course-link:hover,
-body.atora-them .clms-ui .clms-course-enroll-btn:hover,
-body.atora-them .clms-ui .clms-course-continue-btn:hover,
-body.atora-them .clms-ui .clms-course-login-btn:hover,
-body.atora-them .clms-ui .clms-course-card-btn:hover {
+body.atora-theme .clms-ui .clms-course-link:hover,
+body.atora-theme .clms-ui .clms-course-enroll-btn:hover,
+body.atora-theme .clms-ui .clms-course-continue-btn:hover,
+body.atora-theme .clms-ui .clms-course-login-btn:hover,
+body.atora-theme .clms-ui .clms-course-card-btn:hover {
 	border-color: color-mix(in srgb, var(--as-blue) 76%, var(--as-ink)) !important;
 	background: color-mix(in srgb, var(--as-blue) 76%, var(--as-ink)) !important;
 	color: #fff !important;
 }
 
 @media (max-width: 1080px) {
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-4,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-5,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-6 {
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-4,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-5,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-6 {
 		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 	}
 }
 
-body.atora-them .crm-lead-section,
-body.atora-them .clms-crm-lead,
-body.atora-them .atora-crm-lead {
+body.atora-theme .crm-lead-section,
+body.atora-theme .clms-crm-lead,
+body.atora-theme .atora-crm-lead {
 	background:
 		linear-gradient(135deg, color-mix(in srgb, var(--as-blue) 10%, var(--as-surface)), var(--as-surface)) !important;
 	border: 1px solid var(--as-rule) !important;
@@ -516,74 +516,74 @@ body.atora-them .atora-crm-lead {
 }
 
 @media (max-width: 780px) {
-	body.atora-them .cc-wrap,
-	body.atora-them .cov-wrap {
+	body.atora-theme .cc-wrap,
+	body.atora-theme .cov-wrap {
 		width: calc(100% - 28px) !important;
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 	}
 
-	body.atora-them .cc-hero-title,
-	body.atora-them .cov-title {
+	body.atora-theme .cc-hero-title,
+	body.atora-theme .cov-title {
 		font-size: 2.8rem !important;
 		line-height: 1.04 !important;
 	}
 
-	body.atora-them .cc-hero-media-grid,
-	body.atora-them .cc-profiles,
-	body.atora-them .atora-them-course-hero,
-	body.atora-them .atora-them-student-hero,
-	body.atora-them .cov-hero {
+	body.atora-theme .cc-hero-media-grid,
+	body.atora-theme .cc-profiles,
+	body.atora-theme .atora-theme-course-hero,
+	body.atora-theme .atora-theme-student-hero,
+	body.atora-theme .cov-hero {
 		grid-template-columns: 1fr !important;
 	}
 
-	body.atora-them .cc-hero-cta-box,
-	body.atora-them .cc-split-grid > .cc-section {
+	body.atora-theme .cc-hero-cta-box,
+	body.atora-theme .cc-split-grid > .cc-section {
 		padding: 18px !important;
 	}
 
-	body.atora-them .cc-section,
-	body.atora-them .cc-section--split {
+	body.atora-theme .cc-section,
+	body.atora-theme .cc-section--split {
 		padding-block: 30px !important;
 	}
 
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-3,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-4,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-5,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-6 {
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-3,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-4,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-5,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-6 {
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 	}
 
-	body.atora-them .cc-mobile-cta__inner {
+	body.atora-theme .cc-mobile-cta__inner {
 		width: min(100%, 440px);
 	}
 
-	body.atora-them .atora-lesson-next,
-	body.atora-them .atora-lesson-live-class__head {
+	body.atora-theme .atora-lesson-next,
+	body.atora-theme .atora-lesson-live-class__head {
 		display: grid !important;
 		align-items: start !important;
 	}
 }
 
 @media (max-width: 560px) {
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-2,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-3,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-4,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-5,
-	body.atora-them .clms-ui .clms-course-grid.clms-grid-cols-6 {
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-2,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-3,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-4,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-5,
+	body.atora-theme .clms-ui .clms-course-grid.clms-grid-cols-6 {
 		grid-template-columns: 1fr !important;
 	}
 
-	body.atora-them .clms-ui .clms-course-card-body {
+	body.atora-theme .clms-ui .clms-course-card-body {
 		padding: 17px !important;
 	}
 
-	body.atora-them .clms-ui .clms-course-card-title {
+	body.atora-theme .clms-ui .clms-course-card-title {
 		font-size: 1.28rem !important;
 	}
 
-	body.atora-them .clms-ui .clms-course-card-actions,
-	body.atora-them .clms-ui .clms-course-actions {
+	body.atora-theme .clms-ui .clms-course-card-actions,
+	body.atora-theme .clms-ui .clms-course-actions {
 		display: grid !important;
 	}
 }

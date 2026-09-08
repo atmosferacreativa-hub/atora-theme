@@ -5,7 +5,7 @@
  * Reemplaza el bloque del loop por uno que recuerda los IDs ya pintados.
  * El resto del archivo es idéntico al original.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 get_header();
@@ -20,7 +20,7 @@ if ( $posts_page instanceof WP_Post && 'publish' === $posts_page->post_status &&
 	$GLOBALS['post'] = $posts_page; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	setup_postdata( $posts_page );
 	?>
-	<div class="atora-them-entry-content">
+	<div class="atora-theme-entry-content">
 		<?php echo apply_filters( 'the_content', $posts_page->post_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 	<?php
@@ -28,14 +28,14 @@ if ( $posts_page instanceof WP_Post && 'publish' === $posts_page->post_status &&
 	$GLOBALS['post'] = $previous_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 else :
 	?>
-	<section class="atora-them-archive-hero">
-		<div class="atora-them-container">
-			<p class="atora-them-eyebrow"><?php esc_html_e( 'Blog', 'atora-them' ); ?></p>
-			<h1><?php esc_html_e( 'Ideas para aprender, crear y comunicar mejor.', 'atora-them' ); ?></h1>
+	<section class="atora-theme-archive-hero">
+		<div class="atora-theme-container">
+			<p class="atora-theme-eyebrow"><?php esc_html_e( 'Blog', 'atora-theme' ); ?></p>
+			<h1><?php esc_html_e( 'Ideas para aprender, crear y comunicar mejor.', 'atora-theme' ); ?></h1>
 		</div>
 	</section>
 
-	<div class="atora-them-container atora-them-post-grid">
+	<div class="atora-theme-container atora-theme-post-grid">
 		<?php
 		if ( have_posts() ) :
 			// ── Anti-duplicados ────────────────────────────────────────────────
@@ -55,7 +55,7 @@ else :
 				get_template_part( 'template-parts/content', get_post_type() );
 			endwhile;
 			?>
-			<div class="atora-them-pagination">
+			<div class="atora-theme-pagination">
 				<?php the_posts_pagination(); ?>
 			</div>
 		<?php else : ?>

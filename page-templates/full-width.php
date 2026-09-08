@@ -3,7 +3,7 @@
  * Template Name: Ancho completo
  * Template Post Type: page, post
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 get_header();
@@ -11,8 +11,8 @@ get_header();
 
 <?php while ( have_posts() ) : ?>
 	<?php the_post(); ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-them-fullwidth' ); ?>>
-		<div class="atora-them-entry-content">
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-theme-fullwidth' ); ?>>
+		<div class="atora-theme-entry-content">
 			<?php the_content(); ?>
 		</div>
 	</article>

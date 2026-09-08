@@ -1,17 +1,17 @@
 <?php
 /**
- * CTA comercial de curso para Atora Them.
+ * CTA comercial de curso para Atora Theme.
  *
  * Variables: $cta_url, $cta_label, $tagline, $subtitle, $course_permalink.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="cc-cta-bottom atora-them-course-cta">
+<div class="cc-cta-bottom atora-theme-course-cta">
 	<p class="cc-cta-title"><?php esc_html_e( 'Empieza a crear con criterio.', 'atora-lms' ); ?></p>
 	<?php if ( ! empty( $tagline ) || ! empty( $subtitle ) ) : ?>
 		<p><?php echo esc_html( $tagline ?: $subtitle ); ?></p>

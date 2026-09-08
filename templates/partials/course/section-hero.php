@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero comercial de curso para Atora Them.
+ * Hero comercial de curso para Atora Theme.
  *
  * Variables provistas por ATORA LMS:
  * $title, $subtitle, $tagline, $duration, $lesson_ids, $certificate,
@@ -9,15 +9,15 @@
  * $embed_src, $hero_fallback_iframe_src, $hero_direct_video_url,
  * $hero_has_video_media, $hero_has_direct_video.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="cc-hero atora-them-course-hero">
-	<div class="atora-them-course-hero__copy">
+<div class="cc-hero atora-theme-course-hero">
+	<div class="atora-theme-course-hero__copy">
 		<p class="cc-hero-kicker"><?php esc_html_e( 'Curso', 'atora-lms' ); ?></p>
 		<h1 class="cc-hero-title"><?php echo esc_html( $title ); ?></h1>
 
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="cc-hero-tagline"><?php echo esc_html( $tagline ?: $subtitle ); ?></p>
 		<?php endif; ?>
 
-		<div class="cc-hero-meta atora-them-course-hero__meta">
+		<div class="cc-hero-meta atora-theme-course-hero__meta">
 			<?php if ( ! empty( $duration ) ) : ?>
 				<span><?php echo esc_html( $duration ); ?></span>
 			<?php endif; ?>
@@ -56,9 +56,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 	</div>
 
-	<div class="atora-them-course-hero__panel">
+	<div class="atora-theme-course-hero__panel">
 		<?php if ( ! empty( $hero_featured_image_html ) ) : ?>
-			<figure class="cc-hero-media-top atora-them-course-hero__image">
+			<figure class="cc-hero-media-top atora-theme-course-hero__image">
 				<?php echo $hero_featured_image_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</figure>
 		<?php endif; ?>
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 		<?php if ( ! empty( $price ) || ! empty( $cta_url ) || ! is_user_logged_in() ) : ?>
-			<div class="cc-hero-cta-box atora-them-course-hero__cta">
+			<div class="cc-hero-cta-box atora-theme-course-hero__cta">
 				<?php if ( ! empty( $price ) ) : ?>
 					<p class="cc-hero-price"><?php echo esc_html( $price ); ?></p>
 					<?php if ( ! empty( $price_label ) ) : ?>

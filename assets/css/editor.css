@@ -80,7 +80,7 @@
 	border-radius: 999px;
 }
 
-.editor-styles-wrapper .atora-them-eyebrow,
+.editor-styles-wrapper .atora-theme-eyebrow,
 .editor-styles-wrapper p[style*="uppercase"] {
 	font-family: var(--as-font-mono);
 	font-size: .76rem;
@@ -89,23 +89,23 @@
 	text-transform: uppercase;
 }
 
-.editor-styles-wrapper .atora-them-pattern-hero,
-.editor-styles-wrapper .atora-them-pattern-band,
-.editor-styles-wrapper .atora-them-pattern-page {
+.editor-styles-wrapper .atora-theme-pattern-hero,
+.editor-styles-wrapper .atora-theme-pattern-band,
+.editor-styles-wrapper .atora-theme-pattern-page {
 	padding: clamp(48px, 8vw, 96px) 24px;
 }
 
-.editor-styles-wrapper .atora-them-pattern-hero__grid {
+.editor-styles-wrapper .atora-theme-pattern-hero__grid {
 	align-items: center;
 	gap: clamp(28px, 5vw, 64px);
 }
 
-.editor-styles-wrapper .atora-them-pattern-cards {
+.editor-styles-wrapper .atora-theme-pattern-cards {
 	gap: 16px;
 }
 
-.editor-styles-wrapper .atora-them-pattern-cards > .wp-block-column,
-.editor-styles-wrapper .atora-them-pattern-aside,
+.editor-styles-wrapper .atora-theme-pattern-cards > .wp-block-column,
+.editor-styles-wrapper .atora-theme-pattern-aside,
 .editor-styles-wrapper .wp-block-query .wp-block-post,
 .editor-styles-wrapper .wp-block-group[style*="border-radius"] {
 	border-radius: 8px;

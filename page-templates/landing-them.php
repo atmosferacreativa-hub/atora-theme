@@ -1,9 +1,9 @@
 <?php
 /**
- * Template Name: Landing Atora Them
+ * Template Name: Landing Atora Theme
  * Template Post Type: page
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 get_header();
@@ -11,9 +11,9 @@ get_header();
 
 <?php while ( have_posts() ) : ?>
 	<?php the_post(); ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-them-landing' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-theme-landing' ); ?>>
 		<?php if ( has_blocks() || '' !== trim( wp_strip_all_tags( get_the_content() ) ) ) : ?>
-			<div class="atora-them-entry-content">
+			<div class="atora-theme-entry-content">
 				<?php the_content(); ?>
 			</div>
 		<?php else : ?>

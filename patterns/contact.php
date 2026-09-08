@@ -1,16 +1,16 @@
 <?php
 /**
  * Title: Contacto comercial
- * Slug: atora-them/contact
- * Categories: atora-them
+ * Slug: atora-theme/contact
+ * Categories: atora-theme
  * Viewport Width: 1280
  * Keywords: contacto, formulario, ventas, informacion
  */
 ?>
 <!-- Hero -->
 <!-- wp:group {"align":"full","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"0"}}}} -->
-<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0 0;"><!-- wp:paragraph {"className":"atora-them-eyebrow"} -->
-<p class="atora-them-eyebrow">· hola@atora.studio</p>
+<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0 0;"><!-- wp:paragraph {"className":"atora-theme-eyebrow"} -->
+<p class="atora-theme-eyebrow">· hola@atora.studio</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"56px","fontWeight":"700","letterSpacing":"-0.02em"}}} -->
@@ -23,8 +23,8 @@
 <div class="wp-block-group alignfull" style="padding: 72px 0;"><!-- wp:columns {"verticalAlignment":"top"} -->
 <div class="wp-block-columns are-vertically-aligned-top"><!-- wp:column -->
 <div class="wp-block-column"><!-- Canales de contacto: 3 cards -->
-<!-- wp:group {"className":"atora-them-channel-card","style":{"backgroundColor":"var(--as-blue-soft)","borderColor":"var(--as-blue)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","padding":"32px","marginBottom":"24px"}} -->
-<div class="wp-block-group atora-them-channel-card" style="background: var(--as-blue-soft); border: 1px solid var(--as-blue); border-radius: var(--as-radius-lg); padding: 32px; margin-bottom: 24px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"20px"}}} -->
+<!-- wp:group {"className":"atora-theme-channel-card","style":{"backgroundColor":"var(--as-blue-soft)","borderColor":"var(--as-blue)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","padding":"32px","marginBottom":"24px"}} -->
+<div class="wp-block-group atora-theme-channel-card" style="background: var(--as-blue-soft); border: 1px solid var(--as-blue); border-radius: var(--as-radius-lg); padding: 32px; margin-bottom: 24px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"20px"}}} -->
 <h3 style="font-family: var(--as-font-serif); font-size: 20px; margin: 0;">Correo</h3>
 <!-- /wp:heading -->
 
@@ -37,8 +37,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"atora-them-channel-card","style":{"backgroundColor":"var(--as-blue-soft)","borderColor":"var(--as-blue)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","padding":"32px","marginBottom":"24px"}} -->
-<div class="wp-block-group atora-them-channel-card" style="background: var(--as-blue-soft); border: 1px solid var(--as-blue); border-radius: var(--as-radius-lg); padding: 32px; margin-bottom: 24px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"20px"}}} -->
+<!-- wp:group {"className":"atora-theme-channel-card","style":{"backgroundColor":"var(--as-blue-soft)","borderColor":"var(--as-blue)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","padding":"32px","marginBottom":"24px"}} -->
+<div class="wp-block-group atora-theme-channel-card" style="background: var(--as-blue-soft); border: 1px solid var(--as-blue); border-radius: var(--as-radius-lg); padding: 32px; margin-bottom: 24px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"20px"}}} -->
 <h3 style="font-family: var(--as-font-serif); font-size: 20px; margin: 0;">WhatsApp</h3>
 <!-- /wp:heading -->
 
@@ -51,8 +51,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"atora-them-channel-card","style":{"backgroundColor":"var(--as-blue-soft)","borderColor":"var(--as-blue)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","padding":"32px"}} -->
-<div class="wp-block-group atora-them-channel-card" style="background: var(--as-blue-soft); border: 1px solid var(--as-blue); border-radius: var(--as-radius-lg); padding: 32px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"20px"}}} -->
+<!-- wp:group {"className":"atora-theme-channel-card","style":{"backgroundColor":"var(--as-blue-soft)","borderColor":"var(--as-blue)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","padding":"32px"}} -->
+<div class="wp-block-group atora-theme-channel-card" style="background: var(--as-blue-soft); border: 1px solid var(--as-blue); border-radius: var(--as-radius-lg); padding: 32px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"20px"}}} -->
 <h3 style="font-family: var(--as-font-serif); font-size: 20px; margin: 0;">Agenda una llamada</h3>
 <!-- /wp:heading -->
 
@@ -70,8 +70,8 @@
 
 <!-- wp:column -->
 <div class="wp-block-column"><!-- Formulario -->
-<!-- wp:group {"className":"atora-them-contact-form","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"40px"}} -->
-<div class="wp-block-group atora-them-contact-form" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); padding: 40px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"22px"}}} -->
+<!-- wp:group {"className":"atora-theme-contact-form","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"40px"}} -->
+<div class="wp-block-group atora-theme-contact-form" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); padding: 40px;"><!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"22px"}}} -->
 <h3 style="font-family: var(--as-font-serif); font-size: 22px; margin: 0;">Cuéntanos tu proyecto</h3>
 <!-- /wp:heading -->
 

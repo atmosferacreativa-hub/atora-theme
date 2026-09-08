@@ -1,23 +1,34 @@
 <?php
 /**
- * Bootstrap de Atora Them.
+ * Bootstrap de Atora Theme.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEM_VERSION', '1.1.0' );
-define( 'ATORA_THEM_DIR', get_template_directory() );
-define( 'ATORA_THEM_URI', get_template_directory_uri() );
+define( 'ATORA_THEME_VERSION', '1.1.0' );
+define( 'ATORA_THEME_DIR', get_template_directory() );
+define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
-require_once ATORA_THEM_DIR . '/inc/template-tags.php';
-require_once ATORA_THEM_DIR . '/inc/setup.php';
-require_once ATORA_THEM_DIR . '/inc/customizer.php';
-require_once ATORA_THEM_DIR . '/inc/admin.php';
-require_once ATORA_THEM_DIR . '/inc/atora-lms.php';
+// Back-compat: constantes anteriores (v1.1.0 y previos).
+if ( ! defined( 'ATORA_THEM_VERSION' ) ) {
+	define( 'ATORA_THEM_VERSION', ATORA_THEME_VERSION );
+}
+if ( ! defined( 'ATORA_THEM_DIR' ) ) {
+	define( 'ATORA_THEM_DIR', ATORA_THEME_DIR );
+}
+if ( ! defined( 'ATORA_THEM_URI' ) ) {
+	define( 'ATORA_THEM_URI', ATORA_THEME_URI );
+}
+
+require_once ATORA_THEME_DIR . '/inc/template-tags.php';
+require_once ATORA_THEME_DIR . '/inc/setup.php';
+require_once ATORA_THEME_DIR . '/inc/customizer.php';
+require_once ATORA_THEME_DIR . '/inc/admin.php';
+require_once ATORA_THEME_DIR . '/inc/atora-lms.php';
 
 
 /* ─── Anti-duplicados de posts (v1.0.4) ─── */
@@ -50,7 +61,7 @@ add_action( 'pre_get_posts', function ( $q ) {
  *
  *   while ( $custom_query->have_posts() ) {
  *       $custom_query->the_post();
- *       if ( atora_them_seen_post( get_the_ID() ) ) {
+ *       if ( atora_theme_seen_post( get_the_ID() ) ) {
  *           continue;
  *       }
  *       get_template_part( 'template-parts/content' );
@@ -59,11 +70,18 @@ add_action( 'pre_get_posts', function ( $q ) {
  * Devuelve true la segunda vez que ve el mismo ID en la misma carga
  * de página; false la primera (y registra el ID).
  */
-function atora_them_seen_post( $post_id ) {
+function atora_theme_seen_post( $post_id ) {
 	static $seen = array();
 	if ( in_array( $post_id, $seen, true ) ) {
 		return true;
 	}
 	$seen[] = $post_id;
 	return false;
+}
+
+// Back-compat: nombre anterior.
+if ( ! function_exists( 'atora_them_seen_post' ) ) {
+	function atora_them_seen_post( $post_id ) {
+		return atora_theme_seen_post( $post_id );
+	}
 }

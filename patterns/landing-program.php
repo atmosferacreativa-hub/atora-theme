@@ -1,16 +1,16 @@
 <?php
 /**
  * Title: Landing de programa con ruta vertical
- * Slug: atora-them/landing-program
- * Categories: atora-them
+ * Slug: atora-theme/landing-program
+ * Categories: atora-theme
  * Viewport Width: 1280
  * Keywords: programa, ruta, roadmap, modulos
  */
 ?>
 <!-- Hero centrado -->
-<!-- wp:group {"align":"full","className":"atora-them-program-hero","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
-<div class="wp-block-group alignfull atora-them-program-hero" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0; text-align: center;"><!-- wp:paragraph {"className":"atora-them-eyebrow"} -->
-<p class="atora-them-eyebrow" style="text-align: center;">· Programa certificado</p>
+<!-- wp:group {"align":"full","className":"atora-theme-program-hero","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
+<div class="wp-block-group alignfull atora-theme-program-hero" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0; text-align: center;"><!-- wp:paragraph {"className":"atora-theme-eyebrow"} -->
+<p class="atora-theme-eyebrow" style="text-align: center;">· Programa certificado</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"54px","fontWeight":"700","letterSpacing":"-0.02em","maxWidth":"900px"}}} -->
@@ -29,14 +29,14 @@
 <!-- /wp:group -->
 
 <!-- Roadmap vertical: 5 módulos -->
-<!-- wp:group {"align":"full","className":"atora-them-program-roadmap","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
-<div class="wp-block-group alignfull atora-them-program-roadmap" style="padding: 72px 0;"><!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"44px"}}} -->
+<!-- wp:group {"align":"full","className":"atora-theme-program-roadmap","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
+<div class="wp-block-group alignfull atora-theme-program-roadmap" style="padding: 72px 0;"><!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"44px"}}} -->
 <h2 style="font-family: var(--as-font-serif); font-size: 44px;">Tu ruta de crecimiento</h2>
 <!-- /wp:heading -->
 
 <!-- Módulo 1 -->
-<!-- wp:group {"className":"atora-them-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
-<div class="wp-block-group atora-them-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- Círculo numerado -->
+<!-- wp:group {"className":"atora-theme-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
+<div class="wp-block-group atora-theme-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- Círculo numerado -->
 <!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-blue)","color":"var(--as-cream)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700"}} -->
 <p style="position: absolute; left: 0; top: 0; background: var(--as-blue); color: var(--as-cream); width: 60px; height: 60px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: var(--as-font-serif); font-size: 24px; font-weight: 700; margin: 0;">01</p>
 <!-- /wp:paragraph -->
@@ -55,8 +55,8 @@
 <!-- /wp:group -->
 
 <!-- Módulo 2 -->
-<!-- wp:group {"className":"atora-them-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
-<div class="wp-block-group atora-them-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
+<!-- wp:group {"className":"atora-theme-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
+<div class="wp-block-group atora-theme-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
 <p style="position: absolute; left: 0; top: 0; background: var(--as-surface-2); color: var(--as-ink); width: 60px; height: 60px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: var(--as-font-serif); font-size: 24px; font-weight: 700; border: 2px solid var(--as-rule); margin: 0;">02</p>
 <!-- /wp:paragraph -->
 
@@ -74,8 +74,8 @@
 <!-- /wp:group -->
 
 <!-- Módulo 3 -->
-<!-- wp:group {"className":"atora-them-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
-<div class="wp-block-group atora-them-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
+<!-- wp:group {"className":"atora-theme-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
+<div class="wp-block-group atora-theme-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
 <p style="position: absolute; left: 0; top: 0; background: var(--as-surface-2); color: var(--as-ink); width: 60px; height: 60px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: var(--as-font-serif); font-size: 24px; font-weight: 700; border: 2px solid var(--as-rule); margin: 0;">03</p>
 <!-- /wp:paragraph -->
 
@@ -93,8 +93,8 @@
 <!-- /wp:group -->
 
 <!-- Módulo 4 -->
-<!-- wp:group {"className":"atora-them-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
-<div class="wp-block-group atora-them-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
+<!-- wp:group {"className":"atora-theme-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
+<div class="wp-block-group atora-theme-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
 <p style="position: absolute; left: 0; top: 0; background: var(--as-surface-2); color: var(--as-ink); width: 60px; height: 60px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: var(--as-font-serif); font-size: 24px; font-weight: 700; border: 2px solid var(--as-rule); margin: 0;">04</p>
 <!-- /wp:paragraph -->
 
@@ -112,8 +112,8 @@
 <!-- /wp:group -->
 
 <!-- Módulo 5 -->
-<!-- wp:group {"className":"atora-them-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
-<div class="wp-block-group atora-them-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
+<!-- wp:group {"className":"atora-theme-roadmap-item","style":{"marginTop":"48px","paddingLeft":"80px","position":"relative"}} -->
+<div class="wp-block-group atora-theme-roadmap-item" style="margin-top: 48px; padding-left: 80px; position: relative;"><!-- wp:paragraph {"style":{"position":"absolute","left":"0","top":"0","backgroundColor":"var(--as-surface-2)","color":"var(--as-ink)","width":"60px","height":"60px","borderRadius":"999px","display":"flex","alignItems":"center","justifyContent":"center","fontFamily":"var(--as-font-serif)","fontSize":"24px","fontWeight":"700","border":"2px solid var(--as-rule)"}} -->
 <p style="position: absolute; left: 0; top: 0; background: var(--as-surface-2); color: var(--as-ink); width: 60px; height: 60px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-family: var(--as-font-serif); font-size: 24px; font-weight: 700; border: 2px solid var(--as-rule); margin: 0;">05</p>
 <!-- /wp:paragraph -->
 

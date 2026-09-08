@@ -2,7 +2,7 @@
 /**
  * Entrada individual.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 get_header();
@@ -10,29 +10,29 @@ get_header();
 
 <?php while ( have_posts() ) : ?>
 	<?php the_post(); ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-them-single' ); ?>>
-		<header class="atora-them-single__hero">
-			<div class="atora-them-container atora-them-single__grid">
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-theme-single' ); ?>>
+		<header class="atora-theme-single__hero">
+			<div class="atora-theme-container atora-theme-single__grid">
 				<div>
-					<p class="atora-them-eyebrow"><?php esc_html_e( 'Articulo', 'atora-them' ); ?></p>
+					<p class="atora-theme-eyebrow"><?php esc_html_e( 'Articulo', 'atora-theme' ); ?></p>
 					<h1><?php the_title(); ?></h1>
-					<?php atora_them_entry_meta(); ?>
+					<?php atora_theme_entry_meta(); ?>
 				</div>
 				<?php if ( has_post_thumbnail() ) : ?>
-					<figure class="atora-them-single__media">
-						<?php the_post_thumbnail( 'atora-them-hero' ); ?>
+					<figure class="atora-theme-single__media">
+						<?php the_post_thumbnail( 'atora-theme-hero' ); ?>
 					</figure>
 				<?php endif; ?>
 			</div>
 		</header>
-		<div class="atora-them-entry-content atora-them-readable">
+		<div class="atora-theme-entry-content atora-theme-readable">
 			<?php the_content(); ?>
 			<?php wp_link_pages(); ?>
 		</div>
 	</article>
 
 	<?php if ( comments_open() || get_comments_number() ) : ?>
-		<div class="atora-them-container atora-them-comments">
+		<div class="atora-theme-container atora-theme-comments">
 			<?php comments_template(); ?>
 		</div>
 	<?php endif; ?>

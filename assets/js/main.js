@@ -2,18 +2,18 @@
 	'use strict';
 
 	// ── Menú móvil (original del tema) ──────────────────────────────────────
-	var toggle = document.querySelector('.atora-them-nav-toggle');
-	var nav = document.getElementById('atora-them-primary-nav');
+	var toggle = document.querySelector('.atora-theme-nav-toggle');
+	var nav = document.getElementById('atora-theme-primary-nav');
 
 	if (toggle && nav) {
 		toggle.addEventListener('click', function () {
-			var open = document.body.classList.toggle('atora-them-nav-open');
+			var open = document.body.classList.toggle('atora-theme-nav-open');
 			toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 		});
 
 		document.addEventListener('keydown', function (event) {
-			if (event.key === 'Escape' && document.body.classList.contains('atora-them-nav-open')) {
-				document.body.classList.remove('atora-them-nav-open');
+			if (event.key === 'Escape' && document.body.classList.contains('atora-theme-nav-open')) {
+				document.body.classList.remove('atora-theme-nav-open');
 				toggle.setAttribute('aria-expanded', 'false');
 				toggle.focus();
 			}
@@ -21,7 +21,7 @@
 
 		nav.addEventListener('click', function (event) {
 			if (event.target && event.target.closest('a')) {
-				document.body.classList.remove('atora-them-nav-open');
+				document.body.classList.remove('atora-theme-nav-open');
 				toggle.setAttribute('aria-expanded', 'false');
 			}
 		});
@@ -33,7 +33,7 @@
 	// pero esto cubre shortcodes, widgets y Query Loops que se generan en cliente.
 	function atoraDedupe() {
 		var scopes = document.querySelectorAll(
-			'.atora-them-post-grid, ' +
+			'.atora-theme-post-grid, ' +
 			'.wp-block-post-template, ' +
 			'[data-atora-deduplicate]'
 		);

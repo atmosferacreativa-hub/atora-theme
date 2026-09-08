@@ -1,11 +1,11 @@
 <?php
 /**
- * Single Course Template Override — Atora Them v1.1.0
+ * Single Course Template Override — Atora Theme v1.1.0
  *
  * Delega al plugin pero asegura que el tema hereda correctamente
  * los tokens CSS y el layout es responsive.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -48,37 +48,65 @@ $has_block_content = function_exists( 'atora_lms_entry_has_block_content' ) ? at
 			<?php echo $content_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php else : ?>
 			<?php
-			// Resolver schema y contexto del plugin
-			$resolver = new CLMS_UI_Template_Resolver();
-			$schema   = apply_filters(
-				'clms_course_overview_ui_schema',
-				$resolver->resolve( $course_id, 'course_overview' ),
-				$course_id
-			);
-			$repository = $resolver->repository();
-			if ( ! $repository->validate( $schema ) || empty( $schema['sections'] ) ) {
-				$schema = $resolver->resolve( $course_id, 'course_overview' );
+			$can_render_ui = class_exists( 'CLMS_UI_Template_Resolver', false )
+				&& class_exists( 'CLMS_UI_Template_Context', false )
+				&& class_exists( 'CLMS_UI_Template_Engine', false );
+
+			$sections_output = array();
+			$sections_order  = array();
+			$_user_id        = get_current_user_id();
+			$_is_enrolled    = false;
+			$_tagline        = '';
+			$_excerpt        = '';
+
+			if ( $can_render_ui ) {
+				try {
+					// Resolver schema y contexto del plugin.
+					$resolver = new CLMS_UI_Template_Resolver();
+					$schema   = apply_filters(
+						'clms_course_overview_ui_schema',
+						$resolver->resolve( $course_id, 'course_overview' ),
+						$course_id
+					);
+
+					$repository = method_exists( $resolver, 'repository' ) ? $resolver->repository() : null;
+					if ( is_object( $repository ) && method_exists( $repository, 'validate' ) ) {
+						if ( ! $repository->validate( $schema ) || empty( $schema['sections'] ) ) {
+							$schema = $resolver->resolve( $course_id, 'course_overview' );
+						}
+					}
+
+					$ctx    = CLMS_UI_Template_Context::make( $course_id, 'course_overview' );
+					$engine = new CLMS_UI_Template_Engine();
+
+					$sections_output = $engine->render_to_array( $ctx, $schema );
+					$sections_order  = array_keys( $sections_output );
+
+					// Datos de layout para CTA footer.
+					$_d           = class_exists( 'CLMS_UI_Course_Overview_Sections', false )
+						? CLMS_UI_Course_Overview_Sections::data( $course_id )
+						: array();
+					$_user_id     = $_d['user_id'] ?? get_current_user_id();
+					$_is_enrolled = $_d['is_enrolled'] ?? false;
+					$_tagline     = $_d['tagline'] ?? '';
+					$_excerpt     = $_d['course_excerpt'] ?? '';
+				} catch ( Throwable $e ) {
+					$sections_output = array();
+					$sections_order  = array();
+				}
 			}
-
-			$ctx             = CLMS_UI_Template_Context::make( $course_id, 'course_overview' );
-			$engine          = new CLMS_UI_Template_Engine();
-			$sections_output = $engine->render_to_array( $ctx, $schema );
-			$sections_order  = array_keys( $sections_output );
-
-			// Datos de layout para CTA footer
-			$_d           = class_exists( 'CLMS_UI_Course_Overview_Sections', false )
-				? CLMS_UI_Course_Overview_Sections::data( $course_id )
-				: array();
-			$_user_id     = $_d['user_id'] ?? get_current_user_id();
-			$_is_enrolled = $_d['is_enrolled'] ?? false;
-			$_tagline     = $_d['tagline'] ?? '';
-			$_excerpt     = $_d['course_excerpt'] ?? '';
 			?>
-			<?php foreach ( $sections_order as $section_id ) : ?>
-				<?php if ( ! empty( $sections_output[ $section_id ] ) ) : ?>
-					<?php echo $sections_output[ $section_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<?php endif; ?>
-			<?php endforeach; ?>
+			<?php if ( $sections_order ) : ?>
+				<?php foreach ( $sections_order as $section_id ) : ?>
+					<?php if ( ! empty( $sections_output[ $section_id ] ) ) : ?>
+						<?php echo $sections_output[ $section_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			<?php else : ?>
+				<div class="atora-theme-lms-fallback">
+					<?php the_content(); ?>
+				</div>
+			<?php endif; ?>
 
 			<?php if ( ! $_user_id || ! $_is_enrolled ) : ?>
 			<div class="cov-cta-footer">

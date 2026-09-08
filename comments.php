@@ -2,7 +2,7 @@
 /**
  * Comentarios.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( post_password_required() ) {
@@ -10,7 +10,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<section id="comments" class="atora-them-comments__box">
+<section id="comments" class="atora-theme-comments__box">
 	<?php if ( have_comments() ) : ?>
 		<h2>
 			<?php
@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 						'%s comentario',
 						'%s comentarios',
 						get_comments_number(),
-						'atora-them'
+						'atora-theme'
 					)
 				),
 				esc_html( number_format_i18n( get_comments_number() ) )

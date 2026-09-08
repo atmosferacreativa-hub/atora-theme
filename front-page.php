@@ -2,7 +2,7 @@
 /**
  * Portada del sitio.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 get_header();
@@ -11,8 +11,8 @@ get_header();
 <?php if ( have_posts() ) : ?>
 	<?php the_post(); ?>
 	<?php if ( '' !== trim( wp_strip_all_tags( get_the_content() ) ) || has_blocks() ) : ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-them-front-content' ); ?>>
-			<div class="atora-them-entry-content">
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-theme-front-content' ); ?>>
+			<div class="atora-theme-entry-content">
 				<?php the_content(); ?>
 			</div>
 		</article>

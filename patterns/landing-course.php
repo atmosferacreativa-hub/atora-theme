@@ -1,15 +1,15 @@
 <?php
 /**
  * Title: Landing de curso con hero, video y beneficios
- * Slug: atora-them/landing-course
- * Categories: atora-them
+ * Slug: atora-theme/landing-course
+ * Categories: atora-theme
  * Viewport Width: 1280
  * Keywords: venta, curso, video, beneficios, CTA
  */
 ?>
 <!-- Hero con chips, H1, párrafo y CTA -->
-<!-- wp:group {"align":"full","className":"atora-them-course-hero","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}}} -->
-<div class="wp-block-group alignfull atora-them-course-hero" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 48px 0;"><!-- wp:columns {"align":"wide","verticalAlignment":"center"} -->
+<!-- wp:group {"align":"full","className":"atora-theme-course-hero","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}}} -->
+<div class="wp-block-group alignfull atora-theme-course-hero" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 48px 0;"><!-- wp:columns {"align":"wide","verticalAlignment":"center"} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"24px"}}}} -->
 <div class="wp-block-group" style="margin-bottom: 24px; display: flex; gap: 12px; flex-wrap: wrap;"><!-- wp:paragraph {"style":{"typography":{"fontFamily":"var(--as-font-mono)","fontSize":"10px","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.08em"},"backgroundColor":"var(--as-blue-soft)","color":"var(--as-blue)","padding":"4px 10px"}} -->
@@ -51,9 +51,9 @@
 <!-- /wp:group -->
 
 <!-- Video 16:9 -->
-<!-- wp:group {"align":"full","className":"atora-them-video-section","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}}} -->
-<div class="wp-block-group alignfull atora-them-video-section" style="padding: 48px 0;"><!-- wp:group {"className":"atora-them-video-container","style":{"position":"relative","paddingBottom":"56.25%","height":"0","overflow":"hidden"}}} -->
-<div class="wp-block-group atora-them-video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow);"><!-- wp:embed {"url":"https://www.youtube.com/watch?v=dQw4w9WgXcQ","type":"video","providerNameSlug":"youtube","align":"center","className":"wp-has-aspect-ratio wp-embed-aspect-16-9 wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube"} -->
+<!-- wp:group {"align":"full","className":"atora-theme-video-section","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}}} -->
+<div class="wp-block-group alignfull atora-theme-video-section" style="padding: 48px 0;"><!-- wp:group {"className":"atora-theme-video-container","style":{"position":"relative","paddingBottom":"56.25%","height":"0","overflow":"hidden"}}} -->
+<div class="wp-block-group atora-theme-video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow);"><!-- wp:embed {"url":"https://www.youtube.com/watch?v=dQw4w9WgXcQ","type":"video","providerNameSlug":"youtube","align":"center","className":"wp-has-aspect-ratio wp-embed-aspect-16-9 wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube"} -->
 <figure class="wp-block-embed aligncenter wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-has-aspect-ratio wp-embed-aspect-16-9"><div class="wp-block-embed__wrapper">
 <!-- wp:paragraph -->
 <p>Inserta tu video aquí (YouTube, Vimeo, etc.)</p>
@@ -64,8 +64,8 @@
 <!-- /wp:group -->
 
 <!-- Stats strip: 4 columnas -->
-<!-- wp:group {"align":"full","className":"atora-them-stats-course","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}}} -->
-<div class="wp-block-group alignfull atora-them-stats-course" style="background: var(--as-surface-2); padding: 48px 0;"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":"0"}}} -->
+<!-- wp:group {"align":"full","className":"atora-theme-stats-course","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}}} -->
+<div class="wp-block-group alignfull atora-theme-stats-course" style="background: var(--as-surface-2); padding: 48px 0;"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":"0"}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"style":{"spacing":{"padding":{"top":"0","right":"24px","bottom":"0","left":"0"}},"borderRight":{"width":"1px","color":"var(--as-rule)"}}} -->
 <div class="wp-block-column" style="border-right: 1px solid var(--as-rule); padding-right: 24px;"><!-- wp:paragraph {"align":"center","style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"32px","fontWeight":"700"}}} -->
 <p class="has-text-align-center" style="font-family: var(--as-font-serif); font-size: 32px; font-weight: 700;">6 sem</p>
@@ -105,8 +105,8 @@
 <!-- /wp:group -->
 
 <!-- Lo que aprendes: grid 2 columnas con checkmarks -->
-<!-- wp:group {"align":"full","className":"atora-them-benefits-section","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
-<div class="wp-block-group alignfull atora-them-benefits-section" style="padding: 72px 0;"><!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"40px"}}} -->
+<!-- wp:group {"align":"full","className":"atora-theme-benefits-section","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
+<div class="wp-block-group alignfull atora-theme-benefits-section" style="padding: 72px 0;"><!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"40px"}}} -->
 <h2 style="font-family: var(--as-font-serif); font-size: 40px;">Lo que aprendes</h2>
 <!-- /wp:heading -->
 
@@ -160,9 +160,9 @@
 <!-- /wp:group -->
 
 <!-- Card del mentor -->
-<!-- wp:group {"align":"full","className":"atora-them-mentor-card-section","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"72px"}}}} -->
-<div class="wp-block-group alignfull atora-them-mentor-card-section" style="padding: 48px 0 72px;"><!-- wp:group {"className":"atora-them-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"40px","display":"flex","gap":"24px","alignItems":"flex-start"}} -->
-<div class="wp-block-group atora-them-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); padding: 40px; display: flex; gap: 24px; align-items: flex-start;"><!-- wp:image {"sizeSlug":"thumbnail","style":{"borderRadius":"999px","width":"80px","height":"80px"}} -->
+<!-- wp:group {"align":"full","className":"atora-theme-mentor-card-section","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"48px","bottom":"72px"}}}} -->
+<div class="wp-block-group alignfull atora-theme-mentor-card-section" style="padding: 48px 0 72px;"><!-- wp:group {"className":"atora-theme-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"40px","display":"flex","gap":"24px","alignItems":"flex-start"}} -->
+<div class="wp-block-group atora-theme-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); padding: 40px; display: flex; gap: 24px; align-items: flex-start;"><!-- wp:image {"sizeSlug":"thumbnail","style":{"borderRadius":"999px","width":"80px","height":"80px"}} -->
 <figure class="wp-block-image size-thumbnail" style="border-radius: 999px; width: 80px; height: 80px;"><img alt="Mentor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 999px;"/></figure>
 <!-- /wp:image -->
 

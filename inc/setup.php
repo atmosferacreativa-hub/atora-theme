@@ -2,15 +2,17 @@
 /**
  * Configuracion principal del theme.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function atora_them_setup(): void {
-	load_theme_textdomain( 'atora-them', ATORA_THEM_DIR . '/languages' );
+function atora_theme_setup(): void {
+	load_theme_textdomain( 'atora-theme', ATORA_THEME_DIR . '/languages' );
+	// Back-compat: dominio anterior (si existieran traducciones legacy).
+	load_theme_textdomain( 'atora-them', ATORA_THEME_DIR . '/languages' );
 
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -45,12 +47,17 @@ function atora_them_setup(): void {
 
 	register_nav_menus(
 		array(
-			'primary' => __( 'Navegacion principal', 'atora-them' ),
-			'footer'  => __( 'Navegacion del pie', 'atora-them' ),
-			'legal'   => __( 'Navegacion legal', 'atora-them' ),
+			'primary' => __( 'Navegacion principal', 'atora-theme' ),
+			'footer'  => __( 'Navegacion del pie', 'atora-theme' ),
+			'legal'   => __( 'Navegacion legal', 'atora-theme' ),
 		)
 	);
 
+	add_image_size( 'atora-theme-card', 720, 520, true );
+	add_image_size( 'atora-theme-hero', 1600, 1000, true );
+	add_image_size( 'atora-theme-square', 900, 900, true );
+
+	// Back-compat: nombres anteriores de tamaños.
 	add_image_size( 'atora-them-card', 720, 520, true );
 	add_image_size( 'atora-them-hero', 1600, 1000, true );
 	add_image_size( 'atora-them-square', 900, 900, true );
@@ -62,44 +69,44 @@ function atora_them_setup(): void {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'atora_them_setup' );
+add_action( 'after_setup_theme', 'atora_theme_setup' );
 
-function atora_them_enqueue_assets(): void {
+function atora_theme_enqueue_assets(): void {
 	wp_enqueue_style(
-		'atora-them-fonts',
+		'atora-theme-fonts',
 		'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap',
 		array(),
 		null
 	);
 
 	wp_enqueue_style(
-		'atora-them-style',
+		'atora-theme-style',
 		get_stylesheet_uri(),
 		array(),
-		ATORA_THEM_VERSION
+		ATORA_THEME_VERSION
 	);
 
 	wp_enqueue_style(
-		'atora-them-main',
-		atora_them_asset_url( 'assets/css/main.css' ),
-		array( 'atora-them-style', 'atora-them-fonts' ),
-		ATORA_THEM_VERSION
+		'atora-theme-main',
+		atora_theme_asset_url( 'assets/css/main.css' ),
+		array( 'atora-theme-style', 'atora-theme-fonts' ),
+		ATORA_THEME_VERSION
 	);
 
-	if ( atora_them_should_enqueue_lms_styles() ) {
+	if ( atora_theme_should_enqueue_lms_styles() ) {
 		wp_enqueue_style(
-			'atora-them-lms',
-			atora_them_asset_url( 'assets/css/atora-lms.css' ),
-			array( 'atora-them-main' ),
-			ATORA_THEM_VERSION
+			'atora-theme-lms',
+			atora_theme_asset_url( 'assets/css/atora-lms.css' ),
+			array( 'atora-theme-main' ),
+			ATORA_THEME_VERSION
 		);
 	}
 
 	wp_enqueue_script(
-		'atora-them-main',
-		atora_them_asset_url( 'assets/js/main.js' ),
+		'atora-theme-main',
+		atora_theme_asset_url( 'assets/js/main.js' ),
 		array(),
-		ATORA_THEM_VERSION,
+		ATORA_THEME_VERSION,
 		true
 	);
 
@@ -107,9 +114,9 @@ function atora_them_enqueue_assets(): void {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'atora_them_enqueue_assets' );
+add_action( 'wp_enqueue_scripts', 'atora_theme_enqueue_assets' );
 
-function atora_them_should_enqueue_lms_styles(): bool {
+function atora_theme_should_enqueue_lms_styles(): bool {
 	// Mantener WooCommerce con estilos por defecto en la tienda (shop/cart/checkout/product).
 	if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
 		return false;
@@ -162,45 +169,45 @@ function atora_them_should_enqueue_lms_styles(): bool {
 	return false;
 }
 
-function atora_them_body_classes( array $classes ): array {
-	$classes[] = 'atora-them';
-	$classes[] = 'atora-them-mode-' . atora_them_color_mode();
+function atora_theme_body_classes( array $classes ): array {
+	$classes[] = 'atora-theme';
+	$classes[] = 'atora-theme-mode-' . atora_theme_color_mode();
 
-	if ( atora_them_is_canvas_template() ) {
-		$classes[] = 'atora-them-canvas';
+	if ( atora_theme_is_canvas_template() ) {
+		$classes[] = 'atora-theme-canvas';
 	}
 
 	if ( is_front_page() ) {
-		$classes[] = 'atora-them-home';
+		$classes[] = 'atora-theme-home';
 	}
 
 	if ( is_home() || is_singular( 'post' ) || is_archive() ) {
-		$classes[] = 'atora-them-content';
+		$classes[] = 'atora-theme-content';
 	}
 
 	if ( is_singular( array( 'lm_course', 'lm_lesson', 'lm_program', 'atora_teacher' ) ) ) {
-		$classes[] = 'atora-them-lms-view';
+		$classes[] = 'atora-theme-lms-view';
 	}
 
 	if ( is_user_logged_in() ) {
-		$classes[] = 'atora-them-logged-in';
+		$classes[] = 'atora-theme-logged-in';
 	} else {
-		$classes[] = 'atora-them-guest';
+		$classes[] = 'atora-theme-guest';
 	}
 
 	return $classes;
 }
-add_filter( 'body_class', 'atora_them_body_classes' );
+add_filter( 'body_class', 'atora_theme_body_classes' );
 
-function atora_them_pattern_category(): void {
+function atora_theme_pattern_category(): void {
 	if ( function_exists( 'register_block_pattern_category' ) ) {
 		register_block_pattern_category(
-			'atora-them',
-			array( 'label' => __( 'Atora Them', 'atora-them' ) )
+			'atora-theme',
+			array( 'label' => __( 'Atora Theme', 'atora-theme' ) )
 		);
 	}
 }
-add_action( 'init', 'atora_them_pattern_category' );
+add_action( 'init', 'atora_theme_pattern_category' );
 
 add_filter(
 	'excerpt_length',
@@ -218,18 +225,55 @@ add_filter(
 );
 
 // Preconnect para Google Fonts — reduce latencia de carga de fuentes externas.
-function atora_them_preconnect_fonts(): void {
+function atora_theme_preconnect_fonts(): void {
 	echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
 }
-add_action( 'wp_head', 'atora_them_preconnect_fonts', 1 );
+add_action( 'wp_head', 'atora_theme_preconnect_fonts', 1 );
 
-// Hacer non-blocking el CSS principal (atora-them-main) usando preload + onload.
-function atora_them_async_main_css( $html, $handle, $href, $media ) {
-	if ( 'atora-them-main' === $handle ) {
+// Hacer non-blocking el CSS principal (atora-theme-main) usando preload + onload.
+function atora_theme_async_main_css( $html, $handle, $href, $media ) {
+	if ( 'atora-theme-main' === $handle || 'atora-them-main' === $handle ) {
 		$html  = "<link rel='preload' href='{$href}' as='style' onload=\"this.onload=null;this.rel='stylesheet'\" media='{$media}'>\n";
 		$html .= "<noscript><link rel='stylesheet' href='{$href}' media='{$media}'></noscript>\n";
 	}
 	return $html;
 }
-add_filter( 'style_loader_tag', 'atora_them_async_main_css', 10, 4 );
+add_filter( 'style_loader_tag', 'atora_theme_async_main_css', 10, 4 );
+
+// Back-compat: nombres anteriores (si algún child theme los usa).
+if ( ! function_exists( 'atora_them_setup' ) ) {
+	function atora_them_setup(): void {
+		atora_theme_setup();
+	}
+}
+if ( ! function_exists( 'atora_them_enqueue_assets' ) ) {
+	function atora_them_enqueue_assets(): void {
+		atora_theme_enqueue_assets();
+	}
+}
+if ( ! function_exists( 'atora_them_should_enqueue_lms_styles' ) ) {
+	function atora_them_should_enqueue_lms_styles(): bool {
+		return atora_theme_should_enqueue_lms_styles();
+	}
+}
+if ( ! function_exists( 'atora_them_body_classes' ) ) {
+	function atora_them_body_classes( array $classes ): array {
+		return atora_theme_body_classes( $classes );
+	}
+}
+if ( ! function_exists( 'atora_them_pattern_category' ) ) {
+	function atora_them_pattern_category(): void {
+		atora_theme_pattern_category();
+	}
+}
+if ( ! function_exists( 'atora_them_preconnect_fonts' ) ) {
+	function atora_them_preconnect_fonts(): void {
+		atora_theme_preconnect_fonts();
+	}
+}
+if ( ! function_exists( 'atora_them_async_main_css' ) ) {
+	function atora_them_async_main_css( $html, $handle, $href, $media ) {
+		return atora_theme_async_main_css( $html, $handle, $href, $media );
+	}
+}

@@ -1,16 +1,16 @@
 <?php
 /**
  * Title: Blog con filtros
- * Slug: atora-them/blog-index
- * Categories: atora-them
+ * Slug: atora-theme/blog-index
+ * Categories: atora-theme
  * Viewport Width: 1280
  * Keywords: blog, articulos, recursos, contenido
  */
 ?>
 <!-- Hero -->
 <!-- wp:group {"align":"full","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"48px"}}}} -->
-<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0 48px;"><!-- wp:paragraph {"className":"atora-them-eyebrow"} -->
-<p class="atora-them-eyebrow">· Recursos abiertos</p>
+<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0 48px;"><!-- wp:paragraph {"className":"atora-theme-eyebrow"} -->
+<p class="atora-theme-eyebrow">· Recursos abiertos</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"56px","fontWeight":"700","letterSpacing":"-0.02em"}}} -->
@@ -59,8 +59,8 @@
 <div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
 
 <!-- Card de artículo -->
-<!-- wp:group {"className":"atora-them-post-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
-<div class="wp-block-group atora-them-post-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;">
+<!-- wp:group {"className":"atora-theme-post-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
+<div class="wp-block-group atora-theme-post-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;">
 
 <!-- Image 4:3 -->
 <!-- wp:post-featured-image {"isLink":false,"aspectRatio":"4/3","scale":"cover"} /-->

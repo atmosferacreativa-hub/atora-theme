@@ -1,16 +1,16 @@
 <?php
 /**
  * Title: Post con TOC y drop cap
- * Slug: atora-them/post-content
- * Categories: atora-them
+ * Slug: atora-theme/post-content
+ * Categories: atora-theme
  * Viewport Width: 900
  * Keywords: articulo, post, contenido, blog
  */
 ?>
 <!-- Hero del post -->
 <!-- wp:group {"align":"full","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"0"}}}} -->
-<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0 0;"><!-- wp:paragraph {"className":"atora-them-eyebrow"} -->
-<p class="atora-them-eyebrow">· Guía abierta</p>
+<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0 0;"><!-- wp:paragraph {"className":"atora-theme-eyebrow"} -->
+<p class="atora-theme-eyebrow">· Guía abierta</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"56px","fontWeight":"700","letterSpacing":"-0.02em"}}} -->
@@ -128,8 +128,8 @@
 <div class="wp-block-group" style="grid-column: 2; position: sticky; top: 100px;">
 
 <!-- TOC -->
-<!-- wp:group {"className":"atora-them-toc","style":{"backgroundColor":"var(--as-surface-2)","borderLeftColor":"var(--as-blue)","borderLeftWidth":"4px","borderRadius":"var(--as-radius)","padding":"16px"}} -->
-<div class="wp-block-group atora-them-toc" style="background: var(--as-surface-2); border-left: 4px solid var(--as-blue); border-radius: var(--as-radius); padding: 16px;">
+<!-- wp:group {"className":"atora-theme-toc","style":{"backgroundColor":"var(--as-surface-2)","borderLeftColor":"var(--as-blue)","borderLeftWidth":"4px","borderRadius":"var(--as-radius)","padding":"16px"}} -->
+<div class="wp-block-group atora-theme-toc" style="background: var(--as-surface-2); border-left: 4px solid var(--as-blue); border-radius: var(--as-radius); padding: 16px;">
 
 <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"11px","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
 <h4 style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">En esta nota</h4>
@@ -147,8 +147,8 @@
 <!-- /wp:group -->
 
 <!-- Compartir -->
-<!-- wp:group {"className":"atora-them-share","style":{"marginTop":"32px","paddingTop":"16px","borderTopColor":"var(--as-rule)","borderTopWidth":"1px"}} -->
-<div class="wp-block-group atora-them-share" style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--as-rule);">
+<!-- wp:group {"className":"atora-theme-share","style":{"marginTop":"32px","paddingTop":"16px","borderTopColor":"var(--as-rule)","borderTopWidth":"1px"}} -->
+<div class="wp-block-group atora-theme-share" style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--as-rule);">
 
 <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"11px","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
 <h4 style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0; margin-bottom: 12px;">Compartir</h4>

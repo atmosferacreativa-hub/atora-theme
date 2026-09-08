@@ -1,16 +1,16 @@
 <?php
 /**
  * Title: Mentores con trayectoria
- * Slug: atora-them/mentors
- * Categories: atora-them
+ * Slug: atora-theme/mentors
+ * Categories: atora-theme
  * Viewport Width: 1280
  * Keywords: equipo, instructores, profesionales
  */
 ?>
 <!-- Hero -->
 <!-- wp:group {"align":"full","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
-<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0;"><!-- wp:paragraph {"className":"atora-them-eyebrow"} -->
-<p class="atora-them-eyebrow">· Profesionales que viven de su oficio</p>
+<div class="wp-block-group alignfull" style="background: linear-gradient(180deg, var(--as-cream) 0%, var(--as-bone) 100%); padding: 72px 0;"><!-- wp:paragraph {"className":"atora-theme-eyebrow"} -->
+<p class="atora-theme-eyebrow">· Profesionales que viven de su oficio</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var(--as-font-serif)","fontSize":"56px","fontWeight":"700","letterSpacing":"-0.02em"}}} -->
@@ -22,8 +22,8 @@
 <!-- wp:group {"align":"full","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"72px","bottom":"72px"}}}} -->
 <div class="wp-block-group alignfull" style="padding: 72px 0;"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:group {"className":"atora-them-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
-<div class="wp-block-group atora-them-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;"><!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
+<div class="wp-block-column"><!-- wp:group {"className":"atora-theme-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
+<div class="wp-block-group atora-theme-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;"><!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
 <figure class="wp-block-image"><img alt="Mentor" style="width: 100%; height: 100%; object-fit: cover;"/></figure>
 <!-- /wp:image -->
 
@@ -54,8 +54,8 @@
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:group {"className":"atora-them-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
-<div class="wp-block-group atora-them-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;"><!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
+<div class="wp-block-column"><!-- wp:group {"className":"atora-theme-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
+<div class="wp-block-group atora-theme-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;"><!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
 <figure class="wp-block-image"><img alt="Mentor" style="width: 100%; height: 100%; object-fit: cover;"/></figure>
 <!-- /wp:image -->
 
@@ -86,8 +86,8 @@
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:group {"className":"atora-them-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
-<div class="wp-block-group atora-them-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;"><!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
+<div class="wp-block-column"><!-- wp:group {"className":"atora-theme-mentor-card","style":{"backgroundColor":"var(--as-surface)","borderColor":"var(--as-rule)","borderWidth":"1px","borderRadius":"var(--as-radius-lg)","boxShadow":"var(--as-shadow-sm)","padding":"0","overflow":"hidden"}} -->
+<div class="wp-block-group atora-theme-mentor-card" style="background: var(--as-surface); border: 1px solid var(--as-rule); border-radius: var(--as-radius-lg); box-shadow: var(--as-shadow-sm); overflow: hidden;"><!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
 <figure class="wp-block-image"><img alt="Mentor" style="width: 100%; height: 100%; object-fit: cover;"/></figure>
 <!-- /wp:image -->
 

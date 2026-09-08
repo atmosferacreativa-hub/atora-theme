@@ -2,7 +2,7 @@
 /**
  * Pagina generica.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 get_header();
@@ -10,15 +10,15 @@ get_header();
 
 <?php while ( have_posts() ) : ?>
 	<?php the_post(); ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-them-page' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'atora-theme-page' ); ?>>
 		<?php if ( ! has_blocks() ) : ?>
-			<header class="atora-them-page__header">
-				<div class="atora-them-container">
+			<header class="atora-theme-page__header">
+				<div class="atora-theme-container">
 					<h1><?php the_title(); ?></h1>
 				</div>
 			</header>
 		<?php endif; ?>
-		<div class="atora-them-entry-content">
+		<div class="atora-theme-entry-content">
 			<?php the_content(); ?>
 		</div>
 	</article>

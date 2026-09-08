@@ -1,19 +1,19 @@
 <?php
 /**
- * Hero de vista de estudiante para Atora Them.
+ * Hero de vista de estudiante para Atora Theme.
  *
  * Variables: $course_id, $user_id, $is_enrolled, $progress, $done, $total,
  * $cta_lesson_id, $cta_label_key, $course_excerpt, $instructor_names,
  * $course_thumbnail_id.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="cov-hero atora-them-student-hero<?php echo ( ! $user_id || ! $is_enrolled ) ? ' cov-hero--funnel' : ''; ?>">
+<div class="cov-hero atora-theme-student-hero<?php echo ( ! $user_id || ! $is_enrolled ) ? ' cov-hero--funnel' : ''; ?>">
 	<div class="cov-hero-content">
 		<p class="cov-kicker"><?php esc_html_e( 'Curso', 'atora-lms' ); ?></p>
 		<h1 class="cov-title"><?php echo esc_html( get_the_title( $course_id ) ); ?></h1>

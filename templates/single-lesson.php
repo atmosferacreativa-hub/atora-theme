@@ -1,11 +1,11 @@
 <?php
 /**
- * Single Lesson Template Override — Atora Them v1.1.0
+ * Single Lesson Template Override — Atora Theme v1.1.0
  *
  * Delega al plugin para render pero asegura que los tokens del tema
  * se aplican correctamente y el layout es responsive.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

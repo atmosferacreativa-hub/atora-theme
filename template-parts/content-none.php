@@ -2,11 +2,11 @@
 /**
  * Sin contenido.
  *
- * @package Atora_Them
+ * @package Atora_Theme
  */
 ?>
 
-<section class="atora-them-empty">
-	<h2><?php esc_html_e( 'Todavia no hay contenido publicado.', 'atora-them' ); ?></h2>
-	<p><?php esc_html_e( 'Cuando publiques entradas, cursos o paginas, apareceran aqui.', 'atora-them' ); ?></p>
+<section class="atora-theme-empty">
+	<h2><?php esc_html_e( 'Todavia no hay contenido publicado.', 'atora-theme' ); ?></h2>
+	<p><?php esc_html_e( 'Cuando publiques entradas, cursos o paginas, apareceran aqui.', 'atora-theme' ); ?></p>
 </section>
