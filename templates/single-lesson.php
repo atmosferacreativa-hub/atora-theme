@@ -44,7 +44,7 @@ $sidebar_html       = (string) ( $view['sidebar_html'] ?? '' );
 
 <div class="atora-lesson-wrap">
 	<div class="atora-lesson-layout <?php echo $sidebar_html ? 'has-sidebar' : ''; ?>">
-		<main class="atora-lesson-main">
+		<div class="atora-lesson-main" role="region" aria-label="<?php esc_attr_e( 'Contenido de la lección', 'atora-theme' ); ?>">
 			<?php foreach ( $render_section_ids as $section_id ) : ?>
 				<?php if ( ! empty( $sections_output[ $section_id ] ) ) : ?>
 					<?php echo $sections_output[ $section_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -68,7 +68,7 @@ $sidebar_html       = (string) ( $view['sidebar_html'] ?? '' );
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
-		</main>
+		</div>
 
 		<?php if ( $sidebar_html ) : ?>
 			<aside class="atora-lesson-sidebar">
