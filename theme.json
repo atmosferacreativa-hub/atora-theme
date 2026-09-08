@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"layout": {
+			"contentSize": "800px",
+			"wideSize": "1080px"
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": true,
+			"units": [ "px", "rem", "em", "%", "vh", "vw" ]
+		},
+		"typography": {
+			"fluid": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Instrument Sans\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+					"name": "Instrument Sans",
+					"slug": "instrument-sans"
+				},
+				{
+					"fontFamily": "\"Playfair Display\", Georgia, serif",
+					"name": "Playfair Display",
+					"slug": "playfair-display"
+				},
+				{
+					"fontFamily": "\"DM Mono\", ui-monospace, SFMono-Regular, Menlo, monospace",
+					"name": "DM Mono",
+					"slug": "dm-mono"
+				}
+			]
+		},
+		"color": {
+			"palette": [
+				{
+					"color": "#0d0d0b",
+					"name": "Ink",
+					"slug": "ink"
+				},
+				{
+					"color": "#f7f3ec",
+					"name": "Cream",
+					"slug": "cream"
+				},
+				{
+					"color": "#1769f6",
+					"name": "Atora Blue",
+					"slug": "atora-blue"
+				},
+				{
+					"color": "#f4b21b",
+					"name": "Atora Gold",
+					"slug": "atora-gold"
+				},
+				{
+					"color": "#ffffff",
+					"name": "White",
+					"slug": "white"
+				}
+			]
+		}
+	},
+	"styles": {
+		"spacing": {
+			"blockGap": "1.5rem"
+		},
+		"typography": {
+			"fontFamily": "\"Instrument Sans\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+			"lineHeight": "1.6"
+		},
+		"color": {
+			"background": "#f7f3ec",
+			"text": "#0d0d0b"
+		}
+	}
+}

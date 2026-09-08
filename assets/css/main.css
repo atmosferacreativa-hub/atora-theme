@@ -1,0 +1,1247 @@
+:root {
+	--as-ink: #0d0d0b;
+	--as-ink-2: #2a2820;
+	--as-bone: #f0ebe2;
+	--as-cream: #f7f3ec;
+	--as-surface: #ffffff;
+	--as-surface-2: #f4f0e8;
+	--as-amber: #c8854a;
+	--as-amber-light: #e8a96a;
+	--as-blue: #3D5F94;
+	--as-gold: #B89248;
+	--as-blue-soft: color-mix(in srgb, var(--as-blue) 11%, var(--as-surface));
+	--as-gold-soft: color-mix(in srgb, var(--as-gold) 14%, var(--as-surface));
+	--as-success: #0f8a51;
+	--as-muted: #5f5a50;
+	--as-rule: rgba(13, 13, 11, .14);
+	--as-rule-soft: rgba(13, 13, 11, .06);
+	--as-shadow: 0 22px 70px rgba(13, 13, 11, .10);
+	--as-shadow-sm: 0 8px 24px rgba(13, 13, 11, .06);
+	--as-radius: 8px;
+	--as-radius-lg: 14px;
+	--as-radius-pill: 999px;
+	--as-container: 1080px;
+	--as-readable: 720px;
+	--as-font-sans: "Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	--as-font-serif: "Playfair Display", Georgia, serif;
+	--as-font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+	color-scheme: light;
+}
+
+body.atora-them-mode-dark {
+	--as-ink: #f0ebe2;
+	--as-ink-2: #e9ddcc;
+	--as-bone: #151412;
+	--as-cream: #0f0e0c;
+	--as-surface: #1f1d1a;
+	--as-surface-2: #24211d;
+	--as-muted: #a89f8e;
+	--as-blue: #7DA4D8;
+	--as-gold: #D4B26A;
+	--as-blue-soft: color-mix(in srgb, var(--as-blue) 11%, var(--as-surface));
+	--as-gold-soft: color-mix(in srgb, var(--as-gold) 14%, var(--as-surface));
+	--as-rule: rgba(247, 243, 236, .14);
+	--as-rule-soft: rgba(247, 243, 236, .06);
+	--as-shadow: 0 22px 70px rgba(0, 0, 0, .32);
+	color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	body.atora-them-mode-auto {
+		--as-ink: #f0ebe2;
+		--as-ink-2: #e9ddcc;
+		--as-bone: #151412;
+		--as-cream: #0f0e0c;
+		--as-surface: #1f1d1a;
+		--as-surface-2: #24211d;
+		--as-muted: #a89f8e;
+		--as-blue: #7DA4D8;
+		--as-gold: #D4B26A;
+		--as-blue-soft: color-mix(in srgb, var(--as-blue) 11%, var(--as-surface));
+		--as-gold-soft: color-mix(in srgb, var(--as-gold) 14%, var(--as-surface));
+		--as-rule: rgba(247, 243, 236, .14);
+		--as-rule-soft: rgba(247, 243, 236, .06);
+		--as-shadow: 0 22px 70px rgba(0, 0, 0, .32);
+		color-scheme: dark;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body.atora-them {
+	margin: 0;
+	background: var(--as-cream);
+	color: var(--as-ink);
+	font-family: var(--as-font-sans);
+	line-height: 1.6;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* ATORA LMS: el plugin define tokens --atora-* con valores por defecto.
+ * El tema debe mapear su paleta global (y modo light/dark) a esos tokens,
+ * para que la UI del plugin herede el look del sitio en cualquier pantalla.
+ */
+body.atora-them {
+	--atora-bg: var(--as-cream);
+	--atora-surface: var(--as-surface);
+	--atora-surface-2: var(--as-surface-2);
+	--atora-text: var(--as-ink);
+	--atora-text-muted: var(--as-muted);
+	--atora-text-subtle: color-mix(in srgb, var(--as-muted) 78%, transparent);
+	--atora-border: var(--as-rule);
+	--atora-border-strong: color-mix(in srgb, var(--as-ink) 24%, transparent);
+	--atora-accent: var(--as-blue);
+	--atora-accent-hover: color-mix(in srgb, var(--as-blue) 78%, var(--as-ink));
+	--atora-accent-soft: color-mix(in srgb, var(--as-blue) 11%, var(--as-surface));
+	--atora-on-accent: #ffffff;
+	--atora-success: var(--as-success);
+	--atora-success-bg: color-mix(in srgb, var(--as-success) 10%, var(--as-surface));
+	--atora-success-text: color-mix(in srgb, var(--as-success) 72%, var(--as-ink));
+	--atora-warning: var(--as-amber);
+	--atora-warning-bg: color-mix(in srgb, var(--as-gold) 14%, var(--as-surface));
+	--atora-warning-text: color-mix(in srgb, var(--as-amber) 58%, var(--as-ink));
+}
+
+body.atora-them a {
+	color: inherit;
+}
+
+body.atora-them img,
+body.atora-them video,
+body.atora-them iframe {
+	max-width: 100%;
+}
+
+body.atora-them img {
+	height: auto;
+}
+
+.screen-reader-text,
+.atora-them-skip {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.atora-them-skip:focus {
+	top: 10px;
+	left: 10px;
+	z-index: 10000;
+	width: auto;
+	height: auto;
+	padding: 10px 14px;
+	clip: auto;
+	background: var(--as-blue);
+	color: #fff;
+	border-radius: 999px;
+}
+
+.atora-them-container {
+	width: min(var(--as-container), calc(100% - 40px));
+	margin-inline: auto;
+}
+
+.atora-them-readable {
+	width: min(var(--as-readable), calc(100% - 40px));
+	margin-inline: auto;
+}
+
+.atora-them-site-main {
+	min-height: 58vh;
+}
+
+.atora-them-header {
+	position: sticky;
+	top: 0;
+	z-index: 80;
+	background: color-mix(in srgb, var(--as-cream) 96%, transparent);
+	backdrop-filter: blur(18px);
+	border-bottom: 1px solid var(--as-rule);
+}
+
+body.admin-bar .atora-them-header {
+	top: 32px;
+}
+
+body.atora-them .clms-template-part--header {
+	position: relative;
+	z-index: 80;
+	border-bottom: 1px solid var(--as-rule);
+}
+
+/* Sticky: solo cuando el editor lo activa en la configuración del header */
+body.atora-them .clms-template-part--header.clms-template-part--sticky {
+	position: sticky;
+	top: 0;
+}
+body.admin-bar.atora-them .clms-template-part--header.clms-template-part--sticky {
+	top: 32px;
+}
+
+body.admin-bar.atora-them .clms-template-part--header {
+	top: 32px;
+}
+
+body.atora-them .clms-template-part > * {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
+body.atora-them .clms-template-part--header {
+	background: color-mix(in srgb, var(--as-cream) 92%, transparent);
+	backdrop-filter: blur(18px);
+}
+
+body.atora-them .clms-template-part--header img,
+body.atora-them .clms-template-part--footer img {
+	width: auto;
+	max-height: 72px;
+	object-fit: contain;
+}
+
+body.atora-them .clms-template-part--header .wp-block-site-title,
+body.atora-them .clms-template-part--footer .wp-block-site-title {
+	margin: 0;
+	overflow-wrap: anywhere;
+	font-weight: 800;
+	line-height: 1.1;
+}
+
+body.atora-them .clms-template-part--header .wp-block-navigation,
+body.atora-them .clms-template-part--header .wp-block-buttons,
+body.atora-them .clms-template-part--footer .wp-block-navigation {
+	min-width: 0;
+}
+
+body.atora-them .clms-template-part--header .wp-block-button__link,
+body.atora-them .clms-template-part--footer .wp-block-button__link {
+	white-space: normal;
+}
+
+body.atora-them .clms-template-part--footer {
+	overflow: hidden;
+}
+
+.atora-them-header__inner {
+	width: min(1120px, calc(100% - 32px));
+	min-height: 74px;
+	margin-inline: auto;
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 22px;
+}
+
+.atora-them-brand,
+.custom-logo-link {
+	display: inline-flex;
+	align-items: center;
+	min-width: 0;
+	text-decoration: none;
+}
+
+.atora-them-brand img,
+.custom-logo-link img {
+	display: block;
+	width: auto;
+	height: 48px;
+	max-width: 210px;
+	object-fit: contain;
+}
+
+.atora-them-nav {
+	justify-self: end;
+	min-width: 0;
+}
+
+.atora-them-menu,
+.atora-them-footer-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.atora-them-menu a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+	padding: 8px 12px;
+	border-radius: 999px;
+	color: var(--as-ink-2);
+	text-decoration: none;
+	font-size: .94rem;
+	font-weight: 700;
+}
+
+.atora-them-menu a:hover,
+.atora-them-menu .current-menu-item > a,
+.atora-them-menu .current_page_item > a {
+	background: var(--as-surface);
+	color: var(--as-ink);
+	box-shadow: inset 0 0 0 1px var(--as-rule);
+}
+
+.atora-them-header__cta,
+.atora-them-button,
+.wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	padding: 11px 18px;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: var(--as-ink);
+	color: var(--as-cream) !important;
+	text-decoration: none;
+	font-size: .94rem;
+	font-weight: 800;
+	line-height: 1.2;
+	transition: transform .16s ease, background .16s ease, border-color .16s ease;
+}
+
+.atora-them-header__cta:hover,
+.atora-them-button:hover,
+.wp-block-button__link:hover {
+	transform: translateY(-1px);
+	background: var(--as-blue);
+}
+
+.atora-them-button--ghost,
+.is-style-outline > .wp-block-button__link {
+	background: transparent;
+	color: var(--as-ink) !important;
+	border-color: var(--as-rule);
+}
+
+.atora-them-button--ghost:hover,
+.is-style-outline > .wp-block-button__link:hover {
+	background: var(--as-surface);
+	color: var(--as-ink) !important;
+	border-color: color-mix(in srgb, var(--as-blue) 50%, var(--as-rule));
+}
+
+.atora-them-nav-toggle {
+	display: none;
+	width: 44px;
+	height: 44px;
+	border: 1px solid var(--as-rule);
+	border-radius: 999px;
+	background: var(--as-surface);
+	color: var(--as-ink);
+	padding: 0;
+	place-items: center;
+	gap: 4px;
+}
+
+.atora-them-nav-toggle span:not(.screen-reader-text) {
+	display: block;
+	width: 18px;
+	height: 2px;
+	border-radius: 2px;
+	background: currentColor;
+}
+
+.atora-them-hero {
+	padding: 66px 0 42px;
+	background:
+		linear-gradient(90deg, color-mix(in srgb, var(--as-blue) 8%, transparent), transparent 34%),
+		linear-gradient(180deg, var(--as-cream), var(--as-bone));
+	border-bottom: 1px solid var(--as-rule);
+}
+
+.atora-them-hero__grid,
+.atora-them-single__grid,
+.atora-them-split {
+	display: grid;
+	grid-template-columns: minmax(0, 1.04fr) minmax(300px, .8fr);
+	gap: 44px;
+	align-items: center;
+}
+
+.atora-them-eyebrow {
+	margin: 0 0 14px;
+	font-family: var(--as-font-mono);
+	font-size: .76rem;
+	font-weight: 500;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: var(--as-amber);
+}
+
+.atora-them-hero h1,
+.atora-them-archive-hero h1,
+.atora-them-single__hero h1,
+.atora-them-page__header h1,
+.atora-them-section h2 {
+	margin: 0;
+	font-family: var(--as-font-serif);
+	letter-spacing: 0;
+	line-height: .98;
+	color: var(--as-ink);
+}
+
+.atora-them-hero h1 {
+	max-width: 620px;
+	font-size: 4.9rem;
+}
+
+.atora-them-hero p:not(.atora-them-eyebrow) {
+	max-width: 590px;
+	margin: 22px 0 0;
+	color: var(--as-muted);
+	font-size: 1.12rem;
+}
+
+.atora-them-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 28px;
+}
+
+.atora-them-hero__visual {
+	position: relative;
+	min-height: 430px;
+	border-radius: 24px;
+	background:
+		linear-gradient(145deg, rgba(23, 105, 246, .18), transparent 45%),
+		linear-gradient(180deg, var(--as-surface), var(--as-surface-2));
+	border: 1px solid var(--as-rule);
+	box-shadow: var(--as-shadow);
+	overflow: hidden;
+	display: grid;
+	place-items: center;
+	padding: 28px;
+}
+
+.atora-them-hero__visual::before,
+.atora-them-hero__visual::after {
+	content: "";
+	position: absolute;
+	inset: 24px;
+	border: 1px solid color-mix(in srgb, var(--as-amber) 34%, transparent);
+	border-radius: 18px;
+	pointer-events: none;
+}
+
+.atora-them-hero__visual::after {
+	inset: auto 30px 30px auto;
+	width: 42%;
+	aspect-ratio: 1;
+	background: color-mix(in srgb, var(--as-gold) 18%, transparent);
+}
+
+.atora-them-hero__visual img {
+	position: relative;
+	z-index: 2;
+	width: min(74%, 420px);
+	border-radius: 16px;
+	mix-blend-mode: multiply;
+}
+
+body.atora-them-mode-dark .atora-them-hero__visual img,
+body.atora-them-mode-auto .atora-them-hero__visual img {
+	mix-blend-mode: normal;
+}
+
+.atora-them-aperture {
+	position: absolute;
+	top: 24px;
+	left: 24px;
+	z-index: 3;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.atora-them-aperture span {
+	padding: 7px 10px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--as-ink) 88%, transparent);
+	color: var(--as-cream);
+	font-family: var(--as-font-mono);
+	font-size: .72rem;
+}
+
+.atora-them-marquee {
+	overflow: hidden;
+	border-block: 1px solid var(--as-rule);
+	background: var(--as-ink);
+	color: var(--as-cream);
+}
+
+.atora-them-marquee div {
+	width: max-content;
+	display: flex;
+	gap: 0;
+	animation: atora-them-marquee 26s linear infinite;
+}
+
+.atora-them-marquee span {
+	display: inline-flex;
+	align-items: center;
+	min-height: 54px;
+	padding: 0 24px;
+	font-family: var(--as-font-mono);
+	font-size: .78rem;
+	text-transform: uppercase;
+	letter-spacing: .08em;
+	white-space: nowrap;
+}
+
+@keyframes atora-them-marquee {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
+
+.atora-them-section {
+	padding: 76px 0;
+}
+
+.atora-them-section--alt {
+	background: var(--as-surface);
+	border-block: 1px solid var(--as-rule);
+}
+
+.atora-them-section__head {
+	max-width: 720px;
+	margin-bottom: 30px;
+}
+
+.atora-them-section h2,
+.atora-them-archive-hero h1,
+.atora-them-page__header h1,
+.atora-them-single__hero h1 {
+	font-size: 3.4rem;
+}
+
+.atora-them-section__head p:not(.atora-them-eyebrow),
+.atora-them-split p {
+	color: var(--as-muted);
+}
+
+.atora-them-offer-grid,
+.atora-them-post-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.atora-them-offer-card,
+.atora-them-card,
+.atora-them-empty,
+.atora-them-comments__box {
+	background: var(--as-surface);
+	border: 1px solid var(--as-rule);
+	border-radius: var(--as-radius-lg);
+	box-shadow: 0 14px 38px rgba(13, 13, 11, .06);
+}
+
+.atora-them-offer-card {
+	min-height: 260px;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+}
+
+.atora-them-offer-card span {
+	font-family: var(--as-font-mono);
+	color: var(--as-blue);
+	font-size: .8rem;
+}
+
+.atora-them-offer-card h3 {
+	margin: auto 0 12px;
+	font-size: 1.55rem;
+	line-height: 1.1;
+}
+
+.atora-them-offer-card p {
+	margin: 0;
+	color: var(--as-muted);
+}
+
+.atora-them-mobile-stack {
+	display: grid;
+	gap: 12px;
+}
+
+.atora-them-mobile-stack div {
+	padding: 16px 18px;
+	background: var(--as-cream);
+	border: 1px solid var(--as-rule);
+	border-radius: 999px;
+	font-weight: 800;
+}
+
+.atora-them-archive-hero,
+.atora-them-page__header,
+.atora-them-single__hero {
+	padding: 70px 0 40px;
+	border-bottom: 1px solid var(--as-rule);
+	background: var(--as-bone);
+}
+
+.atora-them-archive-description {
+	max-width: 680px;
+	color: var(--as-muted);
+}
+
+.atora-them-post-grid {
+	padding-block: 44px 80px;
+}
+
+.atora-them-card {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.atora-them-card__media {
+	display: block;
+	background: linear-gradient(135deg, var(--as-blue), var(--as-gold));
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.atora-them-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.atora-them-card__placeholder {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	font-family: var(--as-font-serif);
+	font-size: 4rem;
+	color: #fff;
+}
+
+.atora-them-card__body {
+	padding: 22px;
+	display: grid;
+	gap: 10px;
+}
+
+.atora-them-entry-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 12px;
+	color: var(--as-muted);
+	font-family: var(--as-font-mono);
+	font-size: .76rem;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+
+.atora-them-entry-meta a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.atora-them-card h2 {
+	margin: 0;
+	font-size: 1.35rem;
+	line-height: 1.16;
+}
+
+.atora-them-card h2 a,
+.atora-them-text-link {
+	text-decoration: none;
+}
+
+.atora-them-card p {
+	margin: 0;
+	color: var(--as-muted);
+}
+
+.atora-them-text-link {
+	font-weight: 800;
+	color: var(--as-blue) !important;
+}
+
+.atora-them-single__media {
+	margin: 0;
+	border-radius: 22px;
+	overflow: hidden;
+	box-shadow: var(--as-shadow);
+}
+
+.atora-them-single__media img {
+	width: 100%;
+	display: block;
+}
+
+.atora-them-entry-content {
+	padding-block: 36px 70px;
+}
+
+.atora-them-entry-content > * {
+	max-width: var(--as-readable);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.atora-them-entry-content > .alignwide {
+	max-width: var(--as-container);
+}
+
+.atora-them-entry-content > .alignfull {
+	max-width: none;
+}
+
+.atora-them-entry-content h1,
+.atora-them-entry-content h2,
+.atora-them-entry-content h3 {
+	font-family: var(--as-font-serif);
+	line-height: 1.08;
+	letter-spacing: 0;
+}
+
+.atora-them-entry-content p,
+.atora-them-entry-content li {
+	color: color-mix(in srgb, var(--as-ink) 82%, var(--as-muted));
+}
+
+.atora-them-entry-content a {
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+.atora-them-entry-content .wp-block-cover,
+.atora-them-entry-content .wp-block-group,
+.atora-them-entry-content .wp-block-columns {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.atora-them-fullwidth .atora-them-entry-content > *,
+.atora-them-landing .atora-them-entry-content > *,
+.atora-them-front-content .atora-them-entry-content > * {
+	max-width: none;
+}
+
+.atora-them-canvas .atora-them-site-main,
+.atora-them-canvas-content {
+	min-height: 100vh;
+}
+
+.atora-them-canvas-content > * {
+	margin-block-start: 0;
+}
+
+.atora-them-search-form {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-top: 24px;
+}
+
+.atora-them-search-form label {
+	flex: 1 1 260px;
+}
+
+.atora-them-search-field {
+	width: 100%;
+	min-height: 48px;
+	padding: 11px 14px;
+	border-radius: 999px;
+	border: 1px solid var(--as-rule);
+	background: var(--as-surface);
+	color: var(--as-ink);
+	font: inherit;
+}
+
+.atora-them-pagination,
+.atora-them-comments,
+.atora-them-empty {
+	grid-column: 1 / -1;
+}
+
+.atora-them-empty,
+.atora-them-comments__box {
+	padding: 28px;
+}
+
+.atora-them-footer {
+	background: var(--as-ink);
+	color: var(--as-cream);
+}
+
+.atora-them-footer__inner {
+	width: min(1120px, calc(100% - 32px));
+	margin-inline: auto;
+	padding: 42px 0;
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(0, .7fr) minmax(0, .9fr) minmax(0, .75fr);
+	gap: 28px;
+	align-items: start;
+}
+
+.atora-them-footer--compact .atora-them-footer__inner {
+	grid-template-columns: minmax(0, 1.3fr) minmax(0, .8fr) minmax(0, .8fr);
+}
+
+.atora-them-footer .atora-them-brand img,
+.atora-them-footer .custom-logo-link img {
+	background: #fff;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.atora-them-footer__brand p,
+.atora-them-footer__meta p,
+.atora-them-footer__contact-list {
+	color: color-mix(in srgb, var(--as-cream) 72%, transparent);
+	margin: 12px 0 0;
+}
+
+.atora-them-footer-menu {
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.atora-them-footer-menu a {
+	color: var(--as-cream);
+	text-decoration: none;
+}
+
+.atora-them-footer__contact-list {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	gap: 8px;
+}
+
+.atora-them-footer__contact-list a,
+.atora-them-footer__social a {
+	color: var(--as-cream);
+	text-decoration: none;
+}
+
+.atora-them-footer__social {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.atora-them-footer__social a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 34px;
+	padding: 7px 10px;
+	border: 1px solid color-mix(in srgb, var(--as-cream) 18%, transparent);
+	border-radius: 999px;
+	font-size: .82rem;
+	font-weight: 800;
+}
+
+.atora-them-pattern-hero {
+	padding: 76px 20px 58px;
+	background:
+		linear-gradient(90deg, color-mix(in srgb, var(--as-blue) 9%, transparent), transparent 42%),
+		var(--as-bone);
+	border-bottom: 1px solid var(--as-rule);
+}
+
+.atora-them-pattern-hero__grid {
+	align-items: center !important;
+	gap: 38px !important;
+}
+
+.atora-them-pattern-hero h1,
+.atora-them-pattern-page h1,
+.atora-them-pattern-post h1,
+.atora-them-pattern-mentors h2,
+.atora-them-pattern-contact h2 {
+	font-family: var(--as-font-serif);
+	line-height: 1.02;
+	letter-spacing: 0;
+}
+
+.atora-them-pattern-hero h1 {
+	font-size: 4.25rem;
+	max-width: 780px;
+}
+
+.atora-them-pattern-hero p:not(.atora-them-eyebrow) {
+	max-width: 680px;
+	color: var(--as-muted);
+	font-size: 1.08rem;
+}
+
+.atora-them-pattern-logo {
+	padding: 26px;
+	border: 1px solid var(--as-rule);
+	border-radius: 22px;
+	background: var(--as-surface);
+	box-shadow: var(--as-shadow);
+}
+
+.atora-them-pattern-logo img {
+	border-radius: 14px;
+}
+
+.atora-them-pattern-band {
+	padding: 46px 20px;
+	background: var(--as-ink);
+	color: var(--as-cream);
+}
+
+.atora-them-pattern-band p {
+	color: color-mix(in srgb, var(--as-cream) 72%, transparent);
+}
+
+.atora-them-pattern-cards > .wp-block-column,
+.atora-them-pattern-aside,
+.atora-them-pattern-timeline,
+.atora-them-pattern-page,
+.atora-them-pattern-post,
+.atora-them-pattern-contact,
+.atora-them-pattern-mentors {
+	background: var(--as-surface);
+	border: 1px solid var(--as-rule);
+	border-radius: 18px;
+	box-shadow: 0 14px 38px rgba(13, 13, 11, .06);
+}
+
+.atora-them-pattern-cards > .wp-block-column,
+.atora-them-pattern-aside {
+	padding: 24px;
+}
+
+.atora-them-pattern-timeline,
+.atora-them-pattern-page,
+.atora-them-pattern-post,
+.atora-them-pattern-contact,
+.atora-them-pattern-mentors {
+	padding: 34px;
+}
+
+.atora-them-pattern-hero--program {
+	text-align: center;
+}
+
+.atora-them-pattern-hero--program p {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.atora-them-pattern-aside ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.atora-them-pattern-post {
+	max-width: 820px !important;
+}
+
+@media (max-width: 1020px) {
+	.atora-them-header__inner {
+		grid-template-columns: auto auto;
+		justify-content: space-between;
+	}
+
+	.atora-them-nav-toggle {
+		display: grid;
+	}
+
+	.atora-them-nav,
+	.atora-them-header__cta {
+		display: none;
+	}
+
+	body.atora-them-nav-open .atora-them-nav {
+		display: block;
+		position: fixed;
+		top: 75px;
+		left: 16px;
+		right: 16px;
+		padding: 12px;
+		background: var(--as-surface);
+		border: 1px solid var(--as-rule);
+		border-radius: 18px;
+		box-shadow: var(--as-shadow);
+	}
+
+	body.admin-bar.atora-them-nav-open .atora-them-nav {
+		top: 107px;
+	}
+
+	body.atora-them-nav-open .atora-them-menu {
+		display: grid;
+		gap: 4px;
+	}
+
+	body.atora-them-nav-open .atora-them-menu a {
+		justify-content: space-between;
+		min-height: 48px;
+	}
+
+	.atora-them-hero__grid,
+	.atora-them-single__grid,
+	.atora-them-split {
+		grid-template-columns: 1fr;
+	}
+
+	.atora-them-hero__visual {
+		min-height: 330px;
+	}
+
+	.atora-them-offer-grid,
+	.atora-them-post-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.atora-them-footer__inner {
+		grid-template-columns: 1fr;
+	}
+
+	.atora-them-pattern-hero h1 {
+		font-size: 3.2rem;
+	}
+}
+
+@media (max-width: 680px) {
+	.atora-them-container,
+	.atora-them-readable {
+		width: min(100% - 28px, var(--as-container));
+	}
+
+	body.admin-bar.atora-them .clms-template-part--header.clms-template-part--sticky {
+		top: 46px;
+	}
+
+	body.admin-bar .atora-them-header {
+		top: 46px;
+	}
+
+	body.atora-them .clms-template-part--header > .wp-block-group {
+		padding-inline: 14px !important;
+	}
+
+	body.atora-them .clms-template-part--header .wp-block-group-is-layout-flex {
+		gap: 10px;
+		width: 100%;
+		min-width: 0;
+	}
+
+	body.atora-them .clms-template-part--header .wp-block-site-logo,
+	body.atora-them .clms-template-part--header .wp-block-buttons {
+		flex: 0 0 auto;
+	}
+
+	body.atora-them .clms-template-part--header .wp-block-site-title {
+		min-width: 0;
+		font-size: 1rem;
+	}
+
+	body.atora-them .clms-template-part--header .wp-block-navigation {
+		flex: 1 1 100%;
+		order: 4;
+		justify-content: flex-start;
+	}
+
+	body.atora-them .clms-template-part--header .wp-block-button__link {
+		min-height: 40px;
+		padding: 9px 14px;
+		font-size: .9rem;
+	}
+
+	body.atora-them .clms-template-part--footer .wp-block-columns {
+		gap: 18px;
+	}
+
+	.atora-them-header__inner {
+		width: calc(100% - 24px);
+		min-height: 66px;
+	}
+
+	.atora-them-brand img,
+	.custom-logo-link img {
+		height: 40px;
+		max-width: 170px;
+	}
+
+	body.atora-them-nav-open .atora-them-nav {
+		top: 67px;
+		left: 12px;
+		right: 12px;
+	}
+
+	body.admin-bar.atora-them-nav-open .atora-them-nav {
+		top: 113px;
+	}
+
+	.atora-them-hero {
+		padding: 42px 0 30px;
+	}
+
+	.atora-them-hero h1 {
+		font-size: 3.25rem;
+	}
+
+	.atora-them-section h2,
+	.atora-them-archive-hero h1,
+	.atora-them-page__header h1,
+	.atora-them-single__hero h1 {
+		font-size: 2.35rem;
+	}
+
+	.atora-them-hero p:not(.atora-them-eyebrow) {
+		font-size: 1rem;
+	}
+
+	.atora-them-actions {
+		display: grid;
+	}
+
+	.atora-them-button,
+	.atora-them-header__cta,
+	.wp-block-button__link {
+		width: 100%;
+	}
+
+	.atora-them-hero__visual {
+		min-height: 260px;
+		border-radius: 18px;
+	}
+
+	.atora-them-aperture {
+		position: relative;
+		top: auto;
+		left: auto;
+		margin-bottom: 12px;
+	}
+
+	.atora-them-hero__visual {
+		padding: 20px;
+	}
+
+	.atora-them-hero__visual img {
+		width: 88%;
+	}
+
+	.atora-them-marquee span {
+		min-height: 48px;
+		padding-inline: 18px;
+	}
+
+	.atora-them-section {
+		padding: 50px 0;
+	}
+
+	.atora-them-offer-grid,
+	.atora-them-post-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.atora-them-offer-card {
+		min-height: 220px;
+	}
+
+	.atora-them-archive-hero,
+	.atora-them-page__header,
+	.atora-them-single__hero {
+		padding: 44px 0 30px;
+	}
+
+	.atora-them-entry-content {
+		padding-block: 24px 54px;
+	}
+
+	.atora-them-pattern-hero {
+		padding: 48px 14px 40px;
+	}
+
+	.atora-them-pattern-hero h1 {
+		font-size: 2.65rem;
+	}
+
+	.atora-them-pattern-cards > .wp-block-column,
+	.atora-them-pattern-aside,
+	.atora-them-pattern-timeline,
+	.atora-them-pattern-page,
+	.atora-them-pattern-post,
+	.atora-them-pattern-contact,
+	.atora-them-pattern-mentors {
+		padding: 20px;
+		border-radius: 16px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		scroll-behavior: auto !important;
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: .01ms !important;
+	}
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+ * ATORA STUDIO · Patch anti-duplicados
+ *
+ * Pega este bloque al FINAL de assets/css/main.css.
+ *
+ * Importante: CSS solo NO puede deduplicar por id (no existe selector
+ * que compare valores entre elementos hermanos). Estos estilos sólo
+ * limpian visualmente lo que ya marcó el JS (aria-hidden) y dan una
+ * ruta para casos puntuales conocidos.
+ *
+ * El fix real está en home.php + functions.php (ver theme-patches/).
+ * ──────────────────────────────────────────────────────────────── */
+
+/* Sacar del flow las cards que el JS marca como duplicadas.
+ * No dejan hueco, no aparecen para screen readers. */
+.atora-them-post-grid > [aria-hidden="true"],
+.wp-block-post-template > [aria-hidden="true"],
+[data-atora-deduplicate] > [aria-hidden="true"] {
+	display: none !important;
+}
+
+/* Si quieres ocultar manualmente un post conocido — útil cuando lo
+ * presentas en un hero/destacado y NO quieres verlo otra vez en el
+ * grid de abajo — descomenta y pon su id. */
+/*
+.atora-them-post-grid > #post-123,
+.atora-them-post-grid > #post-456 {
+	display: none;
+}
+*/
+
+/* Para listados custom (Query Loops, shortcodes), añade el atributo
+ * data-atora-deduplicate al contenedor y el JS lo dedupa también. */
+
+/* Visualmente, cuando la card duplicada se oculta y el grid queda con
+ * un número impar, el último elemento podría verse "solo" — esta regla
+ * evita que se estire raro en el grid auto-fill. */
+.atora-them-post-grid {
+	grid-auto-rows: 1fr;
+}
