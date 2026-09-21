@@ -49,6 +49,12 @@ GitHub Actions ejecuta lint de sintaxis con PHP 8.1, 8.2, 8.3 y 8.4, además de 
 
 La automatización no sustituye las pruebas visuales, responsive, accesibilidad, WooCommerce ni la integración completa con ATORA LMS.
 
+## Patterns
+
+### Contacto
+
+El pattern `atora-theme/contact` está conectado al formulario del plugin ATORA LMS mediante el shortcode `[atora_form id="..."]`. Para que se renderice en instalaciones limpias, configura la option `clms_crm_lead_form_id` con el ID de un CPT `atora_form`.
+
 ## Proyecto
 
 - Sitio: https://atora.studio
