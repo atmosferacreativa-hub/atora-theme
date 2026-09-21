@@ -47,7 +47,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"fontWeight":"700","fontSize":"15px","marginTop":"16px"}} -->
-<p style="font-weight: 700; font-size: 15px; margin-top: 16px;"><a href="https://wa.me/5841223158">+58 412 231 5856</a></p>
+<p style="font-weight: 700; font-size: 15px; margin-top: 16px;"><a href="https://wa.me/584122315856">+58 412 231 5856</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -79,10 +79,20 @@
 <p style="font-size: 14px; color: var(--as-muted); margin-top: 12px;">Llena este formulario y nos pondremos en contacto pronto.</p>
 <!-- /wp:paragraph -->
 
-<!-- Aquí iría un bloque de formulario de contacto del tema o plugin -->
+<?php
+$form_id    = absint( get_option( 'clms_crm_lead_form_id', 0 ) );
+$can_render = function_exists( 'shortcode_exists' ) && shortcode_exists( 'atora_form' ) && $form_id > 0;
+?>
+<?php if ( $can_render ) : ?>
+<!-- wp:shortcode -->
+<?php echo '[atora_form id="' . absint( $form_id ) . '"]'; ?>
+<!-- /wp:shortcode -->
+<?php else : ?>
 <!-- wp:paragraph {"style":{"fontSize":"14px","color":"var(--as-muted)","marginTop":"24px","padding":"24px","backgroundColor":"var(--as-surface-2)","borderRadius":"var(--as-radius)","textAlign":"center"}} -->
-<p style="font-size: 14px; color: var(--as-muted); margin-top: 24px; padding: 24px; background: var(--as-surface-2); border-radius: var(--as-radius); text-align: center;"><!-- Insertar formulario aquí --><em>Inserta tu formulario de contacto aquí (WPForms, Forminator, o similar)</em></p>
-<!-- /wp:paragraph --></div>
+<p style="font-size: 14px; color: var(--as-muted); margin-top: 24px; padding: 24px; background: var(--as-surface-2); border-radius: var(--as-radius); text-align: center;"><em>Configura el formulario ATORA (option <code>clms_crm_lead_form_id</code>) para renderizarlo aquí.</em></p>
+<!-- /wp:paragraph -->
+<?php endif; ?>
+</div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
