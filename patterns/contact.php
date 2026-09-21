@@ -47,7 +47,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"fontWeight":"700","fontSize":"15px","marginTop":"16px"}} -->
-<p style="font-weight: 700; font-size: 15px; margin-top: 16px;"><a href="https://wa.me/5841223158">+58 412 231 5856</a></p>
+<p style="font-weight: 700; font-size: 15px; margin-top: 16px;"><a href="https://wa.me/584122315856">+58 412 231 5856</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
