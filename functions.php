@@ -29,6 +29,7 @@ require_once ATORA_THEME_DIR . '/inc/setup.php';
 require_once ATORA_THEME_DIR . '/inc/customizer.php';
 require_once ATORA_THEME_DIR . '/inc/admin.php';
 require_once ATORA_THEME_DIR . '/inc/atora-lms.php';
+require_once ATORA_THEME_DIR . '/inc/studio.php';
 
 
 /* ─── Anti-duplicados de posts (v1.0.4) ─── */

@@ -32,6 +32,10 @@ if ( ! have_posts() ) {
 the_post();
 
 $course_id  = get_the_ID();
+$outcomes   = (string) get_post_meta( $course_id, '_clms_course_learning_outcomes', true );
+$egress     = (string) get_post_meta( $course_id, '_clms_commercial_egress_profile', true );
+$ingress    = (string) get_post_meta( $course_id, '_clms_commercial_ingress_profile', true );
+$requirements = (string) get_post_meta( $course_id, '_clms_course_requirements', true );
 $cov_scheme = apply_filters( 'clms_course_overview_color_scheme', 'light', $course_id );
 $cov_scheme = in_array( $cov_scheme, array( 'light', 'dark', 'auto' ), true ) ? sanitize_key( $cov_scheme ) : 'light';
 
@@ -106,6 +110,60 @@ $has_block_content = function_exists( 'atora_lms_entry_has_block_content' ) ? at
 				<div class="atora-theme-lms-fallback">
 					<?php the_content(); ?>
 				</div>
+			<?php endif; ?>
+
+			<?php
+			$split_lines = static function( string $raw ): array {
+				$lines = preg_split( "/\\r\\n|\\r|\\n/", $raw );
+				$out   = array();
+				foreach ( (array) $lines as $line ) {
+					$line = trim( wp_strip_all_tags( (string) $line ) );
+					if ( '' !== $line ) { $out[] = $line; }
+				}
+				return $out;
+			};
+			$ui_outcomes = $split_lines( $outcomes );
+			$ui_egress   = $split_lines( $egress );
+			$ui_ingress  = $split_lines( $ingress );
+			$ui_req      = $split_lines( $requirements );
+			?>
+			<?php if ( $ui_outcomes || $ui_egress || $ui_ingress || $ui_req ) : ?>
+				<section class="atora-course-extra">
+					<div class="atora-course-extra-inner">
+						<?php if ( $ui_outcomes ) : ?>
+							<h2><?php esc_html_e( 'Qué aprenderás', 'atora-theme' ); ?></h2>
+							<ul>
+								<?php foreach ( array_slice( $ui_outcomes, 0, 10 ) as $item ) : ?>
+									<li><?php echo esc_html( $item ); ?></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+						<?php if ( $ui_egress ) : ?>
+							<h2><?php esc_html_e( 'Perfil de egreso', 'atora-theme' ); ?></h2>
+							<ul>
+								<?php foreach ( array_slice( $ui_egress, 0, 10 ) as $item ) : ?>
+									<li><?php echo esc_html( $item ); ?></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+						<?php if ( $ui_ingress ) : ?>
+							<h2><?php esc_html_e( 'Para quién es', 'atora-theme' ); ?></h2>
+							<ul>
+								<?php foreach ( array_slice( $ui_ingress, 0, 10 ) as $item ) : ?>
+									<li><?php echo esc_html( $item ); ?></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+						<?php if ( $ui_req ) : ?>
+							<h2><?php esc_html_e( 'Requisitos', 'atora-theme' ); ?></h2>
+							<ul>
+								<?php foreach ( array_slice( $ui_req, 0, 10 ) as $item ) : ?>
+									<li><?php echo esc_html( $item ); ?></li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+					</div>
+				</section>
 			<?php endif; ?>
 
 			<?php if ( ! $_user_id || ! $_is_enrolled ) : ?>

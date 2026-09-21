@@ -107,6 +107,7 @@ body.atora-theme {
 	--atora-warning: var(--as-amber);
 	--atora-warning-bg: color-mix(in srgb, var(--as-gold) 14%, var(--as-surface));
 	--atora-warning-text: color-mix(in srgb, var(--as-amber) 58%, var(--as-ink));
+	--atora-danger: #2563eb;
 }
 
 body.atora-theme a {
@@ -117,6 +118,18 @@ body.atora-theme img,
 body.atora-theme video,
 body.atora-theme iframe {
 	max-width: 100%;
+}
+
+/* ATORA LMS: contraste en botones del shortcode de docentes. */
+body.atora-theme .atora-teacher-link {
+	background: var(--as-blue) !important;
+	color: #ffffff !important;
+	border: 1px solid transparent !important;
+}
+
+body.atora-theme .atora-teacher-link:hover {
+	background: color-mix(in srgb, var(--as-blue) 78%, var(--as-ink)) !important;
+	color: #ffffff !important;
 }
 
 body.atora-theme img {
@@ -235,14 +248,26 @@ body.atora-theme .clms-template-part--footer {
 	overflow: hidden;
 }
 
+body.atora-theme .clms-template-part--header .wp-block-site-logo img {
+	height: auto;
+	max-height: 72px;
+	max-width: min(360px, 80vw);
+	object-fit: contain;
+}
+
+body.atora-theme .clms-template-part--header .wp-block-site-title {
+	line-height: 1.1;
+}
+
 .atora-theme-header__inner {
 	width: min(1120px, calc(100% - 32px));
 	min-height: 74px;
 	margin-inline: auto;
-	display: grid;
-	grid-template-columns: auto minmax(0, 1fr) auto;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 22px;
+	justify-content: center;
+	gap: 12px;
 }
 
 .atora-theme-brand,
@@ -257,13 +282,13 @@ body.atora-theme .clms-template-part--footer {
 .custom-logo-link img {
 	display: block;
 	width: auto;
-	height: 48px;
-	max-width: 210px;
+	height: 56px !important;
+	max-width: min(520px, 90vw) !important;
 	object-fit: contain;
 }
 
 .atora-theme-nav {
-	justify-self: end;
+	width: 100%;
 	min-width: 0;
 }
 
@@ -274,6 +299,7 @@ body.atora-theme .clms-template-part--footer {
 	padding: 0;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 6px;
 }
 
@@ -321,6 +347,17 @@ body.atora-theme .clms-template-part--footer {
 .wp-block-button__link:hover {
 	transform: translateY(-1px);
 	background: var(--as-blue);
+}
+
+/* Asegurar contraste cuando el botón es "blanco" (block editor). */
+.wp-block-button__link.has-white-background-color {
+	background: #ffffff !important;
+	border-color: rgba(15, 23, 42, .12);
+	color: #0f172a !important;
+}
+
+.wp-block-button__link.has-white-background-color:hover {
+	background: #f8fafc !important;
 }
 
 .atora-theme-button--ghost,
@@ -1244,4 +1281,32 @@ body.atora-theme-mode-auto .atora-theme-hero__visual img {
  * evita que se estire raro en el grid auto-fill. */
 .atora-theme-post-grid {
 	grid-auto-rows: 1fr;
+}
+
+/* Course: academic outcomes / profiles */
+.atora-course-extra {
+	margin-top: 24px;
+}
+.atora-course-extra-inner {
+	background: #fff;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 18px;
+	padding: 20px;
+	display: grid;
+	gap: 18px;
+}
+.atora-course-extra-inner h2 {
+	font-size: 18px;
+	margin: 0;
+	color: var(--atora-ink, #0f172a);
+}
+.atora-course-extra-inner ul {
+	margin: 0;
+	padding-left: 18px;
+	color: var(--atora-muted, #475569);
+	display: grid;
+	gap: 6px;
+}
+.atora-course-extra-inner li {
+	line-height: 1.4;
 }
