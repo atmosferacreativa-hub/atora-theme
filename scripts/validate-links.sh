@@ -24,6 +24,12 @@ for file in "${files[@]}"; do
       continue
     fi
 
+    # PHP-generated href values cannot be checked as literal source links.
+    if [[ "$url" == *'<?php'* ]]; then
+      echo "Skipping PHP-generated link (source check): ${file}:${lineno}" >&2
+      continue
+    fi
+
     if [[ "$url" == tel:* ]]; then
       if [[ ! "$url" =~ ^tel:\+?[0-9]{7,15}$ ]]; then
         echo "Invalid tel: link: ${file}:${lineno}: ${url}" >&2

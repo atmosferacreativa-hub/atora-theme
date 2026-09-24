@@ -43,7 +43,7 @@ jobs:
           find . -name '*.php' -print0 |
             xargs -0 -n1 php -l
 
-      - name: Validate tel: and WhatsApp links
+      - name: "Validate tel: and WhatsApp links"
         shell: bash
         run: bash scripts/validate-links.sh
 
