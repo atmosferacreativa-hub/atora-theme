@@ -3,6 +3,7 @@
 ## 3.0.9 (2026-10-03)
 
 - **Repo**: Meridian pasa a ser el tema oficial del repositorio. README, este changelog y `Theme URI` apuntando a `atmosferacreativa-hub/atora-theme`.
+- **Fix**: `patterns/home-institucional.php` llamaba a `atora_theme_asset_url()`, que no existía (error fatal al activar el tema en WordPress 6.4 y al abrir el patrón en el editor en 6.8). Se define la función y el patrón usa `assets/images/atora-theme-logo.jpg` (la imagen que pedía, `logo-atora-theme.jpg`, era del tema 1.1.0 y no está en Meridian).
 - **CI**: sintaxis PHP 7.4–8.4, comprobación de que `style.css` y `ATORA_THEME_VERSION` coinciden, validación de enlaces `tel:`/WhatsApp (con los arreglos de `fix/ci-yaml-step-name-20260924`) y prueba en WordPress 6.4 y 6.8 que activa el tema y carga páginas sin errores PHP.
 
 ## 3.0.8 (2026-10-03)

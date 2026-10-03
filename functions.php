@@ -217,6 +217,16 @@ function atora_nav_fallback( $args ) {
 }
 
 /**
+ * URL of a file inside the theme (used by block patterns).
+ *
+ * @param string $path Path relative to the theme root.
+ * @return string
+ */
+function atora_theme_asset_url( $path ) {
+	return ATORA_THEME_URI . '/' . ltrim( (string) $path, '/' );
+}
+
+/**
  * Get archive link with sane fallbacks.
  *
  * @param string $post_type Post type.
