@@ -9,8 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$posts_page_id = (int) get_option( 'page_for_posts' );
-$blog_url      = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/blog/' );
+$blog_url      = atora_get_blog_url() ?: home_url( '/' );
 $paged         = max( 1, (int) get_query_var( 'paged' ) );
 $current_term  = ( is_category() || is_tag() ) ? get_queried_object() : null;
 

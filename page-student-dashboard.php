@@ -20,7 +20,7 @@ if ( ! is_user_logged_in() ) :
 				<h1><?php esc_html_e( 'Your academic dashboard now feels as premium as the storefront.', 'atora-learning' ); ?></h1>
 				<p><?php esc_html_e( 'Log in to continue your courses, review progress and access your account in one cleaner workspace.', 'atora-learning' ); ?></p>
 				<div class="meridian-hero-actions">
-					<a class="meridian-button meridian-button--primary" href="<?php echo esc_url( wp_login_url( get_permalink() ) ); ?>"><?php esc_html_e( 'Log in', 'atora-learning' ); ?></a>
+					<a class="meridian-button meridian-button--primary" href="<?php echo esc_url( atora_get_login_url( get_permalink() ) ); ?>"><?php esc_html_e( 'Log in', 'atora-learning' ); ?></a>
 					<a class="meridian-button meridian-button--ghost" href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Browse courses', 'atora-learning' ); ?></a>
 				</div>
 			</div>

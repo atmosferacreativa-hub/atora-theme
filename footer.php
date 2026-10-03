@@ -13,18 +13,24 @@
 					<ul class="meridian-footer__links">
 						<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></a></li>
 						<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_program' ) ); ?>"><?php esc_html_e( 'Programs', 'atora-learning' ); ?></a></li>
-						<li><a href="<?php echo esc_url( home_url( '/dashboard/' ) ); ?>"><?php esc_html_e( 'Student Dashboard', 'atora-learning' ); ?></a></li>
+						<li><a href="<?php echo esc_url( atora_get_dashboard_url() ); ?>"><?php esc_html_e( 'Student Dashboard', 'atora-learning' ); ?></a></li>
 						<li><a href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'atora-learning' ); ?></a></li>
 					</ul>
 				</div>
 
 				<div>
-					<h3><?php esc_html_e( 'Commerce', 'atora-learning' ); ?></h3>
+					<h3><?php esc_html_e( 'Resources', 'atora-learning' ); ?></h3>
 					<ul class="meridian-footer__links">
-						<li><a href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Shop', 'atora-learning' ); ?></a></li>
-						<li><a href="<?php echo esc_url( atora_get_cart_url() ); ?>"><?php esc_html_e( 'Cart', 'atora-learning' ); ?></a></li>
-						<li><a href="<?php echo esc_url( home_url( '/podcast/' ) ); ?>"><?php esc_html_e( 'Podcast', 'atora-learning' ); ?></a></li>
-						<li><a href="<?php echo esc_url( get_permalink( (int) get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>"><?php esc_html_e( 'Journal', 'atora-learning' ); ?></a></li>
+						<?php if ( atora_has_store() ) : ?>
+							<li><a href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Shop', 'atora-learning' ); ?></a></li>
+							<li><a href="<?php echo esc_url( atora_get_cart_url() ); ?>"><?php esc_html_e( 'Cart', 'atora-learning' ); ?></a></li>
+						<?php endif; ?>
+						<?php if ( atora_has_podcast() ) : ?>
+							<li><a href="<?php echo esc_url( atora_get_archive_link( 'podcast' ) ); ?>"><?php esc_html_e( 'Podcast', 'atora-learning' ); ?></a></li>
+						<?php endif; ?>
+						<?php if ( '' !== atora_get_blog_url() ) : ?>
+							<li><a href="<?php echo esc_url( atora_get_blog_url() ); ?>"><?php esc_html_e( 'Journal', 'atora-learning' ); ?></a></li>
+						<?php endif; ?>
 					</ul>
 				</div>
 
@@ -42,11 +48,18 @@
 						);
 						?>
 					<?php else : ?>
+						<?php
+						$atora_footer_pages = array(
+							__( 'About', 'atora-learning' )   => atora_get_page_url_by_slugs( array( 'nosotros', 'acerca', 'about' ) ),
+							__( 'Contact', 'atora-learning' ) => atora_get_page_url_by_slugs( array( 'contacto', 'contact' ) ),
+							__( 'Support', 'atora-learning' ) => atora_get_page_url_by_slugs( array( 'soporte', 'ayuda', 'support' ) ),
+						);
+						?>
 						<ul class="meridian-footer__links">
 							<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'atora-learning' ); ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About', 'atora-learning' ); ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'atora-learning' ); ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/support/' ) ); ?>"><?php esc_html_e( 'Support', 'atora-learning' ); ?></a></li>
+							<?php foreach ( array_filter( $atora_footer_pages ) as $atora_label => $atora_url ) : ?>
+								<li><a href="<?php echo esc_url( $atora_url ); ?>"><?php echo esc_html( $atora_label ); ?></a></li>
+							<?php endforeach; ?>
 						</ul>
 					<?php endif; ?>
 				</div>
@@ -57,7 +70,7 @@
 					<?php
 					printf(
 						/* translators: %d: current year. */
-						esc_html__( '© %d ATORA. Meridian theme system.', 'atora-learning' ),
+						esc_html__( '© %d ATORA.', 'atora-learning' ),
 						(int) gmdate( 'Y' )
 					);
 					?>
@@ -77,10 +90,21 @@
 					);
 					?>
 				<?php else : ?>
-					<ul class="meridian-mini-menu">
-						<li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy', 'atora-learning' ); ?></a></li>
-						<li><a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>"><?php esc_html_e( 'Terms', 'atora-learning' ); ?></a></li>
-					</ul>
+					<?php
+					$atora_legal = array_filter(
+						array(
+							__( 'Privacy', 'atora-learning' ) => get_privacy_policy_url(),
+							__( 'Terms', 'atora-learning' )   => atora_get_page_url_by_slugs( array( 'terminos-y-condiciones', 'terminos', 'terms' ) ),
+						)
+					);
+					?>
+					<?php if ( $atora_legal ) : ?>
+						<ul class="meridian-mini-menu">
+							<?php foreach ( $atora_legal as $atora_label => $atora_url ) : ?>
+								<li><a href="<?php echo esc_url( $atora_url ); ?>"><?php echo esc_html( $atora_label ); ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		</div>
