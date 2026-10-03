@@ -18,7 +18,7 @@
 				<!-- wp:column {"width":"58%"} -->
 				<div class="wp-block-column" style="flex-basis:58%">
 					<!-- wp:image {"width":"140px","sizeSlug":"full","linkDestination":"none","className":"atora-home-logo"} -->
-					<figure class="wp-block-image size-full is-resized atora-home-logo"><img src="<?php echo esc_url( atora_theme_asset_url( 'assets/images/logo-atora-theme.jpg' ) ); ?>" alt="Atora" style="width:140px"/></figure>
+					<figure class="wp-block-image size-full is-resized atora-home-logo"><img src="<?php echo esc_url( atora_theme_asset_url( 'assets/images/atora-theme-logo.jpg' ) ); ?>" alt="Atora" style="width:140px"/></figure>
 					<!-- /wp:image -->
 
 					<!-- wp:paragraph {"className":"atora-home-eyebrow atora-home-eyebrow-on-dark"} -->

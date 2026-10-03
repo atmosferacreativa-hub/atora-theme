@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.0.8' );
+define( 'ATORA_THEME_VERSION', '3.0.9' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
@@ -214,6 +214,16 @@ function atora_nav_fallback( $args ) {
 	}
 
 	echo '<ul class="' . esc_attr( $menu_class ) . '">' . $pages . '</ul>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
+ * URL of a file inside the theme (used by block patterns).
+ *
+ * @param string $path Path relative to the theme root.
+ * @return string
+ */
+function atora_theme_asset_url( $path ) {
+	return ATORA_THEME_URI . '/' . ltrim( (string) $path, '/' );
 }
 
 /**
