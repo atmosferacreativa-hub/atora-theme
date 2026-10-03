@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.0.8' );
+define( 'ATORA_THEME_VERSION', '3.0.9' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
