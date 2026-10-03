@@ -14,8 +14,6 @@
 <header class="meridian-header" data-site-header>
 	<div class="meridian-header__rail">
 		<div class="meridian-shell meridian-header__rail-inner">
-			<p class="meridian-header__signal"><?php esc_html_e( 'Commercial polish, academic clarity and WooCommerce-ready growth.', 'atora-learning' ); ?></p>
-
 			<div class="meridian-header__rail-nav">
 				<?php if ( has_nav_menu( 'top' ) ) : ?>
 					<?php
@@ -33,8 +31,12 @@
 						<ul class="meridian-mini-menu">
 							<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></a></li>
 							<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_program' ) ); ?>"><?php esc_html_e( 'Programs', 'atora-learning' ); ?></a></li>
-							<li><a href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Store', 'atora-learning' ); ?></a></li>
-							<li><a href="<?php echo esc_url( get_permalink( (int) get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>"><?php esc_html_e( 'Journal', 'atora-learning' ); ?></a></li>
+							<?php if ( atora_has_store() ) : ?>
+								<li><a href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Store', 'atora-learning' ); ?></a></li>
+							<?php endif; ?>
+							<?php if ( '' !== atora_get_blog_url() ) : ?>
+								<li><a href="<?php echo esc_url( atora_get_blog_url() ); ?>"><?php esc_html_e( 'Journal', 'atora-learning' ); ?></a></li>
+							<?php endif; ?>
 						</ul>
 					</nav>
 				<?php endif; ?>
@@ -60,10 +62,12 @@
 					<?php esc_html_e( 'Search', 'atora-learning' ); ?>
 				</button>
 				<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'atora-learning' ); ?></a>
-				<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
-					<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
-					<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
-				</a>
+				<?php if ( atora_has_store() ) : ?>
+					<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
+						<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
+						<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
+					</a>
+				<?php endif; ?>
 				<a class="meridian-button meridian-button--primary meridian-button--small" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
 					<?php echo esc_html( atora_get_primary_cta_label() ); ?>
 				</a>
@@ -85,10 +89,12 @@
 
 				<div class="meridian-header__nav-actions">
 					<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'atora-learning' ); ?></a>
-					<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
-						<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
-						<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
-					</a>
+					<?php if ( atora_has_store() ) : ?>
+						<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
+							<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
+							<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
+						</a>
+					<?php endif; ?>
 					<a class="meridian-button meridian-button--primary meridian-button--small" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
 						<?php echo esc_html( atora_get_primary_cta_label() ); ?>
 					</a>

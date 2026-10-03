@@ -92,7 +92,7 @@ function atora_render_header_block($block) {
                 echo '<a href="' . esc_url($acct_url) . '" class="btn btn-outline btn-sm">' . esc_html__('My Account', 'atora-learning') . '</a>';
                 echo '<a href="' . esc_url(wp_logout_url(home_url())) . '" class="btn btn-ghost btn-sm">' . esc_html__('Logout', 'atora-learning') . '</a>';
             } else {
-                echo '<a href="' . esc_url(wp_login_url()) . '" class="btn btn-outline btn-sm">' . esc_html__('Login', 'atora-learning') . '</a>';
+                echo '<a href="' . esc_url(atora_get_login_url()) . '" class="btn btn-outline btn-sm">' . esc_html__('Login', 'atora-learning') . '</a>';
                 echo '<a href="' . esc_url(wp_registration_url()) . '" class="btn btn-primary btn-sm">' . esc_html__('Sign Up', 'atora-learning') . '</a>';
             }
             echo '</div>';

@@ -75,8 +75,7 @@ $featured_products = atora_get_featured_posts( 'product', 4 );
 $latest_posts      = atora_get_featured_posts( 'post', 3 );
 $podcast_posts     = atora_get_featured_posts( 'podcast', 2 );
 
-$blog_page_id = (int) get_option( 'page_for_posts' );
-$blog_url     = $blog_page_id ? get_permalink( $blog_page_id ) : home_url( '/blog/' );
+$blog_url     = atora_get_blog_url() ?: home_url( '/' );
 ?>
 
 <?php if ( empty( $settings['hide_hero'] ) ) : ?>
@@ -127,8 +126,8 @@ $blog_url     = $blog_page_id ? get_permalink( $blog_page_id ) : home_url( '/blo
 					<p><?php esc_html_e( 'Course and program views that feel lighter, clearer and more aligned with the real value of the learning path.', 'atora-learning' ); ?></p>
 				</li>
 				<li>
-					<strong><?php esc_html_e( 'Store and Editorial', 'atora-learning' ); ?></strong>
-					<p><?php esc_html_e( 'WooCommerce, blog, podcast and pages now share one visual system instead of feeling stitched together.', 'atora-learning' ); ?></p>
+					<strong><?php esc_html_e( 'Editorial', 'atora-learning' ); ?></strong>
+					<p><?php esc_html_e( 'Blog, pages and landings share one visual system instead of feeling stitched together.', 'atora-learning' ); ?></p>
 				</li>
 			</ul>
 		</div>

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$bottom_cta_url   = $cta_url ? $cta_url : ( is_user_logged_in() ? $course_permalink : wp_login_url( $course_permalink ) );
+$bottom_cta_url   = $cta_url ? $cta_url : ( is_user_logged_in() ? $course_permalink : atora_get_login_url( $course_permalink ) );
 $bottom_cta_label = $cta_url ? $cta_label : ( is_user_logged_in() ? __( 'View course', 'atora-learning' ) : __( 'Log in', 'atora-learning' ) );
 $bottom_copy      = $tagline ? $tagline : $subtitle;
 ?>

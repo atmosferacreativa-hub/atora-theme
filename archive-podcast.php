@@ -49,7 +49,7 @@ get_header();
 	<?php else : ?>
 		<div class="meridian-empty-state">
 			<h2><?php esc_html_e( 'No episodes published yet', 'atora-learning' ); ?></h2>
-			<p><?php esc_html_e( 'As soon as the first episode is live, Meridian will present it beautifully here.', 'atora-learning' ); ?></p>
+			<p><?php esc_html_e( 'As soon as the first episode is live, it will appear here.', 'atora-learning' ); ?></p>
 		</div>
 	<?php endif; ?>
 </div>

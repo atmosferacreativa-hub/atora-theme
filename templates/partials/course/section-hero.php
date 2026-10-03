@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $hero_modifier = isset( $meridian_course_hero_modifier ) ? (string) $meridian_course_hero_modifier : '';
-$hero_cta_url  = $cta_url ? $cta_url : ( is_user_logged_in() ? '' : wp_login_url( $course_permalink ) );
+$hero_cta_url  = $cta_url ? $cta_url : ( is_user_logged_in() ? '' : atora_get_login_url( $course_permalink ) );
 $hero_cta_text = $cta_url ? $cta_label : ( is_user_logged_in() ? '' : __( 'Log in to access', 'atora-learning' ) );
 $hero_lead     = $tagline ? $tagline : $subtitle;
 ?>

@@ -111,8 +111,12 @@ while ( have_posts() ) :
 								<ul class="meridian-sidebar-list">
 									<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></a></li>
 									<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_program' ) ); ?>"><?php esc_html_e( 'Programs', 'atora-learning' ); ?></a></li>
-									<li><a href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Store', 'atora-learning' ); ?></a></li>
-									<li><a href="<?php echo esc_url( home_url( '/podcast/' ) ); ?>"><?php esc_html_e( 'Podcast', 'atora-learning' ); ?></a></li>
+									<?php if ( atora_has_store() ) : ?>
+										<li><a href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Store', 'atora-learning' ); ?></a></li>
+									<?php endif; ?>
+									<?php if ( atora_has_podcast() ) : ?>
+										<li><a href="<?php echo esc_url( atora_get_archive_link( 'podcast' ) ); ?>"><?php esc_html_e( 'Podcast', 'atora-learning' ); ?></a></li>
+									<?php endif; ?>
 								</ul>
 							</div>
 						</aside>

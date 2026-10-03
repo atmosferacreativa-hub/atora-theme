@@ -62,7 +62,7 @@ if ( $user_id && $is_enrolled ) {
 		<?php endif; ?>
 
 		<?php if ( ! $user_id ) : ?>
-			<a class="meridian-button meridian-button--primary" href="<?php echo esc_url( wp_login_url( get_permalink( $course_id ) ) ); ?>"><?php esc_html_e( 'Log in to access', 'atora-learning' ); ?></a>
+			<a class="meridian-button meridian-button--primary" href="<?php echo esc_url( atora_get_login_url( get_permalink( $course_id ) ) ); ?>"><?php esc_html_e( 'Log in to access', 'atora-learning' ); ?></a>
 		<?php elseif ( ! $is_enrolled ) : ?>
 			<p><?php esc_html_e( 'This course is connected to the academic engine but still protected by enrollment.', 'atora-learning' ); ?></p>
 		<?php elseif ( $cta_lesson_id ) : ?>

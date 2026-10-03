@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.0.6' );
+define( 'ATORA_THEME_VERSION', '3.0.7' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
@@ -265,6 +265,11 @@ function atora_get_shop_url() {
  * @return string
  */
 function atora_get_account_url() {
+	// Con ATORA LMS: panel si hay sesión, /cuenta/ (o wp-login.php) si no.
+	if ( class_exists( 'CLMS_Frontend_URLs' ) ) {
+		return is_user_logged_in() ? atora_get_dashboard_url() : atora_get_login_url();
+	}
+
 	if ( function_exists( 'wc_get_page_permalink' ) ) {
 		$url = wc_get_page_permalink( 'myaccount' );
 		if ( is_string( $url ) && '' !== trim( $url ) ) {
@@ -286,6 +291,90 @@ function atora_get_cart_url() {
 	}
 
 	return home_url( '/cart/' );
+}
+
+/**
+ * Whether a WooCommerce store is active (shop/cart links only make sense then).
+ *
+ * @return bool
+ */
+function atora_has_store() {
+	return class_exists( 'WooCommerce' );
+}
+
+/**
+ * Whether the podcast post type is registered.
+ *
+ * @return bool
+ */
+function atora_has_podcast() {
+	return post_type_exists( 'podcast' );
+}
+
+/**
+ * Login URL: prefers the ATORA LMS account page (/cuenta/) over wp-login.php.
+ *
+ * @param string $redirect Where to return after login.
+ * @return string
+ */
+function atora_get_login_url( $redirect = '' ) {
+	if ( class_exists( 'CLMS_Frontend_URLs' ) ) {
+		return CLMS_Frontend_URLs::login_url( (string) $redirect );
+	}
+
+	return wp_login_url( (string) $redirect );
+}
+
+/**
+ * Student dashboard URL resolved by ATORA LMS (e.g. /panel-estudiante/).
+ *
+ * @return string
+ */
+function atora_get_dashboard_url() {
+	if ( class_exists( 'CLMS_Frontend_URLs' ) ) {
+		$url = CLMS_Frontend_URLs::resolve_frontend_page_url( 'dashboard' );
+		if ( '' !== $url ) {
+			return $url;
+		}
+	}
+
+	return home_url( '/dashboard/' );
+}
+
+/**
+ * Blog URL: posts page, a /blog/ page, or the home page when it lists posts; '' if none.
+ *
+ * @return string
+ */
+function atora_get_blog_url() {
+	$posts_page_id = (int) get_option( 'page_for_posts' );
+	if ( $posts_page_id > 0 ) {
+		return (string) get_permalink( $posts_page_id );
+	}
+
+	$blog_page = atora_get_page_url_by_slugs( array( 'blog' ) );
+	if ( '' !== $blog_page ) {
+		return $blog_page;
+	}
+
+	return 'posts' === get_option( 'show_on_front' ) ? home_url( '/' ) : '';
+}
+
+/**
+ * Permalink of the first published page matching one of the slugs, or ''.
+ *
+ * @param string[] $slugs Candidate page slugs.
+ * @return string
+ */
+function atora_get_page_url_by_slugs( array $slugs ) {
+	foreach ( $slugs as $slug ) {
+		$page = get_page_by_path( $slug );
+		if ( $page && 'publish' === $page->post_status ) {
+			return (string) get_permalink( $page );
+		}
+	}
+
+	return '';
 }
 
 /**
