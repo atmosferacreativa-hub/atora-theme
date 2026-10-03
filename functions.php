@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.0.7' );
+define( 'ATORA_THEME_VERSION', '3.0.8' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
@@ -93,15 +93,12 @@ function atora_theme_enqueue_assets() {
 	}
 
 	wp_enqueue_script( 'atora-main', ATORA_THEME_URI . '/assets/js/main.js', array(), ATORA_THEME_VERSION, true );
-	wp_localize_script(
-		'atora-main',
-		'atoraTheme',
-		array(
-			'accountUrl' => atora_get_account_url(),
-			'cartUrl'    => atora_get_cart_url(),
-			'shopUrl'    => atora_get_shop_url(),
-		)
-	);
+	$atora_js_config = array( 'accountUrl' => atora_get_account_url() );
+	if ( atora_has_store() ) {
+		$atora_js_config['cartUrl'] = atora_get_cart_url();
+		$atora_js_config['shopUrl'] = atora_get_shop_url();
+	}
+	wp_localize_script( 'atora-main', 'atoraTheme', $atora_js_config );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
