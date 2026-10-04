@@ -1,0 +1,8 @@
+.git
+.github
+.gitignore
+scripts
+README.md
+CHANGELOG.md
+.distignore
+dist

@@ -60,6 +60,45 @@ jobs:
         shell: bash
         run: bash scripts/validate-links.sh
 
+  distribution-zip:
+    name: Distribution ZIP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out theme
+        uses: actions/checkout@v4
+
+      - name: Build ZIP
+        shell: bash
+        run: bash scripts/build-dist.sh HEAD
+
+      - name: Inspect ZIP
+        shell: bash
+        run: |
+          zip_path="$(ls dist/atora-meridian-*.zip)"
+          listing="$(unzip -Z1 "$zip_path")"
+          failures=0
+          for required in style.css functions.php theme.json screenshot.png; do
+            if ! grep -qx "atora-theme/${required}" <<< "$listing"; then
+              echo "Falta atora-theme/${required}" >&2; failures=$((failures + 1))
+            fi
+          done
+          if grep -qvE '^atora-theme/' <<< "$listing"; then
+            echo "Hay entradas fuera de la carpeta raíz atora-theme/" >&2; failures=$((failures + 1))
+          fi
+          for forbidden in .github scripts .git dist; do
+            if grep -qE "^atora-theme/${forbidden}/" <<< "$listing"; then
+              echo "No debe incluir ${forbidden}/" >&2; failures=$((failures + 1))
+            fi
+          done
+          for forbidden in README.md CHANGELOG.md .distignore .gitignore; do
+            if grep -qx "atora-theme/${forbidden}" <<< "$listing"; then
+              echo "No debe incluir ${forbidden}" >&2; failures=$((failures + 1))
+            fi
+          done
+          echo "$zip_path: $(wc -l <<< "$listing") entradas"
+          exit $failures
+
   wordpress-smoke:
     name: WordPress ${{ matrix.wordpress }} / PHP 8.1
     runs-on: ubuntu-latest
