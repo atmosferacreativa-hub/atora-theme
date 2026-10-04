@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.0.9' );
+define( 'ATORA_THEME_VERSION', '3.0.10' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
@@ -795,10 +795,12 @@ function atora_get_user_enrolled_courses( $user_id ) {
 }
 
 /**
- * Progress helper.
+ * Progreso del usuario en un curso (0–100). Único camino del tema (3.0.10):
+ * filtro `atora_theme_user_course_progress` → `atora_lms_get_progress()` del
+ * plugin (6.28.2+) → respaldo con `_clms_completed_lessons`.
  *
  * @param int $user_id   User ID.
- * @param int $course_id Course ID.
+ * @param int $course_id ID del post del curso.
  * @return int
  */
 function atora_get_course_progress( $user_id, $course_id ) {
@@ -809,9 +811,18 @@ function atora_get_course_progress( $user_id, $course_id ) {
 		return 0;
 	}
 
+	// 3.0.10: un solo camino para todo el tema. Se mantiene el filtro para quien lo use.
+	$filtered = apply_filters( 'atora_theme_user_course_progress', null, $user_id, $course_id );
+	if ( null !== $filtered ) {
+		return max( 0, min( 100, (int) round( (float) $filtered ) ) );
+	}
+
+	// ATORA LMS 6.28.2+: mismo cálculo que la app (recibe el ID del post del curso).
 	if ( function_exists( 'atora_lms_get_progress' ) ) {
 		return max( 0, min( 100, (int) atora_lms_get_progress( $user_id, $course_id ) ) );
 	}
+
+	// Plugin anterior: respaldo con las lecciones completadas guardadas en el usuario.
 
 	$lesson_ids = class_exists( 'CLMS_Helper' ) && method_exists( 'CLMS_Helper', 'get_course_lessons' )
 		? (array) CLMS_Helper::get_course_lessons( $course_id )

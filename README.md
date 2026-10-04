@@ -8,9 +8,9 @@ Tema de WordPress oficial de **ATORA LMS**: portada institucional, blog, plantil
 |---|---|---|
 | WordPress | 6.0 | 6.4 y 6.8 |
 | PHP | 7.4 | 7.4, 8.1, 8.2, 8.3 y 8.4 (sintaxis); 8.1 (WordPress) |
-| ATORA LMS | 6.26.75 recomendado | — |
+| ATORA LMS | 6.28.2 recomendado | — |
 
-El tema funciona sin ATORA LMS, pero las plantillas de curso, programa y lección, y los enlaces de cuenta y login, dependen del plugin. Con ATORA LMS ≥ 6.26.72 los enlaces de "Cuenta" e "Iniciar sesión" llevan a la página de cuenta del sitio (`/cuenta/?redirect_to=…`) en lugar de `wp-login.php`.
+El tema funciona sin ATORA LMS, pero las plantillas de curso, programa y lección, y los enlaces de cuenta y login, dependen del plugin. Con ATORA LMS ≥ 6.26.72 los enlaces de "Cuenta" e "Iniciar sesión" llevan a la página de cuenta del sitio (`/cuenta/?redirect_to=…`) en lugar de `wp-login.php`. Con ATORA LMS ≥ 6.28.2 el porcentaje de avance de un curso sale de `atora_lms_get_progress()`, el mismo cálculo que la app; con versiones anteriores el tema usa las lecciones completadas guardadas en el usuario.
 
 ## Instalación
 
