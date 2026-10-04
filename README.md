@@ -18,6 +18,25 @@ El tema funciona sin ATORA LMS, pero las plantillas de curso, programa y lecció
 2. En WordPress: **Apariencia → Temas → Añadir nuevo → Subir tema**. Si ya existe, elige reemplazar el actual.
 3. Activa **Atora Meridian**. La carpeta del tema debe llamarse `atora-theme`.
 
+## Generar el ZIP
+
+```bash
+./scripts/build-dist.sh v3.0.9   # desde una etiqueta (o un commit); sin argumento usa HEAD
+```
+
+Genera `dist/atora-meridian-<versión>.zip`. El script lee la versión de `style.css` y falla si hay cambios sin confirmar o si `style.css` y `ATORA_THEME_VERSION` no coinciden. Deja fuera lo listado en `.distignore`: `.git`, `.github`, `.gitignore`, `scripts`, `README.md`, `CHANGELOG.md`, `.distignore` y `dist`. El CI construye el ZIP en cada PR y verifica su contenido.
+
+La carpeta raíz del ZIP es siempre **`atora-theme`**, la carpeta con la que el tema está instalado. WordPress guarda menús, widgets y ajustes del personalizador por carpeta de tema: con otro nombre se instalaría como un tema nuevo y el sitio perdería esa configuración.
+
+## Actualizar un sitio
+
+1. Genera el ZIP desde la etiqueta de la versión.
+2. En WordPress: **Apariencia → Temas → Añadir nuevo → Subir tema** y elige el ZIP.
+3. Cuando WordPress detecte que el tema ya existe, elige **Reemplazar el actual con el subido**.
+4. Comprueba en **Apariencia → Temas** la versión nueva, y en **Menús** y **Personalizar** que la configuración siga asignada.
+
+Si el tema no estaba instalado, actívalo después de subirlo; al usar la carpeta `atora-theme`, recupera los ajustes que el sitio tenía guardados para ella.
+
 ## WooCommerce
 
 Opcional. El tema declara soporte (`add_theme_support( 'woocommerce' )`) e incluye `woocommerce.php` como envoltorio. Los enlaces de Tienda y Carrito del header, el footer y las barras laterales, y su configuración en JavaScript, **solo aparecen si WooCommerce está activo**. Lo mismo vale para Podcast (solo si existe el tipo de contenido `podcast`) y para Blog (solo si hay una página de entradas).
