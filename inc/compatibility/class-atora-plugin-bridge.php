@@ -12,9 +12,14 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-if (class_exists('Atora_Theme_Plugin_Bridge')) {
+// 3.0.10: la guarda era class_exists(), pero PHP declara la clase al compilar el
+// archivo, antes de esa línea: la condición siempre era verdadera y las funciones
+// envoltorio de abajo (atora_theme_get_plugin_course_progress(), etc.) nunca se
+// definían. Con una constante la guarda solo corta en una segunda inclusión.
+if (defined('ATORA_THEME_PLUGIN_BRIDGE_LOADED')) {
     return;
 }
+define('ATORA_THEME_PLUGIN_BRIDGE_LOADED', true);
 
 final class Atora_Theme_Plugin_Bridge {
 
@@ -55,17 +60,14 @@ final class Atora_Theme_Plugin_Bridge {
             return 0.0;
         }
 
+        // 3.0.10: mismo camino que atora_get_course_progress() (filtro, plugin 6.28.2+
+        // y respaldo). La meta _clms_progress_{curso} no la escribe el plugin: ya no se lee.
+        if (function_exists('atora_get_course_progress')) {
+            return self::clamp_progress(atora_get_course_progress($user_id, $course_id));
+        }
+
         $progress = apply_filters('atora_theme_user_course_progress', null, $user_id, $course_id);
-        if (null !== $progress) {
-            return self::clamp_progress($progress);
-        }
-
-        $stored = get_user_meta($user_id, '_clms_progress_' . $course_id, true);
-        if ('' !== $stored && null !== $stored) {
-            return self::clamp_progress($stored);
-        }
-
-        return 0.0;
+        return null !== $progress ? self::clamp_progress($progress) : 0.0;
     }
 
     /**

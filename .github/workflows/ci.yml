@@ -161,6 +161,12 @@ jobs:
           wp post create --post_type=page --post_status=publish --post_title="Pagina CI" --path=/tmp/wordpress
           wp post create --post_type=post --post_status=publish --post_title="Entrada CI" --path=/tmp/wordpress
 
+      - name: Course progress has a single path
+        shell: bash
+        run: |
+          wp eval-file scripts/check-progress.php --path=/tmp/wordpress
+          ATORA_PROGRESS_STUB=1 wp eval-file scripts/check-progress.php --path=/tmp/wordpress
+
       - name: Render front-end pages
         shell: bash
         run: |

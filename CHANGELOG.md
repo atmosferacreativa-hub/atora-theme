@@ -1,5 +1,12 @@
 # Changelog — Atora Meridian
 
+## 3.0.10 (2026-10-04)
+
+- **Fix — progreso de cursos en 0 %**: el tema tenía dos caminos y ninguno leía el progreso real. Ahora hay uno solo, `atora_get_course_progress()`: filtro `atora_theme_user_course_progress` → `atora_lms_get_progress()` del plugin (6.28.2+, mismo cálculo que la app, recibe el ID del post del curso) → respaldo con `_clms_completed_lessons`. `Atora_Theme_Plugin_Bridge::get_course_progress()` lo usa; ya no se lee `_clms_progress_{curso}`, que el plugin no escribe.
+- **Fix — envolturas del puente nunca definidas**: `class-atora-plugin-bridge.php` se protegía con `class_exists()`, pero PHP declara la clase al compilar el archivo, así que la condición siempre era verdadera y el archivo salía antes de definir `atora_theme_get_plugin_course_progress()`, `atora_theme_is_lms_active()`, `atora_theme_plugin_user_has_access()` y demás. Las plantillas (vía `Atora_Template_Context`) daban siempre 0 %. La guarda pasa a una constante; las envolturas ahora existen.
+- **CI**: `scripts/check-progress.php` comprueba en WordPress que el ayudante, el puente y las plantillas dan el mismo porcentaje, con y sin el plugin (falla con 3.0.9).
+- README: versión recomendada del plugin, 6.28.2.
+
 ## 3.0.9 (2026-10-03)
 
 - **Repo**: Meridian pasa a ser el tema oficial del repositorio. README, este changelog y `Theme URI` apuntando a `atmosferacreativa-hub/atora-theme`.
