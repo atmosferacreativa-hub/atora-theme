@@ -1,6 +1,16 @@
 <?php
 /**
- * Meridian i18n fallbacks and locale helpers.
+ * Traducciones del tema.
+ *
+ * Archivos estándar de WordPress en `languages/` (`{locale}.po` / `.mo`), los
+ * mismos idiomas que ATORA LMS: inglés (texto original), es_ES, es_MX, fr_FR,
+ * de_DE, pt_BR, pt_PT, nl_NL, sv_SE, ar y fi. Plantilla: `atora-learning.pot`.
+ *
+ * Si el sitio usa una variante sin archivo propio (es_VE, es_CO, fr_CA,
+ * pt_AO, de_AT…), se carga la del mismo idioma.
+ *
+ * Para actualizar: `wp i18n make-pot . languages/atora-learning.pot …`,
+ * traducir los `.po` (Poedit o similar) y `wp i18n make-mo languages`.
  *
  * @package Atora_Learning
  */
@@ -10,146 +20,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Resolve the active Meridian locale bucket.
+ * Archivo de traducción del mismo idioma cuando la variante regional no tiene uno.
  *
- * @return string
+ * @param string $locale Locale del sitio o del usuario.
+ * @return string Ruta del .mo, o '' si no hay.
  */
-function atora_get_meridian_locale() {
-	$locale = function_exists( 'determine_locale' ) ? determine_locale() : get_locale();
+function atora_theme_fallback_mofile( $locale ) {
+	$dir = ATORA_THEME_DIR . '/languages/';
 
-	if ( 0 === strpos( $locale, 'es' ) ) {
-		return 'es';
+	if ( is_readable( $dir . $locale . '.mo' ) ) {
+		return $dir . $locale . '.mo';
 	}
 
-	return $locale;
-}
-
-/**
- * Load translation catalog for the active locale.
- *
- * @return array<string,mixed>
- */
-function atora_get_meridian_translation_catalog() {
-	static $catalogs = array();
-
-	$locale = atora_get_meridian_locale();
-
-	if ( isset( $catalogs[ $locale ] ) ) {
-		return $catalogs[ $locale ];
-	}
-
-	$catalog = array(
-		'strings'        => array(),
-		'context'        => array(),
-		'plural'         => array(),
-		'plural_context' => array(),
+	$fallbacks = array(
+		'es' => array( 'es_ES', 'es_MX' ),
+		'pt' => array( 'pt_BR', 'pt_PT' ),
+		'fr' => array( 'fr_FR' ),
+		'de' => array( 'de_DE' ),
+		'nl' => array( 'nl_NL' ),
+		'sv' => array( 'sv_SE' ),
+		'ar' => array( 'ar' ),
+		'fi' => array( 'fi' ),
 	);
+	// Hispanoamérica: el español de México está más cerca que el de España.
+	if ( 0 === strpos( $locale, 'es_' ) && 'es_ES' !== $locale ) {
+		$fallbacks['es'] = array( 'es_MX', 'es_ES' );
+	}
 
-	$file = ATORA_THEME_DIR . '/languages/' . $locale . '.php';
-	if ( file_exists( $file ) ) {
-		$data = require $file;
-		if ( is_array( $data ) ) {
-			$catalog = array_merge( $catalog, $data );
+	$language = strtolower( substr( (string) $locale, 0, 2 ) );
+	foreach ( isset( $fallbacks[ $language ] ) ? $fallbacks[ $language ] : array() as $candidate ) {
+		if ( is_readable( $dir . $candidate . '.mo' ) ) {
+			return $dir . $candidate . '.mo';
 		}
 	}
 
-	$catalogs[ $locale ] = $catalog;
-
-	return $catalog;
+	return '';
 }
 
 /**
- * Translate plain strings for the theme as a locale-aware fallback.
- *
- * @param string $translation Existing translation.
- * @param string $text        Source string.
- * @param string $domain      Text domain.
- * @return string
+ * Carga la traducción del tema (con la variante del mismo idioma si hace falta).
  */
-function atora_theme_gettext_fallback( $translation, $text, $domain ) {
-	if ( 'atora-learning' !== $domain || $translation !== $text ) {
-		return $translation;
+function atora_theme_load_translations() {
+	load_theme_textdomain( 'atora-learning', ATORA_THEME_DIR . '/languages' );
+
+	if ( is_textdomain_loaded( 'atora-learning' ) ) {
+		return;
 	}
 
-	$catalog = atora_get_meridian_translation_catalog();
-
-	return isset( $catalog['strings'][ $text ] ) ? (string) $catalog['strings'][ $text ] : $translation;
+	$locale = function_exists( 'determine_locale' ) ? determine_locale() : get_locale();
+	$mofile = atora_theme_fallback_mofile( $locale );
+	if ( '' !== $mofile ) {
+		load_textdomain( 'atora-learning', $mofile, $locale );
+	}
 }
-add_filter( 'gettext', 'atora_theme_gettext_fallback', 20, 3 );
-
-/**
- * Translate contextual strings for the theme as a locale-aware fallback.
- *
- * @param string $translation Existing translation.
- * @param string $text        Source string.
- * @param string $context     Translation context.
- * @param string $domain      Text domain.
- * @return string
- */
-function atora_theme_gettext_with_context_fallback( $translation, $text, $context, $domain ) {
-	if ( 'atora-learning' !== $domain || $translation !== $text ) {
-		return $translation;
-	}
-
-	$catalog = atora_get_meridian_translation_catalog();
-
-	return isset( $catalog['context'][ $context ][ $text ] ) ? (string) $catalog['context'][ $context ][ $text ] : $translation;
-}
-add_filter( 'gettext_with_context', 'atora_theme_gettext_with_context_fallback', 20, 4 );
-
-/**
- * Translate plural strings for the theme as a locale-aware fallback.
- *
- * @param string $translation Existing translation.
- * @param string $single      Singular source string.
- * @param string $plural      Plural source string.
- * @param int    $number      Count.
- * @param string $domain      Text domain.
- * @return string
- */
-function atora_theme_ngettext_fallback( $translation, $single, $plural, $number, $domain ) {
-	if ( 'atora-learning' !== $domain || ( $translation !== $single && $translation !== $plural ) ) {
-		return $translation;
-	}
-
-	$catalog = atora_get_meridian_translation_catalog();
-
-	if ( isset( $catalog['plural'][ $single ] ) && is_array( $catalog['plural'][ $single ] ) ) {
-		$forms = $catalog['plural'][ $single ];
-		return ( 1 === (int) $number )
-			? (string) ( $forms[0] ?? $translation )
-			: (string) ( $forms[1] ?? $translation );
-	}
-
-	return $translation;
-}
-add_filter( 'ngettext', 'atora_theme_ngettext_fallback', 20, 5 );
-
-/**
- * Translate contextual plural strings for the theme as a locale-aware fallback.
- *
- * @param string $translation Existing translation.
- * @param string $single      Singular source string.
- * @param string $plural      Plural source string.
- * @param int    $number      Count.
- * @param string $context     Translation context.
- * @param string $domain      Text domain.
- * @return string
- */
-function atora_theme_ngettext_with_context_fallback( $translation, $single, $plural, $number, $context, $domain ) {
-	if ( 'atora-learning' !== $domain || ( $translation !== $single && $translation !== $plural ) ) {
-		return $translation;
-	}
-
-	$catalog = atora_get_meridian_translation_catalog();
-
-	if ( isset( $catalog['plural_context'][ $context ][ $single ] ) && is_array( $catalog['plural_context'][ $context ][ $single ] ) ) {
-		$forms = $catalog['plural_context'][ $context ][ $single ];
-		return ( 1 === (int) $number )
-			? (string) ( $forms[0] ?? $translation )
-			: (string) ( $forms[1] ?? $translation );
-	}
-
-	return $translation;
-}
-add_filter( 'ngettext_with_context', 'atora_theme_ngettext_with_context_fallback', 20, 6 );
+add_action( 'after_setup_theme', 'atora_theme_load_translations', 1 );

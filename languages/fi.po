@@ -1,0 +1,1108 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Atora Meridian 3.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/atmosferacreativa-hub/atora-theme/issues\n"
+"Language-Team: Finnish\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: atora-learning\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Atora Meridian"
+msgstr "Atora Meridian"
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/atmosferacreativa-hub/atora-theme"
+msgstr "https://github.com/atmosferacreativa-hub/atora-theme"
+
+#. Description of the theme
+#: style.css
+msgid "Official theme for ATORA LMS academies: one identity (color, type, reading size) for the site and every ATORA LMS screen, built for studying comfortably on any device."
+msgstr "ATORA LMS -akatemioiden virallinen teema: yksi ilme (väri, kirjasin, lukukoko) sivustolle ja kaikille ATORA LMS -näkymille, tehty mukavaan opiskeluun millä tahansa laitteella."
+
+#. Author of the theme
+#: style.css
+msgid "MundoCAP"
+msgstr "MundoCAP"
+
+#: 404.php:17
+msgid "404"
+msgstr "404"
+
+#: 404.php:18
+msgid "We couldn't find this page."
+msgstr "Sivua ei löytynyt."
+
+#: 404.php:19
+msgid "It may have moved or the link may be outdated."
+msgstr "Se on ehkä siirretty tai linkki on vanhentunut."
+
+#: 404.php:21
+msgid "Return home"
+msgstr "Etusivulle"
+
+#: 404.php:22 page-student-dashboard.php:46 page-student-dashboard.php:147
+msgid "Browse courses"
+msgstr "Selaa kursseja"
+
+#: archive-lm_course.php:21 footer.php:27 front-page.php:104 front-page.php:189 functions.php:322 page-student-dashboard.php:94 page.php:123 single.php:80 woocommerce.php:27
+msgid "Courses"
+msgstr "Kurssit"
+
+#: archive-lm_course.php:22
+msgid "Course catalog"
+msgstr "Kurssiluettelo"
+
+#: archive-lm_course.php:41
+msgid "No courses found"
+msgstr "Kursseja ei löytynyt"
+
+#: archive-lm_course.php:42
+msgid "New courses will appear here soon."
+msgstr "Uudet kurssit näkyvät täällä pian."
+
+#: archive-lm_course.php:49
+msgid "Focus areas"
+msgstr "Aihealueet"
+
+#: archive-lm_program.php:18 footer.php:28 front-page.php:108 front-page.php:209 functions.php:329 page-student-dashboard.php:98 page.php:124
+msgid "Programs"
+msgstr "Ohjelmat"
+
+#: archive-lm_program.php:38 front-page.php:225 single-lm_program.php:29
+msgid "Program"
+msgstr "Ohjelma"
+
+#: archive-lm_program.php:43 front-page.php:230
+msgid "View Program"
+msgstr "Näytä ohjelma"
+
+#: archive-lm_program.php:53
+msgid "No programs available yet"
+msgstr "Ohjelmia ei vielä ole"
+
+#: archive-lm_program.php:54
+msgid "New programs will appear here soon."
+msgstr "Uudet ohjelmat näkyvät täällä pian."
+
+#: archive-podcast.php:17 footer.php:44 front-page.php:303 page.php:129 single.php:85
+msgid "Podcast"
+msgstr "Podcast"
+
+#: archive-podcast.php:51
+msgid "No episodes published yet"
+msgstr "Jaksoja ei ole vielä julkaistu"
+
+#: archive-podcast.php:52
+msgid "As soon as the first episode is live, it will appear here."
+msgstr "Ensimmäinen jakso näkyy täällä heti, kun se julkaistaan."
+
+#: archive.php:17 index.php:17
+msgid "Archive"
+msgstr "Arkisto"
+
+#: archive.php:39
+msgid "Nothing matched this archive"
+msgstr "Arkistossa ei ole mitään"
+
+#: archive.php:40
+msgid "Try another taxonomy, date or content type."
+msgstr "Kokeile toista luokkaa, päivämäärää tai sisältötyyppiä."
+
+#: comments.php:21
+msgid "One comment on &ldquo;%s&rdquo;"
+msgstr "Yksi kommentti: &ldquo;%s&rdquo;"
+
+#: comments.php:26
+msgctxt "comments title"
+msgid "%1$s comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s kommentti: &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s kommenttia: &ldquo;%2$s&rdquo;"
+
+#: comments.php:49
+msgid "Comments are closed."
+msgstr "Kommentointi on suljettu."
+
+#: footer.php:25
+msgid "Learning"
+msgstr "Oppiminen"
+
+#. Template Name of the theme
+#: footer.php:29 inc/meridian-editor.php:533
+msgid "Student Dashboard"
+msgstr "Opiskelijan näkymä"
+
+#: footer.php:31
+msgid "Verify a certificate"
+msgstr "Tarkista todistus"
+
+#: footer.php:37
+msgid "Resources"
+msgstr "Resurssit"
+
+#: footer.php:40
+msgid "Shop"
+msgstr "Kauppa"
+
+#: footer.php:41 header.php:69 header.php:98
+msgid "Cart"
+msgstr "Ostoskori"
+
+#: footer.php:47 front-page.php:283 functions.php:336 functions.php:743 template-parts/blog-ecosystem.php:26 template-parts/journal-index.php:15
+msgid "Journal"
+msgstr "Blogi"
+
+#: footer.php:53
+msgid "Navigation"
+msgstr "Navigointi"
+
+#: footer.php:68
+msgid "About"
+msgstr "Tietoa"
+
+#: footer.php:69
+msgid "Contact"
+msgstr "Yhteystiedot"
+
+#: footer.php:70 page-student-dashboard.php:183
+msgid "Support"
+msgstr "Tuki"
+
+#: footer.php:74
+msgid "Home"
+msgstr "Etusivu"
+
+#. translators: 1: current year, 2: site name.
+#: footer.php:88
+msgid "© %1$d %2$s."
+msgstr "© %1$d %2$s."
+
+#: footer.php:96
+msgid "Legal navigation"
+msgstr "Oikeudelliset linkit"
+
+#: footer.php:112
+msgid "Privacy"
+msgstr "Tietosuoja"
+
+#: footer.php:113
+msgid "Terms"
+msgstr "Ehdot"
+
+#: footer.php:115
+msgid "Delete my account"
+msgstr "Poista tilini"
+
+#: front-page.php:56 page.php:29
+msgid "Explore Courses"
+msgstr "Tutustu kursseihin"
+
+#: front-page.php:62 functions.php:562 page.php:35
+msgid "Open Store"
+msgstr "Avaa kauppa"
+
+#: front-page.php:67 front-page.php:165 page.php:40
+msgid "View programs"
+msgstr "Näytä ohjelmat"
+
+#: front-page.php:91
+msgid "Online academy"
+msgstr "Verkkoakatemia"
+
+#: front-page.php:113
+msgid "Products"
+msgstr "Tuotteet"
+
+#: front-page.php:126
+msgid "How you learn here"
+msgstr "Näin täällä opitaan"
+
+#: front-page.php:129
+msgid "At your pace"
+msgstr "Omaan tahtiin"
+
+#: front-page.php:130
+msgid "Short lessons with video, readings and resources you can also download to the app and study offline."
+msgstr "Lyhyitä oppitunteja videoilla, teksteillä ja materiaaleilla, jotka voit myös ladata sovellukseen ja opiskella ilman verkkoyhteyttä."
+
+#: front-page.php:133
+msgid "With practice"
+msgstr "Harjoitellen"
+
+#: front-page.php:134
+msgid "Assignments, quizzes and feedback from your teachers to check what you learned."
+msgstr "Tehtäviä, testejä ja opettajien palautetta, joilla tarkistat mitä opit."
+
+#: front-page.php:137
+msgid "With recognition"
+msgstr "Tunnustuksen kera"
+
+#: front-page.php:138
+msgid "Finish your course and receive a certificate anyone can verify online."
+msgstr "Suorita kurssi ja saat todistuksen, jonka kuka tahansa voi tarkistaa verkossa."
+
+#: front-page.php:150
+msgid "Why study with us"
+msgstr "Miksi opiskella täällä"
+
+#: front-page.php:151
+msgid "Clear paths, real practice and recognition for what you learn."
+msgstr "Selkeät polut, aitoa harjoittelua ja tunnustusta opitusta."
+
+#: front-page.php:157
+msgid "Guided courses"
+msgstr "Ohjatut kurssit"
+
+#: front-page.php:158
+msgid "Each course shows what you will learn, who teaches it and how it is organized before you start."
+msgstr "Jokainen kurssi kertoo ennen aloitusta, mitä opit, kuka opettaa ja miten kurssi etenee."
+
+#: front-page.php:159
+msgid "See course catalog"
+msgstr "Katso kurssiluettelo"
+
+#: front-page.php:163
+msgid "Programs and certification"
+msgstr "Ohjelmat ja todistukset"
+
+#: front-page.php:164
+msgid "Programs bring several courses together; your progress and grades stay in your dashboard."
+msgstr "Ohjelmat kokoavat useita kursseja; edistyminen ja arvosanat näkyvät omassa näkymässäsi."
+
+#: front-page.php:169
+msgid "Articles and guides"
+msgstr "Artikkelit ja oppaat"
+
+#: front-page.php:170
+msgid "Reading material from the academy to keep learning between lessons."
+msgstr "Akatemian lukemistoa oppitunnien väliin."
+
+#: front-page.php:171
+msgid "Read the journal"
+msgstr "Lue blogia"
+
+#: front-page.php:190
+msgid "Courses you can start today."
+msgstr "Kursseja, jotka voit aloittaa tänään."
+
+#: front-page.php:192 template-parts/blog-sidebar.php:32
+msgid "Full catalog"
+msgstr "Koko luettelo"
+
+#: front-page.php:210
+msgid "Paths that combine courses toward a certification."
+msgstr "Polkuja, jotka yhdistävät kursseja kohti todistusta."
+
+#: front-page.php:212
+msgid "All programs"
+msgstr "Kaikki ohjelmat"
+
+#: front-page.php:243 page.php:126 single.php:82 woocommerce.php:18
+msgid "Store"
+msgstr "Kauppa"
+
+#: front-page.php:244
+msgid "Learning materials and resources."
+msgstr "Opiskelumateriaalit ja resurssit."
+
+#: front-page.php:246
+msgid "Open store"
+msgstr "Avaa kauppa"
+
+#: front-page.php:260
+msgid "Product"
+msgstr "Tuote"
+
+#: front-page.php:270
+msgid "View Product"
+msgstr "Näytä tuote"
+
+#: front-page.php:284
+msgid "News, guides and stories from the academy."
+msgstr "Uutisia, oppaita ja tarinoita akatemiasta."
+
+#: front-page.php:286
+msgid "Visit the blog"
+msgstr "Siirry blogiin"
+
+#: front-page.php:304
+msgid "Listen to the academy's episodes."
+msgstr "Kuuntele akatemian jaksoja."
+
+#: front-page.php:306
+msgid "All episodes"
+msgstr "Kaikki jaksot"
+
+#: front-page.php:319 single-podcast.php:21
+msgid "Podcast episode"
+msgstr "Podcast-jakso"
+
+#: functions.php:61
+msgid "Primary Navigation"
+msgstr "Päävalikko"
+
+#: functions.php:62
+msgid "Top Rail Navigation"
+msgstr "Ylävalikko"
+
+#: functions.php:63
+msgid "Footer Navigation"
+msgstr "Alatunnisteen valikko"
+
+#: functions.php:64
+msgid "Legal Navigation"
+msgstr "Oikeudellinen valikko"
+
+#: functions.php:343 header.php:66 header.php:95 template-parts/blog-sidebar.php:39
+msgid "My learning"
+msgstr "Oma oppiminen"
+
+#: functions.php:561
+msgid "Explore Learning"
+msgstr "Tutustu koulutuksiin"
+
+#: functions.php:636
+msgid "Story"
+msgstr "Juttu"
+
+#. translators: %d: reading time in minutes.
+#: functions.php:697 inc/blog-ecosystem.php:254
+msgid "%d min read"
+msgstr "%d min lukuaika"
+
+#. translators: %s: search query.
+#: functions.php:749
+msgid "Search results for \"%s\""
+msgstr "Hakutulokset: \"%s\""
+
+#: functions.php:759
+msgid "Page not found"
+msgstr "Sivua ei löytynyt"
+
+#: functions.php:776 template-parts/blog-ecosystem.php:27 template-parts/journal-index.php:20
+msgid "Articles, guides and news from the academy."
+msgstr "Artikkeleita, oppaita ja uutisia akatemiasta."
+
+#: functions.php:780
+msgid "Results across courses, programs, articles and pages."
+msgstr "Tulokset kursseista, ohjelmista, artikkeleista ja sivuista."
+
+#: functions.php:789
+msgid "Choose a course and learn at your own pace, with guided lessons, practice and feedback."
+msgstr "Valitse kurssi ja opi omaan tahtiin ohjattujen oppituntien, harjoitusten ja palautteen avulla."
+
+#: functions.php:793
+msgid "Learning paths that bring several courses together toward a certification."
+msgstr "Oppimispolkuja, jotka kokoavat useita kursseja kohti todistusta."
+
+#: functions.php:797
+msgid "Courses, programs and learning materials available at the academy."
+msgstr "Akatemian kurssit, ohjelmat ja opiskelumateriaalit."
+
+#: functions.php:801
+msgid "This page moved or no longer exists. Try the search or go back to the courses."
+msgstr "Sivu on siirretty tai sitä ei enää ole. Kokeile hakua tai palaa kursseihin."
+
+#: functions.php:816
+msgid "Previous"
+msgstr "Edellinen"
+
+#: functions.php:817
+msgid "Next"
+msgstr "Seuraava"
+
+#: functions.php:930 page-student-dashboard.php:136
+msgid "Continue"
+msgstr "Jatka"
+
+#: functions.php:930
+msgid "View Course"
+msgstr "Näytä kurssi"
+
+#: header.php:23
+msgid "Skip to content"
+msgstr "Siirry sisältöön"
+
+#: header.php:41
+msgid "Utility navigation"
+msgstr "Apuvalikko"
+
+#: header.php:59
+msgid "Toggle menu"
+msgstr "Avaa tai sulje valikko"
+
+#: header.php:64 header.php:115 search.php:17 searchform.php:24
+msgid "Search"
+msgstr "Haku"
+
+#: header.php:66 header.php:95 page-student-dashboard.php:45
+msgid "Log in"
+msgstr "Kirjaudu"
+
+#: header.php:82
+msgid "Primary navigation"
+msgstr "Päävalikko"
+
+#: header.php:116
+msgid "Find courses, programs and articles."
+msgstr "Löydä kursseja, ohjelmia ja artikkeleita."
+
+#: header.php:122
+msgid "Close"
+msgstr "Sulje"
+
+#: inc/blog-ecosystem.php:102
+msgid "articles"
+msgstr "artikkelia"
+
+#: inc/blog-ecosystem.php:103
+msgid "topics"
+msgstr "aihetta"
+
+#: inc/blog-ecosystem.php:104
+msgid "courses"
+msgstr "kurssia"
+
+#: inc/blog-ecosystem.php:105
+msgid "teachers"
+msgstr "opettajaa"
+
+#: inc/blog-ecosystem.php:241
+msgid "Featured"
+msgstr "Nosto"
+
+#: inc/blog-ecosystem.php:258
+msgid "Read article →"
+msgstr "Lue artikkeli →"
+
+#: inc/identity.php:27
+msgid "ATORA blue"
+msgstr "ATORA-sininen"
+
+#: inc/identity.php:31
+msgid "Amber"
+msgstr "Meripihka"
+
+#: inc/identity.php:35
+msgid "Forest"
+msgstr "Metsä"
+
+#: inc/identity.php:39
+msgid "Wine"
+msgstr "Viininpunainen"
+
+#: inc/identity.php:43
+msgid "Institutional graphite"
+msgstr "Institutionaalinen grafiitti"
+
+#: inc/identity.php:47 inc/identity.php:617
+msgid "Custom color"
+msgstr "Oma väri"
+
+#: inc/identity.php:63
+msgid "Editorial (Sora + Source Sans 3)"
+msgstr "Toimituksellinen (Sora + Source Sans 3)"
+
+#: inc/identity.php:68
+msgid "Clear (Source Sans 3)"
+msgstr "Selkeä (Source Sans 3)"
+
+#: inc/identity.php:73
+msgid "System fonts (lightest)"
+msgstr "Järjestelmäfontit (kevyin)"
+
+#: inc/identity.php:88
+msgid "Normal (17 px)"
+msgstr "Normaali (17 px)"
+
+#: inc/identity.php:92
+msgid "Comfortable (18 px)"
+msgstr "Mukava (18 px)"
+
+#: inc/identity.php:96
+msgid "Large (20 px)"
+msgstr "Suuri (20 px)"
+
+#: inc/identity.php:146
+msgid "Light"
+msgstr "Vaalea"
+
+#: inc/identity.php:147
+msgid "Dark"
+msgstr "Tumma"
+
+#: inc/identity.php:148
+msgid "Follow the device (light or dark)"
+msgstr "Laitteen mukaan (vaalea tai tumma)"
+
+#: inc/identity.php:574 inc/identity.php:768 inc/identity.php:769
+msgid "ATORA identity"
+msgstr "ATORA-ilme"
+
+#: inc/identity.php:575
+msgid "Color, type and reading comfort for the whole academy: home, blog, courses, lessons and dashboard. If ATORA LMS → Settings uses a theme other than \"Light\", that theme rules the academy pages."
+msgstr "Koko akatemian väri, kirjasin ja lukumukavuus: etusivu, blogi, kurssit, oppitunnit ja näkymä. Jos ATORA LMS → Asetuksissa on valittu muu teema kuin ”Vaalea”, akatemian sivuilla käytetään sitä."
+
+#: inc/identity.php:598
+msgid "Main color"
+msgstr "Pääväri"
+
+#: inc/identity.php:618
+msgid "If it is too light, the theme darkens it just enough for buttons to stay readable."
+msgstr "Jos väri on liian vaalea, teema tummentaa sitä juuri sen verran, että painikkeet pysyvät luettavina."
+
+#: inc/identity.php:639
+msgid "Color mode"
+msgstr "Väritila"
+
+#: inc/identity.php:640
+msgid "Dark mode rests the eyes when studying at night. \"Follow the device\" uses each student's phone or computer setting."
+msgstr "Tumma tila lepuuttaa silmiä iltaisin opiskellessa. ”Laitteen mukaan” noudattaa kunkin opiskelijan puhelimen tai tietokoneen asetusta."
+
+#: inc/identity.php:663
+msgid "Typeface"
+msgstr "Kirjasin"
+
+#: inc/identity.php:686
+msgid "Lesson reading size"
+msgstr "Oppituntien lukukoko"
+
+#: inc/identity.php:687
+msgid "Lesson text only. Students can zoom further with their browser."
+msgstr "Vain oppitunnin teksti. Opiskelija voi suurentaa lisää selaimella."
+
+#: inc/identity.php:704
+msgid "Header button: label"
+msgstr "Yläpalkin painike: teksti"
+
+#: inc/identity.php:705
+msgid "Empty: \"Explore Learning\". Type \"-\" to hide it."
+msgstr "Tyhjä: ”Tutustu koulutuksiin”. Kirjoita ”-” piilottaaksesi."
+
+#: inc/identity.php:721
+msgid "Header button: link"
+msgstr "Yläpalkin painike: linkki"
+
+#: inc/identity.php:722
+msgid "Empty: the course catalog."
+msgstr "Tyhjä: kurssiluettelo."
+
+#: inc/identity.php:738
+msgid "Footer text"
+msgstr "Alatunnisteen teksti"
+
+#: inc/identity.php:739
+msgid "Empty: the site tagline (Settings → General)."
+msgstr "Tyhjä: sivuston iskulause (Asetukset → Yleiset)."
+
+#: inc/identity.php:755
+msgid "Show the ATORA promotion on the blog"
+msgstr "Näytä ATORA-mainos blogissa"
+
+#: inc/identity.php:756
+msgid "Only for ATORA's own sites (atora.studio, demo). Leave it off in an institution's academy."
+msgstr "Vain ATORAn omille sivustoille (atora.studio, demo). Pidä pois päältä oppilaitoksen akatemiassa."
+
+#: inc/meridian-editor.php:176
+msgid "Small"
+msgstr "Pieni"
+
+#: inc/meridian-editor.php:181
+msgid "Base"
+msgstr "Perus"
+
+#: inc/meridian-editor.php:186
+msgid "Large"
+msgstr "Suuri"
+
+#: inc/meridian-editor.php:191
+msgid "Display"
+msgstr "Otsikko"
+
+#: inc/meridian-editor.php:202
+msgid "ATORA: pages"
+msgstr "ATORA: sivut"
+
+#: inc/meridian-editor.php:211
+msgid "Course or program presentation"
+msgstr "Kurssin tai ohjelman esittely"
+
+#: inc/meridian-editor.php:212
+msgid "Opening block for a page that presents a course or program, with two buttons."
+msgstr "Aloituslohko sivulle, joka esittelee kurssin tai ohjelman, kahdella painikkeella."
+
+#: inc/meridian-editor.php:234
+msgid "New cohort"
+msgstr "Uusi ryhmä"
+
+#: inc/meridian-editor.php:235
+msgid "Name of the course or program"
+msgstr "Kurssin tai ohjelman nimi"
+
+#: inc/meridian-editor.php:236
+msgid "In one or two sentences: who it is for, what they will be able to do at the end and how long it takes."
+msgstr "Yhdellä tai kahdella lauseella: kenelle, mitä lopussa osaa ja kauanko se kestää."
+
+#: inc/meridian-editor.php:237
+msgid "Enroll"
+msgstr "Ilmoittaudu"
+
+#: inc/meridian-editor.php:238
+msgid "See the syllabus"
+msgstr "Katso sisältö"
+
+#: inc/meridian-editor.php:246
+msgid "Article introduction"
+msgstr "Artikkelin johdanto"
+
+#: inc/meridian-editor.php:247
+msgid "Introduction for articles, guides and institutional pages."
+msgstr "Johdanto artikkeleille, oppaille ja instituution sivuille."
+
+#: inc/meridian-editor.php:261
+msgid "Guide"
+msgstr "Opas"
+
+#: inc/meridian-editor.php:262
+msgid "Start with the main idea of the article"
+msgstr "Aloita artikkelin pääajatuksesta"
+
+#: inc/meridian-editor.php:263
+msgid "Explain in a few lines what the reader will find and why it matters."
+msgstr "Kerro muutamalla rivillä, mitä lukija löytää ja miksi sillä on väliä."
+
+#: inc/meridian-editor.php:271
+msgid "Closing invitation"
+msgstr "Lopetuskutsu"
+
+#: inc/meridian-editor.php:272
+msgid "Band with a button to close a page."
+msgstr "Kaista ja painike sivun loppuun."
+
+#: inc/meridian-editor.php:288
+msgid "Ready to start?"
+msgstr "Valmis aloittamaan?"
+
+#: inc/meridian-editor.php:289
+msgid "Tell the reader what to do next and link the button to the course, program or contact page."
+msgstr "Kerro lukijalle seuraava askel ja linkitä painike kurssiin, ohjelmaan tai yhteystietosivuun."
+
+#: inc/meridian-editor.php:290
+msgid "Get started"
+msgstr "Aloita"
+
+#: inc/meridian-editor.php:413
+msgid "Page presentation"
+msgstr "Sivun esittely"
+
+#: inc/meridian-editor.php:434
+msgid "Label above the title"
+msgstr "Tunniste otsikon yläpuolella"
+
+#: inc/meridian-editor.php:438
+msgid "Hero text"
+msgstr "Johdantoteksti"
+
+#: inc/meridian-editor.php:442
+msgid "Primary button text"
+msgstr "Pääpainikkeen teksti"
+
+#: inc/meridian-editor.php:446
+msgid "Primary button URL"
+msgstr "Pääpainikkeen linkki"
+
+#: inc/meridian-editor.php:450
+msgid "Secondary button text"
+msgstr "Toissijaisen painikkeen teksti"
+
+#: inc/meridian-editor.php:454
+msgid "Secondary button URL"
+msgstr "Toissijaisen painikkeen linkki"
+
+#: inc/meridian-editor.php:460
+msgid "Hide hero on this entry"
+msgstr "Piilota johdanto tästä sisällöstä"
+
+#: inc/meridian-editor.php:466
+msgid "Use full-width content"
+msgstr "Käytä koko leveyttä"
+
+#: inc/meridian-editor.php:473
+msgid "Show highlighted sections (courses, programs, articles)"
+msgstr "Näytä nostot (kurssit, ohjelmat, artikkelit)"
+
+#: inc/meridian-editor.php:477
+msgid "If the page already has its own blocks, the theme shows them as they are. Use these fields only to add a header on top."
+msgstr "Jos sivulla on jo omat lohkonsa, teema näyttää ne sellaisinaan. Käytä näitä kenttiä vain lisätäksesi otsakkeen yläpuolelle."
+
+#. Template Name of the theme
+#: inc/meridian-editor.php:529
+msgid "Landing page (full width)"
+msgstr "Laskeutumissivu (koko leveys)"
+
+#: inc/meridian-editor.php:555
+msgid "ATORA: lessons"
+msgstr "ATORA: oppitunnit"
+
+#: inc/meridian-editor.php:583
+msgid "Learning objectives"
+msgstr "Oppimistavoitteet"
+
+#: inc/meridian-editor.php:586
+msgid "By the end of this lesson you will be able to…"
+msgstr "Tämän oppitunnin jälkeen osaat…"
+
+#: inc/meridian-editor.php:589
+msgid "Explain the main concept in your own words."
+msgstr "Selittää pääkäsitteen omin sanoin."
+
+#: inc/meridian-editor.php:590
+msgid "Apply it to a real example."
+msgstr "Soveltaa sitä todelliseen esimerkkiin."
+
+#: inc/meridian-editor.php:591
+msgid "Recognize the most common mistakes."
+msgstr "Tunnistaa yleisimmät virheet."
+
+#: inc/meridian-editor.php:597 inc/meridian-editor.php:600
+msgid "Key idea"
+msgstr "Avainajatus"
+
+#: inc/meridian-editor.php:601
+msgid "Write here, in one or two sentences, what the student must not forget."
+msgstr "Kirjoita tähän yhdellä tai kahdella lauseella, mitä opiskelija ei saa unohtaa."
+
+#: inc/meridian-editor.php:605
+msgid "Practice activity"
+msgstr "Harjoitustehtävä"
+
+#: inc/meridian-editor.php:608
+msgid "Practice"
+msgstr "Harjoittele"
+
+#: inc/meridian-editor.php:611
+msgid "Read the case or watch the video again."
+msgstr "Lue tapaus tai katso video uudelleen."
+
+#: inc/meridian-editor.php:612
+msgid "Answer the question in your notebook or in the assignment."
+msgstr "Vastaa kysymykseen vihkoosi tai tehtävään."
+
+#: inc/meridian-editor.php:613
+msgid "Compare your answer with the key idea."
+msgstr "Vertaa vastaustasi avainajatukseen."
+
+#: inc/meridian-editor.php:620
+msgid "Lesson summary"
+msgstr "Oppitunnin yhteenveto"
+
+#: inc/meridian-editor.php:623
+msgid "Summary"
+msgstr "Yhteenveto"
+
+#: inc/meridian-editor.php:626
+msgid "First idea of the lesson."
+msgstr "Oppitunnin ensimmäinen ajatus."
+
+#: inc/meridian-editor.php:627
+msgid "Second idea of the lesson."
+msgstr "Oppitunnin toinen ajatus."
+
+#: inc/meridian-editor.php:628
+msgid "What comes in the next lesson."
+msgstr "Mitä seuraavalla oppitunnilla tulee."
+
+#: inc/meridian-editor.php:634 inc/meridian-editor.php:637
+msgid "Glossary"
+msgstr "Sanasto"
+
+#: inc/meridian-editor.php:638 inc/meridian-editor.php:639
+msgid "Term"
+msgstr "Termi"
+
+#: inc/meridian-editor.php:638 inc/meridian-editor.php:639
+msgid "short definition in plain language."
+msgstr "lyhyt määritelmä selkokielellä."
+
+#: index.php:39
+msgid "Nothing here yet"
+msgstr "Täällä ei ole vielä mitään"
+
+#: index.php:40
+msgid "This space is ready for content once the first entries are published."
+msgstr "Tähän tulee sisältöä, kun ensimmäiset julkaisut ilmestyvät."
+
+#: page-student-dashboard.php:41
+msgid "Student area"
+msgstr "Opiskelijan alue"
+
+#: page-student-dashboard.php:42
+msgid "Your learning, in one place."
+msgstr "Oppimisesi yhdessä paikassa."
+
+#: page-student-dashboard.php:43
+msgid "Log in to continue your courses, see your progress and find your next lesson."
+msgstr "Kirjaudu jatkaaksesi kursseja, nähdäksesi edistymisesi ja löytääksesi seuraavan oppitunnin."
+
+#: page-student-dashboard.php:79
+msgid "Student dashboard"
+msgstr "Opiskelijan näkymä"
+
+#. translators: %s: student's name.
+#: page-student-dashboard.php:83
+msgid "Welcome back, %s."
+msgstr "Tervetuloa takaisin, %s."
+
+#: page-student-dashboard.php:86 template-parts/blog-sidebar.php:38
+msgid "Pick up where you left off."
+msgstr "Jatka siitä, mihin jäit."
+
+#: page-student-dashboard.php:90
+msgid "Snapshot"
+msgstr "Yleiskuva"
+
+#: page-student-dashboard.php:102
+msgid "Average progress"
+msgstr "Keskimääräinen edistyminen"
+
+#: page-student-dashboard.php:112
+msgid "Your active courses"
+msgstr "Aktiiviset kurssisi"
+
+#: page-student-dashboard.php:133
+msgid "Course progress"
+msgstr "Kurssin edistyminen"
+
+#: page-student-dashboard.php:136
+msgid "Review"
+msgstr "Kertaa"
+
+#: page-student-dashboard.php:145
+msgid "No enrolled courses yet"
+msgstr "Ei vielä kursseja"
+
+#: page-student-dashboard.php:146
+msgid "When you enroll in a course, your progress will appear here."
+msgstr "Kun ilmoittaudut kurssille, edistymisesi näkyy täällä."
+
+#: page-student-dashboard.php:154 woocommerce.php:28
+msgid "Account"
+msgstr "Tili"
+
+#. translators: %d: number of completed courses.
+#: page-student-dashboard.php:160
+msgid "%d completed course"
+msgid_plural "%d completed courses"
+msgstr[0] "%d suoritettu kurssi"
+msgstr[1] "%d suoritettua kurssia"
+
+#: page-student-dashboard.php:165
+msgid "Manage account"
+msgstr "Hallitse tiliä"
+
+#: page-student-dashboard.php:166
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+#: page-student-dashboard.php:174
+msgid "Useful next steps"
+msgstr "Hyödyllisiä seuraavia askelia"
+
+#: page-student-dashboard.php:177
+msgid "Explore programs"
+msgstr "Tutustu ohjelmiin"
+
+#: page-student-dashboard.php:180
+msgid "Visit the store"
+msgstr "Siirry kauppaan"
+
+#: page-templates/landing-meridian.php:29
+msgid "See offer"
+msgstr "Katso tarjous"
+
+#: page-templates/landing-meridian.php:34
+msgid "Go to store"
+msgstr "Siirry kauppaan"
+
+#: page-templates/landing-meridian.php:49
+msgid "Landing page"
+msgstr "Laskeutumissivu"
+
+#: page.php:121
+msgid "Useful paths"
+msgstr "Hyödyllisiä polkuja"
+
+#: patterns/home-institucional.php
+msgctxt "Pattern title"
+msgid "ATORA institutional home"
+msgstr "ATORA-instituution etusivu"
+
+#: search.php:43
+msgid "No results found"
+msgstr "Ei tuloksia"
+
+#: search.php:44
+msgid "Try a broader search term or explore the catalog directly."
+msgstr "Kokeile laajempaa hakusanaa tai selaa luetteloa."
+
+#: searchform.php:13
+msgid "Search for:"
+msgstr "Hae:"
+
+#: searchform.php:21
+msgid "Search courses, programs and articles…"
+msgstr "Hae kursseja, ohjelmia ja artikkeleita…"
+
+#: single-atora_teacher.php:27
+msgid "Instructor"
+msgstr "Opettaja"
+
+#: single-lm_course.php:29 template-parts/content-course.php:38
+msgid "Course"
+msgstr "Kurssi"
+
+#: single-lm_lesson.php:26
+msgid "Lesson"
+msgstr "Oppitunti"
+
+#. translators: %d: reading time in minutes.
+#: single-podcast.php:29
+msgid "%d min notes"
+msgstr "%d min muistiinpanot"
+
+#: single.php:69
+msgid "Recent stories"
+msgstr "Uusimmat jutut"
+
+#: single.php:78
+msgid "Keep exploring"
+msgstr "Jatka tutkimista"
+
+#: template-parts/blog-ecosystem.php:18
+msgid "Topic"
+msgstr "Aihe"
+
+#: template-parts/blog-ecosystem.php:18
+msgid "Tag"
+msgstr "Avainsana"
+
+#. translators: %s: topic name.
+#: template-parts/blog-ecosystem.php:21
+msgid "Articles about %s."
+msgstr "Artikkeleita aiheesta %s."
+
+#: template-parts/blog-ecosystem.php:55
+msgid "Explore courses"
+msgstr "Tutustu kursseihin"
+
+#: template-parts/blog-ecosystem.php:58
+msgid "Discover the ATORA ecosystem"
+msgstr "Tutustu ATORA-ekosysteemiin"
+
+#: template-parts/blog-ecosystem.php:72 template-parts/blog-ecosystem.php:74
+msgid "Latest"
+msgstr "Uusimmat"
+
+#. translators: %s: date.
+#: template-parts/blog-ecosystem.php:78
+msgid "Updated %s"
+msgstr "Päivitetty %s"
+
+#: template-parts/blog-ecosystem.php:106
+msgid "Blog topics"
+msgstr "Blogin aiheet"
+
+#: template-parts/blog-ecosystem.php:107
+msgid "All"
+msgstr "Kaikki"
+
+#. translators: %d: page number.
+#: template-parts/blog-ecosystem.php:119
+msgid "Articles · page %d"
+msgstr "Artikkelit · sivu %d"
+
+#. translators: %d: page number.
+#: template-parts/blog-ecosystem.php:119
+msgid "Articles"
+msgstr "Artikkelit"
+
+#: template-parts/blog-ecosystem.php:139
+msgid "← Newer"
+msgstr "← Uudemmat"
+
+#: template-parts/blog-ecosystem.php:140
+msgid "Older →"
+msgstr "Vanhemmat →"
+
+#: template-parts/blog-ecosystem.php:147
+msgid "No articles here yet"
+msgstr "Täällä ei ole vielä artikkeleita"
+
+#: template-parts/blog-ecosystem.php:148
+msgid "Come back soon or explore the other topics."
+msgstr "Palaa pian tai tutustu muihin aiheisiin."
+
+#: template-parts/blog-ecosystem.php:158
+msgid "Next step"
+msgstr "Seuraava askel"
+
+#: template-parts/blog-ecosystem.php:159
+msgid "Turn what you read into practice."
+msgstr "Vie lukemasi käytäntöön."
+
+#: template-parts/blog-ecosystem.php:160
+msgid "Courses with guided lessons, clear rubrics and feedback on every assignment."
+msgstr "Kursseja ohjatuilla oppitunneilla, selkeillä arviointikriteereillä ja palautteella jokaisesta tehtävästä."
+
+#: template-parts/blog-ecosystem.php:163
+msgid "View courses"
+msgstr "Näytä kurssit"
+
+#: template-parts/blog-ecosystem.php:166
+msgid "Request an ATORA demo"
+msgstr "Pyydä ATORA-esittely"
+
+#: template-parts/blog-sidebar.php:19 template-parts/blog-sidebar.php:22
+msgid "Keep learning"
+msgstr "Jatka oppimista"
+
+#: template-parts/blog-sidebar.php:23
+msgid "Courses at the academy"
+msgstr "Akatemian kurssit"
+
+#: template-parts/content-course.php:56
+msgid "%d lesson"
+msgid_plural "%d lessons"
+msgstr[0] "%d oppitunti"
+msgstr[1] "%d oppituntia"
+
+#: template-parts/content.php:41
+msgid "Read story"
+msgstr "Lue juttu"
+
+#: template-parts/journal-index.php:43
+msgid "Editorial"
+msgstr "Toimitus"
+
+#: template-parts/journal-index.php:88
+msgid "No articles yet"
+msgstr "Ei vielä artikkeleita"
+
+#: template-parts/journal-index.php:89
+msgid "Articles published by the academy will appear here."
+msgstr "Akatemian julkaisemat artikkelit näkyvät täällä."
+
+#: woocommerce.php:24
+msgid "Your purchases, in your dashboard"
+msgstr "Ostoksesi näkymässäsi"
+
+#: woocommerce.php:25
+msgid "When you buy a course or program, it appears in your student dashboard and in the app."
+msgstr "Kun ostat kurssin tai ohjelman, se näkyy näkymässäsi ja sovelluksessa."

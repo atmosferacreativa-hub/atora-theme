@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Meridian Landing
+ * Template Name: Landing page (full width)
  *
  * @package Atora_Learning
  */

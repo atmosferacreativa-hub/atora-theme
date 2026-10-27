@@ -1,5 +1,33 @@
 # Changelog — Atora Meridian
 
+## 3.2.0 (2026-10-27)
+
+### Modo oscuro en todo el sitio
+- Nuevo ajuste **Modo de color** en Apariencia → Personalizar → Identidad ATORA: Claro (por defecto), Oscuro o **Según el dispositivo** (sigue el teléfono o la computadora de cada estudiante).
+- Paleta oscura propia de Meridian (tinta azulada, textos con contraste ≥ 7:1). El color de la academia se aclara en oscuro lo justo para leerse (4.5:1) y, si el blanco deja de contrastar sobre los botones, su texto pasa a tinta.
+- Cabecera, pie, menú móvil, blog, portada y patrones usan ahora las variables `--atora-*` en lugar de blancos fijos, así que también siguen al tema **Oscuro** del plugin (ATORA LMS → Ajustes).
+- Los colores con nombre del editor (Blanco, Tinta, Arena…) se invierten en oscuro; un bloque con fondo blanco no queda como una isla clara.
+- **Corrige una mezcla con el plugin**: su `dark-mode.css` cambiaba los grises `--ac-*` por tonos oscuros fijos cuando el teléfono estaba en modo oscuro, aunque la academia fuera clara (tarjetas oscuras sobre fondo claro). El tema los vuelve a enlazar a `--atora-*`.
+- Panel del estudiante, panel docente y SpeedGrader traen fondos blancos fijos en el plugin: en modo oscuro se muestran como tarjetas claras legibles. Docente de la página del curso, recursos de la lección y su vista previa pasan a los colores de la academia.
+- `theme-color` para la barra del navegador en el teléfono (clara, oscura o ambas).
+
+### 12 idiomas, como ATORA LMS
+- Traducciones estándar de WordPress en `languages/`: inglés (original), es_ES, es_MX, fr_FR, de_DE, pt_BR, pt_PT, nl_NL, sv_SE, ar y fi, con plantilla `atora-learning.pot` (268 cadenas, plurales y árabe con sus seis formas).
+- Variantes sin archivo propio cargan la del mismo idioma (es_VE, es_CO… → es_MX; pt_AO → pt_BR; fr_CA → fr_FR; de_AT → de_DE).
+- Sale el catálogo propio `languages/es.php` y los cuatro filtros `gettext` que revisaban **cada** cadena del sitio (también las del plugin y del núcleo).
+- Últimos textos internos reescritos («ya no forma parte del nuevo mapa», «el mismo contenedor elegante», «Meridian Visual», «Keep Meridian curated sections»…).
+- Bordes laterales con propiedades lógicas para que el árabe (RTL) se vea al derecho.
+
+### Más liviano
+- `style.css` pierde 119 selectores de las plantillas parciales retiradas en 3.1.0 (de 1 759 a 1 403 líneas, de 36,9 KB a 29,7 KB). Verificado con capturas píxel a píxel de 12 pantallas en escritorio y móvil: sin cambios visuales.
+
+### Correcciones
+- **Entrada del blog en móvil**: el artículo quedaba en una columna de unos 30 px con la barra lateral encima, y el formulario de comentarios pegado al borde. (Venía desde 3.0.x.)
+- Página de aterrizaje: la plantilla se llama "Landing page (full width)" en lugar de "Meridian Landing".
+
+### CI
+- Las 10 traducciones deben estar completas y conservar los marcadores (`scripts/check-translations.py`), y `atora-learning.pot` debe coincidir con las cadenas del código.
+
 ## 3.1.0 (2026-10-27)
 
 Endurecimiento y alineación con ATORA LMS 6.34 y la app 1.0.x. El tema pasa a ser **la capa de identidad** de la academia: el plugin es dueño del marcado y de los datos; el tema fija color, letra, ritmo de lectura y el marco (cabecera, pie, blog, portada).

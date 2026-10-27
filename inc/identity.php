@@ -124,11 +124,28 @@ function atora_identity_settings() {
 	$reading = (string) get_theme_mod( 'atora_reading_size', 'comoda' );
 	$reading = isset( $sizes[ $reading ] ) ? $reading : 'comoda';
 
+	$mode = (string) get_theme_mod( 'atora_color_mode', 'light' );
+	$mode = isset( atora_identity_color_modes()[ $mode ] ) ? $mode : 'light';
+
 	return array(
 		'palette' => $palette,
 		'accent'  => atora_identity_readable_accent( $accent ),
 		'type'    => $type,
 		'reading' => $reading,
+		'mode'    => $mode,
+	);
+}
+
+/**
+ * Modos de color.
+ *
+ * @return array<string,string>
+ */
+function atora_identity_color_modes() {
+	return array(
+		'light' => __( 'Light', 'atora-learning' ),
+		'dark'  => __( 'Dark', 'atora-learning' ),
+		'auto'  => __( 'Follow the device (light or dark)', 'atora-learning' ),
 	);
 }
 
@@ -213,30 +230,238 @@ function atora_identity_mix( $a, $b, $ratio ) {
 }
 
 /**
- * CSS con las variables de la identidad. Selectores:
- * - `:root` para páginas sin el plugin;
- * - `body.atora-meridian.atora-theme-light` para ganarle al tema "Claro" del
- *   plugin (que redefine las variables en `body`). Los demás temas del plugin
- *   no se tocan.
+ * Contraste WCAG entre dos colores.
+ *
+ * @param string $a Color.
+ * @param string $b Color.
+ * @return float
+ */
+function atora_identity_contrast( $a, $b ) {
+	$lum = static function ( $hex ) {
+		$rgb = atora_identity_hex_to_rgb( $hex );
+		$l   = 0.0;
+		foreach ( array( 0.2126, 0.7152, 0.0722 ) as $i => $weight ) {
+			$c  = $rgb[ $i ] / 255;
+			$c  = $c <= 0.03928 ? $c / 12.92 : pow( ( $c + 0.055 ) / 1.055, 2.4 );
+			$l += $weight * $c;
+		}
+		return $l;
+	};
+	$la = $lum( $a );
+	$lb = $lum( $b );
+
+	return ( max( $la, $lb ) + 0.05 ) / ( min( $la, $lb ) + 0.05 );
+}
+
+/**
+ * Aclara un color hasta que se lea sobre un fondo oscuro (contraste mínimo).
+ *
+ * @param string $hex     Color.
+ * @param string $surface Fondo.
+ * @param float  $min     Contraste mínimo.
+ * @return string
+ */
+function atora_identity_lighten_for( $hex, $surface, $min ) {
+	for ( $r = 0.0; $r <= 0.9; $r += 0.02 ) {
+		$candidate = atora_identity_mix( $hex, '#ffffff', $r );
+		if ( atora_identity_contrast( $candidate, $surface ) >= $min ) {
+			return $candidate;
+		}
+	}
+
+	return '#ffffff';
+}
+
+/**
+ * Variables de color: las del acento, para el modo claro u oscuro.
+ *
+ * @param string $accent Acento validado (texto blanco encima ≥ 4.5:1).
+ * @param bool   $dark   Modo oscuro.
+ * @return array<string,string>
+ */
+function atora_identity_accent_tokens( $accent, $dark = false ) {
+	if ( ! $dark ) {
+		$hover = atora_identity_mix( $accent, '#000000', 0.18 );
+
+		return array(
+			'--atora-accent'       => $accent,
+			'--atora-accent-hover' => $hover,
+			'--atora-accent-soft'  => atora_identity_mix( $accent, '#ffffff', 0.9 ),
+			'--atora-accent-ink'   => atora_identity_mix( $accent, '#000000', 0.28 ),
+			'--atora-on-accent'    => '#ffffff',
+			'--atora-btn-bg'       => $accent,
+			'--atora-btn-bg-hover' => $hover,
+			'--atora-blue-700'     => $hover,
+			'--atora-blue-50'      => atora_identity_mix( $accent, '#ffffff', 0.92 ),
+		);
+	}
+
+	// Oscuro: el acento se aclara hasta leerse sobre las superficies (4.5:1),
+	// y si el blanco ya no contrasta encima, el texto de los botones pasa a tinta.
+	$surface = '#171d2b';
+	$light   = atora_identity_lighten_for( $accent, $surface, 4.5 );
+	$on      = atora_identity_contrast( $light, '#ffffff' ) >= 4.5 ? '#ffffff' : '#0e1320';
+	$hover   = atora_identity_mix( $light, '#ffffff', 0.15 );
+
+	return array(
+		'--atora-accent'       => $light,
+		'--atora-accent-hover' => $hover,
+		'--atora-accent-soft'  => atora_identity_mix( $surface, $accent, 0.28 ),
+		'--atora-accent-ink'   => atora_identity_lighten_for( $accent, $surface, 7 ),
+		'--atora-on-accent'    => $on,
+		'--atora-btn-bg'       => $light,
+		'--atora-btn-bg-hover' => $hover,
+		'--atora-blue-700'     => $hover,
+		'--atora-blue-50'      => atora_identity_mix( $surface, $accent, 0.2 ),
+	);
+}
+
+/**
+ * Superficies y textos de la paleta clara de Meridian (los mismos de style.css).
+ *
+ * @return array<string,string>
+ */
+function atora_identity_light_palette() {
+	return array(
+		'--atora-bg'             => '#f8f6f1',
+		'--atora-surface'        => '#ffffff',
+		'--atora-surface-2'      => '#f2eee6',
+		'--atora-text'           => '#172033',
+		'--atora-text-primary'   => '#172033',
+		'--atora-text-secondary' => '#46526a',
+		'--atora-text-muted'     => '#46526a',
+		'--atora-text-subtle'    => '#5f6b80',
+		'--atora-border'         => '#e3ddd2',
+		'--atora-border-soft'    => '#ece7de',
+		'--atora-border-strong'  => '#cdc5b6',
+		'--atora-highlight'      => '#f2a900',
+		'--atora-highlight-soft' => '#fff3d1',
+		'--atora-success'        => '#12805c',
+		'--atora-success-bg'     => '#e5f6ef',
+		'--atora-success-text'   => '#0b5a40',
+		'--atora-warning'        => '#b26b00',
+		'--atora-warning-bg'     => '#fff4dc',
+		'--atora-warning-text'   => '#6e4300',
+		'--atora-danger'         => '#c23838',
+		'--atora-danger-bg'      => '#fdeeee',
+		'--atora-danger-text'    => '#851d1d',
+	);
+}
+
+/**
+ * Paleta oscura de Meridian: tinta azulada, no negro puro, y textos ≥ 7:1.
+ *
+ * @return array<string,string>
+ */
+function atora_identity_dark_palette() {
+	return array(
+		'--atora-bg'             => '#0e1320',
+		'--atora-surface'        => '#171d2b',
+		'--atora-surface-2'      => '#1f2738',
+		'--atora-text'           => '#e8ebf2',
+		'--atora-text-primary'   => '#e8ebf2',
+		'--atora-text-secondary' => '#b4bccb',
+		'--atora-text-muted'     => '#b4bccb',
+		'--atora-text-subtle'    => '#939db0',
+		'--atora-border'         => '#2c3548',
+		'--atora-border-soft'    => '#252d3e',
+		'--atora-border-strong'  => '#3c475d',
+		'--atora-highlight'      => '#f5b82e',
+		'--atora-highlight-soft' => '#3a2d0c',
+		'--atora-success'        => '#3ccf91',
+		'--atora-success-bg'     => '#10291f',
+		'--atora-success-text'   => '#8fe6c0',
+		'--atora-warning'        => '#f2a93b',
+		'--atora-warning-bg'     => '#33250b',
+		'--atora-warning-text'   => '#f7cd85',
+		'--atora-danger'         => '#f07070',
+		'--atora-danger-bg'      => '#3a1416',
+		'--atora-danger-text'    => '#f6aaaa',
+		'--meridian-shadow-sm'   => '0 10px 24px rgba(0, 0, 0, 0.35)',
+		'--meridian-shadow-md'   => '0 18px 44px rgba(0, 0, 0, 0.45)',
+		'--meridian-shadow-lg'   => '0 26px 72px rgba(0, 0, 0, 0.55)',
+		'color-scheme'           => 'dark',
+	);
+}
+
+/**
+ * Los colores con nombre del editor (theme.json) siguen al modo oscuro: un
+ * bloque con fondo "Blanco" y texto "Tinta" se invierte en lugar de quedar
+ * como una isla clara.
+ *
+ * @return array<string,string>
+ */
+function atora_identity_dark_presets() {
+	return array(
+		'--wp--preset--color--white'         => 'var(--atora-surface)',
+		'--wp--preset--color--ink'           => 'var(--atora-text)',
+		'--wp--preset--color--ink-2'         => 'var(--atora-text-muted)',
+		'--wp--preset--color--meridian-ink'  => 'var(--atora-text)',
+		'--wp--preset--color--bg-2'          => 'var(--atora-bg)',
+		'--wp--preset--color--meridian-sand' => 'var(--atora-surface-2)',
+		'--wp--preset--color--meridian-clay' => 'var(--atora-surface-2)',
+		'--wp--preset--color--line'          => 'var(--atora-border)',
+		'--wp--preset--color--amber-soft'    => 'var(--atora-highlight-soft)',
+	);
+}
+
+/**
+ * Puente con los tokens --ac-* del plugin. El plugin los deriva de --atora-*,
+ * pero su dark-mode.css los cambia por grises fijos cuando el teléfono está en
+ * modo oscuro, aunque la academia sea clara: salían tarjetas oscuras sobre
+ * fondo claro. Aquí vuelven a seguir a --atora-* (claro u oscuro, según el modo).
+ *
+ * @return array<string,string>
+ */
+function atora_identity_plugin_bridge_tokens() {
+	return array(
+		'--ac-brand'    => 'var(--atora-accent)',
+		'--ac-brand-dk' => 'var(--atora-accent-hover)',
+		'--ac-brand-lt' => 'var(--atora-accent-soft)',
+		'--ac-white'    => 'var(--atora-surface)',
+		'--ac-gray-50'  => 'var(--atora-bg)',
+		'--ac-gray-100' => 'var(--atora-surface-2)',
+		'--ac-gray-200' => 'var(--atora-surface)',
+		'--ac-gray-300' => 'var(--atora-border)',
+		'--ac-gray-400' => 'var(--atora-border-strong)',
+		'--ac-gray-500' => 'var(--atora-text-subtle)',
+		'--ac-gray-600' => 'var(--atora-text-muted)',
+		'--ac-gray-700' => 'var(--atora-text-muted)',
+		'--ac-gray-800' => 'var(--atora-text)',
+		'--ac-gray-900' => 'var(--atora-text)',
+	);
+}
+
+/**
+ * @param array<string,string> $vars Variables.
+ * @return string
+ */
+function atora_identity_declarations( array $vars ) {
+	$css = '';
+	foreach ( $vars as $name => $value ) {
+		$css .= $name . ':' . $value . ';';
+	}
+
+	return $css;
+}
+
+/**
+ * CSS de la identidad.
+ *
+ * - `:root`: letra y acento, para cualquier página.
+ * - Paleta (clara u oscura) sobre `body.atora-meridian` cuando ATORA LMS usa su
+ *   tema "Claro" (o no está activo): el plugin redefine las variables en `body`
+ *   y aquí se le gana con más especificidad. Si la academia eligió otro tema en
+ *   ATORA LMS → Ajustes (oscuro, vibrante…), manda el del plugin.
+ * - Modo "según el dispositivo": la paleta oscura va dentro de
+ *   `@media (prefers-color-scheme: dark)`.
  *
  * @return string
  */
 function atora_identity_css() {
-	$s      = atora_identity_settings();
-	$accent = $s['accent'];
-	$pair   = atora_identity_type_pairs()[ $s['type'] ];
-	$size   = atora_identity_reading_sizes()[ $s['reading'] ]['size'];
-
-	$colors = array(
-		'--atora-accent'        => $accent,
-		'--atora-accent-hover'  => atora_identity_mix( $accent, '#000000', 0.18 ),
-		'--atora-accent-soft'   => atora_identity_mix( $accent, '#ffffff', 0.9 ),
-		'--atora-accent-ink'    => atora_identity_mix( $accent, '#000000', 0.28 ),
-		'--atora-btn-bg'        => $accent,
-		'--atora-btn-bg-hover'  => atora_identity_mix( $accent, '#000000', 0.18 ),
-		'--atora-blue-700'      => atora_identity_mix( $accent, '#000000', 0.18 ),
-		'--atora-blue-50'       => atora_identity_mix( $accent, '#ffffff', 0.92 ),
-	);
+	$s    = atora_identity_settings();
+	$pair = atora_identity_type_pairs()[ $s['type'] ];
+	$size = atora_identity_reading_sizes()[ $s['reading'] ]['size'];
 
 	$type = array(
 		'--atora-font-display' => $pair['display'],
@@ -244,36 +469,54 @@ function atora_identity_css() {
 		'--atora-reading-size' => $size,
 	);
 
-	$color_css = '';
-	foreach ( $colors as $name => $value ) {
-		$color_css .= $name . ':' . $value . ';';
-	}
-	$type_css = '';
-	foreach ( $type as $name => $value ) {
-		$type_css .= $name . ':' . $value . ';';
-	}
+	$owned  = 'body.atora-meridian.atora-theme-light,body.atora-meridian:not([class*="atora-theme-"])';
+	$light  = atora_identity_declarations( atora_identity_light_palette() + atora_identity_accent_tokens( $s['accent'] ) + array( 'color-scheme' => 'light' ) );
+	$dark   = atora_identity_declarations( atora_identity_dark_palette() + atora_identity_accent_tokens( $s['accent'], true ) + atora_identity_dark_presets() );
+	$bridge = atora_identity_declarations( atora_identity_plugin_bridge_tokens() );
 
 	// Valores ya validados (hex de sanitize_hex_color y listas cerradas).
-	return ':root{' . $color_css . $type_css . '}'
-		. 'body.atora-meridian.atora-theme-light{' . atora_identity_light_tokens() . $color_css . '}';
+	$css  = ':root{' . atora_identity_declarations( atora_identity_accent_tokens( $s['accent'] ) ) . atora_identity_declarations( $type ) . '}';
+	$css .= 'body.atora-meridian{' . $bridge . '}';
+
+	if ( 'dark' === $s['mode'] ) {
+		$css .= $owned . '{' . $dark . '}';
+	} else {
+		$css .= $owned . '{' . $light . '}';
+		if ( 'auto' === $s['mode'] ) {
+			$css .= '@media (prefers-color-scheme: dark){' . $owned . '{' . $dark . '}}';
+		}
+	}
+
+	// Panel del estudiante, panel docente y SpeedGrader todavía traen fondos
+	// blancos fijos en el plugin: en modo oscuro se mantienen como tarjetas
+	// claras (con su propia paleta clara) en lugar de quedar ilegibles.
+	if ( 'light' !== $s['mode'] ) {
+		$islands = 'body.atora-meridian .clms-sd,body.atora-meridian .clms-td,body.atora-meridian .clms-sg-wrap';
+		$css    .= $islands . '{' . $light . $bridge . '}';
+	}
+
+	// Tema oscuro del plugin: los colores con nombre del editor también se invierten.
+	$css .= 'body.atora-meridian.atora-theme-dark{' . atora_identity_declarations( atora_identity_dark_presets() ) . '}';
+
+	return $css;
 }
 
 /**
- * Superficies y textos de la paleta clara de Meridian (los mismos de style.css),
- * repetidos para el `body` del tema "Claro" del plugin.
- *
- * @return string
+ * Color de la barra del navegador en el teléfono (claro y oscuro).
  */
-function atora_identity_light_tokens() {
-	return '--atora-bg:#f8f6f1;--atora-surface:#ffffff;--atora-surface-2:#f2eee6;'
-		. '--atora-text:#172033;--atora-text-primary:#172033;--atora-text-secondary:#46526a;'
-		. '--atora-text-muted:#46526a;--atora-text-subtle:#5f6b80;'
-		. '--atora-border:#e3ddd2;--atora-border-soft:#ece7de;--atora-border-strong:#cdc5b6;'
-		. '--atora-success:#12805c;--atora-success-bg:#e5f6ef;--atora-success-text:#0b5a40;'
-		. '--atora-warning:#b26b00;--atora-warning-bg:#fff4dc;--atora-warning-text:#6e4300;'
-		. '--atora-danger:#c23838;--atora-danger-bg:#fdeeee;--atora-danger-text:#851d1d;'
-		. '--atora-on-accent:#ffffff;';
+function atora_identity_theme_color_meta() {
+	$s = atora_identity_settings();
+	if ( 'dark' === $s['mode'] ) {
+		echo '<meta name="theme-color" content="#0e1320">' . "\n";
+		return;
+	}
+
+	echo '<meta name="theme-color" content="#f8f6f1"' . ( 'auto' === $s['mode'] ? ' media="(prefers-color-scheme: light)"' : '' ) . '>' . "\n";
+	if ( 'auto' === $s['mode'] ) {
+		echo '<meta name="theme-color" content="#0e1320" media="(prefers-color-scheme: dark)">' . "\n";
+	}
 }
+add_action( 'wp_head', 'atora_identity_theme_color_meta', 3 );
 
 /**
  * Imprime la identidad después de las hojas del plugin.
@@ -313,6 +556,7 @@ add_action( 'wp_head', 'atora_identity_preload_fonts', 2 );
 function atora_identity_body_class( $classes ) {
 	$s         = atora_identity_settings();
 	$classes[] = 'atora-type-' . sanitize_html_class( $s['type'] );
+	$classes[] = 'atora-mode-' . sanitize_html_class( $s['mode'] );
 
 	return $classes;
 }
@@ -376,6 +620,26 @@ function atora_identity_customize_register( $wp_customize ) {
 					return 'custom' === get_theme_mod( 'atora_palette', 'meridian' );
 				},
 			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'atora_color_mode',
+		array(
+			'default'           => 'light',
+			'sanitize_callback' => static function ( $value ) {
+				return array_key_exists( $value, atora_identity_color_modes() ) ? $value : 'light';
+			},
+		)
+	);
+	$wp_customize->add_control(
+		'atora_color_mode',
+		array(
+			'section'     => 'atora_identity',
+			'label'       => __( 'Color mode', 'atora-learning' ),
+			'description' => __( 'Dark mode rests the eyes when studying at night. "Follow the device" uses each student\'s phone or computer setting.', 'atora-learning' ),
+			'type'        => 'radio',
+			'choices'     => atora_identity_color_modes(),
 		)
 	);
 

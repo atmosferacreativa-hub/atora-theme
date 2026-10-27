@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Home institucional
+ * Title: ATORA institutional home
  * Slug: atora/home-institucional
  * Categories: atora, featured
  * Keywords: home, lms, institución

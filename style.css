@@ -3,7 +3,7 @@ Theme Name: Atora Meridian
 Theme URI: https://github.com/atmosferacreativa-hub/atora-theme
 Author: MundoCAP
 Description: Official theme for ATORA LMS academies: one identity (color, type, reading size) for the site and every ATORA LMS screen, built for studying comfortably on any device.
-Version: 3.1.0
+Version: 3.2.0
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -74,7 +74,7 @@ body {
 	background:
 		radial-gradient(circle at top left, color-mix(in srgb, var(--atora-accent) 12%, transparent), transparent 26%),
 		radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--atora-accent-hover) 8%, transparent), transparent 20%),
-		linear-gradient(180deg, #fbf9f5 0%, var(--atora-bg) 42%, #f4f0e9 100%);
+		linear-gradient(180deg, color-mix(in srgb, var(--atora-bg) 70%, var(--atora-surface)) 0%, var(--atora-bg) 42%, color-mix(in srgb, var(--atora-bg) 94%, var(--atora-text)) 100%);
 	color: var(--atora-text);
 	font-family: var(--meridian-font-sans);
 	font-size: 1.0625rem;
@@ -151,7 +151,6 @@ textarea {
 }
 
 .meridian-eyebrow,
-.meridian-kicker,
 .cov-kicker,
 .clms-product-eyebrow {
 	display: inline-flex;
@@ -166,8 +165,7 @@ textarea {
 	font-family: var(--meridian-font-sans);
 }
 
-.meridian-eyebrow::before,
-.meridian-kicker::before {
+.meridian-eyebrow::before {
 	content: "";
 	display: block;
 	width: 2rem;
@@ -205,16 +203,15 @@ ol {
 blockquote {
 	margin: 1.8rem 0;
 	padding: 1.4rem 1.5rem;
-	border-left: 3px solid var(--atora-accent);
-	background: rgba(255, 255, 255, 0.45);
+	border-inline-start: 3px solid var(--atora-accent);
+	background: color-mix(in srgb, var(--atora-surface) 45%, transparent);
 	border-radius: var(--meridian-radius-sm);
 	font-size: 1.1rem;
 	color: var(--atora-text);
 }
 
 pre,
-code,
-.meridian-meta-note {
+code {
 	font-family: var(--meridian-font-mono);
 }
 
@@ -225,7 +222,7 @@ select {
 	padding: 0.95rem 1rem;
 	border: 1px solid var(--atora-border);
 	border-radius: 14px;
-	background: rgba(255, 255, 255, 0.92);
+	background: color-mix(in srgb, var(--atora-surface) 92%, transparent);
 	color: var(--atora-text);
 	box-shadow: inset 0 1px 2px rgba(17, 24, 39, 0.03);
 }
@@ -278,14 +275,14 @@ button:hover,
 }
 
 .meridian-button--ghost {
-	background: rgba(255, 255, 255, 0.88);
+	background: color-mix(in srgb, var(--atora-surface) 88%, transparent);
 	color: var(--atora-text);
 	box-shadow: none;
 	border: 1px solid var(--atora-border);
 }
 
 .meridian-button--ghost:hover {
-	background: rgba(255, 255, 255, 1);
+	background: var(--atora-surface);
 	color: var(--atora-text);
 }
 
@@ -301,7 +298,7 @@ button:hover,
 	gap: 0.5rem;
 	padding: 0.68rem 0.95rem;
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.54);
+	background: color-mix(in srgb, var(--atora-surface) 54%, transparent);
 	border: 1px solid var(--atora-border);
 	color: var(--atora-text);
 	text-decoration: none;
@@ -334,19 +331,19 @@ button:hover,
 	top: 0;
 	z-index: 70;
 	backdrop-filter: blur(18px);
-	background: rgba(250, 247, 241, 0.72);
+	background: color-mix(in srgb, var(--atora-bg) 72%, transparent);
 	border-bottom: 1px solid transparent;
 	transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .meridian-header.is-scrolled {
-	background: rgba(250, 247, 241, 0.92);
+	background: color-mix(in srgb, var(--atora-bg) 92%, transparent);
 	border-color: var(--atora-border);
 	box-shadow: 0 16px 34px rgba(17, 24, 39, 0.07);
 }
 
 .meridian-header__rail {
-	border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+	border-bottom: 1px solid color-mix(in srgb, var(--atora-text) 6%, transparent);
 }
 
 .meridian-header__rail-inner,
@@ -362,13 +359,7 @@ button:hover,
 }
 
 .meridian-header__rail-nav {
-	margin-left: auto;
-}
-
-.meridian-header__signal {
-	margin: 0;
-	font-size: 0.82rem;
-	color: var(--atora-text-subtle);
+	margin-inline-start: auto;
 }
 
 .meridian-mini-menu,
@@ -494,7 +485,7 @@ button:hover,
 	width: 2.85rem;
 	height: 2.85rem;
 	padding: 0;
-	background: rgba(255, 255, 255, 0.7);
+	background: color-mix(in srgb, var(--atora-surface) 70%, transparent);
 	border: 1px solid var(--atora-border);
 	box-shadow: none;
 }
@@ -509,8 +500,8 @@ button:hover,
 }
 
 .meridian-search-panel {
-	border-top: 1px solid rgba(17, 24, 39, 0.06);
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(248, 244, 237, 0.98) 100%);
+	border-top: 1px solid color-mix(in srgb, var(--atora-text) 6%, transparent);
+	background: linear-gradient(180deg, color-mix(in srgb, var(--atora-surface) 82%, transparent) 0%, color-mix(in srgb, var(--atora-bg) 98%, transparent) 100%);
 }
 
 .meridian-search-panel__inner {
@@ -572,21 +563,14 @@ button:hover,
 .meridian-home-hero__panel,
 .meridian-page-hero__panel,
 .meridian-dashboard-panel,
-.meridian-surface,
-.meridian-course-section,
-.meridian-overview-section,
-.meridian-teacher-section,
-.meridian-crm-lead__card,
 .post-card,
 .atora-course-card,
 .meridian-episode-card,
 .meridian-stat-card,
 .meridian-empty-state,
 .woocommerce .product,
-.woocommerce-page .woocommerce,
-.cc-wrap .meridian-course-hero__offer,
-.cov-wrap .meridian-overview-hero__aside {
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.74) 100%);
+.woocommerce-page .woocommerce {
+	background: linear-gradient(180deg, color-mix(in srgb, var(--atora-surface) 88%, transparent) 0%, color-mix(in srgb, var(--atora-surface) 74%, transparent) 100%);
 	border: 1px solid var(--atora-border);
 	border-radius: var(--meridian-radius-lg);
 	box-shadow: var(--meridian-shadow-sm);
@@ -656,8 +640,8 @@ button:hover,
 .meridian-stat-card {
 	padding: 1rem 1.05rem;
 	border-radius: var(--meridian-radius);
-	background: rgba(255, 255, 255, 0.66);
-	border: 1px solid rgba(17, 24, 39, 0.08);
+	background: color-mix(in srgb, var(--atora-surface) 66%, transparent);
+	border: 1px solid color-mix(in srgb, var(--atora-text) 8%, transparent);
 }
 
 .meridian-metric strong,
@@ -701,10 +685,8 @@ button:hover,
 
 .meridian-grid,
 .posts-grid,
-.atora-posts-grid,
 .meridian-catalog-grid,
 .meridian-vision-grid,
-.meridian-story-grid,
 .meridian-dashboard-grid {
 	display: grid;
 	gap: var(--meridian-grid-gap);
@@ -717,9 +699,7 @@ button:hover,
 
 .meridian-grid--3,
 .posts-grid,
-.atora-posts-grid,
-.meridian-vision-grid,
-.meridian-story-grid {
+.meridian-vision-grid {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -807,13 +787,12 @@ button:hover,
 	z-index: 2;
 }
 
-.atora-course-level-badge,
-.meridian-chip {
+.atora-course-level-badge {
 	display: inline-flex;
 	align-items: center;
 	padding: 0.42rem 0.72rem;
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.92);
+	background: color-mix(in srgb, var(--atora-surface) 92%, transparent);
 	color: var(--atora-accent);
 	font-size: 0.74rem;
 	font-weight: 800;
@@ -839,8 +818,7 @@ button:hover,
 
 .atora-course-excerpt,
 .entry-content,
-.meridian-episode-card__excerpt,
-.course-card-excerpt {
+.meridian-episode-card__excerpt {
 	color: var(--atora-text-muted);
 }
 
@@ -860,7 +838,7 @@ button:hover,
 	justify-content: space-between;
 	gap: 1rem;
 	padding-top: 1rem;
-	border-top: 1px solid rgba(17, 24, 39, 0.08);
+	border-top: 1px solid color-mix(in srgb, var(--atora-text) 8%, transparent);
 }
 
 .atora-course-price-current {
@@ -877,12 +855,6 @@ button:hover,
 	margin-bottom: 1rem;
 	color: var(--atora-text-subtle);
 	font-size: 0.88rem;
-}
-
-.atora-course-instructor-avatar {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 999px;
 }
 
 .meridian-richtext,
@@ -948,8 +920,7 @@ button:hover,
 
 .meridian-content-shell__inner,
 .meridian-single-layout,
-.meridian-dashboard-layout,
-.meridian-shop-layout {
+.meridian-dashboard-layout {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(270px, 320px);
 	gap: clamp(1.2rem, 3vw, 2rem);
@@ -968,7 +939,7 @@ button:hover,
 .woocommerce-page .woocommerce,
 .meridian-dashboard-panel {
 	padding: 1.5rem;
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.78) 100%);
+	background: linear-gradient(180deg, color-mix(in srgb, var(--atora-surface) 90%, transparent) 0%, color-mix(in srgb, var(--atora-surface) 78%, transparent) 100%);
 	border: 1px solid var(--atora-border);
 	border-radius: var(--meridian-radius-lg);
 	box-shadow: var(--meridian-shadow-sm);
@@ -1020,13 +991,11 @@ button:hover,
 	height: auto;
 }
 
-.meridian-no-results,
 .meridian-empty-state {
 	padding: 2rem;
 	text-align: center;
 }
 
-.meridian-no-results h2,
 .meridian-empty-state h2 {
 	font-size: 2rem;
 }
@@ -1051,7 +1020,7 @@ button:hover,
 	padding: 0 0.8rem;
 	border-radius: 999px;
 	border: 1px solid var(--atora-border);
-	background: rgba(255, 255, 255, 0.82);
+	background: color-mix(in srgb, var(--atora-surface) 82%, transparent);
 	text-decoration: none;
 	color: var(--atora-text);
 }
@@ -1071,26 +1040,6 @@ button:hover,
 	padding: 2rem 0 0;
 }
 
-.meridian-footer__hero {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1rem 2rem;
-	padding: 1.7rem;
-	margin-bottom: 1.5rem;
-	border: 1px solid var(--atora-border);
-	border-radius: var(--meridian-radius-lg);
-	background: linear-gradient(135deg, rgba(17, 24, 39, 0.94) 0%, color-mix(in srgb, var(--atora-accent) 88%, transparent) 100%);
-	box-shadow: var(--meridian-shadow-md);
-}
-
-.meridian-footer__hero h2,
-.meridian-footer__hero p,
-.meridian-footer__hero .meridian-eyebrow {
-	color: #fff;
-}
-
 .meridian-footer__grid {
 	display: grid;
 	grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
@@ -1098,7 +1047,7 @@ button:hover,
 	padding: 1.7rem;
 	border: 1px solid var(--atora-border);
 	border-radius: var(--meridian-radius-lg);
-	background: rgba(255, 255, 255, 0.64);
+	background: color-mix(in srgb, var(--atora-surface) 64%, transparent);
 }
 
 .meridian-footer__grid h3 {
@@ -1123,7 +1072,7 @@ button:hover,
 
 .meridian-footer__legal-row {
 	padding: 0.8rem 0 0;
-	border-top: 1px solid rgba(17, 24, 39, 0.06);
+	border-top: 1px solid color-mix(in srgb, var(--atora-text) 6%, transparent);
 	margin-top: 1rem;
 }
 
@@ -1136,9 +1085,7 @@ button:hover,
 	position: relative;
 }
 
-.meridian-home-hero__panel-list,
-.meridian-vision-list,
-.meridian-offer-list {
+.meridian-home-hero__panel-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -1147,16 +1094,14 @@ button:hover,
 }
 
 .meridian-home-hero__panel-list li,
-.meridian-vision-card,
-.meridian-story-card {
+.meridian-vision-card {
 	padding: 1rem 1.05rem;
-	border: 1px solid rgba(17, 24, 39, 0.08);
+	border: 1px solid color-mix(in srgb, var(--atora-text) 8%, transparent);
 	border-radius: var(--meridian-radius);
-	background: rgba(255, 255, 255, 0.72);
+	background: color-mix(in srgb, var(--atora-surface) 72%, transparent);
 }
 
-.meridian-vision-card h3,
-.meridian-story-card h3 {
+.meridian-vision-card h3 {
 	font-size: 1.4rem;
 }
 
@@ -1186,7 +1131,7 @@ button:hover,
 	align-items: center;
 	padding-top: 1.5rem;
 	margin-top: 1.5rem;
-	border-top: 1px solid rgba(17, 24, 39, 0.08);
+	border-top: 1px solid color-mix(in srgb, var(--atora-text) 8%, transparent);
 }
 
 .meridian-author-card img {
@@ -1205,7 +1150,7 @@ button:hover,
 .meridian-progress {
 	height: 0.65rem;
 	border-radius: 999px;
-	background: rgba(17, 24, 39, 0.08);
+	background: color-mix(in srgb, var(--atora-text) 8%, transparent);
 	overflow: hidden;
 }
 
@@ -1213,11 +1158,7 @@ button:hover,
 	display: block;
 	height: 100%;
 	border-radius: inherit;
-	background: linear-gradient(90deg, var(--atora-accent), #5d8cff);
-}
-
-.meridian-shop-layout {
-	grid-template-columns: minmax(0, 1fr);
+	background: linear-gradient(90deg, var(--atora-accent), color-mix(in srgb, var(--atora-accent) 70%, var(--atora-surface)));
 }
 
 .woocommerce ul.products {
@@ -1231,7 +1172,7 @@ button:hover,
 .woocommerce ul.products li.product {
 	margin: 0;
 	padding: 1rem;
-	background: rgba(255, 255, 255, 0.84);
+	background: color-mix(in srgb, var(--atora-surface) 84%, transparent);
 	border: 1px solid var(--atora-border);
 	border-radius: var(--meridian-radius);
 	box-shadow: var(--meridian-shadow-sm);
@@ -1251,291 +1192,19 @@ button:hover,
 .woocommerce-info,
 .woocommerce-error {
 	border-radius: var(--meridian-radius);
-	border-color: rgba(17, 24, 39, 0.08);
-	background: rgba(255, 255, 255, 0.84);
+	border-color: color-mix(in srgb, var(--atora-text) 8%, transparent);
+	background: color-mix(in srgb, var(--atora-surface) 84%, transparent);
 }
 
 .meridian-podcast-player {
 	padding: 1.2rem;
 	border: 1px solid var(--atora-border);
 	border-radius: var(--meridian-radius);
-	background: rgba(255, 255, 255, 0.8);
+	background: color-mix(in srgb, var(--atora-surface) 80%, transparent);
 }
 
 .meridian-podcast-player audio {
 	width: 100%;
-}
-
-.meridian-course-section,
-.meridian-overview-section,
-.meridian-teacher-section,
-.meridian-crm-lead__card {
-	padding: 1.4rem;
-}
-
-.cc-wrap .meridian-course-hero,
-.cov-wrap .meridian-overview-hero,
-.tp-wrap .meridian-teacher-hero {
-	display: grid;
-	gap: 1.2rem;
-}
-
-.cc-wrap .meridian-course-hero {
-	grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-	align-items: start;
-	padding: 2rem 0 1rem;
-}
-
-.cc-wrap .meridian-course-hero__aside {
-	display: grid;
-	gap: 1rem;
-}
-
-.cc-wrap .meridian-course-hero__copy h1,
-.cov-wrap .meridian-overview-hero__copy h1,
-.tp-wrap .meridian-teacher-hero__copy h1 {
-	font-size: clamp(2.5rem, 6vw, 4.6rem);
-	max-width: 10ch;
-}
-
-.cc-wrap .meridian-course-hero__meta,
-.cov-wrap .meridian-overview-hero__meta,
-.tp-wrap .meridian-teacher-hero__meta {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.65rem;
-	margin-bottom: 1.1rem;
-}
-
-.cc-wrap .meridian-course-hero__stat,
-.cov-wrap .meridian-overview-hero__stat,
-.tp-wrap .meridian-teacher-hero__stat {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.5rem 0.85rem;
-	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.86);
-	border: 1px solid rgba(17, 24, 39, 0.08);
-	font-size: 0.84rem;
-	font-weight: 700;
-	color: var(--atora-text);
-}
-
-.cc-wrap .meridian-course-hero__media {
-	border-radius: var(--meridian-radius-lg);
-	overflow: hidden;
-	box-shadow: var(--meridian-shadow-md);
-}
-
-.cc-wrap .meridian-course-hero__media iframe,
-.cc-wrap .meridian-course-hero__media video,
-.cc-wrap .meridian-course-hero__media img,
-.cov-wrap .meridian-overview-hero__media img,
-.tp-wrap .meridian-teacher-hero__avatar img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.cc-wrap .meridian-course-hero__offer {
-	padding: 1.2rem;
-}
-
-.cc-wrap .meridian-course-hero__price {
-	display: block;
-	font-size: clamp(1.8rem, 4vw, 2.8rem);
-	font-weight: 800;
-	color: var(--atora-text);
-}
-
-.cc-wrap .meridian-course-hero--centered,
-.cc-wrap .meridian-course-hero--minimal {
-	grid-template-columns: 1fr;
-}
-
-.cc-wrap .meridian-course-section__list,
-.cov-wrap .meridian-overview-curriculum,
-.tp-wrap .meridian-teacher-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: grid;
-	gap: 0.9rem;
-}
-
-.cc-wrap .meridian-course-section__list li,
-.cov-wrap .meridian-overview-curriculum li,
-.tp-wrap .meridian-teacher-list li {
-	padding: 1rem 1.05rem;
-	border: 1px solid rgba(17, 24, 39, 0.08);
-	border-radius: var(--meridian-radius);
-	background: rgba(255, 255, 255, 0.72);
-}
-
-.cc-wrap .meridian-course-section,
-.cov-wrap .meridian-overview-section,
-.tp-wrap .meridian-teacher-section,
-.meridian-crm-lead {
-	margin: 0 auto 1rem;
-}
-
-.cc-wrap .meridian-course-section h2,
-.cov-wrap .meridian-overview-section h2,
-.tp-wrap .meridian-teacher-section h2 {
-	font-size: clamp(1.8rem, 4vw, 2.7rem);
-	max-width: 16ch;
-}
-
-.cc-wrap .meridian-course-section__list li p,
-.cov-wrap .meridian-overview-curriculum li p,
-.tp-wrap .meridian-teacher-list li p {
-	margin: 0.45rem 0 0;
-}
-
-.cc-wrap .meridian-course-section__list details,
-.cov-wrap .meridian-course-section__list details {
-	padding: 1rem 1.05rem;
-	border: 1px solid rgba(17, 24, 39, 0.08);
-	border-radius: var(--meridian-radius);
-	background: rgba(255, 255, 255, 0.72);
-}
-
-.cc-wrap .meridian-course-section__list summary,
-.cov-wrap .meridian-course-section__list summary {
-	cursor: pointer;
-	list-style: none;
-}
-
-.cc-wrap .meridian-course-section__list summary::-webkit-details-marker,
-.cov-wrap .meridian-course-section__list summary::-webkit-details-marker {
-	display: none;
-}
-
-.cc-wrap .meridian-course-section--cta {
-	background:
-		radial-gradient(circle at top right, color-mix(in srgb, var(--atora-accent) 16%, transparent), transparent 30%),
-		linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 255, 0.9) 100%);
-}
-
-.cov-wrap .meridian-overview-hero {
-	grid-template-columns: minmax(0, 1.12fr) minmax(290px, 0.88fr);
-	align-items: stretch;
-	padding: 1rem 0 1.2rem;
-}
-
-.cov-wrap .meridian-overview-hero__aside {
-	padding: 1.2rem;
-}
-
-.cov-wrap .meridian-overview-hero__media {
-	overflow: hidden;
-	border-radius: 20px;
-	box-shadow: var(--meridian-shadow-sm);
-}
-
-.cov-wrap .meridian-overview-progress {
-	display: grid;
-	gap: 0.5rem;
-	margin: 1rem 0 1.2rem;
-}
-
-.cov-wrap .meridian-overview-curriculum li.is-complete {
-	border-color: rgba(28, 147, 100, 0.2);
-	background: rgba(230, 248, 241, 0.74);
-}
-
-.cov-wrap .meridian-overview-curriculum li.is-locked {
-	opacity: 0.74;
-}
-
-.cov-wrap .meridian-overview-curriculum li strong {
-	display: block;
-	color: var(--atora-text);
-}
-
-.tp-wrap .meridian-teacher-hero {
-	grid-template-columns: 180px minmax(0, 1fr);
-	align-items: center;
-	padding: 2rem 0 1rem;
-}
-
-.tp-wrap .meridian-teacher-hero__avatar {
-	width: 180px;
-	height: 180px;
-	overflow: hidden;
-	border-radius: 999px;
-	border: 6px solid rgba(255, 255, 255, 0.72);
-	box-shadow: var(--meridian-shadow-md);
-}
-
-.tp-wrap .meridian-teacher-hero__avatar .meridian-empty-state {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	border-radius: inherit;
-	background: linear-gradient(135deg, color-mix(in srgb, var(--atora-accent) 16%, transparent), color-mix(in srgb, var(--atora-accent-hover) 8%, transparent));
-}
-
-.tp-wrap .meridian-teacher-hero__avatar .meridian-empty-state strong {
-	font-size: 3.4rem;
-}
-
-.tp-wrap .meridian-teacher-hero__copy {
-	display: grid;
-	gap: 0.85rem;
-}
-
-.tp-wrap .meridian-teacher-hero__meta {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.65rem;
-}
-
-.tp-wrap .meridian-teacher-hero__stat {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.5rem 0.8rem;
-	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.82);
-	border: 1px solid rgba(17, 24, 39, 0.08);
-	font-size: 0.82rem;
-	font-weight: 700;
-	text-decoration: none;
-}
-
-.tp-wrap .meridian-teacher-courses {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1rem;
-}
-
-.tp-wrap .meridian-teacher-course {
-	padding: 1rem;
-	border-radius: var(--meridian-radius);
-	border: 1px solid rgba(17, 24, 39, 0.08);
-	background: rgba(255, 255, 255, 0.74);
-}
-
-.meridian-crm-lead__card {
-	display: grid;
-	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-	gap: 1rem;
-	background:
-		radial-gradient(circle at top right, color-mix(in srgb, var(--atora-accent) 10%, transparent), transparent 32%),
-		linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 248, 255, 0.88) 100%);
-}
-
-.meridian-crm-lead {
-	width: 100%;
-	max-width: var(--meridian-wide);
-	padding: 1rem 0 4rem;
-}
-
-.meridian-crm-lead__card .clms-crm-lead__form,
-.meridian-crm-lead__card form {
-	display: grid;
-	gap: 0.8rem;
 }
 
 .atora-js [data-reveal] {
@@ -1555,23 +1224,16 @@ button:hover,
 	.meridian-dashboard-hero__grid,
 	.meridian-content-shell__inner,
 	.meridian-single-layout,
+	.meridian-editorial-layout .meridian-single-layout,
 	.meridian-dashboard-layout,
-	.meridian-shop-layout,
-	.cc-wrap .meridian-course-hero,
-	.cov-wrap .meridian-overview-hero,
-	.tp-wrap .meridian-teacher-hero,
-	.meridian-crm-lead__card,
 	.woocommerce div.product {
 		grid-template-columns: 1fr;
 	}
 
 	.meridian-grid--3,
 	.posts-grid,
-	.atora-posts-grid,
 	.meridian-vision-grid,
-	.meridian-story-grid,
-	.woocommerce ul.products,
-	.tp-wrap .meridian-teacher-courses {
+	.woocommerce ul.products {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
@@ -1597,7 +1259,7 @@ button:hover,
 		align-items: stretch;
 		padding: 1rem;
 		border-radius: 24px;
-		background: rgba(251, 248, 242, 0.98);
+		background: color-mix(in srgb, var(--atora-bg) 98%, transparent);
 		border: 1px solid var(--atora-border);
 		box-shadow: var(--meridian-shadow-lg);
 	}
@@ -1615,7 +1277,7 @@ button:hover,
 	.meridian-header__nav-actions {
 		display: flex;
 		padding-top: 1rem;
-		border-top: 1px solid rgba(17, 24, 39, 0.08);
+		border-top: 1px solid color-mix(in srgb, var(--atora-text) 8%, transparent);
 	}
 
 	.meridian-menu a {
@@ -1662,23 +1324,17 @@ button:hover,
 	.meridian-single-hero h1,
 	.meridian-podcast-hero h1,
 	.meridian-shop-hero h1,
-	.meridian-dashboard-hero h1,
-	.cc-wrap .meridian-course-hero__copy h1,
-	.cov-wrap .meridian-overview-hero__copy h1,
-	.tp-wrap .meridian-teacher-hero__copy h1 {
+	.meridian-dashboard-hero h1 {
 		max-width: none;
 		font-size: clamp(2.25rem, 12vw, 3.4rem);
 	}
 
 	.meridian-grid--3,
 	.posts-grid,
-	.atora-posts-grid,
 	.meridian-vision-grid,
-	.meridian-story-grid,
 	.meridian-grid--2,
 	.meridian-dashboard-grid,
 	.woocommerce ul.products,
-	.tp-wrap .meridian-teacher-courses,
 	.meridian-footer__grid {
 		grid-template-columns: 1fr;
 	}
@@ -1687,25 +1343,14 @@ button:hover,
 		grid-template-columns: 1fr;
 	}
 
-	.meridian-footer__hero {
-		padding: 1.4rem;
-	}
-
-	.meridian-footer__hero-actions,
 	.meridian-hero-actions,
 	.meridian-home-hero__actions {
 		width: 100%;
 	}
 
-	.meridian-footer__hero-actions .meridian-button,
 	.meridian-hero-actions .meridian-button,
 	.meridian-home-hero__actions .meridian-button {
 		flex: 1 1 100%;
-	}
-
-	.tp-wrap .meridian-teacher-hero__avatar {
-		width: 120px;
-		height: 120px;
 	}
 }
 
@@ -1756,4 +1401,11 @@ input[type="radio"] {
 		opacity: 1;
 		transform: none;
 	}
+}
+
+/* Comentarios: mismo ancho que el artículo. */
+.comments-area {
+	width: var(--meridian-wide);
+	max-width: 52rem;
+	margin: 0 auto 4rem;
 }

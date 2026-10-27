@@ -281,7 +281,7 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 		<div class="meridian-section__head">
 			<div>
 				<p class="meridian-eyebrow"><?php esc_html_e( 'Journal', 'atora-learning' ); ?></p>
-				<h2><?php esc_html_e( 'Posts and branded storytelling now look intentional instead of generic.', 'atora-learning' ); ?></h2>
+				<h2><?php esc_html_e( 'News, guides and stories from the academy.', 'atora-learning' ); ?></h2>
 			</div>
 			<a class="meridian-link" href="<?php echo esc_url( $blog_url ); ?>"><?php esc_html_e( 'Visit the blog', 'atora-learning' ); ?></a>
 		</div>
@@ -301,7 +301,7 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 		<div class="meridian-section__head">
 			<div>
 				<p class="meridian-eyebrow"><?php esc_html_e( 'Podcast', 'atora-learning' ); ?></p>
-				<h2><?php esc_html_e( 'Audio publishing gets the same elegant container as courses, store and editorial.', 'atora-learning' ); ?></h2>
+				<h2><?php esc_html_e( 'Listen to the academy\'s episodes.', 'atora-learning' ); ?></h2>
 			</div>
 			<a class="meridian-link" href="<?php echo esc_url( atora_get_archive_link( 'podcast' ) ); ?>"><?php esc_html_e( 'All episodes', 'atora-learning' ); ?></a>
 		</div>

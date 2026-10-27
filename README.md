@@ -19,6 +19,7 @@ El tema funciona sin ATORA LMS, pero las plantillas de curso, programa y lecció
 **Apariencia → Personalizar → Identidad ATORA** (o Apariencia → Identidad ATORA):
 
 - **Color principal**: Azul ATORA, Ámbar, Bosque, Vino, Grafito institucional o un color propio (si es muy claro, el tema lo oscurece lo justo para que los botones se lean).
+- **Modo de color**: Claro, Oscuro o Según el dispositivo.
 - **Letra**: Editorial (Sora + Source Sans 3), Clara (Source Sans 3) o del sistema. Las fuentes van dentro del tema.
 - **Tamaño de lectura en las lecciones**: 17, 18 o 20 px.
 - **Botón de la cabecera** (texto y enlace; "-" lo oculta) y **texto del pie**.
@@ -27,6 +28,21 @@ El tema funciona sin ATORA LMS, pero las plantillas de curso, programa y lecció
 Se aplica a todo: portada, blog, cursos, lecciones, panel del estudiante, panel docente y SpeedGrader. Si en **ATORA LMS → Ajustes** la academia elige un tema distinto de "Claro", manda el del plugin.
 
 El logo se sube en **Personalizar → Identidad del sitio**, y los menús en **Apariencia → Menús** (sin menú asignado, la cabecera muestra Cursos, Programas, Blog y, con sesión, Mi aprendizaje).
+
+## Idiomas
+
+Los mismos 12 de ATORA LMS: inglés (texto original), es_ES, es_MX, fr_FR, de_DE, pt_BR, pt_PT, nl_NL, sv_SE, ar y fi, en `languages/` (`.po` / `.mo`). Una variante regional sin archivo propio usa la de su idioma (es_VE → es_MX).
+
+Al cambiar textos del tema:
+
+```bash
+wp i18n make-pot . languages/atora-learning.pot --domain=atora-learning --exclude=scripts,dist,languages --skip-js --skip-theme-json --skip-block-json
+# traducir las cadenas nuevas en cada languages/*.po (Poedit lo hace desde la plantilla)
+wp i18n make-mo languages
+python3 scripts/check-translations.py
+```
+
+El CI falla si la plantilla no coincide con el código o si a algún idioma le falta una cadena.
 
 ## Para docentes
 

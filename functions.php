@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.1.0' );
+define( 'ATORA_THEME_VERSION', '3.2.0' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
@@ -24,7 +24,6 @@ require_once ATORA_THEME_DIR . '/inc/blog-ecosystem.php';
  * Theme setup.
  */
 function atora_theme_setup() {
-	load_theme_textdomain( 'atora-learning', ATORA_THEME_DIR . '/languages' );
 
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
