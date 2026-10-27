@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.2.1' );
+define( 'ATORA_THEME_VERSION', '3.3.0' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
@@ -403,6 +403,11 @@ function atora_get_shop_url() {
  * @return string
  */
 function atora_get_account_url() {
+	// Private navigation follows the plugin's role-aware landing page.
+	if ( is_user_logged_in() ) {
+		$links = atora_get_learning_nav_links();
+		if ( ! empty( $links[0]['url'] ) ) { return $links[0]['url']; }
+	}
 	// Con ATORA LMS: panel si hay sesión, /cuenta/ (o wp-login.php) si no.
 	if ( class_exists( 'CLMS_Frontend_URLs' ) ) {
 		return is_user_logged_in() ? atora_get_dashboard_url() : atora_get_login_url();
@@ -1023,4 +1028,25 @@ function atora_get_podcast_audio_url( $post_id ) {
 	}
 
 	return '';
+}
+
+/** Private learning screens use the plugin's role-aware destinations. */
+function atora_is_learning_context() {
+	return is_user_logged_in() && atora_theme_is_lms_active()
+		&& ( is_singular( 'lm_lesson' ) || ( is_singular( 'page' ) && atora_page_is_app( get_queried_object_id() ) ) );
+}
+
+function atora_get_learning_nav_links() {
+	return class_exists( 'CLMS_Frontend_URLs' ) && method_exists( 'CLMS_Frontend_URLs', 'learning_navigation' )
+		? CLMS_Frontend_URLs::learning_navigation() : array();
+}
+
+function atora_learning_nav() {
+	$links = atora_get_learning_nav_links();
+	if ( empty( $links ) ) { atora_nav_fallback( array() ); return; }
+	echo '<ul class="meridian-menu">';
+	foreach ( $links as $link ) {
+		echo '<li><a href="' . esc_url( $link['url'] ) . '">' . esc_html( $link['label'] ) . '</a></li>';
+	}
+	echo '</ul>';
 }

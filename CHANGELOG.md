@@ -1,5 +1,13 @@
 # Changelog — Atora Meridian
 
+## 3.3.0 (2026-10-27)
+
+- Animaciones con contenido visible si falla JavaScript o el observador.
+- Menú móvil: libera el desplazamiento al ampliar pantalla, permite recorrer listas largas y devuelve el foco al cerrar.
+- Búsqueda disponible en móvil, con retorno de foco.
+- Navegación privada por rol proporcionada por el plugin y contexto del curso en la cabecera de lección.
+- Mantiene el flujo móvil sin barras fijas superpuestas.
+
 ## 3.2.1 (2026-10-27)
 
 ### Corregido

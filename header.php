@@ -22,7 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <a class="skip-link screen-reader-text" href="#site-main"><?php esc_html_e( 'Skip to content', 'atora-learning' ); ?></a>
 
+<?php $atora_learning_context = atora_is_learning_context(); ?>
 <header class="meridian-header" data-site-header>
+	<?php if ( ! $atora_learning_context ) : ?>
 	<div class="meridian-header__rail">
 		<div class="meridian-shell meridian-header__rail-inner">
 			<div class="meridian-header__rail-nav">
@@ -46,12 +48,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 
+	<?php endif; ?>
 	<div class="meridian-shell meridian-header__main">
 		<div class="meridian-header__row meridian-header__row--top">
 			<div class="meridian-header__brand">
 				<?php echo atora_get_logo_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 
+			<?php if ( is_singular( 'lm_lesson' ) ) : ?>
+				<?php $atora_course_id = Atora_Theme_Plugin_Bridge::get_lesson_course_id( get_queried_object_id() ); ?>
+				<?php if ( $atora_course_id ) : ?>
+					<div class="meridian-course-context"><a href="<?php echo esc_url( get_permalink( $atora_course_id ) ); ?>"><?php echo esc_html( get_the_title( $atora_course_id ) ); ?></a></div>
+				<?php endif; ?>
+			<?php endif; ?>
 			<button class="meridian-header__toggle" type="button" data-mobile-toggle aria-controls="site-navigation" aria-expanded="false">
 				<span></span>
 				<span></span>
@@ -64,13 +73,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php esc_html_e( 'Search', 'atora-learning' ); ?>
 				</button>
 				<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php echo is_user_logged_in() ? esc_html__( 'My learning', 'atora-learning' ) : esc_html__( 'Log in', 'atora-learning' ); ?></a>
-				<?php if ( atora_has_store() ) : ?>
+				<?php if ( atora_has_store() && ! $atora_learning_context ) : ?>
 					<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
 						<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
 						<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
 					</a>
 				<?php endif; ?>
-				<?php if ( '' !== atora_get_primary_cta_label() ) : ?>
+				<?php if ( ! $atora_learning_context && '' !== atora_get_primary_cta_label() ) : ?>
 					<a class="meridian-button meridian-button--primary meridian-button--small meridian-header__cta" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
 						<?php echo esc_html( atora_get_primary_cta_label() ); ?>
 					</a>
@@ -81,6 +90,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="meridian-header__row meridian-header__row--nav">
 			<nav id="site-navigation" class="meridian-header__nav" data-navigation aria-label="<?php esc_attr_e( 'Primary navigation', 'atora-learning' ); ?>">
 				<?php
+				if ( $atora_learning_context ) {
+					atora_learning_nav();
+				} else {
 				wp_nav_menu(
 					array(
 						'theme_location' => 'primary',
@@ -89,17 +101,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'fallback_cb'    => 'atora_nav_fallback',
 					)
 				);
+				}
 				?>
 
 				<div class="meridian-header__nav-actions">
+					<button class="meridian-action" type="button" data-search-toggle aria-expanded="false" aria-controls="site-search-panel"><?php esc_html_e( 'Search', 'atora-learning' ); ?></button>
 					<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php echo is_user_logged_in() ? esc_html__( 'My learning', 'atora-learning' ) : esc_html__( 'Log in', 'atora-learning' ); ?></a>
-					<?php if ( atora_has_store() ) : ?>
+					<?php if ( atora_has_store() && ! $atora_learning_context ) : ?>
 						<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
 							<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
 							<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
 						</a>
 					<?php endif; ?>
-					<?php if ( '' !== atora_get_primary_cta_label() ) : ?>
+					<?php if ( ! $atora_learning_context && '' !== atora_get_primary_cta_label() ) : ?>
 						<a class="meridian-button meridian-button--primary meridian-button--small" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
 							<?php echo esc_html( atora_get_primary_cta_label() ); ?>
 						</a>

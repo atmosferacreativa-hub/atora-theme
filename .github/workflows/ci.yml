@@ -300,6 +300,29 @@ jobs:
           wp eval-file scripts/check-progress.php --path=$WP
           bash scripts/check-academy-pages.sh "$WP" http://127.0.0.1:8080
 
+      - name: Set up Node for UI regression tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Mobile and desktop browser regressions
+        shell: bash
+        run: |
+          npm install --prefix /tmp/atora-browser playwright@1.58.2
+          /tmp/atora-browser/node_modules/.bin/playwright install --with-deps chromium
+          export ATORA_PLAYWRIGHT_MODULE=/tmp/atora-browser/node_modules/playwright
+          export ATORA_STUDENT_COOKIE="$(SHOT_USER=estudiante_e2e wp eval-file scripts/auth-cookie.php --path=/tmp/wordpress)"
+          export ATORA_TEACHER_COOKIE="$(SHOT_USER=docente_e2e wp eval-file scripts/auth-cookie.php --path=/tmp/wordpress)"
+          node scripts/check-ui.cjs
+
+      - name: Upload responsive screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atora-responsive-ui
+          path: /tmp/atora-ui/
+          if-no-files-found: ignore
+
       - name: Surface WordPress debug log
         if: always()
         shell: bash
