@@ -47,9 +47,9 @@ fi
 for path in / /cursos/ /programas/ /cursos/curso-e2e/ /programas/programa-e2e/ "/?s=curso"; do
 	check visitante "$path" 200 ""
 done
-# /verificar/ y /eliminar-cuenta/ las dibuja el plugin como páginas propias (sin el tema).
-check visitante /verificar/ 200 "" standalone
-check visitante /eliminar-cuenta/ 200 "" standalone
+# Las páginas públicas del plugin también deben cargar la identidad de la academia.
+check visitante /verificar/ 200 ""
+check visitante /eliminar-cuenta/ 200 ""
 check visitante /no-existe/ 404 ""
 
 for path in /panel-estudiante/ /cursos/curso-e2e/ /leccion/leccion-e2e-videos/ /leccion/leccion-e2e-quiz/ /leccion/leccion-e2e-tarea/; do
