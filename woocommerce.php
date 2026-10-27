@@ -21,8 +21,8 @@ get_header();
 		</div>
 
 		<div class="meridian-dashboard-panel" data-reveal>
-			<h3><?php esc_html_e( 'Commercial layer ready', 'atora-learning' ); ?></h3>
-			<p><?php esc_html_e( 'Products, bundles and LMS-linked offers now sit inside the same premium brand rhythm as the rest of the site.', 'atora-learning' ); ?></p>
+			<h3><?php esc_html_e( 'Your purchases, in your dashboard', 'atora-learning' ); ?></h3>
+			<p><?php esc_html_e( 'When you buy a course or program, it appears in your student dashboard and in the app.', 'atora-learning' ); ?></p>
 			<div class="meridian-hero-actions">
 				<a class="meridian-button meridian-button--primary meridian-button--small" href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></a>
 				<a class="meridian-button meridian-button--ghost meridian-button--small" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'atora-learning' ); ?></a>

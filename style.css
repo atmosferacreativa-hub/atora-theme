@@ -2,8 +2,8 @@
 Theme Name: Atora Meridian
 Theme URI: https://github.com/atmosferacreativa-hub/atora-theme
 Author: MundoCAP
-Description: Premium editorial-commercial WordPress theme for ATORA LMS and WooCommerce.
-Version: 3.0.10
+Description: Official theme for ATORA LMS academies: one identity (color, type, reading size) for the site and every ATORA LMS screen, built for studying comfortably on any device.
+Version: 3.1.0
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -12,28 +12,41 @@ Text Domain: atora-learning
 
 :root {
 	color-scheme: light;
-	--atora-bg: #f6f2eb;
-	--atora-surface: rgba(255, 255, 255, 0.86);
-	--atora-surface-2: #ece4d8;
-	--atora-text: #141a27;
-	--atora-text-muted: #4f596b;
-	--atora-text-subtle: #6f7888;
-	--atora-border: rgba(20, 26, 39, 0.12);
-	--atora-accent: #1e5eff;
-	--atora-accent-hover: #1146ca;
-	--atora-accent-soft: #e8efff;
+	/* Paleta clara Meridian. El color de acento y la letra los fija
+	   Apariencia → Personalizar → Identidad ATORA (inc/identity.php). */
+	--atora-bg: #f8f6f1;
+	--atora-surface: #ffffff;
+	--atora-surface-2: #f2eee6;
+	--atora-text: #172033;
+	--atora-text-primary: #172033;
+	--atora-text-secondary: #46526a;
+	--atora-text-muted: #46526a;
+	--atora-text-subtle: #5f6b80;
+	--atora-border: #e3ddd2;
+	--atora-border-soft: #ece7de;
+	--atora-border-strong: #cdc5b6;
+	--atora-accent: #1f55e6;
+	--atora-accent-hover: #1946bd;
+	--atora-accent-soft: #e9eefd;
+	--atora-accent-ink: #163da6;
 	--atora-on-accent: #ffffff;
-	--atora-success: #1c9364;
-	--atora-success-bg: #e6f8f1;
-	--atora-success-text: #0e5a3d;
-	--atora-warning: #b77914;
-	--atora-warning-bg: #fff4df;
-	--atora-warning-text: #8a5603;
-	--atora-danger: #d14e4e;
-	--atora-danger-bg: #fff0f0;
-	--atora-danger-text: #862020;
+	--atora-highlight: #f2a900;
+	--atora-highlight-soft: #fff3d1;
+	--atora-success: #12805c;
+	--atora-success-bg: #e5f6ef;
+	--atora-success-text: #0b5a40;
+	--atora-warning: #b26b00;
+	--atora-warning-bg: #fff4dc;
+	--atora-warning-text: #6e4300;
+	--atora-danger: #c23838;
+	--atora-danger-bg: #fdeeee;
+	--atora-danger-text: #851d1d;
+	--atora-font-display: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--atora-font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--atora-reading-size: 1.125rem;
+	--atora-focus: 0 0 0 3px var(--atora-surface), 0 0 0 5px var(--atora-accent);
 	--meridian-shell: min(1180px, calc(100vw - 2.4rem));
-	--meridian-wide: min(1320px, calc(100vw - 2.4rem));
+	--meridian-wide: min(1180px, calc(100vw - 2.4rem));
 	--meridian-radius-sm: 10px;
 	--meridian-radius: 18px;
 	--meridian-radius-lg: 28px;
@@ -41,8 +54,8 @@ Text Domain: atora-learning
 	--meridian-shadow-md: 0 18px 44px rgba(17, 24, 39, 0.1);
 	--meridian-shadow-lg: 0 26px 72px rgba(17, 24, 39, 0.14);
 	--meridian-grid-gap: clamp(1rem, 2vw, 1.5rem);
-	--meridian-font-sans: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-	--meridian-font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+	--meridian-font-sans: var(--atora-font-body);
+	--meridian-font-display: var(--atora-font-display);
 	--meridian-font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
@@ -59,13 +72,14 @@ html {
 body {
 	margin: 0;
 	background:
-		radial-gradient(circle at top left, rgba(30, 94, 255, 0.12), transparent 26%),
-		radial-gradient(circle at 90% 10%, rgba(17, 70, 202, 0.08), transparent 20%),
-		linear-gradient(180deg, #fbf8f2 0%, var(--atora-bg) 42%, #f3eee6 100%);
+		radial-gradient(circle at top left, color-mix(in srgb, var(--atora-accent) 12%, transparent), transparent 26%),
+		radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--atora-accent-hover) 8%, transparent), transparent 20%),
+		linear-gradient(180deg, #fbf9f5 0%, var(--atora-bg) 42%, #f4f0e9 100%);
 	color: var(--atora-text);
 	font-family: var(--meridian-font-sans);
-	font-size: 16px;
-	line-height: 1.7;
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 }
 
@@ -92,7 +106,7 @@ textarea {
 }
 
 ::selection {
-	background: rgba(30, 94, 255, 0.18);
+	background: color-mix(in srgb, var(--atora-accent) 18%, transparent);
 }
 
 .screen-reader-text {
@@ -148,8 +162,8 @@ textarea {
 	font-weight: 800;
 	letter-spacing: 0.16em;
 	text-transform: uppercase;
-	color: var(--atora-accent);
-	font-family: var(--meridian-font-mono);
+	color: var(--atora-accent-ink, var(--atora-accent));
+	font-family: var(--meridian-font-sans);
 }
 
 .meridian-eyebrow::before,
@@ -170,9 +184,10 @@ h5,
 h6 {
 	margin: 0 0 0.9rem;
 	font-family: var(--meridian-font-display);
-	font-weight: 600;
-	letter-spacing: -0.03em;
-	line-height: 1.08;
+	font-weight: 650;
+	letter-spacing: -0.025em;
+	line-height: 1.12;
+	text-wrap: balance;
 	color: var(--atora-text);
 }
 
@@ -203,7 +218,7 @@ code,
 	font-family: var(--meridian-font-mono);
 }
 
-input,
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]):not([type="hidden"]),
 textarea,
 select {
 	width: 100%;
@@ -215,12 +230,12 @@ select {
 	box-shadow: inset 0 1px 2px rgba(17, 24, 39, 0.03);
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
 	outline: none;
-	border-color: rgba(30, 94, 255, 0.42);
-	box-shadow: 0 0 0 4px rgba(30, 94, 255, 0.12);
+	border-color: color-mix(in srgb, var(--atora-accent) 42%, transparent);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--atora-accent) 12%, transparent);
 }
 
 button,
@@ -246,7 +261,7 @@ button,
 	line-height: 1.1;
 	cursor: pointer;
 	transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
-	box-shadow: 0 14px 28px rgba(30, 94, 255, 0.18);
+	box-shadow: 0 14px 28px color-mix(in srgb, var(--atora-accent) 18%, transparent);
 }
 
 button:hover,
@@ -728,7 +743,7 @@ button:hover,
 	position: relative;
 	aspect-ratio: 16 / 10;
 	overflow: hidden;
-	background: linear-gradient(135deg, rgba(30, 94, 255, 0.12), rgba(17, 70, 202, 0.04));
+	background: linear-gradient(135deg, color-mix(in srgb, var(--atora-accent) 12%, transparent), color-mix(in srgb, var(--atora-accent-hover) 4%, transparent));
 }
 
 .post-thumbnail img,
@@ -1066,7 +1081,7 @@ button:hover,
 	margin-bottom: 1.5rem;
 	border: 1px solid var(--atora-border);
 	border-radius: var(--meridian-radius-lg);
-	background: linear-gradient(135deg, rgba(17, 24, 39, 0.94) 0%, rgba(30, 94, 255, 0.88) 100%);
+	background: linear-gradient(135deg, rgba(17, 24, 39, 0.94) 0%, color-mix(in srgb, var(--atora-accent) 88%, transparent) 100%);
 	box-shadow: var(--meridian-shadow-md);
 }
 
@@ -1398,7 +1413,7 @@ button:hover,
 
 .cc-wrap .meridian-course-section--cta {
 	background:
-		radial-gradient(circle at top right, rgba(30, 94, 255, 0.16), transparent 30%),
+		radial-gradient(circle at top right, color-mix(in srgb, var(--atora-accent) 16%, transparent), transparent 30%),
 		linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 255, 0.9) 100%);
 }
 
@@ -1459,7 +1474,7 @@ button:hover,
 	justify-content: center;
 	height: 100%;
 	border-radius: inherit;
-	background: linear-gradient(135deg, rgba(30, 94, 255, 0.16), rgba(17, 70, 202, 0.08));
+	background: linear-gradient(135deg, color-mix(in srgb, var(--atora-accent) 16%, transparent), color-mix(in srgb, var(--atora-accent-hover) 8%, transparent));
 }
 
 .tp-wrap .meridian-teacher-hero__avatar .meridian-empty-state strong {
@@ -1507,7 +1522,7 @@ button:hover,
 	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 	gap: 1rem;
 	background:
-		radial-gradient(circle at top right, rgba(30, 94, 255, 0.1), transparent 32%),
+		radial-gradient(circle at top right, color-mix(in srgb, var(--atora-accent) 10%, transparent), transparent 32%),
 		linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 248, 255, 0.88) 100%);
 }
 
@@ -1523,13 +1538,13 @@ button:hover,
 	gap: 0.8rem;
 }
 
-[data-reveal] {
+.atora-js [data-reveal] {
 	opacity: 0;
 	transform: translateY(22px);
 	transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-[data-reveal].is-visible {
+.atora-js [data-reveal].is-visible {
 	opacity: 1;
 	transform: translateY(0);
 }
@@ -1623,8 +1638,8 @@ button:hover,
 
 @media (max-width: 720px) {
 	:root {
-		--meridian-shell: min(100vw - 1.3rem, 100%);
-		--meridian-wide: min(100vw - 1.3rem, 100%);
+		--meridian-shell: min(100vw - 2rem, 100%);
+		--meridian-wide: min(100vw - 2rem, 100%);
 	}
 
 	.site-main {
@@ -1691,5 +1706,54 @@ button:hover,
 	.tp-wrap .meridian-teacher-hero__avatar {
 		width: 120px;
 		height: 120px;
+	}
+}
+
+/* ----------------------------------------------------------------------
+ * 3.1.0 — Accesibilidad base
+ * -------------------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible,
+.meridian-button:focus-visible,
+.meridian-action:focus-visible {
+	outline: none;
+	box-shadow: var(--atora-focus);
+	border-radius: 999px;
+}
+
+.entry-content a:not(.meridian-button):not(.wp-block-button__link),
+.meridian-richtext a:not(.meridian-button):not(.wp-block-button__link),
+.meridian-content-card a:not(.meridian-button):not(.wp-block-button__link) {
+	color: var(--atora-accent-ink, var(--atora-accent));
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	width: 1.15rem;
+	height: 1.15rem;
+	accent-color: var(--atora-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.atora-js [data-reveal] {
+		opacity: 1;
+		transform: none;
 	}
 }

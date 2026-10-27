@@ -19,8 +19,8 @@ $terms    = is_wp_error( $terms ) ? array() : $terms;
 <section class="meridian-archive-hero">
 	<div class="meridian-archive-hero__copy" data-reveal>
 		<p class="meridian-eyebrow"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></p>
-		<h1><?php esc_html_e( 'A cleaner course catalog for a more commercial first impression.', 'atora-learning' ); ?></h1>
-		<p><?php esc_html_e( 'This fallback archive still keeps the experience premium if WordPress resolves the request inside the theme.', 'atora-learning' ); ?></p>
+		<h1><?php esc_html_e( 'Course catalog', 'atora-learning' ); ?></h1>
+		<p><?php echo esc_html( atora_get_context_description() ); ?></p>
 	</div>
 </section>
 

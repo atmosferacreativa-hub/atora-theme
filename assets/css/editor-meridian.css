@@ -60,7 +60,7 @@ body.wp-editor,
 }
 
 .editor-styles-wrapper a {
-	color: #1e5eff;
+	color: #1f55e6;
 }
 
 .editor-styles-wrapper .wp-block-button__link {
@@ -84,7 +84,7 @@ body.wp-editor,
 
 .editor-styles-wrapper .wp-block-quote,
 .editor-styles-wrapper .wp-block-pullquote {
-	border-left: 4px solid #1e5eff;
+	border-left: 4px solid #1f55e6;
 	padding-left: 1.25rem;
 	color: #141a27;
 }
@@ -97,3 +97,46 @@ body.wp-editor,
 .editor-styles-wrapper .editor-post-title__input {
 	font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
+
+
+/* Patrones de lección — misma apariencia que en la web. Patrones de lección (Objetivos, Idea clave, Práctica, Resumen, Glosario) */
+
+.atora-callout {
+	--callout-accent: #1f55e6;
+	--callout-bg: #e9eefd;
+	margin: 1.75rem 0;
+	padding: 1.1rem 1.35rem 0.4rem;
+	border: 1px solid color-mix(in srgb, var(--callout-accent) 22%, transparent);
+	border-left: 4px solid var(--callout-accent);
+	border-radius: 14px;
+	background: var(--callout-bg);
+}
+
+.atora-callout--key {
+	--callout-accent: #f2a900;
+	--callout-bg: #fff3d1;
+}
+
+.atora-callout--activity {
+	--callout-accent: #12805c;
+	--callout-bg: #e5f6ef;
+}
+
+.atora-callout--summary,
+.atora-callout--glossary {
+	--callout-accent: #5f6b80;
+	--callout-bg: #f2eee6;
+}
+
+.atora-callout .atora-callout__title {
+	margin: 0 0 0.5rem;
+	font-size: 0.95em;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	color: #172033;
+}
+
+.atora-callout :is(p, ul, ol) {
+	color: #172033;
+}
+

@@ -30,11 +30,17 @@ while ( have_posts() ) :
 				'url'   => atora_get_archive_link( 'lm_course' ),
 				'kind'  => 'primary',
 			),
-			array(
-				'label' => __( 'Open Store', 'atora-learning' ),
-				'url'   => atora_get_shop_url(),
-				'kind'  => 'ghost',
-			),
+			atora_has_store()
+				? array(
+					'label' => __( 'Open Store', 'atora-learning' ),
+					'url'   => atora_get_shop_url(),
+					'kind'  => 'ghost',
+				)
+				: array(
+					'label' => __( 'View programs', 'atora-learning' ),
+					'url'   => atora_get_archive_link( 'lm_program' ),
+					'kind'  => 'ghost',
+				),
 		)
 	);
 
@@ -75,7 +81,12 @@ while ( have_posts() ) :
 		</section>
 		<?php endif; ?>
 
-		<?php if ( $has_editor_content && $content_first_page ) : ?>
+		<?php if ( atora_page_is_app( get_the_ID() ) && ! $has_visual_shell ) : ?>
+			<?php // Pantallas del plugin (panel, panel docente, SpeedGrader, catálogo…): ancho completo, sin columna de lectura. ?>
+			<div class="meridian-content-shell--app">
+				<?php echo $page_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</div>
+		<?php elseif ( $has_editor_content && $content_first_page ) : ?>
 			<section class="meridian-visual-canvas">
 				<div class="meridian-visual-canvas__content meridian-richtext" data-reveal>
 					<?php echo $page_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

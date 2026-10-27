@@ -57,11 +57,17 @@ $hero_actions = atora_get_presentation_actions(
 			'url'   => atora_get_archive_link( 'lm_course' ),
 			'kind'  => 'primary',
 		),
-		array(
-			'label' => __( 'Open Store', 'atora-learning' ),
-			'url'   => atora_get_shop_url(),
-			'kind'  => 'ghost',
-		),
+		atora_has_store()
+			? array(
+				'label' => __( 'Open Store', 'atora-learning' ),
+				'url'   => atora_get_shop_url(),
+				'kind'  => 'ghost',
+			)
+			: array(
+				'label' => __( 'View programs', 'atora-learning' ),
+				'url'   => atora_get_archive_link( 'lm_program' ),
+				'kind'  => 'ghost',
+			),
 	)
 );
 
@@ -82,7 +88,7 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 <section class="meridian-home-hero">
 	<div class="meridian-home-hero__grid">
 		<div class="meridian-home-hero__copy" data-reveal>
-			<p class="meridian-eyebrow"><?php echo esc_html( ! empty( $settings['eyebrow'] ) ? (string) $settings['eyebrow'] : __( 'ATORA experience system', 'atora-learning' ) ); ?></p>
+			<p class="meridian-eyebrow"><?php echo esc_html( ! empty( $settings['eyebrow'] ) ? (string) $settings['eyebrow'] : __( 'Online academy', 'atora-learning' ) ); ?></p>
 			<h1><?php echo esc_html( $hero_title ); ?></h1>
 			<p><?php echo esc_html( $hero_copy ); ?></p>
 
@@ -101,10 +107,12 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 					<strong><?php echo esc_html( number_format_i18n( $programs_count ) ); ?></strong>
 					<span><?php esc_html_e( 'Programs', 'atora-learning' ); ?></span>
 				</div>
-				<div class="meridian-metric">
-					<strong><?php echo esc_html( number_format_i18n( $products_count ) ); ?></strong>
-					<span><?php esc_html_e( 'Products', 'atora-learning' ); ?></span>
-				</div>
+				<?php if ( atora_has_store() ) : ?>
+					<div class="meridian-metric">
+						<strong><?php echo esc_html( number_format_i18n( $products_count ) ); ?></strong>
+						<span><?php esc_html_e( 'Products', 'atora-learning' ); ?></span>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 
@@ -115,19 +123,19 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 				</div>
 			<?php endif; ?>
 
-			<h3><?php esc_html_e( 'Three modes, one brand rhythm', 'atora-learning' ); ?></h3>
+			<h3><?php esc_html_e( 'How you learn here', 'atora-learning' ); ?></h3>
 			<ul class="meridian-home-hero__panel-list">
 				<li>
-					<strong><?php esc_html_e( 'Commercial', 'atora-learning' ); ?></strong>
-					<p><?php esc_html_e( 'Sharper landing pages, cleaner CTAs and a more premium first impression for high-intent buyers.', 'atora-learning' ); ?></p>
+					<strong><?php esc_html_e( 'At your pace', 'atora-learning' ); ?></strong>
+					<p><?php esc_html_e( 'Short lessons with video, readings and resources you can also download to the app and study offline.', 'atora-learning' ); ?></p>
 				</li>
 				<li>
-					<strong><?php esc_html_e( 'Academic', 'atora-learning' ); ?></strong>
-					<p><?php esc_html_e( 'Course and program views that feel lighter, clearer and more aligned with the real value of the learning path.', 'atora-learning' ); ?></p>
+					<strong><?php esc_html_e( 'With practice', 'atora-learning' ); ?></strong>
+					<p><?php esc_html_e( 'Assignments, quizzes and feedback from your teachers to check what you learned.', 'atora-learning' ); ?></p>
 				</li>
 				<li>
-					<strong><?php esc_html_e( 'Editorial', 'atora-learning' ); ?></strong>
-					<p><?php esc_html_e( 'Blog, pages and landings share one visual system instead of feeling stitched together.', 'atora-learning' ); ?></p>
+					<strong><?php esc_html_e( 'With recognition', 'atora-learning' ); ?></strong>
+					<p><?php esc_html_e( 'Finish your course and receive a certificate anyone can verify online.', 'atora-learning' ); ?></p>
 				</li>
 			</ul>
 		</div>
@@ -139,27 +147,27 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 <section class="meridian-section">
 	<div class="meridian-section__head">
 		<div>
-			<p class="meridian-eyebrow"><?php esc_html_e( 'Brand architecture', 'atora-learning' ); ?></p>
-			<h2><?php esc_html_e( 'A theme built for selling, teaching and publishing without visual friction.', 'atora-learning' ); ?></h2>
+			<p class="meridian-eyebrow"><?php esc_html_e( 'Why study with us', 'atora-learning' ); ?></p>
+			<h2><?php esc_html_e( 'Clear paths, real practice and recognition for what you learn.', 'atora-learning' ); ?></h2>
 		</div>
 	</div>
 
 	<div class="meridian-vision-grid">
 		<article class="meridian-vision-card" data-reveal>
-			<h3><?php esc_html_e( 'Commercial landings', 'atora-learning' ); ?></h3>
-			<p><?php esc_html_e( 'Hero-first pages with decisive hierarchy, stronger price blocks and CTA behavior tuned for mobile conversion.', 'atora-learning' ); ?></p>
+			<h3><?php esc_html_e( 'Guided courses', 'atora-learning' ); ?></h3>
+			<p><?php esc_html_e( 'Each course shows what you will learn, who teaches it and how it is organized before you start.', 'atora-learning' ); ?></p>
 			<a class="meridian-link" href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'See course catalog', 'atora-learning' ); ?></a>
 		</article>
 
 		<article class="meridian-vision-card" data-reveal>
-			<h3><?php esc_html_e( 'Academic flows', 'atora-learning' ); ?></h3>
-			<p><?php esc_html_e( 'Lessons, progress, instructors and dashboards inherit a calmer interface that still feels premium and business-ready.', 'atora-learning' ); ?></p>
+			<h3><?php esc_html_e( 'Programs and certification', 'atora-learning' ); ?></h3>
+			<p><?php esc_html_e( 'Programs bring several courses together; your progress and grades stay in your dashboard.', 'atora-learning' ); ?></p>
 			<a class="meridian-link" href="<?php echo esc_url( atora_get_archive_link( 'lm_program' ) ); ?>"><?php esc_html_e( 'View programs', 'atora-learning' ); ?></a>
 		</article>
 
 		<article class="meridian-vision-card" data-reveal>
-			<h3><?php esc_html_e( 'Store plus editorial', 'atora-learning' ); ?></h3>
-			<p><?php esc_html_e( 'Products, articles, podcast episodes and branded pages now sit inside the same modern visual cadence.', 'atora-learning' ); ?></p>
+			<h3><?php esc_html_e( 'Articles and guides', 'atora-learning' ); ?></h3>
+			<p><?php esc_html_e( 'Reading material from the academy to keep learning between lessons.', 'atora-learning' ); ?></p>
 			<a class="meridian-link" href="<?php echo esc_url( $blog_url ); ?>"><?php esc_html_e( 'Read the journal', 'atora-learning' ); ?></a>
 		</article>
 	</div>
@@ -179,7 +187,7 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 		<div class="meridian-section__head">
 			<div>
 				<p class="meridian-eyebrow"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></p>
-				<h2><?php esc_html_e( 'Commercial-ready learning products with sharper presentation.', 'atora-learning' ); ?></h2>
+				<h2><?php esc_html_e( 'Courses you can start today.', 'atora-learning' ); ?></h2>
 			</div>
 			<a class="meridian-link" href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Full catalog', 'atora-learning' ); ?></a>
 		</div>
@@ -199,7 +207,7 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 		<div class="meridian-section__head">
 			<div>
 				<p class="meridian-eyebrow"><?php esc_html_e( 'Programs', 'atora-learning' ); ?></p>
-				<h2><?php esc_html_e( 'Long-form offers designed to connect academic structure with commercial clarity.', 'atora-learning' ); ?></h2>
+				<h2><?php esc_html_e( 'Paths that combine courses toward a certification.', 'atora-learning' ); ?></h2>
 			</div>
 			<a class="meridian-link" href="<?php echo esc_url( atora_get_archive_link( 'lm_program' ) ); ?>"><?php esc_html_e( 'All programs', 'atora-learning' ); ?></a>
 		</div>
@@ -233,7 +241,7 @@ $blog_url     = atora_get_blog_url() ?: home_url( '/' );
 		<div class="meridian-section__head">
 			<div>
 				<p class="meridian-eyebrow"><?php esc_html_e( 'Store', 'atora-learning' ); ?></p>
-				<h2><?php esc_html_e( 'WooCommerce now speaks the same premium language as the rest of the brand.', 'atora-learning' ); ?></h2>
+				<h2><?php esc_html_e( 'Learning materials and resources.', 'atora-learning' ); ?></h2>
 			</div>
 			<a class="meridian-link" href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Open store', 'atora-learning' ); ?></a>
 		</div>

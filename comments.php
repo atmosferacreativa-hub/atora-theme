@@ -19,13 +19,13 @@ if (post_password_required()) {
             if ('1' === $comment_count) {
                 printf(
                     esc_html__('One comment on &ldquo;%s&rdquo;', 'atora-learning'),
-                    '<span>' . get_the_title() . '</span>'
+                    '<span>' . esc_html( get_the_title() ) . '</span>'
                 );
             } else {
                 printf(
                     esc_html(_nx('%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'atora-learning')),
-                    number_format_i18n($comment_count),
-                    '<span>' . get_the_title() . '</span>'
+                    esc_html(number_format_i18n($comment_count)),
+                    '<span>' . esc_html( get_the_title() ) . '</span>'
                 );
             }
             ?>

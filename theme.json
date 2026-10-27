@@ -10,7 +10,14 @@
 			"padding": true,
 			"margin": true,
 			"blockGap": true,
-			"units": [ "px", "rem", "em", "%", "vh", "vw" ]
+			"units": [
+				"px",
+				"rem",
+				"em",
+				"%",
+				"vh",
+				"vw"
+			]
 		},
 		"typography": {
 			"fluid": false,
@@ -62,48 +69,73 @@
 			"palette": [
 				{
 					"color": "#1F5BFF",
-					"name": "Blue",
+					"name": "Azul",
 					"slug": "blue"
 				},
 				{
 					"color": "#0B2C8F",
-					"name": "Blue Deep",
+					"name": "Azul profundo",
 					"slug": "blue-deep"
 				},
 				{
 					"color": "#071B55",
-					"name": "Blue Ink",
+					"name": "Azul tinta",
 					"slug": "blue-ink"
 				},
 				{
 					"color": "#FFB020",
-					"name": "Amber",
+					"name": "Ámbar",
 					"slug": "amber"
 				},
 				{
 					"color": "#FFF1D1",
-					"name": "Amber Soft",
+					"name": "Ámbar suave",
 					"slug": "amber-soft"
 				},
 				{
 					"color": "#10162A",
-					"name": "Ink",
+					"name": "Tinta",
 					"slug": "ink"
 				},
 				{
 					"color": "#4A5270",
-					"name": "Ink 2",
+					"name": "Tinta suave",
 					"slug": "ink-2"
 				},
 				{
 					"color": "#F3F6FF",
-					"name": "BG 2",
+					"name": "Fondo azul",
 					"slug": "bg-2"
 				},
 				{
 					"color": "#DCE2F4",
-					"name": "Line",
+					"name": "Línea",
 					"slug": "line"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Blanco",
+					"slug": "white"
+				},
+				{
+					"color": "#1F55E6",
+					"name": "Azul ATORA (anterior)",
+					"slug": "meridian-blue"
+				},
+				{
+					"color": "#F2EEE6",
+					"name": "Arena",
+					"slug": "meridian-sand"
+				},
+				{
+					"color": "#172033",
+					"name": "Tinta (anterior)",
+					"slug": "meridian-ink"
+				},
+				{
+					"color": "#ECE4D8",
+					"name": "Arcilla",
+					"slug": "meridian-clay"
 				}
 			]
 		}
@@ -126,8 +158,8 @@
 			}
 		},
 		"color": {
-			"background": "var(--wp--preset--color--bg-2)",
-			"text": "var(--wp--preset--color--ink)"
+			"background": "var(--atora-bg)",
+			"text": "var(--atora-text)"
 		}
 	}
 }

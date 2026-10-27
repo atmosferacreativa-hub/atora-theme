@@ -17,14 +17,21 @@ $blog_copy     = ! empty( $settings['intro'] )
 	? (string) $settings['intro']
 	: ( $posts_page_id && has_excerpt( $posts_page_id )
 		? get_the_excerpt( $posts_page_id )
-		: __( 'Beautiful editorial publishing for announcements, essays, launches, podcast notes and brand stories.', 'atora-learning' ) );
+		: __( 'Articles, guides and news from the academy.', 'atora-learning' ) );
 $blog_media       = $posts_page_id && has_post_thumbnail( $posts_page_id ) ? get_the_post_thumbnail( $posts_page_id, 'atora-meridian-hero' ) : '';
 $blog_content     = $posts_page instanceof WP_Post ? (string) $posts_page->post_content : '';
 $has_blog_content   = $posts_page_id ? atora_post_has_editor_content( $posts_page_id ) : false;
 $has_visual_shell   = atora_presentation_requests_visual_shell( $settings );
 $content_first_blog = $has_blog_content && ! $has_visual_shell;
 
-if ( ! $has_visual_shell ) {
+// Portada que lista entradas (Ajustes → Lectura): siempre con su título.
+$is_posts_front = is_front_page() && ! $posts_page_id;
+if ( $is_posts_front ) {
+	$blog_title = (string) get_bloginfo( 'name' );
+	$blog_copy  = '' !== (string) get_bloginfo( 'description' ) ? (string) get_bloginfo( 'description' ) : $blog_copy;
+}
+
+if ( ! $has_visual_shell && ! $is_posts_front ) {
 	$settings['hide_hero'] = true;
 }
 ?>
@@ -78,8 +85,8 @@ if ( ! $has_visual_shell ) {
 		<?php atora_render_pagination(); ?>
 	<?php else : ?>
 		<div class="meridian-empty-state" data-reveal>
-			<h2><?php esc_html_e( 'No stories yet', 'atora-learning' ); ?></h2>
-			<p><?php esc_html_e( 'Publish the first article and this new editorial shell will take it from there.', 'atora-learning' ); ?></p>
+			<h2><?php esc_html_e( 'No articles yet', 'atora-learning' ); ?></h2>
+			<p><?php esc_html_e( 'Articles published by the academy will appear here.', 'atora-learning' ); ?></p>
 		</div>
 	<?php endif; ?>
 </div>

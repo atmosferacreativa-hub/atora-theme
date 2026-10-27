@@ -168,37 +168,7 @@ function atora_post_has_editor_content( $post = null ) {
 function atora_register_editor_integration() {
 	add_post_type_support( 'page', 'excerpt' );
 
-	add_theme_support(
-		'editor-color-palette',
-		array(
-			array(
-				'name'  => __( 'Meridian Blue', 'atora-learning' ),
-				'slug'  => 'meridian-blue',
-				'color' => '#1e5eff',
-			),
-			array(
-				'name'  => __( 'Meridian Sand', 'atora-learning' ),
-				'slug'  => 'meridian-sand',
-				'color' => '#f6f2eb',
-			),
-			array(
-				'name'  => __( 'Meridian Ink', 'atora-learning' ),
-				'slug'  => 'meridian-ink',
-				'color' => '#141a27',
-			),
-			array(
-				'name'  => __( 'Meridian Clay', 'atora-learning' ),
-				'slug'  => 'meridian-clay',
-				'color' => '#ece4d8',
-			),
-			array(
-				'name'  => __( 'White', 'atora-learning' ),
-				'slug'  => 'white',
-				'color' => '#ffffff',
-			),
-		)
-	);
-
+	// La paleta del editor vive en theme.json (incluye los slugs meridian-* de 3.0.x).
 	add_theme_support(
 		'editor-font-sizes',
 		array(
@@ -229,7 +199,7 @@ function atora_register_editor_integration() {
 		register_block_pattern_category(
 			'atora-meridian',
 			array(
-				'label' => __( 'Meridian', 'atora-learning' ),
+				'label' => __( 'ATORA: pages', 'atora-learning' ),
 			)
 		);
 	}
@@ -238,8 +208,8 @@ function atora_register_editor_integration() {
 		register_block_pattern(
 			'atora-meridian/landing-hero',
 			array(
-				'title'       => __( 'Meridian Landing Hero', 'atora-learning' ),
-				'description' => __( 'Commercial hero with dual CTA for pages and landing screens.', 'atora-learning' ),
+				'title'       => __( 'Course or program presentation', 'atora-learning' ),
+				'description' => __( 'Opening block for a page that presents a course or program, with two buttons.', 'atora-learning' ),
 				'categories'  => array( 'atora-meridian' ),
 				'content'     => sprintf(
 					'<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"48px","bottom":"48px","right":"40px","left":"40px"},"blockGap":"24px"},"border":{"radius":"28px"}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
@@ -261,11 +231,11 @@ function atora_register_editor_integration() {
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->',
-					esc_html__( 'Meridian landing', 'atora-learning' ),
-					esc_html__( 'A premium offer deserves a sharper narrative from the first screen.', 'atora-learning' ),
-					esc_html__( 'Use this pattern as the opening block of a landing or commercial page and adapt the copy from the editor.', 'atora-learning' ),
-					esc_html__( 'Primary CTA', 'atora-learning' ),
-					esc_html__( 'Secondary CTA', 'atora-learning' )
+					esc_html__( 'New cohort', 'atora-learning' ),
+					esc_html__( 'Name of the course or program', 'atora-learning' ),
+					esc_html__( 'In one or two sentences: who it is for, what they will be able to do at the end and how long it takes.', 'atora-learning' ),
+					esc_html__( 'Enroll', 'atora-learning' ),
+					esc_html__( 'See the syllabus', 'atora-learning' )
 				),
 			)
 		);
@@ -273,8 +243,8 @@ function atora_register_editor_integration() {
 		register_block_pattern(
 			'atora-meridian/editorial-intro',
 			array(
-				'title'       => __( 'Meridian Editorial Intro', 'atora-learning' ),
-				'description' => __( 'Editorial introduction for blog, podcast and institutional pages.', 'atora-learning' ),
+				'title'       => __( 'Article introduction', 'atora-learning' ),
+				'description' => __( 'Introduction for articles, guides and institutional pages.', 'atora-learning' ),
 				'categories'  => array( 'atora-meridian' ),
 				'content'     => sprintf(
 					'<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"40px","bottom":"40px","right":"32px","left":"32px"},"blockGap":"20px"},"border":{"radius":"24px"}},"backgroundColor":"meridian-sand","layout":{"type":"constrained"}} -->
@@ -288,9 +258,9 @@ function atora_register_editor_integration() {
 <p class="has-base-font-size">%3$s</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->',
-					esc_html__( 'Editorial rhythm', 'atora-learning' ),
-					esc_html__( 'Lead with a clear thesis, not a generic title block.', 'atora-learning' ),
-					esc_html__( 'This pattern works well for blog indexes, post introductions, podcast pages and branded announcements.', 'atora-learning' )
+					esc_html__( 'Guide', 'atora-learning' ),
+					esc_html__( 'Start with the main idea of the article', 'atora-learning' ),
+					esc_html__( 'Explain in a few lines what the reader will find and why it matters.', 'atora-learning' )
 				),
 			)
 		);
@@ -298,8 +268,8 @@ function atora_register_editor_integration() {
 		register_block_pattern(
 			'atora-meridian/cta-band',
 			array(
-				'title'       => __( 'Meridian CTA Band', 'atora-learning' ),
-				'description' => __( 'Light conversion band for closing a page.', 'atora-learning' ),
+				'title'       => __( 'Closing invitation', 'atora-learning' ),
+				'description' => __( 'Band with a button to close a page.', 'atora-learning' ),
 				'categories'  => array( 'atora-meridian' ),
 				'content'     => sprintf(
 					'<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"32px","bottom":"32px","right":"32px","left":"32px"},"blockGap":"16px"},"border":{"radius":"24px"}},"backgroundColor":"meridian-blue","textColor":"white","layout":{"type":"constrained"}} -->
@@ -315,9 +285,9 @@ function atora_register_editor_integration() {
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->',
-					esc_html__( 'Ready to move this page into action?', 'atora-learning' ),
-					esc_html__( 'Swap the copy, point the CTA to your offer, and keep the rest of the storytelling inside the editor.', 'atora-learning' ),
-					esc_html__( 'Call to action', 'atora-learning' )
+					esc_html__( 'Ready to start?', 'atora-learning' ),
+					esc_html__( 'Tell the reader what to do next and link the button to the course, program or contact page.', 'atora-learning' ),
+					esc_html__( 'Get started', 'atora-learning' )
 				),
 			)
 		);
@@ -326,14 +296,19 @@ function atora_register_editor_integration() {
 add_action( 'after_setup_theme', 'atora_register_editor_integration', 20 );
 
 /**
- * Restrict academic ATORA blocks on standard editorial screens.
+ * Bloques de ATORA LMS en páginas y entradas.
  *
- * WordPress exposes `allowed_block_types_all` for narrowing the inserter per
- * editor context; here we keep ATORA LMS blocks available on academic post
- * types while removing them from standard pages and posts.
+ * Los bloques de *estructura de curso* (secciones y plantillas de curso) solo
+ * tienen sentido dentro de un curso, así que se ocultan del insertador en
+ * páginas y entradas. Los bloques de *función* del plugin (panel del
+ * estudiante, catálogo, mis cursos, acceso, formularios…, `atora-lms/shortcode-*`)
+ * son justamente para páginas y siguen disponibles.
  *
- * @param bool|string[]          $allowed_blocks Existing allowlist.
- * @param WP_Block_Editor_Context $editor_context Block editor context.
+ * 3.1.0: el tema ya no borra bloques al guardar. Antes quitaba en silencio
+ * cualquier `atora-lms/*` de páginas y entradas, incluido el panel.
+ *
+ * @param bool|string[]           $allowed_blocks Lista permitida.
+ * @param WP_Block_Editor_Context $editor_context Contexto.
  * @return bool|string[]
  */
 function atora_filter_allowed_block_types( $allowed_blocks, $editor_context ) {
@@ -341,78 +316,37 @@ function atora_filter_allowed_block_types( $allowed_blocks, $editor_context ) {
 		return $allowed_blocks;
 	}
 
-	$post_type = $editor_context->post->post_type;
-	if ( ! in_array( $post_type, array( 'page', 'post' ), true ) ) {
+	if ( ! in_array( $editor_context->post->post_type, array( 'page', 'post' ), true ) ) {
 		return $allowed_blocks;
 	}
 
 	$registry = WP_Block_Type_Registry::get_instance()->get_all_registered();
 	$current  = true === $allowed_blocks ? array_keys( $registry ) : ( is_array( $allowed_blocks ) ? $allowed_blocks : array() );
 
-	$filtered = array_values(
+	return array_values(
 		array_filter(
 			$current,
 			static function ( $block_name ) {
-				return 0 !== strpos( (string) $block_name, 'atora-lms/' );
+				return ! atora_is_course_structure_block( (string) $block_name );
 			}
 		)
 	);
-
-	return $filtered;
 }
 add_filter( 'allowed_block_types_all', 'atora_filter_allowed_block_types', 20, 2 );
 
 /**
- * Remove ATORA LMS blocks from a parsed block tree.
+ * ¿Es un bloque de estructura de curso de ATORA LMS?
  *
- * @param array<int,array<string,mixed>> $blocks Parsed blocks.
- * @return array<int,array<string,mixed>>
+ * @param string $block_name Nombre del bloque.
+ * @return bool
  */
-function atora_strip_lms_blocks_from_tree( array $blocks ) {
-	$clean_blocks = array();
-
-	foreach ( $blocks as $block ) {
-		$block_name = isset( $block['blockName'] ) ? (string) $block['blockName'] : '';
-		if ( '' !== $block_name && 0 === strpos( $block_name, 'atora-lms/' ) ) {
-			continue;
-		}
-
-		if ( ! empty( $block['innerBlocks'] ) && is_array( $block['innerBlocks'] ) ) {
-			$block['innerBlocks'] = atora_strip_lms_blocks_from_tree( $block['innerBlocks'] );
-		}
-
-		$clean_blocks[] = $block;
+function atora_is_course_structure_block( $block_name ) {
+	if ( 0 !== strpos( $block_name, 'atora-lms/' ) ) {
+		return false;
 	}
 
-	return $clean_blocks;
+	return 0 !== strpos( $block_name, 'atora-lms/shortcode-' );
 }
-
-/**
- * Strip ATORA LMS blocks from standard editorial content on save.
- *
- * @param array<string,mixed> $data Sanitized post data.
- * @param array<string,mixed> $postarr Raw submitted post data.
- * @return array<string,mixed>
- */
-function atora_strip_lms_blocks_from_editorial_content( array $data, array $postarr ) {
-	if ( empty( $data['post_type'] ) || ! in_array( $data['post_type'], array( 'page', 'post' ), true ) ) {
-		return $data;
-	}
-
-	if ( empty( $data['post_content'] ) || false === strpos( (string) $data['post_content'], '<!-- wp:atora-lms/' ) ) {
-		return $data;
-	}
-
-	if ( ! function_exists( 'parse_blocks' ) || ! function_exists( 'serialize_blocks' ) ) {
-		return $data;
-	}
-
-	$parsed_blocks        = parse_blocks( (string) $data['post_content'] );
-	$data['post_content'] = serialize_blocks( atora_strip_lms_blocks_from_tree( $parsed_blocks ) );
-
-	return $data;
-}
-add_filter( 'wp_insert_post_data', 'atora_strip_lms_blocks_from_editorial_content', 20, 2 );
 
 /**
  * Hide the raw custom fields metabox on editor screens.
@@ -572,7 +506,7 @@ function atora_save_presentation_metabox( $post_id ) {
 		return;
 	}
 
-	$raw      = isset( $_POST['atora_presentation'] ) && is_array( $_POST['atora_presentation'] ) ? wp_unslash( $_POST['atora_presentation'] ) : array();
+	$raw      = isset( $_POST['atora_presentation'] ) && is_array( $_POST['atora_presentation'] ) ? wp_unslash( $_POST['atora_presentation'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- se sanea campo por campo en atora_sanitize_presentation_settings(); nonce verificado arriba.
 	$settings = atora_sanitize_presentation_settings( $raw );
 
 	if ( ! atora_presentation_has_visual_overrides( $settings ) ) {
@@ -603,65 +537,120 @@ function atora_localize_page_templates( $templates ) {
 }
 add_filter( 'theme_page_templates', 'atora_localize_page_templates' );
 
+
 /**
- * Re-label LMS presets from the theme side so the builder feels Meridian-native.
+ * Patrones para lecciones: estructuras pedagógicas listas para usar.
  *
- * @return void
+ * Solo bloques del núcleo (grupo, título, lista, párrafo) con una clase: se
+ * ven bien en la web, se pueden editar sin aprender nada nuevo y, en la app,
+ * llegan como texto limpio (la app muestra `content_text`).
  */
-function atora_register_meridian_ui_presets() {
-	if ( ! class_exists( 'CLMS_UI_Template_Presets', false ) ) {
+function atora_register_lesson_patterns() {
+	if ( ! function_exists( 'register_block_pattern' ) ) {
 		return;
 	}
 
-	$label_map = array(
-		'default'                      => array(
-			'label'       => __( 'Meridian Base', 'atora-learning' ),
-			'description' => __( 'Balanced preset for most academic and commercial experiences.', 'atora-learning' ),
+	register_block_pattern_category(
+		'atora-lessons',
+		array( 'label' => __( 'ATORA: lessons', 'atora-learning' ) )
+	);
+
+	$box = static function ( $variant, $title, $body_blocks ) {
+		return '<!-- wp:group {"className":"atora-callout atora-callout--' . $variant . '","layout":{"type":"constrained"}} -->'
+			. '<div class="wp-block-group atora-callout atora-callout--' . $variant . '">'
+			. '<!-- wp:heading {"level":3,"className":"atora-callout__title"} --><h3 class="wp-block-heading atora-callout__title">' . esc_html( $title ) . '</h3><!-- /wp:heading -->'
+			. $body_blocks
+			. '</div><!-- /wp:group -->';
+	};
+
+	$list = static function ( array $items, $ordered = false ) {
+		$tag   = $ordered ? 'ol' : 'ul';
+		$attrs = $ordered ? ' {"ordered":true}' : '';
+		$html  = '<!-- wp:list' . $attrs . ' --><' . $tag . ' class="wp-block-list">';
+		foreach ( $items as $item ) {
+			$html .= '<!-- wp:list-item --><li>' . esc_html( $item ) . '</li><!-- /wp:list-item -->';
+		}
+
+		return $html . '</' . $tag . '><!-- /wp:list -->';
+	};
+
+	$paragraph = static function ( $text ) {
+		return '<!-- wp:paragraph --><p>' . esc_html( $text ) . '</p><!-- /wp:paragraph -->';
+	};
+
+	$patterns = array(
+		'objectives' => array(
+			'title'   => __( 'Learning objectives', 'atora-learning' ),
+			'content' => $box(
+				'objectives',
+				__( 'By the end of this lesson you will be able to…', 'atora-learning' ),
+				$list(
+					array(
+						__( 'Explain the main concept in your own words.', 'atora-learning' ),
+						__( 'Apply it to a real example.', 'atora-learning' ),
+						__( 'Recognize the most common mistakes.', 'atora-learning' ),
+					)
+				)
+			),
 		),
-		'minimal'                      => array(
-			'label'       => __( 'Meridian Compact', 'atora-learning' ),
-			'description' => __( 'Essential hierarchy only: hero, curriculum and conversion point.', 'atora-learning' ),
+		'key-idea' => array(
+			'title'   => __( 'Key idea', 'atora-learning' ),
+			'content' => $box(
+				'key',
+				__( 'Key idea', 'atora-learning' ),
+				$paragraph( __( 'Write here, in one or two sentences, what the student must not forget.', 'atora-learning' ) )
+			),
 		),
-		'course-commercial-premium'    => array(
-			'label'       => __( 'Meridian Showcase', 'atora-learning' ),
-			'description' => __( 'Commercial showcase with stronger narrative pacing, credibility and CTA flow.', 'atora-learning' ),
+		'activity' => array(
+			'title'   => __( 'Practice activity', 'atora-learning' ),
+			'content' => $box(
+				'activity',
+				__( 'Practice', 'atora-learning' ),
+				$list(
+					array(
+						__( 'Read the case or watch the video again.', 'atora-learning' ),
+						__( 'Answer the question in your notebook or in the assignment.', 'atora-learning' ),
+						__( 'Compare your answer with the key idea.', 'atora-learning' ),
+					),
+					true
+				)
+			),
 		),
-		'landing'                      => array(
-			'label'       => __( 'Meridian Conversion', 'atora-learning' ),
-			'description' => __( 'Focused conversion preset for course sales pages.', 'atora-learning' ),
+		'summary' => array(
+			'title'   => __( 'Lesson summary', 'atora-learning' ),
+			'content' => $box(
+				'summary',
+				__( 'Summary', 'atora-learning' ),
+				$list(
+					array(
+						__( 'First idea of the lesson.', 'atora-learning' ),
+						__( 'Second idea of the lesson.', 'atora-learning' ),
+						__( 'What comes in the next lesson.', 'atora-learning' ),
+					)
+				)
+			),
 		),
-		'course-academic-classic'      => array(
-			'label'       => __( 'Meridian Academic', 'atora-learning' ),
-			'description' => __( 'Formal academic layout with a cleaner premium frame.', 'atora-learning' ),
-		),
-		'course-bootcamp'              => array(
-			'label'       => __( 'Meridian Sprint', 'atora-learning' ),
-			'description' => __( 'Dense, accelerated presentation for bootcamps and intensive offers.', 'atora-learning' ),
-		),
-		'lesson-focus-player'          => array(
-			'label'       => __( 'Meridian Lesson Focus', 'atora-learning' ),
-			'description' => __( 'Minimal lesson interface centered on the learning asset.', 'atora-learning' ),
-		),
-		'lesson-academic-sidebar'      => array(
-			'label'       => __( 'Meridian Lesson Complete', 'atora-learning' ),
-			'description' => __( 'Full academic lesson with resources, evaluation and progression context.', 'atora-learning' ),
-		),
-		'program-commercial-authority' => array(
-			'label'       => __( 'Meridian Authority', 'atora-learning' ),
-			'description' => __( 'Program preset for premium offers with strong academic authority.', 'atora-learning' ),
+		'glossary' => array(
+			'title'   => __( 'Glossary', 'atora-learning' ),
+			'content' => $box(
+				'glossary',
+				__( 'Glossary', 'atora-learning' ),
+				'<!-- wp:paragraph --><p><strong>' . esc_html__( 'Term', 'atora-learning' ) . ':</strong> ' . esc_html__( 'short definition in plain language.', 'atora-learning' ) . '</p><!-- /wp:paragraph -->'
+					. '<!-- wp:paragraph --><p><strong>' . esc_html__( 'Term', 'atora-learning' ) . ':</strong> ' . esc_html__( 'short definition in plain language.', 'atora-learning' ) . '</p><!-- /wp:paragraph -->'
+			),
 		),
 	);
 
-	foreach ( $label_map as $preset_key => $copy ) {
-		$preset = CLMS_UI_Template_Presets::get( $preset_key );
-		if ( ! $preset ) {
-			continue;
-		}
-
-		$preset['label']       = $copy['label'];
-		$preset['description'] = $copy['description'];
-
-		CLMS_UI_Template_Presets::register( $preset_key, $preset );
+	foreach ( $patterns as $slug => $pattern ) {
+		register_block_pattern(
+			'atora-meridian/lesson-' . $slug,
+			array(
+				'title'      => $pattern['title'],
+				'categories' => array( 'atora-lessons' ),
+				'postTypes'  => array( 'lm_lesson', 'post', 'page' ),
+				'content'    => $pattern['content'],
+			)
+		);
 	}
 }
-add_action( 'clms_ui_register_presets', 'atora_register_meridian_ui_presets', 20 );
+add_action( 'init', 'atora_register_lesson_patterns', 20 );

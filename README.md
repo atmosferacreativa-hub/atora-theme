@@ -1,6 +1,8 @@
 # Atora Meridian
 
-Tema de WordPress oficial de **ATORA LMS**: portada institucional, blog, plantillas de curso, programa, lección y mentor, y la capa visual de las páginas del plugin. Es el tema que corre en demo.atora.studio.
+Tema de WordPress oficial de **ATORA LMS**: portada, blog, cabecera y pie, y la identidad visual (color, letra y tamaño de lectura) de todas las pantallas del plugin. Es el tema que corre en demo.atora.studio.
+
+**Reparto de papeles.** El plugin es dueño del marcado y de los datos de curso, programa, lección, panel y docente. El tema no sobrescribe esas plantillas: las viste con las variables `--atora-*` y con `assets/css/atora-lms.css`. Todo dato académico que muestra el tema (acceso, progreso, cursos del estudiante, lecciones) pasa por `inc/compatibility/class-atora-plugin-bridge.php`, que llama al plugin y nunca escribe sus datos.
 
 ## Requisitos
 
@@ -8,9 +10,27 @@ Tema de WordPress oficial de **ATORA LMS**: portada institucional, blog, plantil
 |---|---|---|
 | WordPress | 6.0 | 6.4 y 6.8 |
 | PHP | 7.4 | 7.4, 8.1, 8.2, 8.3 y 8.4 (sintaxis); 8.1 (WordPress) |
-| ATORA LMS | 6.28.2 recomendado | — |
+| ATORA LMS | 6.34.0 recomendado (mínimo útil 6.28.2) | rama `main`, contra la API de la app |
 
-El tema funciona sin ATORA LMS, pero las plantillas de curso, programa y lección, y los enlaces de cuenta y login, dependen del plugin. Con ATORA LMS ≥ 6.26.72 los enlaces de "Cuenta" e "Iniciar sesión" llevan a la página de cuenta del sitio (`/cuenta/?redirect_to=…`) en lugar de `wp-login.php`. Con ATORA LMS ≥ 6.28.2 el porcentaje de avance de un curso sale de `atora_lms_get_progress()`, el mismo cálculo que la app; con versiones anteriores el tema usa las lecciones completadas guardadas en el usuario.
+El tema funciona sin ATORA LMS, pero las plantillas de curso, programa y lección, y los enlaces de cuenta y login, dependen del plugin. Con ATORA LMS ≥ 6.26.72 los enlaces de "Cuenta" e "Iniciar sesión" llevan a la página de cuenta del sitio (`/cuenta/?redirect_to=…`) en lugar de `wp-login.php`. Con ATORA LMS ≥ 6.28.2 el porcentaje de avance de un curso sale de `atora_lms_get_progress()`, el mismo cálculo que la app; con versiones anteriores el tema usa las lecciones completadas guardadas en el usuario. Con ATORA LMS ≥ 6.33.2 el acceso y "Mis cursos" incluyen los cursos de los programas vigentes del estudiante, igual que la app.
+
+## Identidad de la academia
+
+**Apariencia → Personalizar → Identidad ATORA** (o Apariencia → Identidad ATORA):
+
+- **Color principal**: Azul ATORA, Ámbar, Bosque, Vino, Grafito institucional o un color propio (si es muy claro, el tema lo oscurece lo justo para que los botones se lean).
+- **Letra**: Editorial (Sora + Source Sans 3), Clara (Source Sans 3) o del sistema. Las fuentes van dentro del tema.
+- **Tamaño de lectura en las lecciones**: 17, 18 o 20 px.
+- **Botón de la cabecera** (texto y enlace; "-" lo oculta) y **texto del pie**.
+- **Promoción de ATORA en el blog**: apagada por defecto; solo para los sitios propios de ATORA.
+
+Se aplica a todo: portada, blog, cursos, lecciones, panel del estudiante, panel docente y SpeedGrader. Si en **ATORA LMS → Ajustes** la academia elige un tema distinto de "Claro", manda el del plugin.
+
+El logo se sube en **Personalizar → Identidad del sitio**, y los menús en **Apariencia → Menús** (sin menú asignado, la cabecera muestra Cursos, Programas, Blog y, con sesión, Mi aprendizaje).
+
+## Para docentes
+
+En el editor de lecciones, el insertador trae **ATORA: lecciones**: Objetivos de aprendizaje, Idea clave, Actividad de práctica, Resumen y Glosario. Son bloques normales de WordPress; en la app llegan como texto.
 
 ## Instalación
 
@@ -49,4 +69,8 @@ Opcional. El tema declara soporte (`add_theme_support( 'woocommerce' )`) e inclu
 
 ## CI
 
-`.github/workflows/ci.yml`: sintaxis PHP (7.4 a 8.4), versión alineada, validación de enlaces `tel:` y WhatsApp (`scripts/validate-links.sh`), y una prueba en WordPress que activa el tema y carga portada, página, entrada, búsqueda y 404 sin errores PHP.
+`.github/workflows/ci.yml`:
+
+- sintaxis PHP (7.4 a 8.4), versión alineada, validación de enlaces `tel:` y WhatsApp (`scripts/validate-links.sh`) y contenido del ZIP;
+- WordPress 6.4 y 6.8 sin el plugin: activa el tema y carga portada, página, entrada, búsqueda y 404 sin errores PHP;
+- **ATORA LMS (`main`) + contrato de la app**: instala el plugin, siembra `wp atora seed-e2e` y exige que la API móvil (`/wp-json/atora-mobile/v1`) responda **exactamente igual** con un tema mínimo y con Meridian (`scripts/check-mobile-contract.py`); luego recorre las páginas de la academia como visitante, estudiante y docente (`scripts/check-academy-pages.sh`: sin errores PHP, un solo `<main>`, identidad del tema presente).

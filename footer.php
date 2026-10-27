@@ -1,11 +1,24 @@
-	</main>
+<?php
+/**
+ * Pie de página.
+ *
+ * @package Atora_Learning
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+	</<?php echo esc_attr( atora_main_tag() ); ?>>
 
 	<footer class="meridian-footer">
 		<div class="meridian-shell">
 			<div class="meridian-footer__grid">
 				<div class="meridian-footer__brand">
 					<?php echo atora_get_logo_markup(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<p><?php esc_html_e( 'A refined publishing and commerce shell designed to make ATORA feel faster, clearer and more premium across every touchpoint.', 'atora-learning' ); ?></p>
+					<?php if ( '' !== atora_get_footer_text() ) : ?>
+						<p><?php echo esc_html( atora_get_footer_text() ); ?></p>
+					<?php endif; ?>
 				</div>
 
 				<div>
@@ -14,7 +27,9 @@
 						<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></a></li>
 						<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_program' ) ); ?>"><?php esc_html_e( 'Programs', 'atora-learning' ); ?></a></li>
 						<li><a href="<?php echo esc_url( atora_get_dashboard_url() ); ?>"><?php esc_html_e( 'Student Dashboard', 'atora-learning' ); ?></a></li>
-						<li><a href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'atora-learning' ); ?></a></li>
+						<?php if ( '' !== Atora_Theme_Plugin_Bridge::get_certificate_verify_url() ) : ?>
+							<li><a href="<?php echo esc_url( Atora_Theme_Plugin_Bridge::get_certificate_verify_url() ); ?>"><?php esc_html_e( 'Verify a certificate', 'atora-learning' ); ?></a></li>
+						<?php endif; ?>
 					</ul>
 				</div>
 
@@ -69,9 +84,10 @@
 				<p>
 					<?php
 					printf(
-						/* translators: %d: current year. */
-						esc_html__( '© %d ATORA.', 'atora-learning' ),
-						(int) gmdate( 'Y' )
+						/* translators: 1: current year, 2: site name. */
+						esc_html__( '© %1$d %2$s.', 'atora-learning' ),
+						(int) wp_date( 'Y' ),
+						esc_html( get_bloginfo( 'name' ) )
 					);
 					?>
 				</p>
@@ -95,6 +111,8 @@
 						array(
 							__( 'Privacy', 'atora-learning' ) => get_privacy_policy_url(),
 							__( 'Terms', 'atora-learning' )   => atora_get_page_url_by_slugs( array( 'terminos-y-condiciones', 'terminos', 'terms' ) ),
+							// Enlace público que exigen Google Play y App Store (ATORA LMS 6.33+).
+							__( 'Delete my account', 'atora-learning' ) => Atora_Theme_Plugin_Bridge::get_account_deletion_url(),
 						)
 					);
 					?>
