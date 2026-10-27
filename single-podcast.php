@@ -27,7 +27,7 @@ while ( have_posts() ) :
 					printf(
 						/* translators: %d: reading time in minutes. */
 						esc_html__( '%d min notes', 'atora-learning' ),
-						atora_get_reading_time( get_the_ID() )
+						absint( atora_get_reading_time( get_the_ID() ) )
 					);
 					?>
 				</span>

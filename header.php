@@ -1,3 +1,14 @@
+<?php
+/**
+ * Cabecera.
+ *
+ * @package Atora_Learning
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -28,16 +39,7 @@
 					?>
 				<?php else : ?>
 					<nav aria-label="<?php esc_attr_e( 'Utility navigation', 'atora-learning' ); ?>">
-						<ul class="meridian-mini-menu">
-							<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Courses', 'atora-learning' ); ?></a></li>
-							<li><a href="<?php echo esc_url( atora_get_archive_link( 'lm_program' ) ); ?>"><?php esc_html_e( 'Programs', 'atora-learning' ); ?></a></li>
-							<?php if ( atora_has_store() ) : ?>
-								<li><a href="<?php echo esc_url( atora_get_shop_url() ); ?>"><?php esc_html_e( 'Store', 'atora-learning' ); ?></a></li>
-							<?php endif; ?>
-							<?php if ( '' !== atora_get_blog_url() ) : ?>
-								<li><a href="<?php echo esc_url( atora_get_blog_url() ); ?>"><?php esc_html_e( 'Journal', 'atora-learning' ); ?></a></li>
-							<?php endif; ?>
-						</ul>
+						<?php atora_nav_fallback( array( 'menu_class' => 'meridian-mini-menu' ) ); ?>
 					</nav>
 				<?php endif; ?>
 			</div>
@@ -61,16 +63,18 @@
 				<button class="meridian-action meridian-action--search" type="button" data-search-toggle aria-expanded="false" aria-controls="site-search-panel">
 					<?php esc_html_e( 'Search', 'atora-learning' ); ?>
 				</button>
-				<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'atora-learning' ); ?></a>
+				<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php echo is_user_logged_in() ? esc_html__( 'My learning', 'atora-learning' ) : esc_html__( 'Log in', 'atora-learning' ); ?></a>
 				<?php if ( atora_has_store() ) : ?>
 					<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
 						<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
 						<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
 					</a>
 				<?php endif; ?>
-				<a class="meridian-button meridian-button--primary meridian-button--small" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
-					<?php echo esc_html( atora_get_primary_cta_label() ); ?>
-				</a>
+				<?php if ( '' !== atora_get_primary_cta_label() ) : ?>
+					<a class="meridian-button meridian-button--primary meridian-button--small meridian-header__cta" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
+						<?php echo esc_html( atora_get_primary_cta_label() ); ?>
+					</a>
+				<?php endif; ?>
 			</div>
 		</div>
 
@@ -88,16 +92,18 @@
 				?>
 
 				<div class="meridian-header__nav-actions">
-					<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php esc_html_e( 'Account', 'atora-learning' ); ?></a>
+					<a class="meridian-action" href="<?php echo esc_url( atora_get_account_url() ); ?>"><?php echo is_user_logged_in() ? esc_html__( 'My learning', 'atora-learning' ) : esc_html__( 'Log in', 'atora-learning' ); ?></a>
 					<?php if ( atora_has_store() ) : ?>
 						<a class="meridian-action meridian-action--cart" href="<?php echo esc_url( atora_get_cart_url() ); ?>">
 							<?php esc_html_e( 'Cart', 'atora-learning' ); ?>
 							<span class="meridian-cart-count"><?php echo esc_html( number_format_i18n( atora_get_cart_count() ) ); ?></span>
 						</a>
 					<?php endif; ?>
-					<a class="meridian-button meridian-button--primary meridian-button--small" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
-						<?php echo esc_html( atora_get_primary_cta_label() ); ?>
-					</a>
+					<?php if ( '' !== atora_get_primary_cta_label() ) : ?>
+						<a class="meridian-button meridian-button--primary meridian-button--small" href="<?php echo esc_url( atora_get_primary_cta_url() ); ?>">
+							<?php echo esc_html( atora_get_primary_cta_label() ); ?>
+						</a>
+					<?php endif; ?>
 				</div>
 			</nav>
 		</div>
@@ -106,8 +112,8 @@
 	<div id="site-search-panel" class="meridian-search-panel" data-search-panel hidden>
 		<div class="meridian-shell meridian-search-panel__inner">
 			<div class="meridian-search-panel__copy">
-				<p class="meridian-eyebrow"><?php esc_html_e( 'Search the ecosystem', 'atora-learning' ); ?></p>
-				<h2><?php esc_html_e( 'Find courses, products, posts and podcast episodes without friction.', 'atora-learning' ); ?></h2>
+				<p class="meridian-eyebrow"><?php esc_html_e( 'Search', 'atora-learning' ); ?></p>
+				<h2><?php esc_html_e( 'Find courses, programs and articles.', 'atora-learning' ); ?></h2>
 			</div>
 
 			<div class="meridian-search-panel__form">
@@ -120,4 +126,4 @@
 	</div>
 </header>
 
-<main id="site-main" class="site-main">
+<<?php echo esc_attr( atora_main_tag() ); ?> id="site-main" class="site-main">

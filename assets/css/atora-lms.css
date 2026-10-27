@@ -1,0 +1,339 @@
+/**
+ * Atora Meridian — capa visual de las páginas de ATORA LMS (3.1.0).
+ *
+ * El plugin es dueño del marcado (curso, programa, lección, panel, docente) y
+ * pinta con las variables --atora-*. Este archivo solo:
+ *  - pone la letra del tema donde el plugin fija la del sistema;
+ *  - da a la lección un ancho y tamaño de lectura cómodos;
+ *  - reduce la cabecera en las lecciones (modo concentración);
+ *  - ajusta márgenes en móvil.
+ * Nada de aquí cambia qué datos se ven ni cómo funcionan.
+ */
+
+/* 1. Letra --------------------------------------------------------------- */
+
+.cov-wrap,
+.cc-wrap,
+.tp-wrap,
+.atora-lesson-wrap,
+.atora-dashboard,
+.clms-dashboard,
+.clms-catalog,
+.atora-archive,
+.apl-wrap {
+	font-family: var(--atora-font-body) !important;
+}
+
+.cov-wrap :is(h1, h2, h3, h4),
+.cc-wrap :is(h1, h2, h3, h4),
+.tp-wrap :is(h1, h2, h3, h4),
+.atora-lesson-wrap :is(h1, h2, h3, h4),
+.atora-archive :is(h1, h2, h3, h4) {
+	font-family: var(--atora-font-display);
+	letter-spacing: -0.02em;
+	text-wrap: balance;
+}
+
+/* 2. Lección: lectura ---------------------------------------------------- */
+
+.atora-lesson-wrap {
+	color: var(--atora-text);
+}
+
+.atora-lesson-title {
+	font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.6rem);
+	line-height: 1.12;
+}
+
+.atora-lesson-content {
+	font-size: var(--atora-reading-size, 1.125rem);
+	line-height: 1.75;
+	color: var(--atora-text);
+}
+
+.atora-lesson-content > * {
+	max-width: 70ch;
+}
+
+.atora-lesson-content > :is(figure, .wp-block-embed, .wp-block-image, iframe, video, table, .wp-block-table, .h5p-iframe-wrapper, .atora-h5p) {
+	max-width: 100%;
+}
+
+.atora-lesson-content :is(p, li) {
+	color: var(--atora-text);
+}
+
+.atora-lesson-content :is(h2, h3) {
+	margin-top: 1.8em;
+}
+
+.atora-lesson-content a {
+	color: var(--atora-accent-ink, var(--atora-accent));
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+}
+
+.atora-lesson-content img {
+	height: auto;
+	border-radius: 12px;
+}
+
+.atora-lesson-content :is(table) {
+	display: block;
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+.atora-lesson-content :is(th, td) {
+	padding: 0.55rem 0.75rem;
+	border: 1px solid var(--atora-border);
+	text-align: left;
+}
+
+.atora-lesson-content blockquote {
+	background: var(--atora-highlight-soft, #fff3d1);
+	border-left-color: var(--atora-highlight, #f2a900);
+}
+
+/* 3. Modo concentración en lecciones ------------------------------------- */
+
+body.atora-focus .meridian-header__rail,
+body.atora-focus .meridian-header__cta {
+	display: none;
+}
+
+@media (min-width: 961px) {
+	body.atora-focus .meridian-header__row--nav {
+		display: none;
+	}
+
+	body.atora-focus .meridian-header__main {
+		padding-top: 0.6rem;
+		padding-bottom: 0.6rem;
+	}
+}
+
+/* 4. Contenedores del plugin dentro del marco del tema -------------------- */
+
+.cov-stack > *,
+.cc-stack > * {
+	min-width: 0;
+}
+
+.meridian-content-shell--app {
+	width: var(--meridian-wide);
+	margin: 0 auto;
+	padding: clamp(1rem, 3vw, 2rem) 0 3rem;
+}
+
+/* Botones del plugin: mismo acento y foco que el tema. */
+.atora-lesson-wrap :is(button, .button, a.button):focus-visible,
+.cov-wrap :is(button, a):focus-visible {
+	outline: none;
+	box-shadow: var(--atora-focus);
+}
+
+/* Progreso y evidencia de lectura: tarjetas tranquilas, como el resto. */
+.atora-lesson-progress,
+.atora-lesson-read-evidence {
+	margin: 1.5rem 0;
+	padding: 1.25rem 1.4rem;
+	border: 1px solid var(--atora-border);
+	border-radius: 16px;
+	background: var(--atora-surface);
+}
+
+.atora-lesson-progress__head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.atora-lesson-progress__eyebrow {
+	margin: 0;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--atora-text-subtle);
+}
+
+.atora-lesson-progress__value {
+	margin: 0;
+	font-family: var(--atora-font-display);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--atora-text);
+}
+
+.atora-lesson-progress__bar {
+	height: 8px;
+	margin: 0.75rem 0 0.6rem;
+	border-radius: 999px;
+	background: var(--atora-surface-2);
+	overflow: hidden;
+}
+
+.atora-lesson-progress__bar-fill {
+	height: 100%;
+	border-radius: inherit;
+	background: var(--atora-accent) !important;
+}
+
+.atora-lesson-progress__meta {
+	margin: 0;
+	font-size: 0.95rem;
+	color: var(--atora-text-muted);
+}
+
+.atora-lesson-read-evidence__title {
+	margin-top: 0;
+	font-size: 1.15rem;
+}
+
+.atora-lesson-read-evidence__form {
+	display: grid;
+	gap: 0.6rem;
+	justify-items: start;
+}
+
+.atora-lesson-read-evidence__form label {
+	font-weight: 600;
+	color: var(--atora-text);
+}
+
+/* 5. Móvil ---------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+	.atora-lesson-layout {
+		width: calc(100vw - 2rem) !important;
+	}
+
+	.atora-lesson-content {
+		line-height: 1.7;
+	}
+
+	.atora-lesson-content > * {
+		max-width: none;
+	}
+}
+
+/* 6. Impresión: lección limpia para estudiar en papel --------------------- */
+
+@media print {
+	.meridian-header,
+	.meridian-footer,
+	.atora-lesson-sidebar,
+	.atora-lesson-next,
+	.atora-lesson-read-evidence,
+	.meridian-search-panel {
+		display: none !important;
+	}
+
+	body {
+		background: #fff !important;
+	}
+
+	.atora-lesson-content {
+		font-size: 12pt;
+	}
+}
+
+.atora-lesson-read-evidence__form textarea {
+	justify-self: stretch;
+}
+
+
+/* 7. Patrones de lección (Objetivos, Idea clave, Práctica, Resumen, Glosario) */
+
+.atora-callout {
+	--callout-accent: var(--atora-accent);
+	--callout-bg: var(--atora-accent-soft);
+	margin: 1.75rem 0;
+	padding: 1.1rem 1.35rem 0.4rem;
+	border: 1px solid color-mix(in srgb, var(--callout-accent) 22%, transparent);
+	border-left: 4px solid var(--callout-accent);
+	border-radius: 14px;
+	background: var(--callout-bg);
+}
+
+.atora-callout--key {
+	--callout-accent: var(--atora-highlight, #f2a900);
+	--callout-bg: var(--atora-highlight-soft, #fff3d1);
+}
+
+.atora-callout--activity {
+	--callout-accent: var(--atora-success);
+	--callout-bg: var(--atora-success-bg);
+}
+
+.atora-callout--summary,
+.atora-callout--glossary {
+	--callout-accent: var(--atora-text-subtle);
+	--callout-bg: var(--atora-surface-2);
+}
+
+.atora-callout .atora-callout__title {
+	margin: 0 0 0.5rem;
+	font-size: 0.95em;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	color: var(--atora-text);
+}
+
+.atora-callout :is(p, ul, ol) {
+	color: var(--atora-text);
+}
+
+/* 8. Lección en móvil: primero el contenido, después el temario. */
+
+@media (max-width: 960px) {
+	.atora-lesson-layout.has-sidebar {
+		display: flex !important;
+		flex-direction: column;
+	}
+
+	.atora-lesson-layout.has-sidebar > .atora-lesson-main {
+		order: 1;
+	}
+
+	.atora-lesson-layout.has-sidebar > .atora-lesson-sidebar {
+		order: 2;
+		width: 100%;
+	}
+}
+
+/* 9. Recursos de la lección: el color de la academia, no el índigo fijo del plugin. */
+
+.atora-resource-media {
+	background: linear-gradient(135deg, var(--atora-accent-soft), var(--atora-surface-2)) !important;
+}
+
+.atora-resource-card:hover {
+	border-color: color-mix(in srgb, var(--atora-accent) 40%, transparent) !important;
+}
+
+/* 10. Panel del estudiante, panel docente y SpeedGrader: acento de la academia.
+ * El plugin fija índigo en sus variables locales (--sd-*, --td-*, --sg-*); con
+ * el tema "Claro" del plugin, aquí pasan a ser el color elegido en Identidad. */
+
+body.atora-meridian.atora-theme-light .clms-sd {
+	--sd-accent: var(--atora-accent);
+	--sd-accent-2: var(--atora-accent-hover);
+}
+
+body.atora-meridian.atora-theme-light .clms-td {
+	--td-accent: var(--atora-accent);
+	--td-accent-2: var(--atora-accent-hover);
+	--td-accent-soft: var(--atora-accent-soft);
+	--td-ink: var(--atora-text);
+	--td-border: var(--atora-border);
+}
+
+body.atora-meridian.atora-theme-light .clms-sg-wrap {
+	--sg-accent: var(--atora-accent);
+	--sg-accent-2: var(--atora-accent-hover);
+	--sg-ink: var(--atora-text);
+	--sg-border: var(--atora-border);
+}

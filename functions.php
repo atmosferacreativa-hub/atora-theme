@@ -9,22 +9,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ATORA_THEME_VERSION', '3.0.10' );
+define( 'ATORA_THEME_VERSION', '3.1.0' );
 define( 'ATORA_THEME_DIR', get_template_directory() );
 define( 'ATORA_THEME_URI', get_template_directory_uri() );
 
 require_once ATORA_THEME_DIR . '/inc/meridian-i18n.php';
 require_once ATORA_THEME_DIR . '/inc/meridian-editor.php';
 require_once ATORA_THEME_DIR . '/inc/compatibility/bootstrap.php';
-require_once ATORA_THEME_DIR . '/inc/design/bootstrap.php';
-require_once ATORA_THEME_DIR . '/inc/templates/bootstrap.php';
+require_once ATORA_THEME_DIR . '/inc/identity.php';
 require_once ATORA_THEME_DIR . '/inc/home-showcase.php';
 require_once ATORA_THEME_DIR . '/inc/blog-ecosystem.php';
-
-if ( is_admin() ) {
-	require_once ATORA_THEME_DIR . '/admin/class-atora-admin.php';
-	new Atora_Admin();
-}
 
 /**
  * Theme setup.
@@ -83,6 +77,15 @@ add_action( 'after_setup_theme', 'atora_theme_setup' );
 function atora_theme_enqueue_assets() {
 	wp_enqueue_style( 'atora-style', get_stylesheet_uri(), array(), ATORA_THEME_VERSION );
 
+	// Capa visual de las páginas de ATORA LMS: va después de la hoja del plugin
+	// para que el tema fije letra, ritmo y anchos sin tocar su marcado.
+	wp_enqueue_style(
+		'atora-lms-layer',
+		ATORA_THEME_URI . '/assets/css/atora-lms.css',
+		wp_style_is( 'atora-frontend', 'registered' ) ? array( 'atora-style', 'atora-frontend' ) : array( 'atora-style' ),
+		ATORA_THEME_VERSION
+	);
+
 	if ( atora_theme_should_enqueue_home_institucional_styles() ) {
 		wp_enqueue_style(
 			'atora-pattern-home-institucional',
@@ -104,7 +107,7 @@ function atora_theme_enqueue_assets() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'atora_theme_enqueue_assets' );
+add_action( 'wp_enqueue_scripts', 'atora_theme_enqueue_assets', 20 );
 
 function atora_theme_enqueue_editor_assets() {
 	if ( ! atora_theme_should_enqueue_home_institucional_styles() ) {
@@ -139,6 +142,88 @@ function atora_theme_should_enqueue_home_institucional_styles(): bool {
 }
 
 /**
+ * Etiqueta del contenedor principal. La plantilla de lección del plugin (y el
+ * panel docente o SpeedGrader en una página) ya traen su propio
+ * <main>: ahí el tema usa un <div> para no anidar dos landmarks "main".
+ *
+ * @return string 'main' o 'div'.
+ */
+function atora_main_tag() {
+	static $tag = null;
+	if ( null !== $tag ) {
+		return $tag;
+	}
+
+	// single-lesson.php del plugin siempre trae <main>; las de curso solo en ramas de error.
+	$plugin_main = atora_theme_is_lms_active() && is_singular( 'lm_lesson' );
+
+	if ( ! $plugin_main && is_singular( 'page' ) ) {
+		$content     = (string) get_post_field( 'post_content', get_queried_object_id() );
+		$plugin_main = has_shortcode( $content, 'clms_teacher_dashboard' ) || has_shortcode( $content, 'clms_speedgrade' );
+	}
+
+	$tag = (string) apply_filters( 'atora_theme_main_tag', $plugin_main ? 'div' : 'main' );
+
+	return in_array( $tag, array( 'main', 'div' ), true ) ? $tag : 'main';
+}
+
+/**
+ * ¿La página es una pantalla de ATORA LMS (panel, panel docente, SpeedGrader,
+ * catálogo, perfil, agenda…)? Esas pantallas necesitan todo el ancho, no la
+ * columna de lectura de una página normal.
+ *
+ * @param int $post_id Página.
+ * @return bool
+ */
+function atora_page_is_app( $post_id ) {
+	if ( ! atora_theme_is_lms_active() ) {
+		return false;
+	}
+
+	$content = (string) get_post_field( 'post_content', $post_id );
+	if ( false !== strpos( $content, 'wp:atora-lms/shortcode-' ) ) {
+		return true;
+	}
+
+	$app_shortcodes = array(
+		'clms_dashboard',
+		'clms_teacher_dashboard',
+		'clms_speedgrade',
+		'clms_my_courses',
+		'clms_catalog',
+		'clms_courses',
+		'clms_course_list',
+		'clms_marketplace',
+		'clms_my_profile',
+		'clms_student_profile',
+		'clms_my_certificates',
+		'clms_my_learning_profile',
+		'clms_peer_review_inbox',
+		'atora_calendar',
+		'atora_hoy',
+		'atora_portfolio',
+		'atora_preferencias',
+		'atora_affiliate_dashboard',
+	);
+	foreach ( (array) apply_filters( 'atora_theme_app_shortcodes', $app_shortcodes ) as $tag ) {
+		if ( has_shortcode( $content, $tag ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Marca temprana de JavaScript: el contenido con animación de entrada solo se
+ * oculta si hay JS (sin JS, o si main.js falla, todo queda visible).
+ */
+function atora_theme_js_flag() {
+	echo "<script>document.documentElement.classList.add('atora-js');</script>\n";
+}
+add_action( 'wp_head', 'atora_theme_js_flag', 1 );
+
+/**
  * Filter body classes.
  *
  * @param string[] $classes Existing classes.
@@ -161,6 +246,15 @@ function atora_theme_body_classes( $classes ) {
 
 	if ( is_singular( 'podcast' ) || is_post_type_archive( 'podcast' ) ) {
 		$classes[] = 'atora-podcast';
+	}
+
+	// Lección: cabecera reducida para estudiar sin distracciones.
+	if ( is_singular( 'lm_lesson' ) ) {
+		$classes[] = 'atora-focus';
+	}
+
+	if ( is_singular( array( 'lm_course', 'lm_program', 'lm_lesson', 'atora_teacher' ) ) || is_post_type_archive( array( 'lm_course', 'lm_program' ) ) ) {
+		$classes[] = 'atora-academy';
 	}
 
 	return $classes;
@@ -201,19 +295,57 @@ add_filter(
  */
 function atora_nav_fallback( $args ) {
 	$menu_class = isset( $args['menu_class'] ) ? (string) $args['menu_class'] : 'meridian-menu';
-	$pages      = wp_list_pages(
-		array(
-			'title_li' => '',
-			'echo'     => false,
-			'depth'    => 1,
-		)
-	);
+	$links      = atora_get_default_nav_links();
 
-	if ( ! $pages ) {
+	if ( empty( $links ) ) {
 		return;
 	}
 
-	echo '<ul class="' . esc_attr( $menu_class ) . '">' . $pages . '</ul>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo '<ul class="' . esc_attr( $menu_class ) . '">';
+	foreach ( $links as $link ) {
+		echo '<li><a href="' . esc_url( $link['url'] ) . '">' . esc_html( $link['label'] ) . '</a></li>';
+	}
+	echo '</ul>';
+}
+
+/**
+ * Navegación por defecto cuando no hay menú asignado: lo que un estudiante
+ * busca primero (y no la lista de todas las páginas del sitio).
+ *
+ * @return array<int,array{label:string,url:string}>
+ */
+function atora_get_default_nav_links() {
+	$links = array();
+
+	if ( post_type_exists( 'lm_course' ) ) {
+		$links[] = array(
+			'label' => __( 'Courses', 'atora-learning' ),
+			'url'   => atora_get_archive_link( 'lm_course' ),
+		);
+	}
+
+	if ( post_type_exists( 'lm_program' ) ) {
+		$links[] = array(
+			'label' => __( 'Programs', 'atora-learning' ),
+			'url'   => atora_get_archive_link( 'lm_program' ),
+		);
+	}
+
+	if ( '' !== atora_get_blog_url() ) {
+		$links[] = array(
+			'label' => __( 'Journal', 'atora-learning' ),
+			'url'   => atora_get_blog_url(),
+		);
+	}
+
+	if ( is_user_logged_in() && atora_theme_is_lms_active() ) {
+		$links[] = array(
+			'label' => __( 'My learning', 'atora-learning' ),
+			'url'   => atora_get_dashboard_url(),
+		);
+	}
+
+	return $links;
 }
 
 /**
@@ -398,28 +530,47 @@ function atora_get_cart_count() {
 }
 
 /**
- * Get the primary site CTA URL.
+ * URL del botón principal de la cabecera (Personalizar → Identidad ATORA).
  *
  * @return string
  */
 function atora_get_primary_cta_url() {
-	$course_archive = atora_get_archive_link( 'lm_course' );
-	if ( $course_archive ) {
-		return $course_archive;
+	$custom = (string) get_theme_mod( 'atora_header_cta_url', '' );
+	if ( '' !== $custom ) {
+		return $custom;
 	}
 
-	return atora_get_shop_url();
+	return post_type_exists( 'lm_course' ) ? atora_get_archive_link( 'lm_course' ) : atora_get_shop_url();
 }
 
 /**
- * Get the primary site CTA label.
+ * Texto del botón principal; '' si se ocultó con "-".
  *
  * @return string
  */
 function atora_get_primary_cta_label() {
+	$custom = trim( (string) get_theme_mod( 'atora_header_cta_label', '' ) );
+	if ( '-' === $custom ) {
+		return '';
+	}
+	if ( '' !== $custom ) {
+		return $custom;
+	}
+
 	return post_type_exists( 'lm_course' )
 		? __( 'Explore Learning', 'atora-learning' )
 		: __( 'Open Store', 'atora-learning' );
+}
+
+/**
+ * Texto del pie: el del Personalizador o la descripción del sitio.
+ *
+ * @return string
+ */
+function atora_get_footer_text() {
+	$custom = trim( (string) get_theme_mod( 'atora_footer_text', '' ) );
+
+	return '' !== $custom ? $custom : (string) get_bloginfo( 'description' );
 }
 
 /**
@@ -501,7 +652,10 @@ function atora_get_plain_excerpt( $post = null, $words = 28 ) {
 
 	$excerpt = trim( (string) $post->post_excerpt );
 	if ( '' === $excerpt ) {
-		$excerpt = wp_strip_all_tags( (string) $post->post_content );
+		// Separar bloques antes de quitar etiquetas ("estudio.Planifica" → "estudio. Planifica").
+		$content = strip_shortcodes( excerpt_remove_blocks( (string) $post->post_content ) );
+		$content = preg_replace( '#</(p|h[1-6]|li|div|blockquote|figcaption|td|th)>|<br\s*/?>#i', '$0 ', $content );
+		$excerpt = wp_strip_all_tags( (string) $content );
 	}
 
 	return trim( (string) wp_trim_words( $excerpt, absint( $words ) ) );
@@ -541,7 +695,7 @@ function atora_render_entry_meta( $post_id = 0 ) {
 			printf(
 				/* translators: %d: reading time in minutes. */
 				esc_html__( '%d min read', 'atora-learning' ),
-				atora_get_reading_time( $post_id )
+				absint( atora_get_reading_time( $post_id ) )
 			);
 			?>
 		</span>
@@ -619,11 +773,11 @@ function atora_get_context_description() {
 	}
 
 	if ( is_home() ) {
-		return __( 'Editorial stories, course launches, podcasts, product drops and practical thinking from the ATORA ecosystem.', 'atora-learning' );
+		return __( 'Articles, guides and news from the academy.', 'atora-learning' );
 	}
 
 	if ( is_search() ) {
-		return __( 'A focused index across articles, landings, courses, products and podcast episodes.', 'atora-learning' );
+		return __( 'Results across courses, programs, articles and pages.', 'atora-learning' );
 	}
 
 	$description = trim( wp_strip_all_tags( (string) get_the_archive_description() ) );
@@ -632,22 +786,22 @@ function atora_get_context_description() {
 	}
 
 	if ( is_post_type_archive( 'lm_course' ) ) {
-		return __( 'Commercially crafted course experiences connected to the academic engine of ATORA.', 'atora-learning' );
+		return __( 'Choose a course and learn at your own pace, with guided lessons, practice and feedback.', 'atora-learning' );
 	}
 
 	if ( is_post_type_archive( 'lm_program' ) ) {
-		return __( 'Structured learning paths designed for premium offers, cohorts and long-form progression.', 'atora-learning' );
+		return __( 'Learning paths that bring several courses together toward a certification.', 'atora-learning' );
 	}
 
 	if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
-		return __( 'A cleaner commerce layer for courses, programs and digital products linked to ATORA.', 'atora-learning' );
+		return __( 'Courses, programs and learning materials available at the academy.', 'atora-learning' );
 	}
 
 	if ( is_404() ) {
-		return __( 'The route changed or the page no longer exists, but the rest of the experience is still here.', 'atora-learning' );
+		return __( 'This page moved or no longer exists. Try the search or go back to the courses.', 'atora-learning' );
 	}
 
-	return __( 'A modern editorial-commercial shell built to make ATORA feel sharper, lighter and more valuable.', 'atora-learning' );
+	return (string) get_bloginfo( 'description' );
 }
 
 /**
@@ -672,9 +826,20 @@ function atora_render_pagination() {
  * @return string[]
  */
 function atora_get_instructor_names( $post_id ) {
-	$post_id        = absint( $post_id );
+	$post_id = absint( $post_id );
+	$names   = array();
+
+	// Docentes asignados en ATORA LMS (posts `atora_teacher`), como los muestra el plugin.
+	foreach ( Atora_Theme_Plugin_Bridge::get_course_teachers( $post_id ) as $teacher_id ) {
+		if ( 'publish' === get_post_status( $teacher_id ) ) {
+			$names[] = get_the_title( $teacher_id );
+		}
+	}
+	if ( ! empty( $names ) ) {
+		return array_values( array_unique( array_filter( $names ) ) );
+	}
+
 	$instructor_ids = get_post_meta( $post_id, '_clms_instructor_ids', true );
-	$names          = array();
 
 	if ( ! is_array( $instructor_ids ) || empty( $instructor_ids ) ) {
 		$author_id      = (int) get_post_field( 'post_author', $post_id );
@@ -737,7 +902,6 @@ function atora_get_course_card_data( $course_id ) {
 	$course_id      = absint( $course_id );
 	$duration_keys  = array( '_clms_course_duration', '_course_duration', 'course_duration', 'lm_course_duration', '_duration' );
 	$duration       = '';
-	$students_count = absint( get_post_meta( $course_id, '_clms_enrollment_count', true ) );
 
 	foreach ( $duration_keys as $key ) {
 		$value = get_post_meta( $course_id, $key, true );
@@ -748,10 +912,7 @@ function atora_get_course_card_data( $course_id ) {
 	}
 
 	$user_id     = get_current_user_id();
-	$is_enrolled = false;
-	if ( $user_id && class_exists( 'CLMS_Helper' ) && method_exists( 'CLMS_Helper', 'user_can_access_course' ) ) {
-		$is_enrolled = (bool) CLMS_Helper::user_can_access_course( $user_id, $course_id );
-	}
+	$is_enrolled = $user_id ? Atora_Theme_Plugin_Bridge::user_has_course_access( $course_id, $user_id ) : false;
 
 	$offer      = atora_get_entity_offer_data( $course_id );
 	$price_html = '';
@@ -765,7 +926,6 @@ function atora_get_course_card_data( $course_id ) {
 		'label'       => atora_get_primary_label( $course_id ),
 		'duration'    => $duration,
 		'lessons'     => atora_get_course_lesson_count( $course_id ),
-		'students'    => $students_count,
 		'price'       => $price_html,
 		'cta_label'   => $is_enrolled ? __( 'Continue', 'atora-learning' ) : __( 'View Course', 'atora-learning' ),
 		'is_enrolled' => $is_enrolled,
@@ -780,18 +940,8 @@ function atora_get_course_card_data( $course_id ) {
  * @return int[]
  */
 function atora_get_user_enrolled_courses( $user_id ) {
-	$user_id = absint( $user_id );
-	if ( ! $user_id ) {
-		return array();
-	}
-
-	if ( class_exists( 'CLMS_Helper' ) && method_exists( 'CLMS_Helper', 'get_user_enrolled_courses' ) ) {
-		$course_ids = CLMS_Helper::get_user_enrolled_courses( $user_id );
-	} else {
-		$course_ids = get_user_meta( $user_id, '_clms_enrolled_courses', true );
-	}
-
-	return array_values( array_filter( array_map( 'absint', (array) $course_ids ) ) );
+	// 3.1.0: incluye los cursos de los programas vigentes (ATORA LMS 6.33.2+), como la app.
+	return Atora_Theme_Plugin_Bridge::get_user_course_ids( $user_id );
 }
 
 /**

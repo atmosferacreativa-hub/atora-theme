@@ -99,15 +99,29 @@ function atora_blog_ecosystem_stats() {
 	};
 
 	$stats = array(
-		array( 'value' => $count( 'post' ), 'label' => 'artículos publicados' ),
-		array( 'value' => count( atora_blog_ecosystem_categories( 99 ) ), 'label' => 'temas editoriales' ),
-		array( 'value' => $count( 'lm_course' ), 'label' => 'cursos en la academia' ),
-		array( 'value' => $count( 'atora_teacher' ), 'label' => 'mentores' ),
+		array( 'value' => $count( 'post' ), 'label' => __( 'articles', 'atora-learning' ) ),
+		array( 'value' => count( atora_blog_ecosystem_categories( 99 ) ), 'label' => __( 'topics', 'atora-learning' ) ),
+		array( 'value' => $count( 'lm_course' ), 'label' => __( 'courses', 'atora-learning' ) ),
+		array( 'value' => $count( 'atora_teacher' ), 'label' => __( 'teachers', 'atora-learning' ) ),
 	);
 
 	return array_values( array_filter( $stats, static function ( $stat ) {
 		return $stat['value'] > 0;
 	} ) );
+}
+
+/**
+ * ¿Muestra el blog la promoción de ATORA (enlaces a atora.studio, demo)?
+ *
+ * Es para los sitios propios de ATORA (atora.studio, demo). En la academia de
+ * un cliente el blog es de la institución: desactivado por defecto.
+ * Apariencia → Personalizar → Identidad ATORA, o el filtro
+ * `atora_blog_show_vendor_promo`.
+ *
+ * @return bool
+ */
+function atora_blog_shows_vendor_promo() {
+	return (bool) apply_filters( 'atora_blog_show_vendor_promo', (bool) get_theme_mod( 'atora_blog_vendor_promo', false ) );
 }
 
 /**
@@ -152,7 +166,7 @@ function atora_blog_ecosystem_data() {
 			array( 'Plantillas educativas', 'Cursos, programas, lecciones y perfiles de mentor listos para publicar.' ),
 			array( 'Landings que venden', 'Página de curso con SEO y captación conectada al CRM.' ),
 			array( 'Vista académica', 'Panel del estudiante, progreso y lecciones sin distracciones.' ),
-			array( 'Tu marca, sin código', 'Constructor de cabecera y pie, tipografías, esquemas de color y modo oscuro.' ),
+			array( 'Tu marca, sin código', 'Color, letra y tamaño de lectura desde el Personalizador de WordPress.' ),
 			array( 'Pensado para el móvil', 'Rápido y legible donde ocurre la mayor parte del aprendizaje.' ),
 		),
 		'copilots' => array(
@@ -215,7 +229,7 @@ function atora_blog_ecosystem_card( $post, $featured = false ) {
 			<?php if ( has_post_thumbnail( $post ) ) : ?>
 				<?php echo get_the_post_thumbnail( $post, $featured ? 'atora-meridian-hero' : 'atora-meridian-card', array( 'alt' => '', 'loading' => $featured ? 'eager' : 'lazy' ) ); ?>
 			<?php else : ?>
-				<span class="atora-blog-card__placeholder"><?php echo esc_html( $category ? $category->name : 'ATORA Lab' ); ?></span>
+				<span class="atora-blog-card__placeholder"><?php echo esc_html( $category ? $category->name : get_bloginfo( 'name' ) ); ?></span>
 			<?php endif; ?>
 		</a>
 		<div class="atora-blog-card__body">
@@ -224,7 +238,7 @@ function atora_blog_ecosystem_card( $post, $featured = false ) {
 					<a class="atora-blog-chip" href="<?php echo esc_url( get_category_link( $category ) ); ?>"><?php echo esc_html( $category->name ); ?></a>
 				<?php endif; ?>
 				<?php if ( $featured ) : ?>
-					<span class="atora-blog-chip is-amber">Destacado</span>
+					<span class="atora-blog-chip is-amber"><?php esc_html_e( 'Featured', 'atora-learning' ); ?></span>
 				<?php endif; ?>
 			</div>
 			<h2><a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h2>
@@ -234,9 +248,14 @@ function atora_blog_ecosystem_card( $post, $featured = false ) {
 			<p class="atora-blog-card__footer">
 				<span><?php echo esc_html( get_the_date( '', $post ) ); ?></span>
 				<?php if ( $minutes ) : ?>
-					<span><?php echo esc_html( $minutes . ' min de lectura' ); ?></span>
+					<span>
+						<?php
+						/* translators: %d: reading time in minutes. */
+						echo esc_html( sprintf( __( '%d min read', 'atora-learning' ), $minutes ) );
+						?>
+					</span>
 				<?php endif; ?>
-				<a href="<?php echo esc_url( $link ); ?>">Leer artículo →</a>
+				<a href="<?php echo esc_url( $link ); ?>"><?php esc_html_e( 'Read article →', 'atora-learning' ); ?></a>
 			</p>
 		</div>
 	</article>

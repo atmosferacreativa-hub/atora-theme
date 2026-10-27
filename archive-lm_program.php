@@ -14,9 +14,9 @@ get_header();
 
 <section class="meridian-archive-hero">
 	<div class="meridian-archive-hero__copy" data-reveal>
-		<p class="meridian-eyebrow"><?php esc_html_e( 'Programs', 'atora-learning' ); ?></p>
-		<h1><?php esc_html_e( 'Structured learning paths with a stronger premium frame.', 'atora-learning' ); ?></h1>
-		<p><?php esc_html_e( 'Programs are now presented with the same modern language used across landings, store and editorial pages.', 'atora-learning' ); ?></p>
+		<p class="meridian-eyebrow"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
+		<h1><?php esc_html_e( 'Programs', 'atora-learning' ); ?></h1>
+		<p><?php echo esc_html( atora_get_context_description() ); ?></p>
 	</div>
 </section>
 
@@ -26,13 +26,13 @@ get_header();
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
 				<article class="post-card" data-reveal>
-					<div class="post-thumbnail">
-						<a href="<?php the_permalink(); ?>">
-							<?php if ( has_post_thumbnail() ) : ?>
+					<?php if ( has_post_thumbnail() ) : ?>
+						<div class="post-thumbnail">
+							<a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
 								<?php the_post_thumbnail( 'atora-meridian-card' ); ?>
-							<?php endif; ?>
-						</a>
-					</div>
+							</a>
+						</div>
+					<?php endif; ?>
 					<div class="post-card__body">
 						<div class="meridian-entry-meta">
 							<span><?php esc_html_e( 'Program', 'atora-learning' ); ?></span>
@@ -51,7 +51,7 @@ get_header();
 	<?php else : ?>
 		<div class="meridian-empty-state">
 			<h2><?php esc_html_e( 'No programs available yet', 'atora-learning' ); ?></h2>
-			<p><?php esc_html_e( 'Create the first academic path to activate this section.', 'atora-learning' ); ?></p>
+			<p><?php esc_html_e( 'New programs will appear here soon.', 'atora-learning' ); ?></p>
 		</div>
 	<?php endif; ?>
 </div>

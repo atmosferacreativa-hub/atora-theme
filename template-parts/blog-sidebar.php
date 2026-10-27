@@ -9,7 +9,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eco = isset( $args['eco'] ) ? $args['eco'] : atora_blog_ecosystem_data();
+$eco          = isset( $args['eco'] ) ? $args['eco'] : atora_blog_ecosystem_data();
+$vendor_promo = isset( $args['vendor_promo'] ) ? (bool) $args['vendor_promo'] : atora_blog_shows_vendor_promo();
+
+if ( ! $vendor_promo ) :
+	// Academia de un cliente: la barra lateral lleva a aprender, no a vender ATORA.
+	$sidebar_courses = atora_get_featured_posts( 'lm_course', 3 );
+	?>
+	<aside class="atora-blog-sidebar" aria-label="<?php esc_attr_e( 'Keep learning', 'atora-learning' ); ?>">
+		<?php if ( $sidebar_courses ) : ?>
+			<section class="atora-eco-card">
+				<p class="atora-eco-card__kicker"><?php esc_html_e( 'Keep learning', 'atora-learning' ); ?></p>
+				<h3><?php esc_html_e( 'Courses at the academy', 'atora-learning' ); ?></h3>
+				<ul class="atora-eco-features">
+					<?php foreach ( $sidebar_courses as $sidebar_course ) : ?>
+						<li>
+							<strong><a href="<?php echo esc_url( get_permalink( $sidebar_course ) ); ?>"><?php echo esc_html( get_the_title( $sidebar_course ) ); ?></a></strong>
+							<span><?php echo esc_html( atora_get_plain_excerpt( $sidebar_course, 14 ) ); ?></span>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<a class="atora-eco-link" href="<?php echo esc_url( atora_get_archive_link( 'lm_course' ) ); ?>"><?php esc_html_e( 'Full catalog', 'atora-learning' ); ?> →</a>
+			</section>
+		<?php endif; ?>
+
+		<?php if ( is_user_logged_in() && atora_theme_is_lms_active() ) : ?>
+			<section class="atora-eco-card is-cta">
+				<h3><?php esc_html_e( 'Pick up where you left off.', 'atora-learning' ); ?></h3>
+				<a class="atora-blog-button is-blue" href="<?php echo esc_url( atora_get_dashboard_url() ); ?>"><?php esc_html_e( 'My learning', 'atora-learning' ); ?></a>
+			</section>
+		<?php endif; ?>
+	</aside>
+	<?php
+	return;
+endif;
 ?>
 
 <aside class="atora-blog-sidebar" aria-label="Ecosistema ATORA">
