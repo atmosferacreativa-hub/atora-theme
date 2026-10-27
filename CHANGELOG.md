@@ -1,5 +1,11 @@
 # Changelog — Atora Meridian
 
+## 3.2.1 (2026-10-27)
+
+### Corregido
+- Retira las siete sobrescrituras de acento de los paneles y SpeedGrader: el plugin ya hereda la identidad de la academia (ATORA LMS PR #106). Se conservan los ajustes de texto y bordes para la paleta del tema.
+- Actualiza la versión de los recursos para invalidar el CSS anterior en caché.
+
 ## 3.2.0 (2026-10-27)
 
 ### Modo oscuro en todo el sitio
