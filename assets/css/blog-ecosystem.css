@@ -1,14 +1,16 @@
 /* Blog layout aligned with the institutional home (pattern-home.css). */
 .atora-blog {
-	--ab-blue: var(--wp--preset--color--blue, #1F5BFF);
-	--ab-blue-deep: var(--wp--preset--color--blue-deep, #0B2C8F);
+	--ab-blue: var(--atora-accent, #1F5BFF);
+	--ab-blue-deep: var(--atora-accent-hover, #0B2C8F);
 	--ab-blue-ink: var(--wp--preset--color--blue-ink, #071B55);
+	/* Fondo de las franjas oscuras: el acento, oscurecido para que el texto blanco se lea también en modo oscuro. */
+	--ab-blue-strong: color-mix(in srgb, var(--ab-blue) 62%, #071B55);
 	--ab-amber: var(--wp--preset--color--amber, #FFB020);
-	--ab-amber-soft: var(--wp--preset--color--amber-soft, #FFF1D1);
-	--ab-ink: var(--wp--preset--color--ink, #10162A);
-	--ab-ink-2: var(--wp--preset--color--ink-2, #4A5270);
-	--ab-bg-2: var(--wp--preset--color--bg-2, #F3F6FF);
-	--ab-line: var(--wp--preset--color--line, #DCE2F4);
+	--ab-amber-soft: var(--atora-highlight-soft, #FFF1D1);
+	--ab-ink: var(--atora-text, #10162A);
+	--ab-ink-2: var(--atora-text-muted, #4A5270);
+	--ab-bg-2: var(--atora-bg, #F3F6FF);
+	--ab-line: var(--atora-border, #DCE2F4);
 	--ab-on-dark: #D3DBF2;
 	--ab-display: var(--wp--preset--font-family--sora, inherit);
 	--ab-radius: 18px;
@@ -104,7 +106,7 @@
 	font-size: .72rem;
 	font-weight: 800;
 	letter-spacing: .02em;
-	background: color-mix(in srgb, var(--ab-blue) 12%, white);
+	background: color-mix(in srgb, var(--ab-blue) 12%, var(--atora-surface, #fff));
 	color: var(--ab-blue);
 }
 
@@ -120,7 +122,7 @@
 	border-radius: 0 0 28px 28px;
 	color: white;
 	background: radial-gradient(1200px 600px at 80% 35%, rgba(255, 176, 32, .18), rgba(255, 176, 32, 0) 55%),
-		linear-gradient(135deg, var(--ab-blue-ink), var(--ab-blue));
+		linear-gradient(135deg, var(--ab-blue-ink), var(--ab-blue-strong));
 }
 
 .atora-blog-hero__grid {
@@ -179,7 +181,7 @@
 .atora-blog-panel {
 	padding: 18px;
 	border-radius: var(--ab-radius);
-	background: white;
+	background: var(--atora-surface, #fff);
 	color: var(--ab-ink);
 	box-shadow: var(--ab-shadow);
 }
@@ -200,7 +202,7 @@
 	border-radius: 999px;
 	font-size: .75rem;
 	font-weight: 800;
-	background: color-mix(in srgb, var(--ab-blue) 12%, white);
+	background: color-mix(in srgb, var(--ab-blue) 12%, var(--atora-surface, #fff));
 	color: var(--ab-blue);
 }
 
@@ -281,7 +283,7 @@
 	padding: 8px 14px;
 	border: 1px solid var(--ab-line);
 	border-radius: 999px;
-	background: white;
+	background: var(--atora-surface, #fff);
 	font-size: .88rem;
 	font-weight: 700;
 	color: var(--ab-ink-2);
@@ -290,7 +292,7 @@
 
 .atora-blog-topic span {
 	font-size: .75rem;
-	color: color-mix(in srgb, var(--ab-ink-2) 70%, white);
+	color: color-mix(in srgb, var(--ab-ink-2) 70%, var(--atora-surface, #fff));
 }
 
 .atora-blog-topic:hover {
@@ -330,7 +332,7 @@
 	overflow: hidden;
 	border: 1px solid color-mix(in srgb, var(--ab-line) 80%, transparent);
 	border-radius: var(--ab-radius);
-	background: white;
+	background: var(--atora-surface, #fff);
 	box-shadow: var(--ab-shadow-sm);
 	transition: transform .2s ease, box-shadow .2s ease;
 }
@@ -344,7 +346,7 @@
 	display: block;
 	aspect-ratio: 3 / 2;
 	overflow: hidden;
-	background: linear-gradient(135deg, var(--ab-blue-ink), var(--ab-blue));
+	background: linear-gradient(135deg, var(--ab-blue-ink), var(--ab-blue-strong));
 }
 
 .atora-blog-card__media img {
@@ -476,7 +478,7 @@
 	padding: 0 14px;
 	border: 1px solid var(--ab-line);
 	border-radius: 999px;
-	background: white;
+	background: var(--atora-surface, #fff);
 	font-weight: 800;
 	color: var(--ab-ink-2);
 }
@@ -491,7 +493,7 @@
 .atora-blog-empty {
 	padding: 40px;
 	border-radius: var(--ab-radius);
-	background: white;
+	background: var(--atora-surface, #fff);
 	text-align: center;
 }
 
@@ -506,7 +508,7 @@
 	padding: 22px;
 	border: 1px solid color-mix(in srgb, var(--ab-line) 80%, transparent);
 	border-radius: var(--ab-radius);
-	background: white;
+	background: var(--atora-surface, #fff);
 	box-shadow: var(--ab-shadow-sm);
 }
 
@@ -549,7 +551,7 @@
 	padding: 8px;
 	border-radius: 12px;
 	color: var(--ab-blue);
-	background: color-mix(in srgb, var(--ab-blue) 10%, white);
+	background: color-mix(in srgb, var(--ab-blue) 10%, var(--atora-surface, #fff));
 }
 
 .atora-eco-card.is-dark {
@@ -671,7 +673,7 @@
 
 .atora-eco-card.is-amber .atora-eco-icon {
 	color: color-mix(in srgb, var(--ab-amber) 60%, var(--ab-ink));
-	background: white;
+	background: var(--atora-surface, #fff);
 }
 
 .atora-eco-copilots li {
@@ -682,7 +684,7 @@
 	margin: 12px 0 14px !important;
 	padding: 10px 12px;
 	border-radius: 12px;
-	background: rgba(255, 255, 255, .7);
+	background: color-mix(in srgb, var(--atora-surface, #fff) 70%, transparent);
 	font-size: .82rem !important;
 }
 
@@ -711,7 +713,7 @@
 	border-radius: 28px 28px 0 0;
 	color: white;
 	background: radial-gradient(1200px 600px at 50% 20%, rgba(255, 176, 32, .18), rgba(255, 176, 32, 0) 55%),
-		linear-gradient(135deg, var(--ab-blue-ink), var(--ab-blue));
+		linear-gradient(135deg, var(--ab-blue-ink), var(--ab-blue-strong));
 }
 
 .atora-blog-final h2 {

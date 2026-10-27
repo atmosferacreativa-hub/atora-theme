@@ -18,7 +18,7 @@ $search_id = function_exists( 'wp_unique_id' ) ? wp_unique_id( 'search-input-' )
 			class="search-field"
 			name="s"
 			value="<?php echo esc_attr( get_search_query() ); ?>"
-			placeholder="<?php esc_attr_e( 'Search courses, products, posts or podcast episodes...', 'atora-learning' ); ?>"
+			placeholder="<?php esc_attr_e( 'Search courses, programs and articles…', 'atora-learning' ); ?>"
 		>
 		<button type="submit" class="search-submit">
 			<?php esc_html_e( 'Search', 'atora-learning' ); ?>

@@ -410,7 +410,7 @@ function atora_register_presentation_metabox() {
 	foreach ( array( 'page', 'post' ) as $post_type ) {
 		add_meta_box(
 			'atora-meridian-presentation',
-			__( 'Meridian Visual', 'atora-learning' ),
+			__( 'Page presentation', 'atora-learning' ),
 			'atora_render_presentation_metabox',
 			$post_type,
 			'side',
@@ -431,7 +431,7 @@ function atora_render_presentation_metabox( $post ) {
 	wp_nonce_field( 'atora_save_presentation', 'atora_presentation_nonce' );
 	?>
 	<p>
-		<label for="atora-presentation-eyebrow"><strong><?php esc_html_e( 'Eyebrow', 'atora-learning' ); ?></strong></label>
+		<label for="atora-presentation-eyebrow"><strong><?php esc_html_e( 'Label above the title', 'atora-learning' ); ?></strong></label>
 		<input type="text" id="atora-presentation-eyebrow" name="atora_presentation[eyebrow]" value="<?php echo esc_attr( (string) $settings['eyebrow'] ); ?>" class="widefat">
 	</p>
 	<p>
@@ -470,11 +470,11 @@ function atora_render_presentation_metabox( $post ) {
 	<p>
 		<label>
 			<input type="checkbox" name="atora_presentation[show_curated_sections]" value="1" <?php checked( ! empty( $settings['show_curated_sections'] ) ); ?>>
-			<?php esc_html_e( 'Keep Meridian curated sections', 'atora-learning' ); ?>
+			<?php esc_html_e( 'Show highlighted sections (courses, programs, articles)', 'atora-learning' ); ?>
 		</label>
 	</p>
 	<?php endif; ?>
-	<p class="description"><?php esc_html_e( 'If the page already has block content, Meridian now respects that layout and does not force a separate hero. Use these fields only when you want to add a light visual frame on top.', 'atora-learning' ); ?></p>
+	<p class="description"><?php esc_html_e( 'If the page already has its own blocks, the theme shows them as they are. Use these fields only to add a header on top.', 'atora-learning' ); ?></p>
 	<?php
 }
 
@@ -526,7 +526,7 @@ add_action( 'save_post', 'atora_save_presentation_metabox' );
  */
 function atora_localize_page_templates( $templates ) {
 	if ( isset( $templates['page-templates/landing-meridian.php'] ) ) {
-		$templates['page-templates/landing-meridian.php'] = __( 'Meridian Landing', 'atora-learning' );
+		$templates['page-templates/landing-meridian.php'] = __( 'Landing page (full width)', 'atora-learning' );
 	}
 
 	if ( isset( $templates['page-student-dashboard.php'] ) ) {

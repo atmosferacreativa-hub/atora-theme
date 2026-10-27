@@ -75,7 +75,7 @@
 
 /* Dashboard card */
 .atora-home-institucional .atora-home-dashboard {
-	background: white;
+	background: var(--atora-surface, #fff);
 	color: var(--wp--preset--color--ink);
 	border-radius: var(--atora-home-radius);
 	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 70%, transparent);
@@ -96,7 +96,7 @@
 	font-size: .78rem;
 	font-weight: 800;
 	letter-spacing: .02em;
-	background: color-mix(in srgb, var(--wp--preset--color--blue) 12%, white);
+	background: color-mix(in srgb, var(--wp--preset--color--blue) 12%, var(--atora-surface, #fff));
 	color: var(--wp--preset--color--blue);
 }
 
@@ -109,7 +109,7 @@
 }
 
 .atora-home-institucional .atora-home-dashboard-metric {
-	background: color-mix(in srgb, var(--wp--preset--color--bg-2) 65%, white);
+	background: color-mix(in srgb, var(--wp--preset--color--bg-2) 65%, var(--atora-surface, #fff));
 	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 70%, transparent);
 	border-radius: var(--atora-home-radius-sm);
 	padding: 12px;
@@ -176,17 +176,17 @@
 	padding: 4px 10px;
 	border-radius: 999px;
 	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 70%, transparent);
-	background: color-mix(in srgb, var(--wp--preset--color--bg-2) 55%, white);
+	background: color-mix(in srgb, var(--wp--preset--color--bg-2) 55%, var(--atora-surface, #fff));
 	color: var(--wp--preset--color--ink-2);
 }
 
 .atora-home-institucional .atora-home-chip.is-good {
-	background: color-mix(in srgb, #0f8a51 10%, white);
+	background: color-mix(in srgb, #0f8a51 10%, var(--atora-surface, #fff));
 	color: color-mix(in srgb, #0f8a51 78%, var(--wp--preset--color--ink));
 }
 
 .atora-home-institucional .atora-home-chip.is-warn {
-	background: color-mix(in srgb, var(--wp--preset--color--amber) 22%, white);
+	background: color-mix(in srgb, var(--wp--preset--color--amber) 22%, var(--atora-surface, #fff));
 	color: color-mix(in srgb, var(--wp--preset--color--amber) 90%, var(--wp--preset--color--ink));
 }
 
@@ -226,7 +226,7 @@
 .atora-home-institucional .atora-home-segment,
 .atora-home-institucional .atora-home-price-card,
 .atora-home-institucional .atora-home-course {
-	background: white;
+	background: var(--atora-surface, #fff);
 	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 80%, transparent);
 	border-radius: var(--atora-home-radius);
 	box-shadow: var(--atora-home-shadow-sm);
@@ -521,7 +521,7 @@
 	align-items: start;
 	padding: 18px;
 	text-decoration: none;
-	background: white;
+	background: var(--atora-surface, #fff);
 	border: 1px solid color-mix(in srgb, var(--wp--preset--color--line) 80%, transparent);
 	border-radius: var(--atora-home-radius);
 	box-shadow: var(--atora-home-shadow-sm);
@@ -547,7 +547,7 @@
 	font-weight: 900;
 	font-size: 1.3rem;
 	color: var(--wp--preset--color--blue-ink);
-	background: color-mix(in srgb, var(--wp--preset--color--amber) 18%, white);
+	background: color-mix(in srgb, var(--wp--preset--color--amber) 18%, var(--atora-surface, #fff));
 	box-shadow: 0 0 0 3px white, 0 0 0 5px var(--wp--preset--color--amber);
 }
 

@@ -39,7 +39,7 @@ $terms    = is_wp_error( $terms ) ? array() : $terms;
 			<?php else : ?>
 				<div class="meridian-empty-state">
 					<h2><?php esc_html_e( 'No courses found', 'atora-learning' ); ?></h2>
-					<p><?php esc_html_e( 'Publish a course or connect the plugin archive to populate this section.', 'atora-learning' ); ?></p>
+					<p><?php esc_html_e( 'New courses will appear here soon.', 'atora-learning' ); ?></p>
 				</div>
 			<?php endif; ?>
 		</div>

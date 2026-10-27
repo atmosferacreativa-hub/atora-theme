@@ -16,10 +16,9 @@
 .cc-wrap,
 .tp-wrap,
 .atora-lesson-wrap,
-.atora-dashboard,
-.clms-dashboard,
-.clms-catalog,
-.atora-archive,
+.clms-sd,
+.clms-td,
+.clms-sg-wrap,
 .apl-wrap {
 	font-family: var(--atora-font-body) !important;
 }
@@ -27,8 +26,7 @@
 .cov-wrap :is(h1, h2, h3, h4),
 .cc-wrap :is(h1, h2, h3, h4),
 .tp-wrap :is(h1, h2, h3, h4),
-.atora-lesson-wrap :is(h1, h2, h3, h4),
-.atora-archive :is(h1, h2, h3, h4) {
+.atora-lesson-wrap :is(h1, h2, h3, h4) {
 	font-family: var(--atora-font-display);
 	letter-spacing: -0.02em;
 	text-wrap: balance;
@@ -55,7 +53,7 @@
 	max-width: 70ch;
 }
 
-.atora-lesson-content > :is(figure, .wp-block-embed, .wp-block-image, iframe, video, table, .wp-block-table, .h5p-iframe-wrapper, .atora-h5p) {
+.atora-lesson-content > :is(figure, .wp-block-embed, .wp-block-image, iframe, video, table, .wp-block-table, .h5p-iframe-wrapper) {
 	max-width: 100%;
 }
 
@@ -87,12 +85,12 @@
 .atora-lesson-content :is(th, td) {
 	padding: 0.55rem 0.75rem;
 	border: 1px solid var(--atora-border);
-	text-align: left;
+	text-align: start;
 }
 
 .atora-lesson-content blockquote {
 	background: var(--atora-highlight-soft, #fff3d1);
-	border-left-color: var(--atora-highlight, #f2a900);
+	border-inline-start-color: var(--atora-highlight, #f2a900);
 }
 
 /* 3. Modo concentración en lecciones ------------------------------------- */
@@ -115,8 +113,7 @@ body.atora-focus .meridian-header__cta {
 
 /* 4. Contenedores del plugin dentro del marco del tema -------------------- */
 
-.cov-stack > *,
-.cc-stack > * {
+.cov-stack > * {
 	min-width: 0;
 }
 
@@ -253,7 +250,7 @@ body.atora-focus .meridian-header__cta {
 	margin: 1.75rem 0;
 	padding: 1.1rem 1.35rem 0.4rem;
 	border: 1px solid color-mix(in srgb, var(--callout-accent) 22%, transparent);
-	border-left: 4px solid var(--callout-accent);
+	border-inline-start: 4px solid var(--callout-accent);
 	border-radius: 14px;
 	background: var(--callout-bg);
 }
@@ -310,6 +307,10 @@ body.atora-focus .meridian-header__cta {
 	background: linear-gradient(135deg, var(--atora-accent-soft), var(--atora-surface-2)) !important;
 }
 
+.atora-resource-fallback {
+	background: color-mix(in srgb, var(--atora-surface) 72%, transparent);
+}
+
 .atora-resource-card:hover {
 	border-color: color-mix(in srgb, var(--atora-accent) 40%, transparent) !important;
 }
@@ -336,4 +337,28 @@ body.atora-meridian.atora-theme-light .clms-sg-wrap {
 	--sg-accent-2: var(--atora-accent-hover);
 	--sg-ink: var(--atora-text);
 	--sg-border: var(--atora-border);
+}
+
+/* 11. Docente en la página del curso: con los colores de la academia (el
+ * plugin fija blanco y gris), así también se lee en modo oscuro. */
+
+.clms-instructor-box {
+	background: var(--atora-surface);
+	border-color: var(--atora-border);
+}
+
+.clms-instructor-name,
+.clms-instructor-bio,
+.clms-instructor-meta a,
+.clms-instructor-courses h4,
+.clms-instructor-courses li {
+	color: var(--atora-text);
+}
+
+.clms-instructor-meta {
+	color: var(--atora-text-muted);
+}
+
+.clms-instructor-courses {
+	border-top-color: var(--atora-border);
 }

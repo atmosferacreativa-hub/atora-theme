@@ -1,0 +1,1108 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Atora Meridian 3.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/atmosferacreativa-hub/atora-theme/issues\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: atora-learning\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Atora Meridian"
+msgstr "Atora Meridian"
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/atmosferacreativa-hub/atora-theme"
+msgstr "https://github.com/atmosferacreativa-hub/atora-theme"
+
+#. Description of the theme
+#: style.css
+msgid "Official theme for ATORA LMS academies: one identity (color, type, reading size) for the site and every ATORA LMS screen, built for studying comfortably on any device."
+msgstr "Tema oficial para academias com ATORA LMS: uma só identidade (cor, fonte e tamanho de leitura) para o site e todas as telas do ATORA LMS, pensada para estudar com conforto em qualquer dispositivo."
+
+#. Author of the theme
+#: style.css
+msgid "MundoCAP"
+msgstr "MundoCAP"
+
+#: 404.php:17
+msgid "404"
+msgstr "404"
+
+#: 404.php:18
+msgid "We couldn't find this page."
+msgstr "Não encontramos esta página."
+
+#: 404.php:19
+msgid "It may have moved or the link may be outdated."
+msgstr "Ela pode ter mudado de lugar ou o link pode estar desatualizado."
+
+#: 404.php:21
+msgid "Return home"
+msgstr "Voltar ao início"
+
+#: 404.php:22 page-student-dashboard.php:46 page-student-dashboard.php:147
+msgid "Browse courses"
+msgstr "Ver cursos"
+
+#: archive-lm_course.php:21 footer.php:27 front-page.php:104 front-page.php:189 functions.php:322 page-student-dashboard.php:94 page.php:123 single.php:80 woocommerce.php:27
+msgid "Courses"
+msgstr "Cursos"
+
+#: archive-lm_course.php:22
+msgid "Course catalog"
+msgstr "Catálogo de cursos"
+
+#: archive-lm_course.php:41
+msgid "No courses found"
+msgstr "Nenhum curso encontrado"
+
+#: archive-lm_course.php:42
+msgid "New courses will appear here soon."
+msgstr "Novos cursos aparecerão aqui em breve."
+
+#: archive-lm_course.php:49
+msgid "Focus areas"
+msgstr "Áreas"
+
+#: archive-lm_program.php:18 footer.php:28 front-page.php:108 front-page.php:209 functions.php:329 page-student-dashboard.php:98 page.php:124
+msgid "Programs"
+msgstr "Programas"
+
+#: archive-lm_program.php:38 front-page.php:225 single-lm_program.php:29
+msgid "Program"
+msgstr "Programa"
+
+#: archive-lm_program.php:43 front-page.php:230
+msgid "View Program"
+msgstr "Ver programa"
+
+#: archive-lm_program.php:53
+msgid "No programs available yet"
+msgstr "Ainda não há programas"
+
+#: archive-lm_program.php:54
+msgid "New programs will appear here soon."
+msgstr "Novos programas aparecerão aqui em breve."
+
+#: archive-podcast.php:17 footer.php:44 front-page.php:303 page.php:129 single.php:85
+msgid "Podcast"
+msgstr "Podcast"
+
+#: archive-podcast.php:51
+msgid "No episodes published yet"
+msgstr "Ainda não há episódios"
+
+#: archive-podcast.php:52
+msgid "As soon as the first episode is live, it will appear here."
+msgstr "Quando o primeiro episódio for publicado, ele aparecerá aqui."
+
+#: archive.php:17 index.php:17
+msgid "Archive"
+msgstr "Arquivo"
+
+#: archive.php:39
+msgid "Nothing matched this archive"
+msgstr "Nada encontrado neste arquivo"
+
+#: archive.php:40
+msgid "Try another taxonomy, date or content type."
+msgstr "Tente outra categoria, data ou tipo de conteúdo."
+
+#: comments.php:21
+msgid "One comment on &ldquo;%s&rdquo;"
+msgstr "Um comentário em &ldquo;%s&rdquo;"
+
+#: comments.php:26
+msgctxt "comments title"
+msgid "%1$s comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s comentário em &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s comentários em &ldquo;%2$s&rdquo;"
+
+#: comments.php:49
+msgid "Comments are closed."
+msgstr "Os comentários estão fechados."
+
+#: footer.php:25
+msgid "Learning"
+msgstr "Aprendizagem"
+
+#. Template Name of the theme
+#: footer.php:29 inc/meridian-editor.php:533
+msgid "Student Dashboard"
+msgstr "Painel do estudante"
+
+#: footer.php:31
+msgid "Verify a certificate"
+msgstr "Verificar um certificado"
+
+#: footer.php:37
+msgid "Resources"
+msgstr "Recursos"
+
+#: footer.php:40
+msgid "Shop"
+msgstr "Loja"
+
+#: footer.php:41 header.php:69 header.php:98
+msgid "Cart"
+msgstr "Carrinho"
+
+#: footer.php:47 front-page.php:283 functions.php:336 functions.php:743 template-parts/blog-ecosystem.php:26 template-parts/journal-index.php:15
+msgid "Journal"
+msgstr "Blog"
+
+#: footer.php:53
+msgid "Navigation"
+msgstr "Navegação"
+
+#: footer.php:68
+msgid "About"
+msgstr "Sobre"
+
+#: footer.php:69
+msgid "Contact"
+msgstr "Contato"
+
+#: footer.php:70 page-student-dashboard.php:183
+msgid "Support"
+msgstr "Suporte"
+
+#: footer.php:74
+msgid "Home"
+msgstr "Início"
+
+#. translators: 1: current year, 2: site name.
+#: footer.php:88
+msgid "© %1$d %2$s."
+msgstr "© %1$d %2$s."
+
+#: footer.php:96
+msgid "Legal navigation"
+msgstr "Navegação legal"
+
+#: footer.php:112
+msgid "Privacy"
+msgstr "Privacidade"
+
+#: footer.php:113
+msgid "Terms"
+msgstr "Termos"
+
+#: footer.php:115
+msgid "Delete my account"
+msgstr "Excluir minha conta"
+
+#: front-page.php:56 page.php:29
+msgid "Explore Courses"
+msgstr "Explorar cursos"
+
+#: front-page.php:62 functions.php:562 page.php:35
+msgid "Open Store"
+msgstr "Abrir loja"
+
+#: front-page.php:67 front-page.php:165 page.php:40
+msgid "View programs"
+msgstr "Ver programas"
+
+#: front-page.php:91
+msgid "Online academy"
+msgstr "Academia online"
+
+#: front-page.php:113
+msgid "Products"
+msgstr "Produtos"
+
+#: front-page.php:126
+msgid "How you learn here"
+msgstr "Como se aprende aqui"
+
+#: front-page.php:129
+msgid "At your pace"
+msgstr "No seu ritmo"
+
+#: front-page.php:130
+msgid "Short lessons with video, readings and resources you can also download to the app and study offline."
+msgstr "Aulas curtas com vídeo, leituras e recursos que você também pode baixar no app e estudar offline."
+
+#: front-page.php:133
+msgid "With practice"
+msgstr "Com prática"
+
+#: front-page.php:134
+msgid "Assignments, quizzes and feedback from your teachers to check what you learned."
+msgstr "Tarefas, avaliações e retorno dos seus professores para verificar o que você aprendeu."
+
+#: front-page.php:137
+msgid "With recognition"
+msgstr "Com reconhecimento"
+
+#: front-page.php:138
+msgid "Finish your course and receive a certificate anyone can verify online."
+msgstr "Conclua seu curso e receba um certificado que qualquer pessoa pode verificar online."
+
+#: front-page.php:150
+msgid "Why study with us"
+msgstr "Por que estudar aqui"
+
+#: front-page.php:151
+msgid "Clear paths, real practice and recognition for what you learn."
+msgstr "Caminhos claros, prática real e reconhecimento pelo que você aprende."
+
+#: front-page.php:157
+msgid "Guided courses"
+msgstr "Cursos guiados"
+
+#: front-page.php:158
+msgid "Each course shows what you will learn, who teaches it and how it is organized before you start."
+msgstr "Cada curso mostra o que você vai aprender, quem ensina e como está organizado antes de começar."
+
+#: front-page.php:159
+msgid "See course catalog"
+msgstr "Ver o catálogo de cursos"
+
+#: front-page.php:163
+msgid "Programs and certification"
+msgstr "Programas e certificação"
+
+#: front-page.php:164
+msgid "Programs bring several courses together; your progress and grades stay in your dashboard."
+msgstr "Os programas reúnem vários cursos; seu progresso e suas notas ficam no seu painel."
+
+#: front-page.php:169
+msgid "Articles and guides"
+msgstr "Artigos e guias"
+
+#: front-page.php:170
+msgid "Reading material from the academy to keep learning between lessons."
+msgstr "Leituras da academia para continuar aprendendo entre as aulas."
+
+#: front-page.php:171
+msgid "Read the journal"
+msgstr "Ler o blog"
+
+#: front-page.php:190
+msgid "Courses you can start today."
+msgstr "Cursos que você pode começar hoje."
+
+#: front-page.php:192 template-parts/blog-sidebar.php:32
+msgid "Full catalog"
+msgstr "Catálogo completo"
+
+#: front-page.php:210
+msgid "Paths that combine courses toward a certification."
+msgstr "Trilhas que combinam cursos rumo a uma certificação."
+
+#: front-page.php:212
+msgid "All programs"
+msgstr "Todos os programas"
+
+#: front-page.php:243 page.php:126 single.php:82 woocommerce.php:18
+msgid "Store"
+msgstr "Loja"
+
+#: front-page.php:244
+msgid "Learning materials and resources."
+msgstr "Materiais e recursos de estudo."
+
+#: front-page.php:246
+msgid "Open store"
+msgstr "Abrir a loja"
+
+#: front-page.php:260
+msgid "Product"
+msgstr "Produto"
+
+#: front-page.php:270
+msgid "View Product"
+msgstr "Ver produto"
+
+#: front-page.php:284
+msgid "News, guides and stories from the academy."
+msgstr "Novidades, guias e histórias da academia."
+
+#: front-page.php:286
+msgid "Visit the blog"
+msgstr "Visitar o blog"
+
+#: front-page.php:304
+msgid "Listen to the academy's episodes."
+msgstr "Ouça os episódios da academia."
+
+#: front-page.php:306
+msgid "All episodes"
+msgstr "Todos os episódios"
+
+#: front-page.php:319 single-podcast.php:21
+msgid "Podcast episode"
+msgstr "Episódio do podcast"
+
+#: functions.php:61
+msgid "Primary Navigation"
+msgstr "Navegação principal"
+
+#: functions.php:62
+msgid "Top Rail Navigation"
+msgstr "Navegação superior"
+
+#: functions.php:63
+msgid "Footer Navigation"
+msgstr "Navegação do rodapé"
+
+#: functions.php:64
+msgid "Legal Navigation"
+msgstr "Navegação legal"
+
+#: functions.php:343 header.php:66 header.php:95 template-parts/blog-sidebar.php:39
+msgid "My learning"
+msgstr "Meu aprendizado"
+
+#: functions.php:561
+msgid "Explore Learning"
+msgstr "Explorar formação"
+
+#: functions.php:636
+msgid "Story"
+msgstr "História"
+
+#. translators: %d: reading time in minutes.
+#: functions.php:697 inc/blog-ecosystem.php:254
+msgid "%d min read"
+msgstr "%d min de leitura"
+
+#. translators: %s: search query.
+#: functions.php:749
+msgid "Search results for \"%s\""
+msgstr "Resultados para \"%s\""
+
+#: functions.php:759
+msgid "Page not found"
+msgstr "Página não encontrada"
+
+#: functions.php:776 template-parts/blog-ecosystem.php:27 template-parts/journal-index.php:20
+msgid "Articles, guides and news from the academy."
+msgstr "Artigos, guias e novidades da academia."
+
+#: functions.php:780
+msgid "Results across courses, programs, articles and pages."
+msgstr "Resultados em cursos, programas, artigos e páginas."
+
+#: functions.php:789
+msgid "Choose a course and learn at your own pace, with guided lessons, practice and feedback."
+msgstr "Escolha um curso e aprenda no seu ritmo, com aulas guiadas, prática e retorno."
+
+#: functions.php:793
+msgid "Learning paths that bring several courses together toward a certification."
+msgstr "Trilhas de aprendizagem que reúnem vários cursos rumo a uma certificação."
+
+#: functions.php:797
+msgid "Courses, programs and learning materials available at the academy."
+msgstr "Cursos, programas e materiais de estudo da academia."
+
+#: functions.php:801
+msgid "This page moved or no longer exists. Try the search or go back to the courses."
+msgstr "Esta página mudou de lugar ou não existe mais. Tente a busca ou volte aos cursos."
+
+#: functions.php:816
+msgid "Previous"
+msgstr "Anterior"
+
+#: functions.php:817
+msgid "Next"
+msgstr "Próximo"
+
+#: functions.php:930 page-student-dashboard.php:136
+msgid "Continue"
+msgstr "Continuar"
+
+#: functions.php:930
+msgid "View Course"
+msgstr "Ver curso"
+
+#: header.php:23
+msgid "Skip to content"
+msgstr "Pular para o conteúdo"
+
+#: header.php:41
+msgid "Utility navigation"
+msgstr "Navegação secundária"
+
+#: header.php:59
+msgid "Toggle menu"
+msgstr "Abrir ou fechar o menu"
+
+#: header.php:64 header.php:115 search.php:17 searchform.php:24
+msgid "Search"
+msgstr "Buscar"
+
+#: header.php:66 header.php:95 page-student-dashboard.php:45
+msgid "Log in"
+msgstr "Entrar"
+
+#: header.php:82
+msgid "Primary navigation"
+msgstr "Navegação principal"
+
+#: header.php:116
+msgid "Find courses, programs and articles."
+msgstr "Encontre cursos, programas e artigos."
+
+#: header.php:122
+msgid "Close"
+msgstr "Fechar"
+
+#: inc/blog-ecosystem.php:102
+msgid "articles"
+msgstr "artigos"
+
+#: inc/blog-ecosystem.php:103
+msgid "topics"
+msgstr "temas"
+
+#: inc/blog-ecosystem.php:104
+msgid "courses"
+msgstr "cursos"
+
+#: inc/blog-ecosystem.php:105
+msgid "teachers"
+msgstr "professores"
+
+#: inc/blog-ecosystem.php:241
+msgid "Featured"
+msgstr "Destaque"
+
+#: inc/blog-ecosystem.php:258
+msgid "Read article →"
+msgstr "Ler artigo →"
+
+#: inc/identity.php:27
+msgid "ATORA blue"
+msgstr "Azul ATORA"
+
+#: inc/identity.php:31
+msgid "Amber"
+msgstr "Âmbar"
+
+#: inc/identity.php:35
+msgid "Forest"
+msgstr "Floresta"
+
+#: inc/identity.php:39
+msgid "Wine"
+msgstr "Vinho"
+
+#: inc/identity.php:43
+msgid "Institutional graphite"
+msgstr "Grafite institucional"
+
+#: inc/identity.php:47 inc/identity.php:617
+msgid "Custom color"
+msgstr "Cor personalizada"
+
+#: inc/identity.php:63
+msgid "Editorial (Sora + Source Sans 3)"
+msgstr "Editorial (Sora + Source Sans 3)"
+
+#: inc/identity.php:68
+msgid "Clear (Source Sans 3)"
+msgstr "Clara (Source Sans 3)"
+
+#: inc/identity.php:73
+msgid "System fonts (lightest)"
+msgstr "Do sistema (a mais leve)"
+
+#: inc/identity.php:88
+msgid "Normal (17 px)"
+msgstr "Normal (17 px)"
+
+#: inc/identity.php:92
+msgid "Comfortable (18 px)"
+msgstr "Confortável (18 px)"
+
+#: inc/identity.php:96
+msgid "Large (20 px)"
+msgstr "Grande (20 px)"
+
+#: inc/identity.php:146
+msgid "Light"
+msgstr "Claro"
+
+#: inc/identity.php:147
+msgid "Dark"
+msgstr "Escuro"
+
+#: inc/identity.php:148
+msgid "Follow the device (light or dark)"
+msgstr "Conforme o dispositivo (claro ou escuro)"
+
+#: inc/identity.php:574 inc/identity.php:768 inc/identity.php:769
+msgid "ATORA identity"
+msgstr "Identidade ATORA"
+
+#: inc/identity.php:575
+msgid "Color, type and reading comfort for the whole academy: home, blog, courses, lessons and dashboard. If ATORA LMS → Settings uses a theme other than \"Light\", that theme rules the academy pages."
+msgstr "Cor, fonte e conforto de leitura de toda a academia: início, blog, cursos, aulas e painel. Se em ATORA LMS → Configurações estiver um tema diferente de \"Claro\", esse tema prevalece nas páginas da academia."
+
+#: inc/identity.php:598
+msgid "Main color"
+msgstr "Cor principal"
+
+#: inc/identity.php:618
+msgid "If it is too light, the theme darkens it just enough for buttons to stay readable."
+msgstr "Se for muito clara, o tema a escurece só o necessário para que os botões fiquem legíveis."
+
+#: inc/identity.php:639
+msgid "Color mode"
+msgstr "Modo de cor"
+
+#: inc/identity.php:640
+msgid "Dark mode rests the eyes when studying at night. \"Follow the device\" uses each student's phone or computer setting."
+msgstr "O modo escuro descansa a vista ao estudar à noite. \"Conforme o dispositivo\" usa a configuração do celular ou computador de cada estudante."
+
+#: inc/identity.php:663
+msgid "Typeface"
+msgstr "Fonte"
+
+#: inc/identity.php:686
+msgid "Lesson reading size"
+msgstr "Tamanho de leitura nas aulas"
+
+#: inc/identity.php:687
+msgid "Lesson text only. Students can zoom further with their browser."
+msgstr "Só o texto da aula. O estudante pode ampliar mais no navegador."
+
+#: inc/identity.php:704
+msgid "Header button: label"
+msgstr "Botão do cabeçalho: texto"
+
+#: inc/identity.php:705
+msgid "Empty: \"Explore Learning\". Type \"-\" to hide it."
+msgstr "Vazio: \"Explorar formação\". Digite \"-\" para ocultá-lo."
+
+#: inc/identity.php:721
+msgid "Header button: link"
+msgstr "Botão do cabeçalho: link"
+
+#: inc/identity.php:722
+msgid "Empty: the course catalog."
+msgstr "Vazio: o catálogo de cursos."
+
+#: inc/identity.php:738
+msgid "Footer text"
+msgstr "Texto do rodapé"
+
+#: inc/identity.php:739
+msgid "Empty: the site tagline (Settings → General)."
+msgstr "Vazio: a descrição do site (Configurações → Geral)."
+
+#: inc/identity.php:755
+msgid "Show the ATORA promotion on the blog"
+msgstr "Mostrar a promoção da ATORA no blog"
+
+#: inc/identity.php:756
+msgid "Only for ATORA's own sites (atora.studio, demo). Leave it off in an institution's academy."
+msgstr "Só para os sites da própria ATORA (atora.studio, demo). Deixe desligado na academia de uma instituição."
+
+#: inc/meridian-editor.php:176
+msgid "Small"
+msgstr "Pequeno"
+
+#: inc/meridian-editor.php:181
+msgid "Base"
+msgstr "Base"
+
+#: inc/meridian-editor.php:186
+msgid "Large"
+msgstr "Grande"
+
+#: inc/meridian-editor.php:191
+msgid "Display"
+msgstr "Destaque"
+
+#: inc/meridian-editor.php:202
+msgid "ATORA: pages"
+msgstr "ATORA: páginas"
+
+#: inc/meridian-editor.php:211
+msgid "Course or program presentation"
+msgstr "Apresentação de curso ou programa"
+
+#: inc/meridian-editor.php:212
+msgid "Opening block for a page that presents a course or program, with two buttons."
+msgstr "Bloco inicial para uma página que apresenta um curso ou programa, com dois botões."
+
+#: inc/meridian-editor.php:234
+msgid "New cohort"
+msgstr "Nova turma"
+
+#: inc/meridian-editor.php:235
+msgid "Name of the course or program"
+msgstr "Nome do curso ou programa"
+
+#: inc/meridian-editor.php:236
+msgid "In one or two sentences: who it is for, what they will be able to do at the end and how long it takes."
+msgstr "Em uma ou duas frases: para quem é, o que a pessoa poderá fazer ao final e quanto tempo dura."
+
+#: inc/meridian-editor.php:237
+msgid "Enroll"
+msgstr "Inscrever-me"
+
+#: inc/meridian-editor.php:238
+msgid "See the syllabus"
+msgstr "Ver o conteúdo programático"
+
+#: inc/meridian-editor.php:246
+msgid "Article introduction"
+msgstr "Introdução de artigo"
+
+#: inc/meridian-editor.php:247
+msgid "Introduction for articles, guides and institutional pages."
+msgstr "Introdução para artigos, guias e páginas institucionais."
+
+#: inc/meridian-editor.php:261
+msgid "Guide"
+msgstr "Guia"
+
+#: inc/meridian-editor.php:262
+msgid "Start with the main idea of the article"
+msgstr "Comece pela ideia principal do artigo"
+
+#: inc/meridian-editor.php:263
+msgid "Explain in a few lines what the reader will find and why it matters."
+msgstr "Explique em poucas linhas o que o leitor vai encontrar e por que importa."
+
+#: inc/meridian-editor.php:271
+msgid "Closing invitation"
+msgstr "Convite de encerramento"
+
+#: inc/meridian-editor.php:272
+msgid "Band with a button to close a page."
+msgstr "Faixa com um botão para encerrar uma página."
+
+#: inc/meridian-editor.php:288
+msgid "Ready to start?"
+msgstr "Pronto para começar?"
+
+#: inc/meridian-editor.php:289
+msgid "Tell the reader what to do next and link the button to the course, program or contact page."
+msgstr "Diga ao leitor o que fazer em seguida e ligue o botão ao curso, programa ou página de contato."
+
+#: inc/meridian-editor.php:290
+msgid "Get started"
+msgstr "Começar"
+
+#: inc/meridian-editor.php:413
+msgid "Page presentation"
+msgstr "Apresentação da página"
+
+#: inc/meridian-editor.php:434
+msgid "Label above the title"
+msgstr "Rótulo acima do título"
+
+#: inc/meridian-editor.php:438
+msgid "Hero text"
+msgstr "Texto de destaque"
+
+#: inc/meridian-editor.php:442
+msgid "Primary button text"
+msgstr "Texto do botão principal"
+
+#: inc/meridian-editor.php:446
+msgid "Primary button URL"
+msgstr "Link do botão principal"
+
+#: inc/meridian-editor.php:450
+msgid "Secondary button text"
+msgstr "Texto do botão secundário"
+
+#: inc/meridian-editor.php:454
+msgid "Secondary button URL"
+msgstr "Link do botão secundário"
+
+#: inc/meridian-editor.php:460
+msgid "Hide hero on this entry"
+msgstr "Ocultar o destaque neste conteúdo"
+
+#: inc/meridian-editor.php:466
+msgid "Use full-width content"
+msgstr "Usar conteúdo em largura total"
+
+#: inc/meridian-editor.php:473
+msgid "Show highlighted sections (courses, programs, articles)"
+msgstr "Mostrar seções em destaque (cursos, programas, artigos)"
+
+#: inc/meridian-editor.php:477
+msgid "If the page already has its own blocks, the theme shows them as they are. Use these fields only to add a header on top."
+msgstr "Se a página já tem seus próprios blocos, o tema os mostra como estão. Use estes campos só para adicionar um cabeçalho em cima."
+
+#. Template Name of the theme
+#: inc/meridian-editor.php:529
+msgid "Landing page (full width)"
+msgstr "Página de destino (largura total)"
+
+#: inc/meridian-editor.php:555
+msgid "ATORA: lessons"
+msgstr "ATORA: aulas"
+
+#: inc/meridian-editor.php:583
+msgid "Learning objectives"
+msgstr "Objetivos de aprendizagem"
+
+#: inc/meridian-editor.php:586
+msgid "By the end of this lesson you will be able to…"
+msgstr "Ao final desta aula você poderá…"
+
+#: inc/meridian-editor.php:589
+msgid "Explain the main concept in your own words."
+msgstr "Explicar o conceito principal com suas palavras."
+
+#: inc/meridian-editor.php:590
+msgid "Apply it to a real example."
+msgstr "Aplicá-lo a um exemplo real."
+
+#: inc/meridian-editor.php:591
+msgid "Recognize the most common mistakes."
+msgstr "Reconhecer os erros mais comuns."
+
+#: inc/meridian-editor.php:597 inc/meridian-editor.php:600
+msgid "Key idea"
+msgstr "Ideia-chave"
+
+#: inc/meridian-editor.php:601
+msgid "Write here, in one or two sentences, what the student must not forget."
+msgstr "Escreva aqui, em uma ou duas frases, o que o estudante não deve esquecer."
+
+#: inc/meridian-editor.php:605
+msgid "Practice activity"
+msgstr "Atividade prática"
+
+#: inc/meridian-editor.php:608
+msgid "Practice"
+msgstr "Para praticar"
+
+#: inc/meridian-editor.php:611
+msgid "Read the case or watch the video again."
+msgstr "Leia o caso ou assista ao vídeo de novo."
+
+#: inc/meridian-editor.php:612
+msgid "Answer the question in your notebook or in the assignment."
+msgstr "Responda à pergunta no caderno ou na tarefa."
+
+#: inc/meridian-editor.php:613
+msgid "Compare your answer with the key idea."
+msgstr "Compare sua resposta com a ideia-chave."
+
+#: inc/meridian-editor.php:620
+msgid "Lesson summary"
+msgstr "Resumo da aula"
+
+#: inc/meridian-editor.php:623
+msgid "Summary"
+msgstr "Em resumo"
+
+#: inc/meridian-editor.php:626
+msgid "First idea of the lesson."
+msgstr "Primeira ideia da aula."
+
+#: inc/meridian-editor.php:627
+msgid "Second idea of the lesson."
+msgstr "Segunda ideia da aula."
+
+#: inc/meridian-editor.php:628
+msgid "What comes in the next lesson."
+msgstr "O que vem na próxima aula."
+
+#: inc/meridian-editor.php:634 inc/meridian-editor.php:637
+msgid "Glossary"
+msgstr "Glossário"
+
+#: inc/meridian-editor.php:638 inc/meridian-editor.php:639
+msgid "Term"
+msgstr "Termo"
+
+#: inc/meridian-editor.php:638 inc/meridian-editor.php:639
+msgid "short definition in plain language."
+msgstr "definição breve em linguagem simples."
+
+#: index.php:39
+msgid "Nothing here yet"
+msgstr "Ainda não há nada aqui"
+
+#: index.php:40
+msgid "This space is ready for content once the first entries are published."
+msgstr "Este espaço mostrará conteúdo quando as primeiras publicações forem feitas."
+
+#: page-student-dashboard.php:41
+msgid "Student area"
+msgstr "Área do estudante"
+
+#: page-student-dashboard.php:42
+msgid "Your learning, in one place."
+msgstr "Seu aprendizado em um só lugar."
+
+#: page-student-dashboard.php:43
+msgid "Log in to continue your courses, see your progress and find your next lesson."
+msgstr "Entre para continuar seus cursos, ver seu progresso e encontrar sua próxima aula."
+
+#: page-student-dashboard.php:79
+msgid "Student dashboard"
+msgstr "Painel do estudante"
+
+#. translators: %s: student's name.
+#: page-student-dashboard.php:83
+msgid "Welcome back, %s."
+msgstr "Bem-vindo de volta, %s."
+
+#: page-student-dashboard.php:86 template-parts/blog-sidebar.php:38
+msgid "Pick up where you left off."
+msgstr "Continue de onde parou."
+
+#: page-student-dashboard.php:90
+msgid "Snapshot"
+msgstr "Resumo"
+
+#: page-student-dashboard.php:102
+msgid "Average progress"
+msgstr "Progresso médio"
+
+#: page-student-dashboard.php:112
+msgid "Your active courses"
+msgstr "Seus cursos ativos"
+
+#: page-student-dashboard.php:133
+msgid "Course progress"
+msgstr "Progresso do curso"
+
+#: page-student-dashboard.php:136
+msgid "Review"
+msgstr "Revisar"
+
+#: page-student-dashboard.php:145
+msgid "No enrolled courses yet"
+msgstr "Você ainda não tem cursos"
+
+#: page-student-dashboard.php:146
+msgid "When you enroll in a course, your progress will appear here."
+msgstr "Quando você se inscrever em um curso, seu progresso aparecerá aqui."
+
+#: page-student-dashboard.php:154 woocommerce.php:28
+msgid "Account"
+msgstr "Conta"
+
+#. translators: %d: number of completed courses.
+#: page-student-dashboard.php:160
+msgid "%d completed course"
+msgid_plural "%d completed courses"
+msgstr[0] "%d curso concluído"
+msgstr[1] "%d cursos concluídos"
+
+#: page-student-dashboard.php:165
+msgid "Manage account"
+msgstr "Gerenciar conta"
+
+#: page-student-dashboard.php:166
+msgid "Log out"
+msgstr "Sair"
+
+#: page-student-dashboard.php:174
+msgid "Useful next steps"
+msgstr "Próximos passos úteis"
+
+#: page-student-dashboard.php:177
+msgid "Explore programs"
+msgstr "Explorar programas"
+
+#: page-student-dashboard.php:180
+msgid "Visit the store"
+msgstr "Visitar a loja"
+
+#: page-templates/landing-meridian.php:29
+msgid "See offer"
+msgstr "Ver oferta"
+
+#: page-templates/landing-meridian.php:34
+msgid "Go to store"
+msgstr "Ir para a loja"
+
+#: page-templates/landing-meridian.php:49
+msgid "Landing page"
+msgstr "Página de destino"
+
+#: page.php:121
+msgid "Useful paths"
+msgstr "Caminhos úteis"
+
+#: patterns/home-institucional.php
+msgctxt "Pattern title"
+msgid "ATORA institutional home"
+msgstr "Página inicial institucional ATORA"
+
+#: search.php:43
+msgid "No results found"
+msgstr "Nenhum resultado"
+
+#: search.php:44
+msgid "Try a broader search term or explore the catalog directly."
+msgstr "Tente um termo mais amplo ou explore o catálogo."
+
+#: searchform.php:13
+msgid "Search for:"
+msgstr "Buscar:"
+
+#: searchform.php:21
+msgid "Search courses, programs and articles…"
+msgstr "Busque cursos, programas e artigos…"
+
+#: single-atora_teacher.php:27
+msgid "Instructor"
+msgstr "Professor"
+
+#: single-lm_course.php:29 template-parts/content-course.php:38
+msgid "Course"
+msgstr "Curso"
+
+#: single-lm_lesson.php:26
+msgid "Lesson"
+msgstr "Aula"
+
+#. translators: %d: reading time in minutes.
+#: single-podcast.php:29
+msgid "%d min notes"
+msgstr "%d min de notas"
+
+#: single.php:69
+msgid "Recent stories"
+msgstr "Histórias recentes"
+
+#: single.php:78
+msgid "Keep exploring"
+msgstr "Continue explorando"
+
+#: template-parts/blog-ecosystem.php:18
+msgid "Topic"
+msgstr "Tema"
+
+#: template-parts/blog-ecosystem.php:18
+msgid "Tag"
+msgstr "Tag"
+
+#. translators: %s: topic name.
+#: template-parts/blog-ecosystem.php:21
+msgid "Articles about %s."
+msgstr "Artigos sobre %s."
+
+#: template-parts/blog-ecosystem.php:55
+msgid "Explore courses"
+msgstr "Explorar cursos"
+
+#: template-parts/blog-ecosystem.php:58
+msgid "Discover the ATORA ecosystem"
+msgstr "Conhecer o ecossistema ATORA"
+
+#: template-parts/blog-ecosystem.php:72 template-parts/blog-ecosystem.php:74
+msgid "Latest"
+msgstr "Mais recentes"
+
+#. translators: %s: date.
+#: template-parts/blog-ecosystem.php:78
+msgid "Updated %s"
+msgstr "Atualizado em %s"
+
+#: template-parts/blog-ecosystem.php:106
+msgid "Blog topics"
+msgstr "Temas do blog"
+
+#: template-parts/blog-ecosystem.php:107
+msgid "All"
+msgstr "Todos"
+
+#. translators: %d: page number.
+#: template-parts/blog-ecosystem.php:119
+msgid "Articles · page %d"
+msgstr "Artigos · página %d"
+
+#. translators: %d: page number.
+#: template-parts/blog-ecosystem.php:119
+msgid "Articles"
+msgstr "Artigos"
+
+#: template-parts/blog-ecosystem.php:139
+msgid "← Newer"
+msgstr "← Mais recentes"
+
+#: template-parts/blog-ecosystem.php:140
+msgid "Older →"
+msgstr "Mais antigos →"
+
+#: template-parts/blog-ecosystem.php:147
+msgid "No articles here yet"
+msgstr "Ainda não há artigos aqui"
+
+#: template-parts/blog-ecosystem.php:148
+msgid "Come back soon or explore the other topics."
+msgstr "Volte em breve ou explore os outros temas."
+
+#: template-parts/blog-ecosystem.php:158
+msgid "Next step"
+msgstr "Próximo passo"
+
+#: template-parts/blog-ecosystem.php:159
+msgid "Turn what you read into practice."
+msgstr "Transforme o que você lê em prática."
+
+#: template-parts/blog-ecosystem.php:160
+msgid "Courses with guided lessons, clear rubrics and feedback on every assignment."
+msgstr "Cursos com aulas guiadas, rubricas claras e retorno em cada entrega."
+
+#: template-parts/blog-ecosystem.php:163
+msgid "View courses"
+msgstr "Ver cursos"
+
+#: template-parts/blog-ecosystem.php:166
+msgid "Request an ATORA demo"
+msgstr "Solicitar uma demonstração da ATORA"
+
+#: template-parts/blog-sidebar.php:19 template-parts/blog-sidebar.php:22
+msgid "Keep learning"
+msgstr "Continue aprendendo"
+
+#: template-parts/blog-sidebar.php:23
+msgid "Courses at the academy"
+msgstr "Cursos da academia"
+
+#: template-parts/content-course.php:56
+msgid "%d lesson"
+msgid_plural "%d lessons"
+msgstr[0] "%d aula"
+msgstr[1] "%d aulas"
+
+#: template-parts/content.php:41
+msgid "Read story"
+msgstr "Ler artigo"
+
+#: template-parts/journal-index.php:43
+msgid "Editorial"
+msgstr "Editorial"
+
+#: template-parts/journal-index.php:88
+msgid "No articles yet"
+msgstr "Ainda não há artigos"
+
+#: template-parts/journal-index.php:89
+msgid "Articles published by the academy will appear here."
+msgstr "Os artigos publicados pela academia aparecerão aqui."
+
+#: woocommerce.php:24
+msgid "Your purchases, in your dashboard"
+msgstr "Suas compras no seu painel"
+
+#: woocommerce.php:25
+msgid "When you buy a course or program, it appears in your student dashboard and in the app."
+msgstr "Quando você compra um curso ou programa, ele aparece no seu painel e no app."

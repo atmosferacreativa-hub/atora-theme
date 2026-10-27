@@ -60,6 +60,10 @@ jobs:
         shell: bash
         run: bash scripts/validate-links.sh
 
+      - name: "Traducciones completas (12 idiomas)"
+        shell: bash
+        run: CI=1 python3 scripts/check-translations.py
+
   distribution-zip:
     name: Distribution ZIP
     runs-on: ubuntu-latest
@@ -270,6 +274,23 @@ jobs:
           wp theme activate atora-theme --path=$WP
           python3 scripts/check-mobile-contract.py snapshot http://127.0.0.1:8080 estudiante_e2e atora-e2e-2026 /tmp/contract-theme.json
           python3 scripts/check-mobile-contract.py compare /tmp/contract-baseline.json /tmp/contract-theme.json
+
+      - name: "Plantilla de traducción al día (.pot)"
+        shell: bash
+        run: |
+          wp i18n make-pot . /tmp/fresh.pot --domain=atora-learning --exclude=scripts,dist,languages --skip-js --skip-theme-json --skip-block-json
+          python3 - <<'PY'
+          import re
+          def ids(path):
+              text = open(path, encoding="utf-8").read()
+              return set(m for m in re.findall(r'^msgid "(.*)"$', text, re.M) if m)
+          fresh, repo = ids("/tmp/fresh.pot"), ids("languages/atora-learning.pot")
+          if fresh != repo:
+              print("Cadenas nuevas sin plantilla:", sorted(fresh - repo)[:20])
+              print("Cadenas que ya no existen:", sorted(repo - fresh)[:20])
+              raise SystemExit("Regenera languages/atora-learning.pot y traduce los .po")
+          print("Plantilla al día:", len(repo), "cadenas")
+          PY
 
       - name: Páginas de la academia con el tema
         shell: bash

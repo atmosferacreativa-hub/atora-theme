@@ -107,7 +107,7 @@ body.wp-editor,
 	margin: 1.75rem 0;
 	padding: 1.1rem 1.35rem 0.4rem;
 	border: 1px solid color-mix(in srgb, var(--callout-accent) 22%, transparent);
-	border-left: 4px solid var(--callout-accent);
+	border-inline-start: 4px solid var(--callout-accent);
 	border-radius: 14px;
 	background: var(--callout-bg);
 }
