@@ -315,26 +315,15 @@ body.atora-focus .meridian-header__cta {
 	border-color: color-mix(in srgb, var(--atora-accent) 40%, transparent) !important;
 }
 
-/* 10. Panel del estudiante, panel docente y SpeedGrader: acento de la academia.
- * El plugin fija índigo en sus variables locales (--sd-*, --td-*, --sg-*); con
- * el tema "Claro" del plugin, aquí pasan a ser el color elegido en Identidad. */
-
-body.atora-meridian.atora-theme-light .clms-sd {
-	--sd-accent: var(--atora-accent);
-	--sd-accent-2: var(--atora-accent-hover);
-}
+/* 10. Panel docente y SpeedGrader: texto y bordes de la academia.
+ * Los acentos locales pertenecen al plugin y ya heredan --atora-accent. */
 
 body.atora-meridian.atora-theme-light .clms-td {
-	--td-accent: var(--atora-accent);
-	--td-accent-2: var(--atora-accent-hover);
-	--td-accent-soft: var(--atora-accent-soft);
 	--td-ink: var(--atora-text);
 	--td-border: var(--atora-border);
 }
 
 body.atora-meridian.atora-theme-light .clms-sg-wrap {
-	--sg-accent: var(--atora-accent);
-	--sg-accent-2: var(--atora-accent-hover);
 	--sg-ink: var(--atora-text);
 	--sg-border: var(--atora-border);
 }
