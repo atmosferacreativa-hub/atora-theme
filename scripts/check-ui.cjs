@@ -9,7 +9,7 @@ fs.mkdirSync(out, { recursive: true });
  const browser = await chromium.launch({ headless: true });
  try {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  await page.goto(base + '/', { waitUntil: 'networkidle' });
+  await page.goto(base + '/', { waitUntil: 'domcontentloaded' });
   const toggle = page.locator('[data-mobile-toggle]');
   await toggle.click();
   assert.equal(await toggle.getAttribute('aria-expanded'), 'true');
@@ -43,8 +43,9 @@ fs.mkdirSync(out, { recursive: true });
    for (const width of [375, 390, 768, 1280]) {
     await screen.setViewportSize({ width, height: 900 });
     for (const path of paths) {
-     const response=await screen.goto(base+path,{waitUntil:'networkidle'});
+     const response=await screen.goto(base+path,{waitUntil:'domcontentloaded'});
      assert.equal(response.status(),200, role+' '+path);
+     await screen.waitForTimeout(150);
      assert.equal(await screen.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+2),true,`${role} ${path}: horizontal overflow at ${width}px`);
      if(path.includes('panel-')) assert.equal(await screen.locator(role==='teacher'?'.clms-td':'.clms-sd').count(),1, 'Authenticated dashboard rendered');
      await screen.screenshot({path:`${out}/${role}-${width}-${path.replace(/[^a-z0-9]/gi,'_')}.png`,fullPage:true});
@@ -58,7 +59,7 @@ fs.mkdirSync(out, { recursive: true });
    if(mode==='blocked-script') await screen.route('**/assets/js/main.js*',route=>route.abort());
    if(mode==='no-observer') await screen.addInitScript(()=>{window.IntersectionObserver=undefined;});
    if(mode==='broken-observer') await screen.addInitScript(()=>{window.IntersectionObserver=class{constructor(){throw Error('unavailable');}};});
-   await screen.goto(base+'/',{waitUntil:'networkidle'});
+   await screen.goto(base+'/',{waitUntil:'domcontentloaded'});
    assert((await screen.locator('[data-reveal]').count())>0,'Exercise actual animated content');
    assert.equal(await screen.locator('[data-reveal]').evaluateAll(els=>els.every(el=>getComputedStyle(el).opacity!=='0')),true,mode+': content stays visible');
    await context.close();
